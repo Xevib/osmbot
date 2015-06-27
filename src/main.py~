@@ -1,0 +1,85 @@
+import requests
+import json
+import re
+import nominatim
+import os
+import sched, time
+
+class OSMbot(object):
+    def __init__(self,token):
+        self.token=token
+        self.url = "https://api.telegram.org/bot{0}/{1}"
+
+    def getUpdates(self,offset=None,limit=None,timeout=None):
+        method = "getUpdates"
+        params={
+            'offset':offset,
+            'limit':limit,
+            'timeout':timeout
+        }
+        return json.loads(requests.get(self.url.format(self.token,method),params=params).content)
+
+    def setWebhook(self):
+        method = "setWebhook"
+        params = {}
+        response = requests.get(self.url.format(self.token,method),params=params)
+        return response.content
+
+    def sendMessage(self,chat_id,text,disable_web_page_preview=None,reply_to_message_id=None,reply_markup=None):
+        method = "sendMessage"
+        params = {
+            'chat_id': chat_id,
+            'text':text,
+            'disable_web_page_preview':disable_web_page_preview,
+            'reply_to_message_id':reply_to_message_id,
+            'reply_markup':reply_markup
+        }
+
+        return json.loads(requests.get(self.url.format(self.token, method),params=params).content)
+
+
+
+def attend(sc):
+    if os.path.isfile("last.id"):
+        f = open("last.id","r")
+        last_id = int(f.read())
+        f.close()
+        updates = bot.getUpdates(offset=last_id+1)
+    else:
+        updates = bot.getUpdates()
+    if updates['ok']:
+        print "Attending "+str(len(updates["result"]))+" "
+        for query in updates['result']:
+            if "text" in query["message"]:
+                message = query["message"]["text"]
+                if message == "/start":
+                    response= "Hi,how I can help you?"
+                elif re.match("/search.*",message) is not None and message[8:] != "":
+                    search = message[8:]
+                    response = 'Results for "{0}" :\n'.format(search)
+                    results = nom.query(search)
+                    if len(results) ==0:
+                        response = 'Sorry but I couldn\'t find any result for "{0}":(\n But you can try to improve OpenStreetMap :)'.format(search)
+                    else:
+                        for result in results:
+                            response += result["display_name"]+"\n"
+                            response += "https://nominatim.openstreetmap.org/details.php?place_id={0}\n".format(result['place_id'])
+                elif re.match("/search.*",message) is not None:
+                    response = "Please indicate what are you searching"
+                else:
+                    response = "Use /search <search term> command to indicate what you are searching"
+                usr_id = query["message"]["chat"]["id"]
+                bot.sendMessage(usr_id, response)
+            last_id = query["update_id"]
+            f = open("last.id" , "w")
+            f.write(str(last_id))
+            f.close()
+    sc.enter(15, 1, attend, (sc,))
+
+nom = nominatim.Nominatim()
+bot = OSMbot("123585415:AAHxyhoJl43t1AiqFk2rGxgC_FdIpU4Q610")
+s = sched.scheduler(time.time, time.sleep)
+s.enter(1,1, attend, (s,))
+s.run()
+
+
