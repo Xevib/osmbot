@@ -59,7 +59,7 @@ def attend(sc):
                     response = 'Results for "{0}" :\n'.format(search)
                     results = nom.query(search)
                     if len(results) ==0:
-                        response = 'Sorry but I couldn\'t find any result for "{0}" 😥\nBut you can try to improve OpenStreetMap 🔎\nhttp://www.openstreetmap.org'.format(search)
+                        response = 'Sorry but I couldn\'t find any result for "{0}":(\n But you can try to improve OpenStreetMap :)'.format(search)
                     else:
                         for result in results:
                             response += result["display_name"]+"\n"
