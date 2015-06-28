@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests
 import json
 import re
@@ -63,7 +64,7 @@ def attend(sc):
                     else:
                         for result in results:
                             response += result["display_name"]+"\n"
-                            response += "https://nominatim.openstreetmap.org/details.php?place_id={0}\n".format(result['place_id'])
+                            response += "http://www.osm.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                 elif re.match("/search.*",message) is not None:
                     response = "Please indicate what are you searching"
                 else:
