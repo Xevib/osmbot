@@ -55,6 +55,8 @@ def attend(sc):
                 message = query["message"]["text"]
                 if message == "/start":
                     response = "Hi,how I can help you?"
+                elif message.startswith( "/info"):
+                    response = "ℹ️ @OSMbot info:\n\nAuthor: OSM català (Catalan OpenStreetMap community)\n\nCode: https://github.com/Xevib/osmbot\n\nLicense: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\n Please rate me at: https://telegram.me/storebot?start=osmbot"
                 elif re.match("/search.*",message) is not None and message[8:] != "":
                     search = message[8:].replace("\n","").replace("\r","")
                     response = 'Results for "{0}" :\n'.format(search)
