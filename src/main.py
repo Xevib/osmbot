@@ -54,9 +54,9 @@ def attend(sc):
             if "text" in query["message"]:
                 message = query["message"]["text"]
                 if message == "/start":
-                    response= "Hi,how I can help you?"
+                    response = "Hi,how I can help you?"
                 elif re.match("/search.*",message) is not None and message[8:] != "":
-                    search = message[8:]
+                    search = message[8:].replace("\n","").replace("\r","")
                     response = 'Results for "{0}" :\n'.format(search)
                     results = nom.query(search)
                     if len(results) ==0:
