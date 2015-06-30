@@ -53,6 +53,8 @@ def attend(sc):
         for query in updates['result']:
             if "text" in query["message"]:
                 message = query["message"]["text"]
+                if message.startswith("@osmbot"):
+                    message = message[8:]
                 if message == "/start":
                     response = "Hi,how I can help you?"
                 elif message.startswith( "/info"):
