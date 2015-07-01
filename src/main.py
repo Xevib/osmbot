@@ -67,7 +67,7 @@ def attend(sc):
                         response = 'Sorry but I couldn\'t find any result for "{0}" 😥\nBut you can try to improve OpenStreetMap 🔎\nhttp://www.openstreetmap.org'.format(search)
                     else:
                         for result in results:
-                            response += result["display_name"]+"\n"
+                            response += "\xF0\x9F\x93\x8D"+result["display_name"]+"\n"
                             response += "http://www.osm.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                 elif re.match("/search.*",message) is not None:
                     response = "Please indicate what are you searching"
