@@ -58,13 +58,13 @@ def attend(sc):
                 if message == "/start":
                     response = "Hi,how I can help you?"
                 elif message.startswith( "/info"):
-                    response = "ℹ️ @OSMbot info:\n\nAuthor: OSM català (Catalan OpenStreetMap community)\n\nCode: https://github.com/Xevib/osmbot\n\nLicense: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nPlease rate me at: https://telegram.me/storebot?start=osmbot"
+                    response = "\xE2\x84\xB9 @OSMbot info:\n\nAuthor: OSM català (Catalan OpenStreetMap community)\n\nCode: https://github.com/Xevib/osmbot\n\nLicense: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nPlease rate me at: https://telegram.me/storebot?start=osmbot"
                 elif re.match("/search.*",message) is not None and message[8:] != "":
                     search = message[8:].replace("\n","").replace("\r","")
                     response = 'Results for "{0}" :\n'.format(search)
                     results = nom.query(search)
                     if len(results) ==0:
-                        response = 'Sorry but I couldn\'t find any result for "{0}" 😥\nBut you can try to improve OpenStreetMap 🔎\nhttp://www.openstreetmap.org'.format(search)
+                        response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
                     else:
                         for result in results:
                             response += "\xF0\x9F\x93\x8D"+result["display_name"]+"\n"
