@@ -5,6 +5,7 @@ import re
 import nominatim
 import os
 import sched, time
+from osmapi import OsmApi
 
 class OSMbot(object):
     def __init__(self,token):
@@ -68,6 +69,9 @@ def attend(sc):
                     else:
                         for result in results:
                             response += "\xF0\x9F\x93\x8D"+result["display_name"]+"\n"
+                            osm_data = api.NodeGet(int(result['osm_id']))
+                            if osm_data is not None and 'phone' in osm_data['tag']:
+                                response += "\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n"
                             response += "http://www.osm.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                 elif re.match("/search.*",message) is not None:
                     response = "Please indicate what are you searching"
@@ -81,6 +85,7 @@ def attend(sc):
             f.close()
     sc.enter(15, 1, attend, (sc,))
 
+api = OsmApi()
 nom = nominatim.Nominatim()
 bot = OSMbot("token")
 s = sched.scheduler(time.time, time.sleep)
