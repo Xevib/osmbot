@@ -74,7 +74,7 @@ def attend(sc):
                 else:
                     response = "Use /search <search term> command to indicate what you are searching"
                 usr_id = query["message"]["chat"]["id"]
-                bot.sendMessage(usr_id, response)
+                bot.sendMessage(usr_id, response,disable_web_page_preview='true')
             last_id = query["update_id"]
             f = open("last.id" , "w")
             f.write(str(last_id))
