@@ -35,8 +35,12 @@ def attend(sc):
                         response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
                     else:
                         for result in results:
+                            print "result:"+str(result)
                             response += "\xF0\x9F\x93\x8D"+result["display_name"]+"\n"
-                            osm_data = api.NodeGet(int(result['osm_id']))
+                            if result['osm_type']=='node':
+                                osm_data = api.NodeGet(int(result['osm_id']))
+                            else:
+                                osm_data = api.WayGet(int(result['osm_id']))
                             if osm_data is not None and 'phone' in osm_data['tag']:
                                 bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                                 response = "\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n"
