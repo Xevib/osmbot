@@ -35,7 +35,6 @@ def attend(sc):
                         response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
                     else:
                         for result in results:
-                            print "result:"+str(result)
                             response += "\xF0\x9F\x93\x8D"+result["display_name"]+"\n"
                             if result['osm_type']=='node':
                                 osm_data = api.NodeGet(int(result['osm_id']))
@@ -47,6 +46,8 @@ def attend(sc):
                                 bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                                 response = ""
                             response += "http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
+                            bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                            response = ""
                 elif re.match("/search.*",message) is not None:
                     response = "Please indicate what are you searching"
                 else:
