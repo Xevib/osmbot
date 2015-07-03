@@ -35,7 +35,7 @@ def attend(sc):
                         response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
                     else:
                         for result in results:
-                            response += "\xF0\x9F\x93\x8D"+result["display_name"]+"\n"
+                            response += "\xF0\x9F\x93\xAE "+result["display_name"]+"\n"
                             if result['osm_type']=='node':
                                 osm_data = api.NodeGet(int(result['osm_id']))
                             else:
