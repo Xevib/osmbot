@@ -36,10 +36,13 @@ def attend(sc):
                     else:
                         for result in results:
                             response += "\xF0\x9F\x93\xAE "+result["display_name"]+"\n"
-                            if result['osm_type']=='node':
-                                osm_data = api.NodeGet(int(result['osm_id']))
-                            else:
-                                osm_data = api.WayGet(int(result['osm_id']))
+                            try:
+                                if result['osm_type']=='node':
+                                    osm_data = api.NodeGet(int(result['osm_id']))
+                                else:
+                                    osm_data = api.WayGet(int(result['osm_id']))
+                            except:
+                                osm_data = None
                             if osm_data is not None and 'phone' in osm_data['tag']:
                                 bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                                 response = "\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n"
