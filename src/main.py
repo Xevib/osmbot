@@ -20,6 +20,7 @@ def attend(sc):
         for query in updates['result']:
             if "text" in query["message"]:
                 message = query["message"]["text"]
+                usr_id = query["message"]["chat"]["id"]
                 if message.startswith("@osmbot"):
                     message = message[8:]
                 if message == "/start":
@@ -37,13 +38,15 @@ def attend(sc):
                             response += "\xF0\x9F\x93\x8D"+result["display_name"]+"\n"
                             osm_data = api.NodeGet(int(result['osm_id']))
                             if osm_data is not None and 'phone' in osm_data['tag']:
-                                response += "\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n"
+                                bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                                response = "\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n"
+                                bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                                response = ""
                             response += "http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                 elif re.match("/search.*",message) is not None:
                     response = "Please indicate what are you searching"
                 else:
                     response = "Use /search <search term> command to indicate what you are searching"
-                usr_id = query["message"]["chat"]["id"]
                 bot.sendMessage(usr_id, response,disable_web_page_preview='true')
             last_id = query["update_id"]
             f = open("last.id" , "w")
