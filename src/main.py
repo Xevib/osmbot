@@ -45,7 +45,7 @@ def attend(sc):
                                 response = "\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n"
                                 bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                                 response = ""
-                            response += "http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
+                            response += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                             bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                             response = ""
                 elif re.match("/search.*",message) is not None:
