@@ -59,7 +59,7 @@ def attend(sc):
                 if message == "/start":
                     response = "Hi,how I can help you?"
                 elif message.startswith( "/info"):
-                    response = "\xE2\x84\xB9 @OSMbot info:\n\nAuthor: OSM català (Catalan OpenStreetMap community)\n\nCode: https://github.com/Xevib/osmbot\n\nLicense: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nPlease rate me at: https://telegram.me/storebot?start=osmbot"
+                    response = "OpenStreetMap bot info:\n\nCREDITS&CODE\n\xF0\x9F\x91\xA5 Author: OSM català (Catalan OpenStreetMap community)\n\xF0\x9F\x94\xA7 Code: https://github.com/Xevib/osmbot\n\xE2\x99\xBB License: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\nRATING\n\xE2\xAD\x90 Rating&reviews: http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D Please rate me at: https://telegram.me/storebot?start=osmbot\n\nThanks for use @OSMbot!!"
                 elif re.match("/search.*",message) is not None and message[8:] != "":
                     search = message[8:].replace("\n","").replace("\r","")
                     response = 'Results for "{0}" :\n'.format(search)
@@ -72,7 +72,7 @@ def attend(sc):
                             osm_data = api.NodeGet(int(result['osm_id']))
                             if osm_data is not None and 'phone' in osm_data['tag']:
                                 response += "\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n"
-                            response += "http://www.osm.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
+                            response += "http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                 elif re.match("/search.*",message) is not None:
                     response = "Please indicate what are you searching"
                 else:
