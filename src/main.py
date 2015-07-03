@@ -25,7 +25,7 @@ def attend(sc):
                     message = message[8:]
                 if message == "/start":
                     response = "Hi,how I can help you?"
-                elif message.startswith( "/info"):
+                elif message.startswith( "/about"):
                     response = "OpenStreetMap bot info:\n\nCREDITS&CODE\n\xF0\x9F\x91\xA5 Author: OSM català (Catalan OpenStreetMap community)\n\xF0\x9F\x94\xA7 Code: https://github.com/Xevib/osmbot\n\xE2\x99\xBB License: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\nRATING\n\xE2\xAD\x90 Rating&reviews: http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D Please rate me at: https://telegram.me/storebot?start=osmbot\n\nThanks for use @OSMbot!!"
                 elif re.match("/search.*",message) is not None and message[8:] != "":
                     search = message[8:].replace("\n","").replace("\r","")
