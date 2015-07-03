@@ -55,6 +55,7 @@ f = open("token", "r")
 token = f.read()
 f.close()
 
+token = token.replace("\n", "").replace("\r", "")
 api = OsmApi()
 nom = nominatim.Nominatim()
 bot = OSMbot(token)
