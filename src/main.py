@@ -51,17 +51,17 @@ def attend(sc):
                         bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                         if 'phone' in osm_data['tag']:
                             response = "\xF0\x9F\x93\x9E "+str(osm_data['tag']['phone'])
-			bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                            bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                         if 'fax' in osm_data['tag']:
                             response = "\xF0\x9F\x93\xA0 "+str(osm_data['tag']['fax'])
-			bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                            bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                         if 'email' in osm_data['tag']:
                             response = "\xE2\x9C\x89 "str(osm_data['tag']['email'])
-			bot.sendMessage(usr_id, response,disable_web_page_preview='false')
+                            bot.sendMessage(usr_id, response,disable_web_page_preview='false')
                         if 'website' in osm_data['tag']:
                             response = "\xF0\x9F\x8C\x8D "+str(osm_data['tag']['website'])
-			bot.sendMessage(usr_id, response,disable_web_page_preview='true')
-                                response = ""
+                            bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                            response = ""
                             response += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])+"\n\n\xC2\xA9 OpenStreetMap contributors"
 
                 elif message.startswith("/about"):
