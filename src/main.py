@@ -11,27 +11,37 @@ def pretty_tags(data):
     response = []
     t = ""
     if 'name' in tags:
-        t = "\xF0\x9F\x93\xAE "+str(tags['name'])
+        t = "\xF0\x9F\x93\xAE "+str(tags['name'])+"\n"
     if 'addr:housenumber' in tags or 'addr:street' in tags or 'addr:city' in tags or 'addr:country' in tags:
         t += "\n"
     if 'addr:housenumber' in tags:
-        t += tags['addr:housenumber']+" "
+        t += tags['addr:housenumber']+"\n"
     if 'addr:street' in tags:
-        t += tags['addr:street']+" "
+        t += tags['addr:street']+"\n"
     if 'addr:city' in tags:
-        t += tags['addr:city']+" "
+        t += tags['addr:city']+"\n"
     if 'addr:country' in tags:
-       t += tags['addr:country']+" "
+       t += tags['addr:country']+"\n"
     if 'phone' in tags:
         response.append(t)
         t = ""
-        response.append("\xF0\x9F\x93\x9E "+str(tags['phone']))
+        response.append("\xF0\x9F\x93\x9E "+str(tags['phone'])+"\n")
     if 'fax' in tags:
-        t += "\xF0\x9F\x93\xA0 "+str(tags['fax'])
+        t += "\xF0\x9F\x93\xA0 "+str(tags['fax'])+"\n"
     if 'email' in tags:
-        t += "\xE2\x9C\x89 "+str(tags['email'])
+        t += "\xE2\x9C\x89 "+str(tags['email'])+"\n"
     if 'website' in tags:
-        t += "\xF0\x9F\x8C\x8D "+str(tags['website'])
+        t += "\xF0\x9F\x8C\x8D "+str(tags['website'])+"\n"
+    if 'population' in tags:
+        t += "\xF0\x9F\x91\xAA "+str(tags['population'])+"\n"
+    if 'wikipedia' in tags:
+        if ":" in tags["wikipedia"]:
+            lang=tags['wikipedia'].split(":")[0]
+            term=tags['wikipedia'].split(":")[1]
+            t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang,term)+"\n"
+        else:
+            t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(tags["wikipedia"])+"\n"
+
     response.append(t)
     return response
 
