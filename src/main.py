@@ -34,7 +34,7 @@ def attend(sc):
                     except:
                         osm_data = None
                     if osm_data is None:
-                            response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
+                            response = 'Sorry but I couldn\'t find any result,check the id'.format(search)
                     else:
                         if 'name' in osm_data['tag']:
                             response = str(osm_data['tag']['name'])
