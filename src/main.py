@@ -56,7 +56,7 @@ def attend(sc):
                             response = "\xF0\x9F\x93\xA0 "+str(osm_data['tag']['fax'])
                             bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                         if 'email' in osm_data['tag']:
-                            response = "\xE2\x9C\x89 "str(osm_data['tag']['email'])
+                            response = "\xE2\x9C\x89 "+str(osm_data['tag']['email'])
                             bot.sendMessage(usr_id, response,disable_web_page_preview='false')
                         if 'website' in osm_data['tag']:
                             response = "\xF0\x9F\x8C\x8D "+str(osm_data['tag']['website'])
