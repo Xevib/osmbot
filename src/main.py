@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import re
 import nominatim
-import os
 import sched, time
 from osmapi import OsmApi
 from bot import OSMbot
 import urllib
+from configobj import ConfigObj
 
 def pretty_tags(data):
     tags = data['tag']
@@ -47,13 +47,11 @@ def pretty_tags(data):
     return response
 
 def attend(sc):
-    if os.path.isfile("last.id"):
-        f = open("last.id", "r")
-        last_id = int(f.read())
-        f.close()
+    if "last_id" in config:
+        last_id = int(config["last_id"])
         updates = bot.getUpdates(offset=last_id+1)
     else:
-        updates = bot.getUpdates()
+        updates = bot.getUpdates(offset=0)
     if updates['ok']:
         print "Attending "+str(len(updates["result"]))+" "
         for query in updates['result']:
@@ -97,7 +95,6 @@ def attend(sc):
                     if len(results) == 1:
                         for result in results:
                             t += "\xF0\x9F\x93\xAE "+result["display_name"]+"\n"
-                            print "id:"+str(result['osm_id'])+" type:"+str(result['osm_type'])
                             try:
                                 if result['osm_type'] == 'node':
                                     osm_data = api.NodeGet(int(result['osm_id']))
@@ -127,17 +124,13 @@ def attend(sc):
                 response.append(t)
                 t = ""
                 bot.sendMessage(usr_id, response,disable_web_page_preview='true')
-            last_id = query["update_id"]
-            f = open("last.id", "w")
-            f.write(str(last_id))
-            f.close()
-    sc.enter(15, 1, attend, (sc,))
+            config["last_id"] = query["update_id"]
+            config.write()
+    sc.enter(int(config["update_interval"]), 1, attend, (sc,))
 
-f = open("token", "r")
-token = f.read()
-f.close()
+config = ConfigObj("bot.conf")
+token =config["token"]
 
-token = token.replace("\n", "").replace("\r", "")
 api = OsmApi()
 nom = nominatim.Nominatim()
 bot = OSMbot(token)
@@ -145,5 +138,3 @@ bot = OSMbot(token)
 s = sched.scheduler(time.time, time.sleep)
 s.enter(1, 1, attend, (s,))
 s.run()
-
-
