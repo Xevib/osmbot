@@ -72,8 +72,7 @@ def attend(sc):
                     results = nom.query(search)
                     if len(results) ==0:
                         response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
-                    else:
-			if len(results) ==1:
+                    if len(results) ==1:
                         for result in results:
                             response += "\xF0\x9F\x93\xAE "+result["display_name"]+"\n"
                             try:
@@ -91,8 +90,8 @@ def attend(sc):
                             response += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                             bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                             response = ""
-			else:
-			for result in results:
+                    else:
+                        for result in results:
                             response += "\xE2\x96\xB6 "+result["display_name"]+"\n\n"+"More info /details{0}".format(result['osm_id'])+"\n\n"
                             response += "xC2\xA9 OpenStreetMap contributors"
                 elif re.match("/search.*",message) is not None:
