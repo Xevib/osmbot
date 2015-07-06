@@ -5,6 +5,7 @@ import os
 import sched, time
 from osmapi import OsmApi
 from bot import OSMbot
+import urllib
 
 def pretty_tags(data):
     tags = data['tag']
@@ -36,11 +37,11 @@ def pretty_tags(data):
         t += "\xF0\x9F\x91\xAA "+str(tags['population'])+"\n"
     if 'wikipedia' in tags:
         if ":" in tags["wikipedia"]:
-            lang=tags['wikipedia'].split(":")[0]
-            term=tags['wikipedia'].split(":")[1]
-            t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang,term)+"\n"
+            lang = str(tags['wikipedia'].split(":")[0])
+            term = str(tags['wikipedia'].split(":")[1])
+            t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang,urllib.quote(term))+"\n"
         else:
-            t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(tags["wikipedia"])+"\n"
+            t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"]))+"\n"
 
     response.append(t)
     return response
