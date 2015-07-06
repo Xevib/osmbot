@@ -56,10 +56,10 @@ def attend(sc):
                             response = "\xF0\x9F\x93\xA0 "+str(osm_data['tag']['fax'])
 			bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                         if 'email' in osm_data['tag']:
-                            response = "\xE2\x9C\x89 "str(osm_data['tag']['email'])
+                            response = str(osm_data['tag']['email'])
 			bot.sendMessage(usr_id, response,disable_web_page_preview='false')
                         if 'website' in osm_data['tag']:
-                            response = "\xF0\x9F\x8C\x8D "+str(osm_data['tag']['website'])
+                            response = str(osm_data['tag']['website'])
 			bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                                 response = ""
                             response += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])+"\n\n\xC2\xA9 OpenStreetMap contributors"
@@ -93,10 +93,10 @@ def attend(sc):
                             response = ""
 			else:
 			for result in results:
-                            response += "\xE2\x96\xB6 "+result["display_name"]+"\n\n"+"More info /details{0}".format(result['osm_id'])+"\n\n"
+                            response += "\xE2\x96\xB6 "+result["display_name"]+"\n"+"More info /details{0}".format(result['osm_id'])+"\n\n"
                             response += "xC2\xA9 OpenStreetMap contributors"
                 elif re.match("/search.*",message) is not None:
-                    response = "Please indicate what are you searching with command /search <search term>"
+                    response = "Please indicate what are you searching"
                 else:
                     response = "Use /search <search term> command to indicate what you are searching"
                 bot.sendMessage(usr_id, response,disable_web_page_preview='true')
