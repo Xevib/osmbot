@@ -27,11 +27,14 @@ def attend(sc):
                     response = "Hi,how I can help you?"
                 elif message.startswith("/details"):
                     id = message[8:].strip()
-                    osm_data = api.NodeGet(int(id))
+                    try:
+                        osm_data = api.NodeGet(int(id))
+                        if osm_data is None:
+                            osm_data = api.WayGet(int(id))
+                    except:
+                        osm_data = None
                     if osm_data is None:
-                        osm_data = api.WayGet(int(id))
-                    if osm_data is None:
-                        response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
+                            response = 'Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)
                     else:
                         if 'name' in osm_data['tag']:
                             response = str(osm_data['tag']['name'])
