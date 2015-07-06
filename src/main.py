@@ -36,6 +36,7 @@ def attend(sc):
                     if osm_data is None:
                             response = 'Sorry but I couldn\'t find any result,check the id'
                     else:
+                        response = ""
                         if 'name' in osm_data['tag']:
                             response = "\xF0\x9F\x93\xAE "+str(osm_data['tag']['name'])
                         if 'addr:housenumber' in osm_data['tag'] or 'addr:street' in osm_data['tag'] or 'addr:city' in osm_data['tag'] or 'addr:country' in osm_data['tag']:
@@ -48,7 +49,8 @@ def attend(sc):
                                 response += osm_data['tag']['addr:city']+" "
                             if 'addr:country' in osm_data['tag']:
                                 response += osm_data['tag']['addr:country']+" "
-                        bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                        if response != "":
+                            bot.sendMessage(usr_id, response,disable_web_page_preview='true')
                         if 'phone' in osm_data['tag']:
                             response = "\xF0\x9F\x93\x9E "+str(osm_data['tag']['phone'])
                             bot.sendMessage(usr_id, response,disable_web_page_preview='true')
