@@ -93,7 +93,7 @@ def attend(sc):
                     else:
                         for result in results:
                             response += "\xE2\x96\xB6 "+result["display_name"]+"\n\n"+"More info /details{0}".format(result['osm_id'])+"\n\n"
-                            response += "\xC2\xA9 OpenStreetMap contributors\n"
+                        response += "\xC2\xA9 OpenStreetMap contributors\n"
                 elif re.match("/search.*",message) is not None:
                     response = "Please indicate what are you searching with command /search <search term>"
                 else:
