@@ -34,7 +34,7 @@ def attend(sc):
                     except:
                         osm_data = None
                     if osm_data is None:
-                            response = 'Sorry but I couldn\'t find any result,check the id'.format(search)
+                            response = 'Sorry but I couldn\'t find any result,check the id'
                     else:
                         if 'name' in osm_data['tag']:
                             response = str(osm_data['tag']['name'])
