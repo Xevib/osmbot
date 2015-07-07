@@ -6,6 +6,7 @@ from osmapi import OsmApi
 from bot import OSMbot
 import urllib
 from configobj import ConfigObj
+from typeemoji import typeemoji
 
 def pretty_tags(data):
     tags = data['tag']
@@ -96,7 +97,11 @@ def attend(sc):
                         response = ['Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)]
                     if len(results) == 1:
                         for result in results:
-                            t += "\xF0\x9F\x93\xAE "+result["display_name"]+"\n"
+                            type = result['class']+":"+result['type']
+                            if type in typeemoji:
+                                t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
+                            else:
+                                t += "\xF0\x9F\x93\xAE "+result["display_name"]+"\n"
                             try:
                                 if result['osm_type'] == 'node':
                                     osm_data = api.NodeGet(int(result['osm_id']))
@@ -113,7 +118,6 @@ def attend(sc):
                         t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                     else:
                         for result in results:
-                            print "id:"+str(result['osm_id'])+" type:"+str(result['osm_type'])
                             t += "\xE2\x96\xB6 "+result["display_name"]+"\n\n"
                             t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                             t += "More info /details{0}".format(result['osm_id'])+"\n\n"
