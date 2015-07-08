@@ -113,7 +113,7 @@ def attend(sc):
                             else:
                                 t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
                                 t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
-                            t += "More info /details{0}".format(result['osm_id'])+"\n\n"
+                            t += "\nMore info /details{0}".format(result['osm_id'])+"\n\n"
                             t += "\xC2\xA9 OpenStreetMap contributors\n"
                     else:
                         for result in results:
