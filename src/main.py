@@ -28,9 +28,6 @@ def pretty_tags(data):
     if 'addr:country' in tags:
        t += tags['addr:country']+"\n"
     if 'phone' in tags:
-#        response.append(t)
-#        t = ""
-#        response.append("\xF0\x9F\x93\x9E "+str(tags['phone'])+"\n")
         t += "\xF0\x9F\x93\x9E "+str(tags['phone'])+"\n"
     if 'fax' in tags:
         t += "\xF0\x9F\x93\xA0 "+str(tags['fax'])+"\n"
@@ -118,21 +115,6 @@ def attend(sc):
                                 t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                             t += "More info /details{0}".format(result['osm_id'])+"\n\n"
                             t += "\xC2\xA9 OpenStreetMap contributors\n"
-
-#                            try:
-#                                if result['osm_type'] == 'node':
-#                                    osm_data = api.NodeGet(int(result['osm_id']))
-#                                elif result['osm_type'] == 'way':
-#                                    osm_data = api.WayGet(int(result['osm_id']))
-#                                else:
-#                                    osm_data = api.RelationWayGet(int(result['osm_id']))
-#                            except:
-#                                osm_data = None
-#                            if osm_data is not None and 'phone' in osm_data['tag']:
-#                                response.append(t)
-#                                t = ""
-#                                response.append("\xF0\x9F\x93\x9E "+osm_data['tag']['phone']+"\n")
-#                        t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                     else:
                         for result in results:
                             type = result['class']+":"+result['type']
