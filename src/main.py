@@ -17,12 +17,12 @@ def pretty_tags(data):
     if 'addr:housenumber' in tags or 'addr:street' in tags or 'addr:city' in tags or 'addr:country' in tags:
         t += "\n"
     if 'addr:housenumber' and 'addr:street' in tags:
-        t += "\xF0\x9F\x93\xAE "tags['addr:street']+", "tags['addr:housenumber']+"\n"
+        t += "\xF0\x9F\x93\xAE "+tags['addr:street']+", "+tags['addr:housenumber']+"\n"
     else:
         if 'addr:housenumber' in tags:
-            t += "\xF0\x9F\x93\xAE "tags['addr:housenumber']+"\n"
+            t += "\xF0\x9F\x93\xAE "+tags['addr:housenumber']+"\n"
         if 'addr:street' in tags:
-            t += "\xF0\x9F\x93\xAE "tags['addr:street']+"\n"
+            t += "\xF0\x9F\x93\xAE "+tags['addr:street']+"\n"
     if 'addr:city' in tags:
         t += tags['addr:city']+"\n"
     if 'addr:country' in tags:
