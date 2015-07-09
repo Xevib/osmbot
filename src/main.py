@@ -103,8 +103,8 @@ def attend(sc):
                         else:
                             response.append(t)
                             t = ""
-                            messages = pretty_tags(osm_data)
-                            bot.sendMessage(usr_id, messages, disable_web_page_preview='true')
+                            message = pretty_tags(osm_data)
+                            response.append(message)
                 elif message.startswith("/about"):
                     response = ["OpenStreetMap bot info:\n\nCREDITS&CODE\n\xF0\x9F\x91\xA5 Author: OSM català (Catalan OpenStreetMap community)\n\xF0\x9F\x94\xA7 Code: https://github.com/Xevib/osmbot\n\xE2\x99\xBB License: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\nRATING\n\xE2\xAD\x90 Rating&reviews: http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D Please rate me at: https://telegram.me/storebot?start=osmbot\n\nThanks for use @OSMbot!!"]
                 elif message.startswith("/help"):
