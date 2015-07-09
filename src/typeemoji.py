@@ -92,5 +92,22 @@ typeemoji={
     "shop:hifi": "\xF0\x9F\x94\x8A",
     "shop:locksmith": "\xF0\x9F\x94\x91",
     "natural:peak": "\xF0\x9F\x97\xBB",
-    "shop:doityourself": "\xF0\x9F\x94\xA7"
+    "shop:doityourself": "\xF0\x9F\x94\xA7",
+    "historic:castle": "\xF0\x9F\x8F\xB0",
+    "tourism:camp_site": "\xE2\x9B\xBA",
+    "tourism:zoo": "\xF0\x9F\x90\x8A",
+    "man_made:works": "\xF0\x9F\x8F\xAD",
+    "highway:raceway": "\xF0\x9F\x8F\x81",
+    "route:piste": "\xF0\x9F\x8E\xBF",
+    "place:city": "\xF0\x9F\x8C\x86",
+    "place:town": "\xF0\x9F\x8C\x86",
+    "place:village": "\xF0\x9F\x8C\x86",
+    "amenity:sauna": "\xE2\x99\xA8",
+    "amenity:taxi": "\xF0\x9F\x9A\x95",
+    "railway:subway": "\xF0\x9F\x9A\x87",
+    "railway:subway_entrance": "\xF0\x9F\x9A\x87",
+    "route:subway": "\xF0\x9F\x9A\x87",
+    "shop:baby_goods": "\xF0\x9F\x8D\xBC",
+    "aerialway:station": "\xF0\x9F\x9A\xA1",
+    "aerialway:cable_car": "\xF0\x9F\x9A\xA1"
 }
