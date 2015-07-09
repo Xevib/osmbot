@@ -55,6 +55,8 @@ def pretty_tags(data):
         t += "\xE2\x99\xBF "+str(tags['wheelchair'])+"\n"
     if 'population' in tags:
         t += "\xF0\x9F\x91\xAA "+str(tags['population'])+"\n"
+    if 'ele' in tags:
+        t += "\xF0\x9F\x93\x8F "+str(tags['ele'])+" meters\n"
     if 'wikipedia' in tags:
         if ":" in tags["wikipedia"]:
             lang = str(tags['wikipedia'].split(":")[0])
