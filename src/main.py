@@ -116,7 +116,6 @@ def attend(sc):
                     else:
                         t = 'Results for "{0}":\n\n'.format(search)
                     for result in results:
-                        print str(result)
                         osm_data = getData(result['osm_id'])
                         type = result['class']+":"+result['type']
                         if type in typeemoji:
