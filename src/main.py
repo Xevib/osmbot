@@ -8,6 +8,18 @@ import urllib
 from configobj import ConfigObj
 from typeemoji import typeemoji
 
+def getData(id):
+    try:
+        osm_data = api.NodeGet(int(id))
+        if osm_data is None:
+            try:
+                osm_data = api.WayGet(int(id))
+            except:
+                osm_data = api.RelationGet(int(id))
+    except:
+        osm_data = None
+    return osm_data
+
 def pretty_tags(data):
     tags = data['tag']
     response = []
@@ -73,18 +85,14 @@ def attend(sc):
                     message = message[8:]
                 if message == "/start":
                     response = ["Hi, I'm the robot for OpenStreetMap data.\nHow I can help you?"]
+                elif message.startswith("/phone"):
+                    id = message[6:]
+                    osm_data = getData(id)
+                    if "phone" in osm_data["tag"]:
+                        response = ["\xF0\x9F\x93\x9E "+osm_data["tag"]["phone"]]
                 elif message.startswith("/details"):
                     id = message[8:].strip()
-                    try:
-                        osm_data = api.NodeGet(int(id))
-                        if osm_data is None:
-                            try:
-                                osm_data = api.WayGet(int(id))
-                            except:
-                                osm_data = api.RelationGet(int(id))
-                    except:
-                        osm_data = None
-
+                    osm_data = getData(id)
                     if osm_data is None:
                         response.append("Sorry but I couldn't find any result, please check the id")
                     else:
@@ -107,27 +115,21 @@ def attend(sc):
                         response = ['Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)]
                     else:
                         t = 'Results for "{0}":\n\n'.format(search)
-                    if len(results) == 1:
-                        for result in results:
-                            type = result['class']+":"+result['type']
-                            if type in typeemoji:
-                                t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
-                            else:
-                                t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
-                                t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
-                            t += "\nMore info /details{0}".format(result['osm_id'])+"\n\n"
-                            t += "\xC2\xA9 OpenStreetMap contributors\n"
-                    else:
-                        for result in results:
-                            type = result['class']+":"+result['type']
-                            if type in typeemoji:
-                                t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
-                            else:
-                                t += "\xE2\x96\xB6 "+result["display_name"]+"\n\n"
+                    for result in results:
+                        print str(result)
+                        osm_data = getData(result['osm_id'])
+                        type = result['class']+":"+result['type']
+                        if type in typeemoji:
+                            t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
+                        else:
+                            t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
                             t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
-                            t += "More info /details{0}".format(result['osm_id'])+"\n\n"
-                        if len(results)!=0:
-                            t += "\xC2\xA9 OpenStreetMap contributors\n"
+                        if 'phone' in osm_data['tag']:
+                            t += "\nMore info /details{0}\n\nPhone /phone{0}\n\n".format(result['osm_id'])
+                        else:
+                            t += "\nMore info /details{0}\n\n".format(result['osm_id'])
+                    if len(results)>0:
+                        t += "\xC2\xA9 OpenStreetMap contributors\n"
 
                 elif re.match("/search.*",message) is not None:
                     response = ["Please indicate what are you searching with command /search <search term>"]
