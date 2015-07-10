@@ -119,9 +119,9 @@ def attend(sc):
                         t = 'Results for "{0}":\n\n'.format(search)
                     for result in results:
                         if 'osm_id' in result:
-	                        osm_data = getData(result['osm_id'])
+                            osm_data = getData(result['osm_id'])
                         else:
-                                osm_data=None
+                            osm_data = None
                         type = result['class']+":"+result['type']
                         if type in typeemoji:
                             t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
@@ -148,7 +148,7 @@ def attend(sc):
     sc.enter(int(config["update_interval"]), 1, attend, (sc,))
 
 config = ConfigObj("bot.conf")
-token =config["token"]
+token = config["token"]
 
 api = OsmApi()
 nom = nominatim.Nominatim()
