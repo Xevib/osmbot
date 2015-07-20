@@ -7,7 +7,7 @@ from bot import OSMbot
 import urllib
 from configobj import ConfigObj
 from typeemoji import typeemoji
-
+from maptools import download,genBBOX
 def getData(id, geom_type=None):
     if geom_type is None:
         try:
@@ -94,6 +94,36 @@ def attend(sc):
                     message = message[8:]
                 if message == "/start":
                     response = ["Hi, I'm the robot for OpenStreetMap data.\nHow I can help you?"]
+                if message.startswith("/map"):
+                    message = message[4:]
+                    if message == "":
+                        print "p1"
+                    elif re.match(" \d+(\.\d*)? \d+(\.\d*)? (png |jpg |pdf | )(\d?\d)?", message):
+                        print "p2"
+                    elif re.match(" \d+(\.\d*)?,\d+(\.\d*)?,\d+(\.\d*)?,\d+(\.\d*)? ?(png|jpg|pdf)? ?\d{0,2}",message):
+                        m = re.match(" (?P<bb1>\d+(\.\d*)?),(?P<bb2>\d+(\.\d*)?),(?P<bb3>\d+(\.\d*)?),(?P<bb4>\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
+                        if m is not None:
+                            bbox1 = m.groupdict()["bb1"]
+                            bbox2 = m.groupdict()["bb2"]
+                            bbox3 = m.groupdict()["bb3"]
+                            bbox4 = m.groupdict()["bb4"]
+                            imgformat = m.groupdict()["format"]
+                            zoom = m.groupdict()["zoom"]
+
+                            if imgformat is None:
+                                imgformat = 'png'
+                            if zoom == '':
+                                zoom = 19
+                            try:
+                                data = download([bbox1,bbox2,bbox3,bbox4],imgformat,zoom=zoom)
+                            except ValueError as v:
+                                response.append(v.message)
+                            else:
+                                bot.sendPhoto(usr_id,data,"map.png","Map")
+                        else:
+                            response.append("Sorry but i don't undesrtand you")
+                    else:
+                        response.append("Sorry but i don't undesrtand you")
                 elif message.startswith("/phone"):
                     id = message[6:]
                     osm_data = getData(id)
