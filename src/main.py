@@ -64,6 +64,8 @@ def pretty_tags(data):
         t += "\xF0\x9F\x91\xAA "+str(tags['population'])+"\n"
     if 'ele' in tags:
         t += "\xF0\x9F\x93\x8F "+str(tags['ele'])+" meters\n"
+    if 'wikidata' in tags:
+        t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(urllib.quote(tags["wikidata"]))+"\n"
     if 'wikipedia' in tags:
         if ":" in tags["wikipedia"]:
             lang = str(tags['wikipedia'].split(":")[0])
