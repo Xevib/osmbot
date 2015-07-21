@@ -59,8 +59,8 @@ def SearchCommand(message):
                     t += "\nMore info /detailsrel{0}\n\n".format(result['osm_id'])
                 else:
                     t += "\nMore info /details{0}\n\n".format(result['osm_id'])
-                if len(results)>0:
-                    t += "\xC2\xA9 OpenStreetMap contributors\n"
+
+    t += "\xC2\xA9 OpenStreetMap contributors\n"
     return response + [t]
 
 def pretty_tags(data):
