@@ -1,6 +1,9 @@
 import requests
 import math
 
+WGS84_a = 6378137.0  # Major semiaxis [m]
+WGS84_b = 6356752.3  # Minor semiaxis [m]
+
 def download(bbox,imageformat='png',zoom=19):
     scale_zoom = {19: 804,
                   18: 1300,
@@ -29,13 +32,12 @@ def download(bbox,imageformat='png',zoom=19):
     params['scale'] = scale_zoom[int(zoom)]
     response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params)
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Map too large</p>\n</body>\n</html>\n':
-        raise  ValueError('Map too large')
+        raise  ValueError('Map too large,reduce the bounding box or the zoom')
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Invalid bounding box</p>\n</body>\n</html>\n':
         raise ValueError('Invalid bounding box')
     if response.status_code !=200:
         raise ValueError('Error ocurred')
     return response.content
-
 
 
 def deg2rad(degrees):
@@ -44,22 +46,13 @@ def deg2rad(degrees):
 def rad2deg(radians):
     return 180.0*radians/math.pi
 
-
-WGS84_a = 6378137.0  # Major semiaxis [m]
-WGS84_b = 6356752.3  # Minor semiaxis [m]
-
-
 def WGS84EarthRadius(lat):
-    # http://en.wikipedia.org/wiki/Earth_radius
     An = WGS84_a*WGS84_a * math.cos(lat)
     Bn = WGS84_b*WGS84_b * math.sin(lat)
     Ad = WGS84_a * math.cos(lat)
     Bd = WGS84_b * math.sin(lat)
     return math.sqrt( (An*An + Bn*Bn)/(Ad*Ad + Bd*Bd) )
 
-# Bounding box surrounding the point at given coordinates,
-# assuming local approximation of Earth surface as a sphere
-# of radius given by WGS84
 def genBBOX(latitudeInDegrees, longitudeInDegrees, halfSideInKm):
     lat = deg2rad(latitudeInDegrees)
     lon = deg2rad(longitudeInDegrees)
