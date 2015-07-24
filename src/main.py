@@ -117,7 +117,12 @@ def attend(sc):
                         except ValueError as v:
                             response.append(v.message)
                         else:
-                            bot.sendPhoto(usr_id, data, "map.png","Map")
+                            if imgformat == 'pdf':
+                                bot.sendDocument(usr_id, data, 'map.pdf')
+                            elif imgformat =='jpg':
+                                bot.sendPhoto(usr_id, data, "map.jpg", "Map")
+                            elif imgformat =='png':
+                                bot.sendPhoto(usr_id, data, "map.png", "Map")
                     elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpg|pdf)? ?\d{0,2}",message):
                         m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
                         if m is not None:
@@ -137,7 +142,14 @@ def attend(sc):
                             except ValueError as v:
                                 response.append(v.message)
                             else:
-                                bot.sendPhoto(usr_id,data,"map.png","Map")
+                                print 'imgformat:'+str(imgformat)
+                                if imgformat == 'pdf':
+                                    print 'document'
+                                    bot.sendDocument(usr_id, data, 'map.pdf')
+                                elif imgformat =='jpg':
+                                    bot.sendPhoto(usr_id, data, "map.jpg", "Map")
+                                elif imgformat =='png':
+                                    bot.sendPhoto(usr_id, data, "map.png", "Map")
                         else:
                             response.append("Sorry but i don't undesrtand you")
                     else:
