@@ -263,7 +263,12 @@ def attend(sc):
 
                 if message == "/start":
                     response = ["Hi, I'm the robot for OpenStreetMap data.\nHow I can help you?"]
-                if message.startswith("/map"):
+                elif re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and  "mode" in user_config and user_config["mode"] == "map":
+                    m = re.match(".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",message)
+                    lat = m.groupdict()["lat"]
+                    lon = m.groupdict()["lon"]
+                    response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"], imgformat=user_config["format"], lat=float(lat), lon=float(lon))
+                elif message.startswith("/map"):
                     response += MapCommand(message, chat_id, user_id)
                 elif re.match("/phone.*", message):
                     response += PhoneCommand(message)
