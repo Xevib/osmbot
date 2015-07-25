@@ -131,8 +131,8 @@ def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=N
             bot.sendPhoto(chat_id, data, "map.png", "Map")
         user.set_field(user_id, 'mode', 'normal')
     else:
-        if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?", message):
-            m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
+        if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
+            m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})$",message)
             zoom = m.groupdict()["zoom"]
             imgformat = m.groupdict()["imgformat"]
             response.append("Please send your location to recive the map")
