@@ -16,12 +16,12 @@ class OSMbot(object):
             'timeout': timeout
         }
 
-        return json.loads(requests.get(self.url.format(self.token,method),params=params).content)
+        return json.loads(requests.get(self.url.format(self.token, method), params=params).content)
 
     def setWebhook(self):
         method = "setWebhook"
         params = {}
-        response = requests.get(self.url.format(self.token,method),params=params)
+        response = requests.get(self.url.format(self.token,method), params=params)
         return response.content
 
     def sendPhoto(self, chat_id, photo, filename, caption=None, reply_to_message_id=None, reply_markup=None):
@@ -31,7 +31,7 @@ class OSMbot(object):
         }
         if caption is not None:
             params['caption'] = caption
-        response = requests.post(self.url.format(self.token, method), params=params,files={'photo': (filename, photo)})
+        response = requests.post(self.url.format(self.token, method), params=params, files={'photo': (filename, photo)})
         return response.content
 
     def sendDocument(self, chat_id, document, filename, reply_to_message_id=None, reply_markup=None):
@@ -40,7 +40,6 @@ class OSMbot(object):
             'chat_id': chat_id,
         }
         response = requests.post(self.url.format(self.token, method), params=params, files={'document': (filename, document)})
-        print response.content
         return response.content
 
     def sendMessage(self, chat_id, text, disable_web_page_preview=None, reply_to_message_id=None, reply_markup=None):

@@ -8,6 +8,9 @@ import urllib
 from configobj import ConfigObj
 from typeemoji import typeemoji
 from maptools import download,genBBOX
+
+import user as u
+
 def getData(id, geom_type=None):
     if geom_type is None:
         try:
@@ -76,6 +79,110 @@ def pretty_tags(data):
     response.append(t)
     return response
 
+def MapCommand(message, chat_id, user_id):
+    response = []
+    message = message[4:]
+    if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?", message):
+        m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
+        zoom = m.groupdict()["zoom"]
+        imgformat = m.groupdict()["imgformat"]
+        response.append("Please send your location to recive the map")
+        if imgformat is None:
+            imgformat = 'png'
+        if zoom == '':
+            zoom = 19
+        user.set_field(user_id, 'format', imgformat)
+        user.set_field(user_id, 'zoom', zoom)
+        user.set_field(user_id,'mode', 'map')
+
+    elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)? (pngjpg|pdf)? ?(\d?\d)?", message):
+        m = re.match(" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpeg|pdf)? ?(?P<zoom>\d{0,2})",message)
+        lat = float(m.groupdict()["lat"])
+        lon = float(m.groupdict()["lon"])
+        imgformat = m.groupdict()["imgformat"]
+        zoom = m.groupdict()["zoom"]
+        bbox = genBBOX(lat, lon, 0.1)
+        if imgformat is None:
+            imgformat = 'png'
+        if zoom == '':
+            zoom = 19
+        try:
+            data = download(bbox, imageformat=imgformat, zoom=zoom)
+        except ValueError as v:
+            response.append(v.message)
+        else:
+            if imgformat == 'pdf':
+                bot.sendDocument(chat_id, data, 'map.pdf')
+            elif imgformat == 'jpeg':
+                bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+            elif imgformat == 'png':
+                bot.sendPhoto(chat_id, data, "map.png", "Map")
+
+    elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
+        m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
+        if m is not None:
+            bbox1 = m.groupdict()["bb1"]
+            bbox2 = m.groupdict()["bb2"]
+            bbox3 = m.groupdict()["bb3"]
+            bbox4 = m.groupdict()["bb4"]
+            imgformat = m.groupdict()["format"]
+            zoom = m.groupdict()["zoom"]
+            if imgformat is None:
+                imgformat = 'png'
+            if zoom == '':
+                zoom = 19
+            try:
+                data = download([bbox1, bbox2, bbox3, bbox4], imgformat, zoom=zoom)
+            except ValueError as v:
+                response.append(v.message)
+            else:
+                if imgformat == 'pdf':
+                    bot.sendDocument(chat_id, data, 'map.pdf')
+                elif imgformat == 'jpeg':
+                    bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+                elif imgformat == 'png':
+                    bot.sendPhoto(chat_id, data, "map.png", "Map")
+        else:
+            response.append("Sorry but i don't undesrtand you")
+    else:
+        response.append("Sorry but i don't undesrtand you")
+    return response
+
+def PhoneCommand(message):
+    id = message[6:]
+    osm_data = getData(id)
+    if "phone" in osm_data["tag"]:
+        response = ["\xF0\x9F\x93\x9E "+osm_data["tag"]["phone"]]
+    return response
+
+def CleanMessage(message):
+    if message.startswith("@osmbot"):
+        message = message[8:]
+    message = message.replace("\n", "").replace("\r", "")
+    return message
+
+def DetailsCommand(message):
+    response =[]
+    t = ""
+    type = message[8:11]
+    if type == "nod" or type == "way" or type == "rel":
+        id = message[11:]
+        osm_data = getData(id, geom_type=type)
+    else:
+        id = message[8:].strip()
+        osm_data = getData(id)
+    if osm_data is None:
+        response.append("Sorry but I couldn't find any result, please check the id")
+    else:
+        if osm_data["tag"] == {}:
+            response = ["Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it \xF0\x9F\x98\x8B"]
+        else:
+            response.append(t)
+            t = ""
+            message = pretty_tags(osm_data)
+            response.append(message)
+    return response
+
 def attend(sc):
     if "last_id" in config:
         last_id = int(config["last_id"])
@@ -86,98 +193,26 @@ def attend(sc):
         print "Attending "+str(len(updates["result"]))+" "
         for query in updates['result']:
             response = []
+            if 'from' in query['message'] and 'id' in query['message']['from']:
+                user_config = user.get_user(query['message']['from']['id'])
+                user_id = query['message']['from']['id']
+            else:
+                user_config = user.get_defaultconfig()
+                user_id = 0
+            print user_config
             t = ""
             if "text" in query["message"]:
                 message = query["message"]["text"]
-                usr_id = query["message"]["chat"]["id"]
-                if message.startswith("@osmbot"):
-                    message = message[8:]
+                chat_id = query["message"]["chat"]["id"]
+                message = CleanMessage(message)
                 if message == "/start":
                     response = ["Hi, I'm the robot for OpenStreetMap data.\nHow I can help you?"]
                 if message.startswith("/map"):
-                    message = message[4:]
-                    if re.match(" ?(png|jpg|pdf) ?(\d?\d)?", message):
-                        m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
-                        zoom = m.groupdict()["zoom"]
-                        imgformat = m.groupdict()["imgformat"]
-                        response.append("Please send your location to recive the map")
-                    elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)? (png |jpg |pdf | )(\d?\d)?", message):
-                        m = re.match(" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
-                        lat = float(m.groupdict()["lat"])
-                        lon = float(m.groupdict()["lon"])
-                        imgformat = m.groupdict()["imgformat"]
-                        zoom = m.groupdict()["zoom"]
-                        bbox = genBBOX(lat, lon, 0.1)
-                        if imgformat is None:
-                            imgformat = 'png'
-                        if zoom == '':
-                            zoom = 19
-                        try:
-                            data = download(bbox, imageformat=imgformat, zoom=zoom)
-                        except ValueError as v:
-                            response.append(v.message)
-                        else:
-                            if imgformat == 'pdf':
-                                bot.sendDocument(usr_id, data, 'map.pdf')
-                            elif imgformat =='jpg':
-                                bot.sendPhoto(usr_id, data, "map.jpg", "Map")
-                            elif imgformat =='png':
-                                bot.sendPhoto(usr_id, data, "map.png", "Map")
-                    elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpg|pdf)? ?\d{0,2}",message):
-                        m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
-                        if m is not None:
-                            bbox1 = m.groupdict()["bb1"]
-                            bbox2 = m.groupdict()["bb2"]
-                            bbox3 = m.groupdict()["bb3"]
-                            bbox4 = m.groupdict()["bb4"]
-                            imgformat = m.groupdict()["format"]
-                            zoom = m.groupdict()["zoom"]
-
-                            if imgformat is None:
-                                imgformat = 'png'
-                            if zoom == '':
-                                zoom = 19
-                            try:
-                                data = download([bbox1, bbox2, bbox3, bbox4], imgformat, zoom=zoom)
-                            except ValueError as v:
-                                response.append(v.message)
-                            else:
-                                print 'imgformat:'+str(imgformat)
-                                if imgformat == 'pdf':
-                                    print 'document'
-                                    bot.sendDocument(usr_id, data, 'map.pdf')
-                                elif imgformat =='jpg':
-                                    bot.sendPhoto(usr_id, data, "map.jpg", "Map")
-                                elif imgformat =='png':
-                                    bot.sendPhoto(usr_id, data, "map.png", "Map")
-                        else:
-                            response.append("Sorry but i don't undesrtand you")
-                    else:
-                        response.append("Sorry but i don't undesrtand you")
-                elif message.startswith("/phone"):
-                    id = message[6:]
-                    osm_data = getData(id)
-                    if "phone" in osm_data["tag"]:
-                        response = ["\xF0\x9F\x93\x9E "+osm_data["tag"]["phone"]]
-                elif message.replace("\n", "").replace("\r", "").replace(" ", "").startswith("/details"):
-                    type = message[8:11]
-                    if type == "nod" or type == "way" or type == "rel":
-                        id = message[11:]
-                        osm_data = getData(id, geom_type=type)
-                    else:
-                        id = message[8:].strip()
-                        osm_data = getData(id)
-
-                    if osm_data is None:
-                        response.append("Sorry but I couldn't find any result, please check the id")
-                    else:
-                        if osm_data["tag"] == {}:
-                            response = ["Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it \xF0\x9F\x98\x8B"]
-                        else:
-                            response.append(t)
-                            t = ""
-                            message = pretty_tags(osm_data)
-                            response.append(message)
+                    response += MapCommand(message, chat_id, user_id)
+                elif re.match("/phone.*", message):
+                    response += PhoneCommand(message)
+                elif re.match("/details.*", message):
+                    response += DetailsCommand(message)
                 elif message.startswith("/about"):
                     response = ["OpenStreetMap bot info:\n\nCREDITS&CODE\n\xF0\x9F\x91\xA5 Author: OSM català (Catalan OpenStreetMap community)\n\xF0\x9F\x94\xA7 Code: https://github.com/Xevib/osmbot\n\xE2\x99\xBB License: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\nRATING\n\xE2\xAD\x90 Rating&reviews: http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D Please rate me at: https://telegram.me/storebot?start=osmbot\n\nThanks for use @OSMbot!!"]
                 elif message.startswith("/help"):
@@ -185,7 +220,7 @@ def attend(sc):
                 elif re.match("/search.*",message) is not None and message[8:] != "":
                     search = message[8:].replace("\n", "").replace("\r", "")
                     results = nom.query(search)
-                    if len(results) ==0:
+                    if len(results) == 0:
                         response = ['Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)]
                     else:
                         t = 'Results for "{0}":\n\n'.format(search)
@@ -212,16 +247,15 @@ def attend(sc):
                                     t += "\nMore info /detailsrel{0}\n\n".format(result['osm_id'])
                                 else:
                                     t += "\nMore info /details{0}\n\n".format(result['osm_id'])
-                    if len(results)>0:
+                    if len(results) > 0:
                         t += "\xC2\xA9 OpenStreetMap contributors\n"
-
-                elif re.match("/search.*",message) is not None:
+                elif re.match("/search.*", message) is not None:
                     response = ["Please indicate what are you searching with command /search <search term>"]
                 else:
                     response = ["Use /search <search term> command to indicate what you are searching"]
                 response.append(t)
                 t = ""
-                bot.sendMessage(usr_id, response,disable_web_page_preview='true')
+                bot.sendMessage(chat_id, response,disable_web_page_preview='true')
             config["last_id"] = query["update_id"]
             config.write()
     sc.enter(int(config["update_interval"]), 1, attend, (sc,))
@@ -232,6 +266,7 @@ token = config["token"]
 api = OsmApi()
 nom = nominatim.Nominatim()
 bot = OSMbot(token)
+user = u.User("osmbot.db")
 
 s = sched.scheduler(time.time, time.sleep)
 s.enter(1, 1, attend, (s,))
