@@ -39,31 +39,31 @@ def SearchCommand(message):
         response = ['Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'.format(search)]
     else:
         t = 'Results for "{0}":\n\n'.format(search)
-    for result in results:
-        if 'osm_id' in result:
-            osm_data = getData(result['osm_id'])
-        else:
-            osm_data = None
-        type = result['class']+":"+result['type']
-        if type in typeemoji:
-            t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
-        else:
-            t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
-            t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
-        if osm_data is not None and 'phone' in osm_data['tag']:
-            t += "\nMore info /details{0}\nPhone /phone{0}\n\n".format(result['osm_id'])
-        else:
+        for result in results:
             if 'osm_id' in result:
-                if 'osm_type' in result and result['osm_type'] =="node":
-                    t += "\nMore info /detailsnod{0}\n\n".format(result['osm_id'])
-                elif 'osm_type' in result and result['osm_type'] == "way":
-                    t += "\nMore info /detailsway{0}\n\n".format(result['osm_id'])
-                elif 'osm_type' in result and result['osm_type'] =="relation":
-                    t += "\nMore info /detailsrel{0}\n\n".format(result['osm_id'])
-                else:
-                    t += "\nMore info /details{0}\n\n".format(result['osm_id'])
+                osm_data = getData(result['osm_id'])
+            else:
+                osm_data = None
+            type = result['class']+":"+result['type']
+            if type in typeemoji:
+                t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
+            else:
+                t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
+                t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
+            if osm_data is not None and 'phone' in osm_data['tag']:
+                t += "\nMore info /details{0}\nPhone /phone{0}\n\n".format(result['osm_id'])
+            else:
+                if 'osm_id' in result:
+                    if 'osm_type' in result and result['osm_type'] =="node":
+                        t += "\nMore info /detailsnod{0}\n\n".format(result['osm_id'])
+                    elif 'osm_type' in result and result['osm_type'] == "way":
+                        t += "\nMore info /detailsway{0}\n\n".format(result['osm_id'])
+                    elif 'osm_type' in result and result['osm_type'] =="relation":
+                        t += "\nMore info /detailsrel{0}\n\n".format(result['osm_id'])
+                    else:
+                        t += "\nMore info /details{0}\n\n".format(result['osm_id'])
 
-    t += "\xC2\xA9 OpenStreetMap contributors\n"
+        t += "\xC2\xA9 OpenStreetMap contributors\n"
     return response + [t]
 
 def pretty_tags(data):
@@ -117,60 +117,46 @@ def pretty_tags(data):
     response.append(t)
     return response
 
-def MapCommand(message, chat_id, user_id):
+def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=None):
     response = []
     message = message[4:]
-    if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?", message):
-        m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
-        zoom = m.groupdict()["zoom"]
-        imgformat = m.groupdict()["imgformat"]
-        response.append("Please send your location to recive the map")
-        if imgformat is None:
-            imgformat = 'png'
-        if zoom == '':
-            zoom = 19
-        user.set_field(user_id, 'format', imgformat)
-        user.set_field(user_id, 'zoom', zoom)
-        user.set_field(user_id,'mode', 'map')
-
-    elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)? (pngjpg|pdf)? ?(\d?\d)?", message):
-        m = re.match(" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpeg|pdf)? ?(?P<zoom>\d{0,2})",message)
-        lat = float(m.groupdict()["lat"])
-        lon = float(m.groupdict()["lon"])
-        imgformat = m.groupdict()["imgformat"]
-        zoom = m.groupdict()["zoom"]
+    if lat is not None and lon is not None:
         bbox = genBBOX(lat, lon, 0.1)
-        if imgformat is None:
-            imgformat = 'png'
-        if zoom == '':
-            zoom = 19
-        try:
-            data = download(bbox, imageformat=imgformat, zoom=zoom)
-        except ValueError as v:
-            response.append(v.message)
-        else:
-            if imgformat == 'pdf':
-                bot.sendDocument(chat_id, data, 'map.pdf')
-            elif imgformat == 'jpeg':
-                bot.sendPhoto(chat_id, data, "map.jpg", "Map")
-            elif imgformat == 'png':
-                bot.sendPhoto(chat_id, data, "map.png", "Map")
-
-    elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
-        m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
-        if m is not None:
-            bbox1 = m.groupdict()["bb1"]
-            bbox2 = m.groupdict()["bb2"]
-            bbox3 = m.groupdict()["bb3"]
-            bbox4 = m.groupdict()["bb4"]
-            imgformat = m.groupdict()["format"]
+        data = download(bbox, imageformat=imgformat, zoom=zoom)
+        if imgformat == 'pdf':
+            bot.sendDocument(chat_id, data, 'map.pdf')
+        elif imgformat == 'jpeg':
+            bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+        elif imgformat == 'png':
+            bot.sendPhoto(chat_id, data, "map.png", "Map")
+        user.set_field(user_id, 'mode', 'normal')
+    else:
+        if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?", message):
+            m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
             zoom = m.groupdict()["zoom"]
+            imgformat = m.groupdict()["imgformat"]
+            response.append("Please send your location to recive the map")
+            if imgformat is None:
+                imgformat = 'png'
+            if zoom == '':
+                zoom = 19
+            user.set_field(user_id, 'format', imgformat)
+            user.set_field(user_id, 'zoom', zoom)
+            user.set_field(user_id,'mode', 'map')
+
+        elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)? (pngjpg|pdf)? ?(\d?\d)?", message):
+            m = re.match(" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpeg|pdf)? ?(?P<zoom>\d{0,2})",message)
+            lat = float(m.groupdict()["lat"])
+            lon = float(m.groupdict()["lon"])
+            imgformat = m.groupdict()["imgformat"]
+            zoom = m.groupdict()["zoom"]
+            bbox = genBBOX(lat, lon, 0.1)
             if imgformat is None:
                 imgformat = 'png'
             if zoom == '':
                 zoom = 19
             try:
-                data = download([bbox1, bbox2, bbox3, bbox4], imgformat, zoom=zoom)
+                data = download(bbox, imageformat=imgformat, zoom=zoom)
             except ValueError as v:
                 response.append(v.message)
             else:
@@ -180,10 +166,34 @@ def MapCommand(message, chat_id, user_id):
                     bot.sendPhoto(chat_id, data, "map.jpg", "Map")
                 elif imgformat == 'png':
                     bot.sendPhoto(chat_id, data, "map.png", "Map")
+        elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
+            m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
+            if m is not None:
+                bbox1 = m.groupdict()["bb1"]
+                bbox2 = m.groupdict()["bb2"]
+                bbox3 = m.groupdict()["bb3"]
+                bbox4 = m.groupdict()["bb4"]
+                imgformat = m.groupdict()["format"]
+                zoom = m.groupdict()["zoom"]
+                if imgformat is None:
+                    imgformat = 'png'
+                if zoom == '':
+                    zoom = 19
+                try:
+                    data = download([bbox1, bbox2, bbox3, bbox4], imgformat, zoom=zoom)
+                except ValueError as v:
+                    response.append(v.message)
+                else:
+                    if imgformat == 'pdf':
+                        bot.sendDocument(chat_id, data, 'map.pdf')
+                    elif imgformat == 'jpeg':
+                        bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+                    elif imgformat == 'png':
+                        bot.sendPhoto(chat_id, data, "map.png", "Map")
+            else:
+                response.append("Sorry but i don't undesrtand you")
         else:
             response.append("Sorry but i don't undesrtand you")
-    else:
-        response.append("Sorry but i don't undesrtand you")
     return response
 
 def PhoneCommand(message):
@@ -238,10 +248,19 @@ def attend(sc):
                 user_config = user.get_defaultconfig()
                 user_id = 0
             t = ""
-            if "text" in query["message"]:
-                message = query["message"]["text"]
+            if "message" in query:
+                if "text" in query["message"]:
+                    message = query["message"]["text"]
+                else:
+                    message = ""
                 chat_id = query["message"]["chat"]["id"]
-                message = CleanMessage(message)
+            message = CleanMessage(message)
+            if "location" in query["message"]:
+                print "loc:"+str(query["message"]["location"])
+                if "mode" in user_config and user_config["mode"] == "map":
+                    response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"],imgformat=user_config["format"],lat=float(query["message"]["location"]["latitude"]),lon=float(query["message"]["location"]["longitude"]))
+            elif "text" in query["message"]:
+
                 if message == "/start":
                     response = ["Hi, I'm the robot for OpenStreetMap data.\nHow I can help you?"]
                 if message.startswith("/map"):
