@@ -32,11 +32,11 @@ def download(bbox,imageformat='png',zoom=19):
     params['scale'] = scale_zoom[int(zoom)]
     response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params)
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Map too large</p>\n</body>\n</html>\n':
-        raise ValueError('Map too large,reduce the bounding box or the zoom')
+        raise ValueError('Map too large! \xF0\x9F\x98\xB1\nPlease, reduce the bounding box \xE2\x9C\x82 or the scale (zoom level) \xF0\x9F\x94\x8D')
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Invalid bounding box</p>\n</body>\n</html>\n':
-        raise ValueError('Invalid bounding box')
+        raise ValueError("Invalid bounding box! \xF0\x9F\x98\xA7\nPlease, try with /map minlon,minlat,maxlon,maxlat\nCoordinates' decimals need to be marked with a dot.\nFor example: /map 1.5,41.0,2.5,42.0 png 10 \xE2\x9C\x8C")
     if response.status_code !=200:
-        raise ValueError('Error ocurred')
+        raise ValueError('Oh,oh... An error occurred \xF0\x9F\x98\xB0\nYou can try with another bounding box or scale (zoom level) \xE2\x81\x89\nGood luck! \xF0\x9F\x98\x89')
     return response.content
 
 
