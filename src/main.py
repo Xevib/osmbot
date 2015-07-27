@@ -93,6 +93,7 @@ def pretty_tags(data):
     if 'email' in tags:
         t += "\xE2\x9C\x89 "+str(tags['email'])+"\n"
     if 'website' in tags:
+        preview = True
         t += "\xF0\x9F\x8C\x8D "+str(tags['website'])+"\n"
     if 'opening_hours' in tags:
         t += "\xF0\x9F\x95\x9E "+str(tags['opening_hours'])+"\n"
@@ -242,7 +243,8 @@ def attend(sc):
     else:
         updates = bot.getUpdates(offset=0)
     if updates['ok']:
-        print "Attending "+str(len(updates["result"]))+" "
+        if len(updates["result"])>0:
+            print "Attending "+str(len(updates["result"]))+" "
         for query in updates['result']:
             preview = False
             response = []
