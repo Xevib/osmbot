@@ -256,12 +256,9 @@ def attend(sc):
                 chat_id = query["message"]["chat"]["id"]
             message = CleanMessage(message)
             if "location" in query["message"]:
-                print "loc:"+str(query["message"]["location"])
-
                 if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
                     response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"],imgformat=user_config["format"],lat=float(query["message"]["location"]["latitude"]),lon=float(query["message"]["location"]["longitude"]))
             elif "text" in query["message"]:
-
                 if message == "/start":
                     response = ["Hi, I'm the robot for OpenStreetMap data.\nHow I can help you?"]
                 elif re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and  "mode" in user_config and user_config["mode"] == "map":
