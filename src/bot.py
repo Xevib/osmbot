@@ -51,6 +51,10 @@ class OSMbot(object):
             'reply_to_message_id': reply_to_message_id,
             'reply_markup': reply_markup
         }
+        if disable_web_page_preview is True:
+            params['disable_web_page_preview'] = 'true'
+        if disable_web_page_preview is False:
+            params['disable_web_page_preview'] = 'false'
         if type(text) == list:
             for t in text:
                 params['text'] = t

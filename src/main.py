@@ -67,6 +67,7 @@ def SearchCommand(message):
     return response + [t]
 
 def pretty_tags(data):
+    preview = False
     tags = data['tag']
     response = []
     t = ""
@@ -104,8 +105,10 @@ def pretty_tags(data):
     if 'ele' in tags:
         t += "\xF0\x9F\x93\x8F "+str(tags['ele'])+" meters\n"
     if 'wikidata' in tags:
+        preview = True
         t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(urllib.quote(tags["wikidata"]))+"\n"
     if 'wikipedia' in tags:
+        preview = True
         if ":" in tags["wikipedia"]:
             lang = str(tags['wikipedia'].split(":")[0])
             term = str(tags['wikipedia'].split(":")[1])
@@ -115,7 +118,7 @@ def pretty_tags(data):
     t += "\n\xC2\xA9 OpenStreetMap contributors\n"
 
     response.append(t)
-    return response
+    return (preview,response)
 
 def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=None):
     response = []
@@ -210,6 +213,7 @@ def CleanMessage(message):
     return message
 
 def DetailsCommand(message):
+    preview = False
     response =[]
     t = ""
     type = message[8:11]
@@ -227,9 +231,9 @@ def DetailsCommand(message):
         else:
             response.append(t)
             t = ""
-            message = pretty_tags(osm_data)
+            (preview, message) = pretty_tags(osm_data)
             response.append(message)
-    return response
+    return (preview,response)
 
 def attend(sc):
     if "last_id" in config:
@@ -240,6 +244,7 @@ def attend(sc):
     if updates['ok']:
         print "Attending "+str(len(updates["result"]))+" "
         for query in updates['result']:
+            preview = False
             response = []
             if 'from' in query['message'] and 'id' in query['message']['from']:
                 user_config = user.get_user(query['message']['from']['id'])
@@ -271,7 +276,8 @@ def attend(sc):
                 elif re.match("/phone.*", message):
                     response += PhoneCommand(message)
                 elif re.match("/details.*", message):
-                    response += DetailsCommand(message)
+                    (preview,r) = DetailsCommand(message)
+                    response += r
                 elif message.startswith("/about"):
                     response = ["OpenStreetMap bot info:\n\nCREDITS&CODE\n\xF0\x9F\x91\xA5 Author: OSM català (Catalan OpenStreetMap community)\n\xF0\x9F\x94\xA7 Code: https://github.com/Xevib/osmbot\n\xE2\x99\xBB License: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\nRATING\n\xE2\xAD\x90 Rating&reviews: http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D Please rate me at: https://telegram.me/storebot?start=osmbot\n\nThanks for use @OSMbot!!"]
                 elif message.startswith("/help"):
@@ -284,7 +290,7 @@ def attend(sc):
                     response = ["Use /search <search term> command to indicate what you are searching"]
                 response.append(t)
                 t = ""
-                bot.sendMessage(chat_id, response,disable_web_page_preview='true')
+                bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
             config["last_id"] = query["update_id"]
             config.write()
     sc.enter(int(config["update_interval"]), 1, attend, (sc,))
