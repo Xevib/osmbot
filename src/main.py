@@ -25,7 +25,7 @@ def getData(id, geom_type=None):
     elif geom_type == "nod":
         osm_data = api.NodeGet(int(id))
     elif geom_type == "way":
-        osm_data = api.WayGet(int(id))
+            osm_data = api.WayGet(int(id))
     elif geom_type == "rel":
         osm_data = api.RelationGet(int(id))
     return osm_data
@@ -41,7 +41,10 @@ def SearchCommand(message):
         t = 'Results for "{0}":\n\n'.format(search)
         for result in results:
             if 'osm_id' in result:
-                osm_data = getData(result['osm_id'])
+                try:
+                    osm_data = getData(result['osm_id'])
+                except:
+                    osm_data = None
             else:
                 osm_data = None
             type = result['class']+":"+result['type']
@@ -126,13 +129,17 @@ def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=N
     message = message[4:]
     if lat is not None and lon is not None:
         bbox = genBBOX(lat, lon, 0.1)
-        data = download(bbox, imageformat=imgformat, zoom=zoom)
-        if imgformat == 'pdf':
-            bot.sendDocument(chat_id, data, 'map.pdf')
-        elif imgformat == 'jpeg':
-            bot.sendPhoto(chat_id, data, "map.jpg", "Map")
-        elif imgformat == 'png':
-            bot.sendPhoto(chat_id, data, "map.png", "Map")
+        try:
+            data = download(bbox, imageformat=imgformat, zoom=zoom)
+        except ValueError as v:
+            response.append(v.message)
+        else:
+            if imgformat == 'pdf':
+                bot.sendDocument(chat_id, data, 'map.pdf')
+            elif imgformat == 'jpeg':
+                bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+            elif imgformat == 'png':
+                bot.sendPhoto(chat_id, data, "map.png", "Map")
         user.set_field(user_id, 'mode', 'normal')
     else:
         if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
@@ -278,8 +285,11 @@ def attend(sc):
                 elif re.match("/phone.*", message):
                     response += PhoneCommand(message)
                 elif re.match("/details.*", message):
-                    (preview,r) = DetailsCommand(message)
-                    response += r
+                    try:
+                        (preview,r) = DetailsCommand(message)
+                        response += r
+                    except:
+                        pass
                 elif message.startswith("/about"):
                     response = ["OpenStreetMap bot info:\n\nCREDITS&CODE\n\xF0\x9F\x91\xA5 Author: OSM català (Catalan OpenStreetMap community)\n\xF0\x9F\x94\xA7 Code: https://github.com/Xevib/osmbot\n\xE2\x99\xBB License: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\nRATING\n\xE2\xAD\x90 Rating&reviews: http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D Please rate me at: https://telegram.me/storebot?start=osmbot\n\nThanks for use @OSMbot!!"]
                 elif message.startswith("/help"):
