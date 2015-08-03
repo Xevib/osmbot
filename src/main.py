@@ -306,10 +306,9 @@ def attend(sc):
                     bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
             except :
                 bot.sendMessage(chat_id, ["Somthing failed please try it latter"], disable_web_page_preview=(not preview))
-            finally:
-                sc.enter(int(config["update_interval"]), 1, attend, (sc,))
             config["last_id"] = query["update_id"]
             config.write()
+        sc.enter(int(config["update_interval"]), 1, attend, (sc,))
 config = ConfigObj("bot.conf")
 token = config["token"]
 
