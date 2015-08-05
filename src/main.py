@@ -41,6 +41,10 @@ def LegendCommand(message):
     selected_keys = sorted(selected_keys)
     for key in selected_keys:
         t += typeemoji[key]+" "+key+"\n"
+    if len(selected_keys)>50:
+        return [t, "If you see strange emojis it's due a Telegram easter egg"]
+    elif len(selected_keys) == 0:
+        return ["No emoji found, prehaps you should try with /legend"]
     return t
 def SearchCommand(message):
     response = []
