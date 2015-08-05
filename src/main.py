@@ -34,9 +34,13 @@ def getData(id, geom_type=None):
 def LegendCommand(message):
     t = ""
     filt = message[8:]
+    selected_keys=[]
     for key in typeemoji.keys():
         if filt in key:
-            t += typeemoji[key]+" "+key+"\n"
+            selected_keys.append(key)
+    sorted(selected_keys)
+    for key in selected_keys:
+        t += typeemoji[key]+" "+key+"\n"
     return t
 def SearchCommand(message):
     response = []
