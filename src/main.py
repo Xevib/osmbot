@@ -11,6 +11,7 @@ from maptools import download,genBBOX
 
 import user as u
 
+
 def getData(id, geom_type=None):
     if geom_type is None:
         try:
@@ -30,6 +31,13 @@ def getData(id, geom_type=None):
         osm_data = api.RelationGet(int(id))
     return osm_data
 
+def LegendCommand(message):
+    t = ""
+    filt = message[8:]
+    for key in typeemoji.keys():
+        if filt in key:
+            t += typeemoji[key]+" "+key+"\n"
+    return t
 def SearchCommand(message):
     response = []
     t = ""
@@ -262,7 +270,6 @@ def attend(sc):
                 else:
                     user_config = user.get_defaultconfig()
                     user_id = 0
-                t = ""
                 if "message" in query:
                     if "text" in query["message"]:
                         message = query["message"]["text"]
@@ -291,6 +298,8 @@ def attend(sc):
                             response += r
                         except:
                             pass
+                    elif message.startswith("/legend"):
+                        response = LegendCommand(message)
                     elif message.startswith("/about"):
                         response = ["OpenStreetMap bot info:\n\nCREDITS&CODE\n\xF0\x9F\x91\xA5 Author: OSM català (Catalan OpenStreetMap community)\n\xF0\x9F\x94\xA7 Code: https://github.com/Xevib/osmbot\n\xE2\x99\xBB License: GPLv3, http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\nRATING\n\xE2\xAD\x90 Rating&reviews: http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D Please rate me at: https://telegram.me/storebot?start=osmbot\n\nThanks for use @OSMbot!!"]
                     elif message.startswith("/help"):
@@ -301,10 +310,9 @@ def attend(sc):
                         response = ["Please indicate what are you searching with command /search <search term>"]
                     else:
                         response = ["Use /search <search term> command to indicate what you are searching"]
-                    response.append(t)
-                    t = ""
                     bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
-            except :
+            except Exception as e:
+                print str(e)
                 bot.sendMessage(chat_id, ["Somthing failed please try it latter"], disable_web_page_preview=(not preview))
             config["last_id"] = query["update_id"]
             config.write()
