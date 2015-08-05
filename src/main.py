@@ -44,7 +44,7 @@ def LegendCommand(message):
     if len(selected_keys)>50:
         return [t, "If you see strange emojis it's due a Telegram easter egg"]
     elif len(selected_keys) == 0:
-        return ["No emoji found, prehaps you should try with /legend"]
+        return ["No emoji found, perhaps you should try with /legend <osm_key:value>"]
     return t
 def SearchCommand(message):
     response = []
