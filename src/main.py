@@ -38,7 +38,7 @@ def LegendCommand(message):
     for key in typeemoji.keys():
         if filt in key:
             selected_keys.append(key)
-    sorted(selected_keys)
+    selected_keys = sorted(selected_keys)
     for key in selected_keys:
         t += typeemoji[key]+" "+key+"\n"
     return t
