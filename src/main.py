@@ -69,7 +69,7 @@ def SearchCommand(message):
             else:
                 t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
             t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
-            if osm_data is not None and 'phone' in osm_data['tag']:
+            if osm_data is not None and ('phone' in osm_data['tag'] or 'contact:phone' in osm_data['tag']):
                 t += "\nMore info /details{0}\nPhone /phone{0}\n\n".format(result['osm_id'])
             else:
                 if 'osm_id' in result:
@@ -107,6 +107,8 @@ def pretty_tags(data):
        t += tags['addr:country']+"\n"
     if 'phone' in tags:
         t += "\xF0\x9F\x93\x9E "+str(tags['phone'])+"\n"
+    if 'contact:phone' in tags:
+        t += "\xF0\x9F\x93\x9E "+str(tags['contact:phone'])+"\n"
     if 'fax' in tags:
         t += "\xF0\x9F\x93\xA0 "+str(tags['fax'])+"\n"
     if 'email' in tags:
@@ -228,6 +230,8 @@ def PhoneCommand(message):
     osm_data = getData(id)
     if "phone" in osm_data["tag"]:
         response = ["\xF0\x9F\x93\x9E "+osm_data["tag"]["phone"]]
+    if "contact:phone" in osm_data["tag"]:
+        response = ["\xF0\x9F\x93\x9E "+osm_data["tag"]["contact:phone"]]
     return response
 
 def CleanMessage(message):
