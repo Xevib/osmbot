@@ -49,7 +49,7 @@ class OSMbot(object):
             'text': text,
             'disable_web_page_preview': disable_web_page_preview,
             'reply_to_message_id': reply_to_message_id,
-            'reply_markup': reply_markup
+            'reply_markup': json.dumps(reply_markup)
         }
         if disable_web_page_preview is True:
             params['disable_web_page_preview'] = 'true'

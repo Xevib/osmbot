@@ -12,12 +12,16 @@ class User(object):
     def __init__(self, database):
         self.conn = sqlite3.connect(database)
         self.conn.row_factory = dict_factory
-        #CREATE TABLE user (id int, mode varchar(30),zoom int,format varchar(30))
+        #CREATE TABLE user (id int, mode varchar(30),zoom int,format varchar(30),language varchar(10))
     def get_user(self, id):
         cur = self.conn.cursor()
         cur.execute("SELECT * FROM user WHERE id = ? LIMIT 1", (id,))
         data = cur.fetchone()
         cur.close()
+        if 'lang' not in data:
+            data['lang'] ='en'
+        if data['lang'] == None:
+            data['lang'] = 'en'
         return data
 
     def set_field(self, id, field, value):
@@ -34,4 +38,4 @@ class User(object):
         return cur.rowcount != 0
 
     def get_defaultconfig(self):
-        return {}
+        return {'lang': 'en','mode':'normal'}
