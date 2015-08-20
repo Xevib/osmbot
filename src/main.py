@@ -83,7 +83,7 @@ def SearchCommand(message):
     search = message[8:].replace("\n", "").replace("\r", "")
     results = nom.query(search)
     if len(results) == 0:
-        response = [_('Sorry but I couldn\'t find any result for "{0}" \xF0\x9F\x98\xA2\nBut you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org').format(search)]
+        response = [_('Sorry but I couldn\'t find any result for "{0}"')+" \xF0\x9F\x98\xA2\n"+_('But you can try to improve OpenStreetMap\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org').format(search)]
     else:
         t = 'Results for "{0}":\n\n'.format(search)
         for result in results:

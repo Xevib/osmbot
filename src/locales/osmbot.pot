@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-15 18:59+0200\n"
+"POT-Creation-Date: 2015-08-20 18:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,100 +17,119 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: main.py:47
+#: src/main.py:44
+msgid "Language set"
+msgstr ""
+
+#: src/main.py:47
+msgid "Language not avaible yet"
+msgstr ""
+
+#: src/main.py:55
+msgid "Chose the language"
+msgstr ""
+
+#: src/main.py:75
 msgid "If you see strange emojis it's due a Telegram easter egg"
 msgstr ""
 
-#: main.py:49
+#: src/main.py:77
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
 msgstr ""
 
-#: main.py:57
+#: src/main.py:86
 #, python-brace-format
+msgid "Sorry but I couldn't find any result for \"{0}\""
+msgstr ""
+
+#: src/main.py:86
 msgid ""
-"Sorry but I couldn't find any result for \"{0}\" 😢\n"
 "But you can try to improve OpenStreetMap🔍\n"
 "http://www.openstreetmap.org"
 msgstr ""
 
-#: main.py:79 main.py:81 main.py:83 main.py:85
+#: src/main.py:108 src/main.py:110 src/main.py:112 src/main.py:114
 msgid "More info"
 msgstr ""
 
-#: main.py:87 main.py:142
+#: src/main.py:116 src/main.py:171
 msgid "OpenStreetMap contributors"
 msgstr ""
 
-#: main.py:169
+#: src/main.py:198
 msgid "Please send me your location"
 msgstr ""
 
-#: main.py:169
+#: src/main.py:198
 msgid ""
 "to receive the map.\n"
 "You can do it with the Telegram paperclip button"
 msgstr ""
 
-#: main.py:225 main.py:227
+#: src/main.py:254 src/main.py:256
 msgid "Sorry, I can't understand you"
 msgstr ""
 
-#: main.py:225 main.py:227
+#: src/main.py:254 src/main.py:256
 msgid "Perhaps I could help you with the command /help"
 msgstr ""
 
-#: main.py:257
+#: src/main.py:286
 msgid "Sorry but I couldn't find any result, please check the ID"
 msgstr ""
 
-#: main.py:260
+#: src/main.py:289
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr ""
 
-#: main.py:299
+#: src/main.py:334
+msgid "Setting not recognized"
+msgstr ""
+
+#: src/main.py:340
 msgid ""
 "Hi, I'm the robot for OpenStreetMap data.\n"
 "How I can help you?"
 msgstr ""
 
-#: main.py:318
+#: src/main.py:363
 msgid ""
 "OpenStreetMap bot info:\n"
 "\n"
 "CREDITS&CODE"
 msgstr ""
 
-#: main.py:319
+#: src/main.py:364
 msgid " Author: OSM català (Catalan OpenStreetMap community)"
 msgstr ""
 
-#: main.py:320
+#: src/main.py:365
 msgid "Code:"
 msgstr ""
 
-#: main.py:320
+#: src/main.py:365
 msgid "License: GPLv3"
 msgstr ""
 
-#: main.py:322
+#: src/main.py:367
 msgid "RATING"
 msgstr ""
 
-#: main.py:322
+#: src/main.py:367
 msgid "Rating&reviews"
 msgstr ""
 
-#: main.py:323
+#: src/main.py:368
 msgid "Please rate me at"
 msgstr ""
 
-#: main.py:324
+#: src/main.py:369
 msgid "Thanks for use @OSMbot!!"
 msgstr ""
 
-#: main.py:326
+#: src/main.py:371
 msgid ""
 "OpenStreetMap bot help:\n"
 "\n"
@@ -139,15 +158,15 @@ msgid ""
 "/search <search_term> - search from Nominatim in all OpenStreetMap database."
 msgstr ""
 
-#: main.py:330
+#: src/main.py:375
 msgid ""
 "Please indicate what are you searching with command /search <search term>"
 msgstr ""
 
-#: main.py:332
+#: src/main.py:377
 msgid "Use /search <search term> command to indicate what you are searching"
 msgstr ""
 
-#: main.py:336
+#: src/main.py:381
 msgid "Somthing failed please try it latter"
 msgstr ""
