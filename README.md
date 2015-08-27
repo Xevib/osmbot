@@ -1,0 +1,3 @@
+# osmbot
+OpenStreetMap Telegram bot
+
