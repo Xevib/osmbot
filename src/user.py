@@ -18,11 +18,14 @@ class User(object):
         cur.execute("SELECT * FROM user WHERE id = ? LIMIT 1", (id,))
         data = cur.fetchone()
         cur.close()
-        if 'lang' not in data:
-            data['lang'] ='en'
-        if data['lang'] == None:
-            data['lang'] = 'en'
-        return data
+        if data is None:
+            return self.get_defaultconfig()
+        else:
+            if 'lang' not in data:
+                data['lang'] ='en'
+            if data['lang'] == None:
+                data['lang'] = 'en'
+            return data
 
     def set_field(self, id, field, value):
         cur = self.conn.cursor()
