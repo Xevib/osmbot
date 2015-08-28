@@ -196,7 +196,7 @@ def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=N
             m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})$",message)
             zoom = m.groupdict()["zoom"]
             imgformat = m.groupdict()["imgformat"]
-            response.append(_("Please send me your location") + " \xF0\x9F\x93\x8D " + _("to receive the map") + ".\n" +
+            response.append(_("Please send me your location") + " \xF0\x9F\x93\x8D " + _("to receive the map.") + ".\n" +
                             _("You can do it with the Telegram paperclip button") + " \xF0\x9F\x93\x8E.")
             if imgformat is None:
                 imgformat = 'png'

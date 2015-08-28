@@ -5,13 +5,14 @@
 # Translators:
 # Carlos Sánchez López <erielkhan@gmail.com>, 2015
 # Carlos Sánchez López <erielkhan@gmail.com>, 2015
+# Xevi <xbarnada@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-20 18:38+0200\n"
-"PO-Revision-Date: 2015-08-27 23:55+0000\n"
-"Last-Translator: Carlos Sánchez López <erielkhan@gmail.com>\n"
+"POT-Creation-Date: 2015-08-28 18:41+0200\n"
+"PO-Revision-Date: 2015-08-28 17:18+0000\n"
+"Last-Translator: Xevi <xbarnada@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/osm-catala/osmbot/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,149 +20,194 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/main.py:44
+#: main.py:44
 msgid "Language set"
 msgstr "Ange språk"
 
-#: src/main.py:47
+#: main.py:47
 msgid "Language not avaible yet"
 msgstr "Språket är inte tillgängligt"
 
-#: src/main.py:55
-msgid "Chose the language"
+#: main.py:55
+msgid "Choose the language"
 msgstr "Välja språk"
 
-#: src/main.py:75
+#: main.py:75
 msgid "If you see strange emojis it's due a Telegram easter egg"
 msgstr "Om du säger ett ovanligt emoji är det en Telegrams påskägg."
 
-#: src/main.py:77
+#: main.py:77
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
 msgstr "Det finns ingen emoji. Du skulle prova kommando /legend <osm_nyckelordet:värde>"
 
-#: src/main.py:86
+#: main.py:86
 #, python-brace-format
 msgid "Sorry but I couldn't find any result for \"{0}\""
 msgstr "Jag finner ingenting för \"{0}\""
 
-#: src/main.py:86
-msgid ""
-"But you can try to improve OpenStreetMap🔍\n"
-"http://www.openstreetmap.org"
-msgstr "Du kan prova förbättra OpenStreetMap🔍\nhttp://www.openstreetmap.org"
+#: main.py:87
+msgid "But you can try to improve OpenStreetMap"
+msgstr "Du kan prova förbättra OpenStreetMap"
 
-#: src/main.py:108 src/main.py:110 src/main.py:112 src/main.py:114
+#: main.py:109 main.py:111 main.py:113 main.py:115
 msgid "More info"
 msgstr "Mer information"
 
-#: src/main.py:116 src/main.py:171
+#: main.py:117 main.py:172
 msgid "OpenStreetMap contributors"
 msgstr "OpenStreetMaps frivilligor"
 
-#: src/main.py:198
+#: main.py:199
 msgid "Please send me your location"
 msgstr "Skicka mig din läge"
 
-#: src/main.py:198
-msgid ""
-"to receive the map.\n"
-"You can do it with the Telegram paperclip button"
-msgstr "att få kartan.\nDu kan göra det genom Telegrams gem knappen"
+#: main.py:199
+msgid "to receive the map."
+msgstr "att få kartan."
 
-#: src/main.py:254 src/main.py:256
+#: main.py:200
+msgid "You can do it with the Telegram paperclip button"
+msgstr "Du kan göra det genom Telegrams gem knappen"
+
+#: main.py:256 main.py:258
 msgid "Sorry, I can't understand you"
 msgstr "Förlåt. Jag kan inte förstå dig"
 
-#: src/main.py:254 src/main.py:256
+#: main.py:256 main.py:258
 msgid "Perhaps I could help you with the command /help"
 msgstr "Kanske jag kan hjälpa dig genom komman /help"
 
-#: src/main.py:286
+#: main.py:288
 msgid "Sorry but I couldn't find any result, please check the ID"
 msgstr "Jag finner ingenting. Du kan kolla ID och prova igen"
 
-#: src/main.py:289
+#: main.py:291
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "Jag kan inte erkänna etiketter för detta element. Jag kanske ska göra det med mina framtida funktioner"
 
-#: src/main.py:334
+#: main.py:336
 msgid "Setting not recognized"
 msgstr "Inställning är inte erkänd"
 
-#: src/main.py:340
-msgid ""
-"Hi, I'm the robot for OpenStreetMap data.\n"
-"How I can help you?"
-msgstr "Hej! Jag är den OpenStreetMaps uppgifter robot. \nHur kan jag hjälpa dig?"
+#: main.py:342
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Hej! Jag är den OpenStreetMaps uppgifter robot."
 
-#: src/main.py:363
-msgid ""
-"OpenStreetMap bot info:\n"
-"\n"
-"CREDITS&CODE"
-msgstr "OpenStreetMap bot info\n\nEFTERTEXTER&DATAKOD"
+#: main.py:342
+msgid "How I can help you?"
+msgstr "Hur kan jag hjälpa dig?"
 
-#: src/main.py:364
+#: main.py:365
+msgid "OpenStreetMap bot info:"
+msgstr "OpenStreetMap bot info:"
+
+#: main.py:365
+msgid "CREDITS&CODE"
+msgstr "EFTERTEXTER&DATAKOD"
+
+#: main.py:366
 msgid " Author: OSM català (Catalan OpenStreetMap community)"
 msgstr "Upphovsman: OSM català (Katalanska OpenStreetMap gemenskap)"
 
-#: src/main.py:365
+#: main.py:367
 msgid "Code:"
 msgstr "Datakod:"
 
-#: src/main.py:365
+#: main.py:367
 msgid "License: GPLv3"
 msgstr "Licens: GPLv3"
 
-#: src/main.py:367
+#: main.py:369
 msgid "RATING"
 msgstr "BETYGSÄTTA `?"
 
-#: src/main.py:367
+#: main.py:369
 msgid "Rating&reviews"
 msgstr "Betyg&omdömer"
 
-#: src/main.py:368
+#: main.py:370
 msgid "Please rate me at"
 msgstr "Var vänlig och betygsätt mig i"
 
-#: src/main.py:369
+#: main.py:371
 msgid "Thanks for use @OSMbot!!"
 msgstr "Tack för använda @OSMbot!!"
 
-#: src/main.py:371
-msgid ""
-"OpenStreetMap bot help:\n"
-"\n"
-"You can control me by sending these commands:\n"
-"\n"
-"/about - Show info about OSMbot: credits&code, news and ratings&reviews\n"
-"\n"
-"/details<type><osm_id> - Show some tags from OSM database by ID.\n"
-"The ID is generated by /search command, but if you know an OSM ID you can try it.\n"
-"The type it's optional and it can be nod, way or rel. If you don't specify it, the bot will try to deduce it\n"
-"\n"
-"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot\n"
-"\n"
-"/map <coord> <format> <scale> - Send a map with different options:\n"
-"  <coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location\n"
-"  <format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default\n"
-"  <scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.\n"
-"\n"
-"/search <search_term> - search from Nominatim in all OpenStreetMap database."
-msgstr "OpenStreetMap bot hjälp: \n\nDu kan styra mig genom dessa kommandon: \n\n/om - Visa info om OSMbot: eftertexter&datakod, nyheter och betyg&omdömer\n\n/detaljer <typ> <osm_id> - Visa taggar från OSMs databas av ID. \nID skapas genom /sök kommando, men om vet du en OSM-ID kan du prova det.\nTypen är frivillig. Det kan vara punkt, väg eller relation. Roboten kommer att sluta sig till det om inte du anger det.\n\n/legend <osm_nyckelord> - Visa lista om nyckelord=värde par med Emoji i OSMbot. Om du inte anger ett <osm_nyckelord>, visar det alla nyckelord=värde par med Emoji.\n\n/karta <koord> <bildformat> <skala> - Skapa en karta med olika optioner: \n<koord> Kan vara en punkt (lat, lon) eller en markeringsruta (minlon, minlat, maxlon, maxlat). Om du inte använder det kan robot skapa din läge.\n<format> Kan vara png, jpeg eller pdf. Om du inte anger format använder bot png som standard.\n<skala> Nivås zoom (1-19). Om du inte använder det använder bot 19 som standard.\n\n/sök <SÖKTE_TERM> - söker från Nominatim i alla OpenStreetMaps databas."
+#: main.py:373
+msgid "OpenStreetMap bot help:"
+msgstr "OpenStreetMap bot hjälp: "
 
-#: src/main.py:375
+#: main.py:373
+msgid "You can control me by sending these commands:"
+msgstr "Du kan styra mig genom dessa kommandon: "
+
+#: main.py:374
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - Visa info om OSMbot: eftertexter&datakod, nyheter och betyg&omdömer"
+
+#: main.py:375
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details <typ> <osm_id> - Visa taggar från OSMs databas av ID. "
+
+#: main.py:376
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "ID skapas genom /sök kommando, men om vet du en OSM-ID kan du prova det."
+
+#: main.py:377
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "Typen är frivillig. Det kan vara punkt, väg eller relation. Roboten kommer att sluta sig till det om inte du anger det."
+
+#: main.py:378
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <osm_nyckelord> - Visa lista om nyckelord=värde par med Emoji i OSMbot. Om du inte anger ett <osm_nyckelord>, visar det alla nyckelord=värde par med Emoji."
+
+#: main.py:379
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <koord> <bildformat> <skala> - Skapa en karta med olika optioner: "
+
+#: main.py:380
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<koord> Kan vara en punkt (lat, lon) eller en markeringsruta (minlon, minlat, maxlon, maxlat). Om du inte använder det kan robot skapa din läge."
+
+#: main.py:381
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<format> Kan vara png, jpeg eller pdf. Om du inte anger format använder bot png som standard."
+
+#: main.py:382
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<skala> Nivås zoom (1-19). Om du inte använder det använder bot 19 som standard."
+
+#: main.py:383
+msgid ""
+"/search <search term> - search from Nominatim in all OpenStreetMap database."
+msgstr "/sök <SÖKTE_TERM> - söker från Nominatim i alla OpenStreetMaps databas."
+
+#: main.py:387
 msgid ""
 "Please indicate what are you searching with command /search <search term>"
 msgstr "Ange vad du söker genom kommando /search <sökte term>"
 
-#: src/main.py:377
+#: main.py:389
 msgid "Use /search <search term> command to indicate what you are searching"
 msgstr "Använda /search <söka uttryck> kommando för ange vad du söker"
 
-#: src/main.py:381
-msgid "Somthing failed please try it latter"
+#: main.py:393
+msgid "Something failed please try it latter"
 msgstr "Någonting misslyckades. Du kan prova igen senare"
