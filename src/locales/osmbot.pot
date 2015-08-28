@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-27 17:11+0200\n"
+"POT-Creation-Date: 2015-08-28 18:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -156,8 +156,8 @@ msgstr ""
 
 #: main.py:377
 msgid ""
-"The type it's optional and it can be nod, way or rel. If you don't specify "
-"it, the bot will try to deduce it"
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
 msgstr ""
 
 #: main.py:378
@@ -191,7 +191,7 @@ msgstr ""
 
 #: main.py:383
 msgid ""
-"/search <search_term> - search from Nominatim in all OpenStreetMap database."
+"/search <search term> - search from Nominatim in all OpenStreetMap database."
 msgstr ""
 
 #: main.py:387
@@ -204,5 +204,5 @@ msgid "Use /search <search term> command to indicate what you are searching"
 msgstr ""
 
 #: main.py:393
-msgid "Somthing failed please try it latter"
+msgid "Something failed please try it latter"
 msgstr ""
