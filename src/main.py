@@ -11,7 +11,7 @@ from maptools import download,genBBOX
 import gettext
 
 import user as u
-avaible_languages = ['Catalan','English','Spanish']
+avaible_languages = ['Catalan','English','Spanish','Swedish']
 
 def getData(id, geom_type=None):
     if geom_type is None:
@@ -40,10 +40,12 @@ def SetLanguageCommand(message,user_id,u):
             u.set_field(user_id,'lang', 'en')
         elif message == 'Spanish':
             u.set_field(user_id,'lang', 'es')
+        elif message == 'Swedish':
+            u.set_field(user_id,'lang', 'sv')
         u.set_field(user_id,'mode','normal')
         return [_("Language set")]
     else:
-        u.set_field(user_id,'mode','normal')
+        u.set_field(user_id, 'mode', 'normal')
         return [_("Language not avaible yet")]
 
 
