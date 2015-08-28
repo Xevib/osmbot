@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-28 18:41+0200\n"
+"POT-Creation-Date: 2015-08-28 20:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgid "CREDITS&CODE"
 msgstr ""
 
 #: main.py:366
-msgid " Author: OSM català (Catalan OpenStreetMap community)"
+msgid "Author: OSM català (Catalan OpenStreetMap community)"
 msgstr ""
 
 #: main.py:367
@@ -114,6 +114,10 @@ msgstr ""
 
 #: main.py:367
 msgid "License: GPLv3"
+msgstr ""
+
+#: main.py:368
+msgid "NEWS"
 msgstr ""
 
 #: main.py:369
