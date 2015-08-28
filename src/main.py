@@ -322,7 +322,7 @@ def attend(sc):
                     else:
                         message = ""
                     chat_id = query["message"]["chat"]["id"]
-                lang = gettext.translation('messages', localedir='./locales/', languages=['en'] )
+                lang = gettext.translation('messages', localedir='./locales/', languages=[user_config['lang'],'en'] )
                 lang.install()
                 _ = lang.gettext
                 message = CleanMessage(message)
@@ -363,9 +363,9 @@ def attend(sc):
                         response = LegendCommand(message)
                     elif message.startswith("/about"):
                         response = [ _("OpenStreetMap bot info:") + "\n\n" + _("CREDITS&CODE") + "\n\xF0\x9F\x91\xA5 " +
-                                      _(" Author: OSM català (Catalan OpenStreetMap community)")
+                                      _("Author: OSM català (Catalan OpenStreetMap community)")
                                      + "\n\xF0\x9F\x94\xA7 " + _("Code:") + " https://github.com/Xevib/osmbot\n\xE2\x99\xBB "+_("License: GPLv3")+
-                                      ", http://www.gnu.org/licenses/gpl-3.0.en.html\n\nNEWS\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\n"+
+                                      ", http://www.gnu.org/licenses/gpl-3.0.en.html\n\n" + _("NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\n"+
                                       _("RATING")+"\n\xE2\xAD\x90 "+_("Rating&reviews")+
                                       ": http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D "+_("Please rate me at") +
                                       ": https://telegram.me/storebot?start=osmbot\n\n"+_("Thanks for use @OSMbot!!")]
