@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-29 08:39+0200\n"
+"POT-Creation-Date: 2015-08-29 11:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: main.py:46
-msgid "Language set"
+msgid "Now I will talk you with the new language"
 msgstr ""
 
 #: main.py:49
-msgid "Language not avaible yet"
+msgid "Ooops! I can't talk this language"
+msgstr ""
+
+#: main.py:49
+msgid "yet"
+msgstr ""
+
+#: main.py:49
+msgid "But you can help me to learn it in Transifex"
 msgstr ""
 
 #: main.py:57
-msgid "Choose the language"
+msgid "Choose the language for talk with you"
+msgstr ""
+
+#: main.py:62
+msgid "What do you want to configure?"
 msgstr ""
 
 #: main.py:77
@@ -46,22 +58,28 @@ msgstr ""
 msgid "But you can try to improve OpenStreetMap"
 msgstr ""
 
-#: main.py:107
-#, python-brace-format
-msgid "More info /details{0}"
+#: main.py:91
+msgid "Results for"
 msgstr ""
 
-#: main.py:107
-#, python-brace-format
-msgid "Phone /phone{0}"
-msgstr ""
-
-#: main.py:111 main.py:113 main.py:115 main.py:117
+#: main.py:107 main.py:111 main.py:113 main.py:115 main.py:117
 msgid "More info"
+msgstr ""
+
+#: main.py:107
+msgid "Phone"
 msgstr ""
 
 #: main.py:119 main.py:174
 msgid "OpenStreetMap contributors"
+msgstr ""
+
+#: main.py:128
+msgid "Tags for "
+msgstr ""
+
+#: main.py:162
+msgid "meters"
 msgstr ""
 
 #: main.py:201
@@ -124,6 +142,10 @@ msgstr ""
 
 #: main.py:369
 msgid "License: GPLv3"
+msgstr ""
+
+#: main.py:370
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr ""
 
 #: main.py:370
@@ -205,18 +227,18 @@ msgstr ""
 
 #: main.py:385
 msgid ""
-"/search <search term> - search from Nominatim in all OpenStreetMap database."
+"/search <search_term> - search from Nominatim in all OpenStreetMap database."
 msgstr ""
 
 #: main.py:389
 msgid ""
-"Please indicate what are you searching with command /search <search term>"
+"Please indicate what are you searching with command /search <search_term>"
 msgstr ""
 
 #: main.py:391
-msgid "Use /search <search term> command to indicate what you are searching"
+msgid "Use /search <search_term> command to indicate what you are searching"
 msgstr ""
 
-#: main.py:397
-msgid "Something failed please try it latter"
+#: main.py:395
+msgid "please try it latter"
 msgstr ""
