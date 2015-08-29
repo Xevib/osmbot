@@ -79,11 +79,11 @@ def LegendCommand(message):
         return [_('No emoji found, perhaps you should try with /legend <osm_key:value>')]
     return t
 
-def SearchCommand(message):
+def SearchCommand(message,user_config):
     response = []
     t = ""
     search = message[8:].replace("\n", "").replace("\r", "")
-    results = nom.query(search)
+    results = nom.query(search, acceptlanguage=user_config['lang'])
     if len(results) == 0:
         response = [_('Sorry but I couldn\'t find any result for "{0}"').format(search)+" \xF0\x9F\x98\xA2\n" +
                     _('But you can try to improve OpenStreetMap')+'\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org']
@@ -384,7 +384,7 @@ def attend(sc):
                                     "\n  " + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
                                     "\n\n" + _("/search <search_term> - search from Nominatim in all OpenStreetMap database.")]
                     elif re.match("/search.*", message) is not None and message[8:] != "":
-                        response += SearchCommand(message)
+                        response += SearchCommand(message,user_config)
                     elif re.match("/search", message) is not None:
                         response = [_("Please indicate what are you searching with command /search <search_term>")]
                     else:
