@@ -392,7 +392,7 @@ def attend(sc):
                 bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
             except Exception as e:
                 print str(e)
-                bot.sendMessage(chat_id, [gettext.gettext_("Something failed")+" \xF0\x9F\x98\xB5 "+_("please try it latter")+" \xE2\x8F\xB3"], disable_web_page_preview=(not preview))
+                bot.sendMessage(chat_id, [gettext.gettext("Something failed")+" \xF0\x9F\x98\xB5 "+gettext.gettext("please try it latter")+" \xE2\x8F\xB3"], disable_web_page_preview=(not preview))
             config["last_id"] = query["update_id"]
             config.write()
         sc.enter(int(config["update_interval"]), 1, attend, (sc,))
