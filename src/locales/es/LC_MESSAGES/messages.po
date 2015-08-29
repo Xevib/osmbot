@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Albert F <lakonfrariadelavila@gmail.com>, 2015
 # el_libre como el chaval <el.libre@gmail.com>, 2015
 # Xevi <xbarnada@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-28 18:41+0200\n"
-"PO-Revision-Date: 2015-08-28 17:04+0000\n"
-"Last-Translator: Xevi <xbarnada@gmail.com>\n"
+"POT-Creation-Date: 2015-08-29 11:40+0200\n"
+"PO-Revision-Date: 2015-08-29 09:54+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/osm-catala/osmbot/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,194 +20,230 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main.py:44
-msgid "Language set"
-msgstr "Seleccionar idioma"
+#: main.py:46
+msgid "Now I will talk you with the new language"
+msgstr "Ahora te hablaré con el nuevo idioma"
 
-#: main.py:47
-msgid "Language not avaible yet"
-msgstr "Idioma no disponible aún"
+#: main.py:49
+msgid "Ooops! I can't talk this language"
+msgstr "Vaya! No puede hablarte en este idioma"
 
-#: main.py:55
-msgid "Choose the language"
-msgstr "Seleccionar idioma"
+#: main.py:49
+msgid "yet"
+msgstr "todavía"
 
-#: main.py:75
+#: main.py:49
+msgid "But you can help me to learn it in Transifex"
+msgstr "Pero puedes ayudarme a aprenderlo en Transifex"
+
+#: main.py:57
+msgid "Choose the language for talk with you"
+msgstr "Escoge el idioma con qué quieres que te hable"
+
+#: main.py:62
+msgid "What do you want to configure?"
+msgstr "Qué quieres configurar?"
+
+#: main.py:77
 msgid "If you see strange emojis it's due a Telegram easter egg"
 msgstr "Si ves emojis raros es culpa de un huevo de pascua de Telegram"
 
-#: main.py:77
+#: main.py:79
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
 msgstr "No hemos encontrado emoji, prueba a usar /legend <clave_osm:valor>"
 
-#: main.py:86
+#: main.py:88
 #, python-brace-format
 msgid "Sorry but I couldn't find any result for \"{0}\""
 msgstr "No he podido encontrar ningún resultado para \"{0}\""
 
-#: main.py:87
+#: main.py:89
 msgid "But you can try to improve OpenStreetMap"
 msgstr "Pero puedes ayudar a mejorar OpenStreetMap"
 
-#: main.py:109 main.py:111 main.py:113 main.py:115
-msgid "More info"
-msgstr "Más info"
+#: main.py:91
+msgid "Results for"
+msgstr "Resultados para"
 
-#: main.py:117 main.py:172
+#: main.py:107 main.py:111 main.py:113 main.py:115 main.py:117
+msgid "More info"
+msgstr "Más información"
+
+#: main.py:107
+msgid "Phone"
+msgstr "Teléfono"
+
+#: main.py:119 main.py:174
 msgid "OpenStreetMap contributors"
 msgstr "Contribuidores de OpenStreetMap"
 
-#: main.py:199
+#: main.py:128
+msgid "Tags for "
+msgstr "Etiquetas para"
+
+#: main.py:162
+msgid "meters"
+msgstr "metros"
+
+#: main.py:201
 msgid "Please send me your location"
 msgstr "Envíame tu ubicación"
 
-#: main.py:199
+#: main.py:201
 msgid "to receive the map."
 msgstr "para recibir el mapa."
 
-#: main.py:200
+#: main.py:202
 msgid "You can do it with the Telegram paperclip button"
 msgstr "Puedes hacerlo con el botón de clip de Telegram"
 
-#: main.py:256 main.py:258
+#: main.py:258 main.py:260
 msgid "Sorry, I can't understand you"
 msgstr "No te entiendo"
 
-#: main.py:256 main.py:258
+#: main.py:258 main.py:260
 msgid "Perhaps I could help you with the command /help"
 msgstr "A lo mejor puedo ayudarte con la orden /help"
 
-#: main.py:288
+#: main.py:290
 msgid "Sorry but I couldn't find any result, please check the ID"
 msgstr "No encuentro ningún resultado, comprueba la ID"
 
-#: main.py:291
+#: main.py:293
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "Ahora no puedo reconocer etiquetas de este elemento, en un futuro puede ser que lo sepa reconocer"
 
-#: main.py:336
+#: main.py:338
 msgid "Setting not recognized"
 msgstr "Configuración no reconocida"
 
-#: main.py:342
+#: main.py:344
 msgid "Hi, I'm the robot for OpenStreetMap data"
 msgstr "Hola, soy el robot de datos de OpenStreetMap."
 
-#: main.py:342
+#: main.py:344
 msgid "How I can help you?"
 msgstr "¿Cómo te puedo ayudar?"
 
-#: main.py:365
+#: main.py:367
 msgid "OpenStreetMap bot info:"
-msgstr "OpenStreetMap bot info:"
-
-#: main.py:365
-msgid "CREDITS&CODE"
-msgstr "CREDITS&CODE"
-
-#: main.py:366
-msgid " Author: OSM català (Catalan OpenStreetMap community)"
-msgstr " Autor: OSM català (comunidad catalana de OpenStreetMap)"
+msgstr "Información del bot de OpenStreetMap:"
 
 #: main.py:367
+msgid "CREDITS&CODE"
+msgstr "CRÉDITOS y CÓDIGO"
+
+#: main.py:368
+msgid "Author: OSM català (Catalan OpenStreetMap community)"
+msgstr "Autor: OSM català (comunidad catalana de OpenStreetMap)"
+
+#: main.py:369
 msgid "Code:"
 msgstr "Código:"
 
-#: main.py:367
+#: main.py:369
 msgid "License: GPLv3"
 msgstr "Licencia: GPLv3"
 
-#: main.py:369
+#: main.py:370
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
+
+#: main.py:370
+msgid "NEWS"
+msgstr "NOTICIAS"
+
+#: main.py:371
 msgid "RATING"
 msgstr "VALORACIÓN"
 
-#: main.py:369
+#: main.py:371
 msgid "Rating&reviews"
-msgstr "Valoraciones&reseñas"
+msgstr "Valoraciones y reseñas"
 
-#: main.py:370
+#: main.py:372
 msgid "Please rate me at"
 msgstr "Valórame en"
 
-#: main.py:371
+#: main.py:373
 msgid "Thanks for use @OSMbot!!"
 msgstr "¡¡Gracias por usar @OSMbot!!"
 
-#: main.py:373
+#: main.py:375
 msgid "OpenStreetMap bot help:"
 msgstr "Ayuda del bot OpenStreetMap:"
 
-#: main.py:373
+#: main.py:375
 msgid "You can control me by sending these commands:"
 msgstr "Puedes controlarme usando estas órdenes:"
 
-#: main.py:374
+#: main.py:376
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
 msgstr "/about - Muestra información sobre OSMbot: créditos&código, noticias y valoraciones y reseñas."
 
-#: main.py:375
+#: main.py:377
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
 msgstr "/details<tipo><id_osm> - Muestra algunas etiquetas de la base de datos de OSM por ID."
 
-#: main.py:376
+#: main.py:378
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
 msgstr "La ID te la dará la orden /search pero si ya la sabes puedes escribirla directamente."
 
-#: main.py:377
+#: main.py:379
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
-msgstr "El tipo es opcional y puede ser nod (nodo), way (vía) o rel. (relación) .Si no lo especificas el bot intentará deducirlo."
+msgstr "El tipo es opcional y puede ser nod (nodo), way (vía) o rel (relación). Si no lo especificas el bot intentará deducirlo."
 
-#: main.py:378
+#: main.py:380
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
 msgstr "/legend <clave_osm> - Muestra lista de pares clave=valor y su emoji en OSMbot. Si no especificas una <clave_osm>, muestra todos los pares de de clave=valor con emoji en Osmbot."
 
-#: main.py:379
+#: main.py:381
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
 msgstr "/map <coord> <formato> <escala> - envía un mapa con diversas opciones:"
 
-#: main.py:380
+#: main.py:382
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
-msgstr "<coord> Puede ser un punto (lat,lon) o un área (minlon,minlat,maxlon,maxlat). Si no usas esta opción puedes enviar tu ubicación."
+msgstr "<coord> Puede ser un punto (lat,lon) o una área (minlon,minlat,maxlon,maxlat). Si no usas esta opción puedes enviar tu ubicación."
 
-#: main.py:381
+#: main.py:383
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
 msgstr "<formato> Puede ser png, jpeg o pdf. Si no especificas el bot usará png por defecto."
 
-#: main.py:382
+#: main.py:384
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
 msgstr "<escala> Nivel de zoom (1-19). Si no especificas, usa 19 por defecto."
 
-#: main.py:383
+#: main.py:385
 msgid ""
-"/search <search term> - search from Nominatim in all OpenStreetMap database."
+"/search <search_term> - search from Nominatim in all OpenStreetMap database."
 msgstr "/search <lugar_a_buscar> - busca desde Nominatim en toda la base de datos OpenStreetMap."
 
-#: main.py:387
-msgid ""
-"Please indicate what are you searching with command /search <search term>"
-msgstr "Indica que estás buscando con la orden /search <search term>"
-
 #: main.py:389
-msgid "Use /search <search term> command to indicate what you are searching"
-msgstr "Usa la orden /search <search term> para indicar qué buscas"
+msgid ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "Indica que estás buscando con la orden /search <lugar_a_buscar>"
 
-#: main.py:393
-msgid "Something failed please try it latter"
-msgstr "Ha fallado algo. Vuélvelo a intentar más tarde"
+#: main.py:391
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "Usa la orden /search <lugar_a_buscar> para indicar qué buscas"
+
+#: main.py:395
+msgid "please try it latter"
+msgstr "Pruébalo más tarde"
