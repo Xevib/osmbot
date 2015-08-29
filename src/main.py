@@ -11,7 +11,7 @@ from maptools import download,genBBOX
 import gettext
 
 import user as u
-avaible_languages = ['Catalan','English','Spanish','Swedish']
+avaible_languages = ['Catalan', 'English', 'Spanish', 'Swedish']
 
 def getData(id, geom_type=None):
     if geom_type is None:
@@ -35,32 +35,34 @@ def getData(id, geom_type=None):
 def SetLanguageCommand(message,user_id,u):
     if message in avaible_languages:
         if message == 'Catalan':
-            u.set_field(user_id,'lang', 'ca')
+            u.set_field(user_id, 'lang', 'ca')
         elif message == 'English':
-            u.set_field(user_id,'lang', 'en')
+            u.set_field(user_id, 'lang', 'en')
         elif message == 'Spanish':
-            u.set_field(user_id,'lang', 'es')
+            u.set_field(user_id, 'lang', 'es')
         elif message == 'Swedish':
-            u.set_field(user_id,'lang', 'sv')
-        u.set_field(user_id,'mode','normal')
+            u.set_field(user_id, 'lang', 'sv')
+        u.set_field(user_id, 'mode', 'normal')
         return [_("Now I will talk you with the new language")+' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC']
     else:
         u.set_field(user_id, 'mode', 'normal')
-        return [_("Ooops! I can't talk this language")+' \xF0\x9F\x98\xB7 ('+_("yet")+' \xF0\x9F\x98\x89)\n'+_("But you can help me to learn it in Transifex")+' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/']
+        return [_("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _("yet") +
+                ' \xF0\x9F\x98\x89)\n' + _("But you can help me to learn it in Transifex") +
+                ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/']
 
-
-
-def LanguageCommand(message,user_id,chat_id,user):
+def LanguageCommand(message, user_id, chat_id, user):
     keyboard = []
     for lang in avaible_languages:
         keyboard.append([lang])
-    bot.sendMessage(chat_id,_("Choose the language for talk with you")+' \xF0\x9F\x98\x8F', reply_markup={'keyboard': keyboard, 'one_time_keyboard': True})
+    bot.sendMessage(chat_id, _("Choose the language for talk with you") +
+                    ' \xF0\x9F\x98\x8F', reply_markup={'keyboard':keyboard, 'one_time_keyboard': True})
     user.set_field(user_id, 'mode', 'setlanguage')
     return []
 
 def SettingsCommand(message,user_id,chat_id,u):
-    bot.sendMessage(chat_id,_("What do you want to configure?")+' \xF0\x9F\x91\x86',reply_markup={'keyboard': [['Language']],'one_time_keyboard': True})
-    u.set_field(user_id,'mode', 'settings')
+    bot.sendMessage(chat_id, _("What do you want to configure?") +
+                    ' \xF0\x9F\x91\x86', reply_markup={'keyboard': [['Language']], 'one_time_keyboard': True})
+    u.set_field(user_id, 'mode', 'settings')
     return []
 
 def LegendCommand(message):
@@ -99,12 +101,12 @@ def SearchCommand(message,user_config):
                 osm_data = None
             type = result['class']+":"+result['type']
             if type in typeemoji:
-                t += typeemoji[result['class']+":"+result['type']]+" "+result["display_name"]+"\n"
+                t += typeemoji[result['class'] + ":" + result['type']] + " " + result["display_name"] + "\n"
             else:
                 t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
             t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
             if osm_data is not None and ('phone' in osm_data['tag'] or 'contact:phone' in osm_data['tag']):
-                t += "\n"+_("More info")+" /details{0}".format(result['osm_id'])+"\n"+_("Phone")+" /phone{0}".format(result['osm_id']) + "\n\n"
+                t += "\n" + _("More info") + " /details{0}".format(result['osm_id']) + "\n" + _("Phone") + " /phone{0}".format(result['osm_id']) + "\n\n"
             else:
                 if 'osm_id' in result:
                     if 'osm_type' in result and result['osm_type'] =="node":
@@ -116,7 +118,7 @@ def SearchCommand(message,user_config):
                     else:
                         t += "\n" + _("More info") + " /details{0}\n\n".format(result['osm_id'])
 
-        t += "\xC2\xA9"+_("OpenStreetMap contributors")+"\n"
+        t += "\xC2\xA9" + _("OpenStreetMap contributors") + "\n"
     return response + [t]
 
 def pretty_tags(data):
@@ -125,7 +127,7 @@ def pretty_tags(data):
     response = []
     t = ""
     if 'name' in tags:
-        t = "\xE2\x84\xB9 "+_("Tags for ")+str(tags['name'])+"\n"
+        t = "\xE2\x84\xB9 " + _("Tags for ")+str(tags['name']) + "\n"
     if 'addr:housenumber' in tags or 'addr:street' in tags or 'addr:city' in tags or 'addr:country' in tags:
         t += "\n"
     if 'addr:housenumber' and 'addr:street' in tags:
@@ -136,41 +138,41 @@ def pretty_tags(data):
         if 'addr:street' in tags:
             t += "\xF0\x9F\x93\xAE "+tags['addr:street']+"\n"
     if 'addr:city' in tags:
-        t += tags['addr:city']+"\n"
+        t += tags['addr:city'] + "\n"
     if 'addr:country' in tags:
-       t += tags['addr:country']+"\n"
+       t += tags['addr:country'] + "\n"
     if 'phone' in tags:
-        t += "\xF0\x9F\x93\x9E "+str(tags['phone'])+"\n"
+        t += "\xF0\x9F\x93\x9E " + str(tags['phone']) + "\n"
     if 'contact:phone' in tags:
-        t += "\xF0\x9F\x93\x9E "+str(tags['contact:phone'])+"\n"
+        t += "\xF0\x9F\x93\x9E " + str(tags['contact:phone']) + "\n"
     if 'fax' in tags:
-        t += "\xF0\x9F\x93\xA0 "+str(tags['fax'])+"\n"
+        t += "\xF0\x9F\x93\xA0 " + str(tags['fax']) + "\n"
     if 'email' in tags:
-        t += "\xE2\x9C\x89 "+str(tags['email'])+"\n"
+        t += "\xE2\x9C\x89 " + str(tags['email']) + "\n"
     if 'website' in tags:
         preview = True
-        t += "\xF0\x9F\x8C\x8D "+str(tags['website'])+"\n"
+        t += "\xF0\x9F\x8C\x8D " + str(tags['website']) + "\n"
     if 'opening_hours' in tags:
-        t += "\xF0\x9F\x95\x9E "+str(tags['opening_hours'])+"\n"
+        t += "\xF0\x9F\x95\x9E " + str(tags['opening_hours']) + "\n"
     if 'internet_access' in tags:
-        t += "\xF0\x9F\x93\xB6 "+str(tags['internet_access'])+"\n"
+        t += "\xF0\x9F\x93\xB6 " + str(tags['internet_access']) + "\n"
     if 'wheelchair' in tags:
-        t += "\xE2\x99\xBF "+str(tags['wheelchair'])+"\n"
+        t += "\xE2\x99\xBF " + str(tags['wheelchair']) + "\n"
     if 'population' in tags:
-        t += "\xF0\x9F\x91\xAA "+str(tags['population'])+"\n"
+        t += "\xF0\x9F\x91\xAA " + str(tags['population']) + "\n"
     if 'ele' in tags:
-        t += "\xF0\x9F\x93\x8F "+str(tags['ele'])+" "+_("meters")+"\n"
+        t += "\xF0\x9F\x93\x8F " + str(tags['ele']) + " " + _("meters") + "\n"
     if 'wikidata' in tags:
         preview = True
-        t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(urllib.quote(tags["wikidata"]))+"\n"
+        t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(urllib.quote(tags["wikidata"])) + "\n"
     if 'wikipedia' in tags:
         preview = True
         if ":" in tags["wikipedia"]:
             lang = str(tags['wikipedia'].split(":")[0])
             term = str(tags['wikipedia'].split(":")[1])
-            t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang, urllib.quote(term))+"\n"
+            t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang, urllib.quote(term)) + "\n"
         else:
-            t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"]))+"\n"
+            t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"])) + "\n"
     t += "\n\xC2\xA9 " + _("OpenStreetMap contributors") + "\n"
 
     response.append(t)
@@ -198,7 +200,8 @@ def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=N
             m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})$",message)
             zoom = m.groupdict()["zoom"]
             imgformat = m.groupdict()["imgformat"]
-            response.append(_("Please send me your location") + " \xF0\x9F\x93\x8D " + _("to receive the map.") + ".\n" +
+            response.append(_("Please send me your location") + " \xF0\x9F\x93\x8D " +
+                            _("to receive the map.") + ".\n" +
                             _("You can do it with the Telegram paperclip button") + " \xF0\x9F\x93\x8E.")
             if imgformat is None:
                 imgformat = 'png'
@@ -206,7 +209,7 @@ def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=N
                 zoom = 19
             user.set_field(user_id, 'format', imgformat)
             user.set_field(user_id, 'zoom', zoom)
-            user.set_field(user_id,'mode', 'map')
+            user.set_field(user_id, 'mode', 'map')
 
         elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)? (pngjpg|pdf)? ?(\d?\d)?", message):
             m = re.match(" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpeg|pdf)? ?(?P<zoom>\d{0,2})",message)
@@ -255,18 +258,20 @@ def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=N
                     elif imgformat == 'png':
                         bot.sendPhoto(chat_id, data, "map.png", "Map")
             else:
-                response.append(_("Sorry, I can't understand you")+" \xF0\x9F\x98\xB5\n"+_("Perhaps I could help you with the command /help")+" \xF0\x9F\x91\x8D")
+                response.append(_("Sorry, I can't understand you")+" \xF0\x9F\x98\xB5\n" +
+                                _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
         else:
-            response.append(_("Sorry, I can't understand you")+" \xF0\x9F\x98\xB5\n"+_("Perhaps I could help you with the command /help")+" \xF0\x9F\x91\x8D")
+            response.append(_("Sorry, I can't understand you") + " \xF0\x9F\x98\xB5\n" +
+                            _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
     return response
 
 def PhoneCommand(message):
     id = message[6:]
     osm_data = getData(id)
     if "phone" in osm_data["tag"]:
-        response = ["\xF0\x9F\x93\x9E "+osm_data["tag"]["phone"]]
+        response = ["\xF0\x9F\x93\x9E " + osm_data["tag"]["phone"]]
     if "contact:phone" in osm_data["tag"]:
-        response = ["\xF0\x9F\x93\x9E "+osm_data["tag"]["contact:phone"]]
+        response = ["\xF0\x9F\x93\x9E " + osm_data["tag"]["contact:phone"]]
     return response
 
 def CleanMessage(message):
@@ -290,13 +295,14 @@ def DetailsCommand(message):
         response.append(_("Sorry but I couldn't find any result, please check the ID"))
     else:
         if osm_data["tag"] == {}:
-            response = [_("Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it") + " \xF0\x9F\x98\x8B"]
+            response = [_("Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it") +
+                        " \xF0\x9F\x98\x8B"]
         else:
             response.append(t)
             t = ""
             (preview, message) = pretty_tags(osm_data)
             response.append(message)
-    return (preview,response)
+    return (preview, response)
 
 def attend(sc):
     if "last_id" in config:
@@ -324,13 +330,16 @@ def attend(sc):
                     else:
                         message = ""
                     chat_id = query["message"]["chat"]["id"]
-                lang = gettext.translation('messages', localedir='./locales/', languages=[user_config['lang'],'en'] )
+                lang = gettext.translation('messages', localedir='./locales/', languages=[user_config['lang'], 'en'])
                 lang.install()
                 _ = lang.gettext
                 message = CleanMessage(message)
                 if "location" in query["message"]:
                     if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
-                        response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"],imgformat=user_config["format"],lat=float(query["message"]["location"]["latitude"]),lon=float(query["message"]["location"]["longitude"]))
+                        response += MapCommand(
+                            message, chat_id, user_id, zoom=user_config["zoom"], imgformat=user_config["format"],
+                            lat=float(query["message"]["location"]["latitude"]),
+                            lon=float(query["message"]["location"]["longitude"]))
                 elif user_config['mode'] == 'settings':
                     if message == 'Language':
                         response += LanguageCommand(message, user_id, chat_id, user)
@@ -346,7 +355,8 @@ def attend(sc):
                         m = re.match(".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",message)
                         lat = m.groupdict()["lat"]
                         lon = m.groupdict()["lon"]
-                        response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"], imgformat=user_config["format"], lat=float(lat), lon=float(lon))
+                        response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"],
+                                               imgformat=user_config["format"], lat=float(lat), lon=float(lon))
                     elif message == "Language":
                         response += LanguageCommand(message, chat_id, user)
                     elif message.startswith("/settings"):
@@ -364,25 +374,30 @@ def attend(sc):
                     elif message.startswith("/legend"):
                         response = LegendCommand(message)
                     elif message.startswith("/about"):
-                        response = [ _("OpenStreetMap bot info:") + "\n\n" + _("CREDITS&CODE") + "\n\xF0\x9F\x91\xA5 " +
-                                      _("Author: OSM català (Catalan OpenStreetMap community)")
-                                     + "\n\xF0\x9F\x94\xA7 " + _("Code:") + " https://github.com/Xevib/osmbot\n\xE2\x99\xBB "+_("License: GPLv3")+
-                                      ", "+_("http://www.gnu.org/licenses/gpl-3.0.en.html")+"\n\xF0\x9F\x92\xAC " + _("Localization:") + " https://www.transifex.com/osm-catala/osmbot/" + "\n\n" + _("NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\n" +
-                                      _("RATING")+"\n\xE2\xAD\x90 "+_("Rating&reviews")+
-                                      ": http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D "+_("Please rate me at") +
-                                      ": https://telegram.me/storebot?start=osmbot\n\n"+_("Thanks for use @OSMbot!!")]
+                        response = [
+                            _("OpenStreetMap bot info:") + "\n\n" + _("CREDITS&CODE") + "\n\xF0\x9F\x91\xA5 " +
+                            _("Author: OSM català (Catalan OpenStreetMap community)") + "\n\xF0\x9F\x94\xA7 " +
+                            _("Code:") + " https://github.com/Xevib/osmbot\n\xE2\x99\xBB " +
+                            _("License: GPLv3") + ", " +
+                            _("http://www.gnu.org/licenses/gpl-3.0.en.html")+"\n\xF0\x9F\x92\xAC " +
+                            _("Localization:") + " https://www.transifex.com/osm-catala/osmbot/" + "\n\n" +
+                            _("NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\n" +
+                            _("RATING")+"\n\xE2\xAD\x90 "+_("Rating&reviews") +
+                            ": http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D "+_("Please rate me at") +
+                            ": https://telegram.me/storebot?start=osmbot\n\n"+_("Thanks for use @OSMbot!!")]
                     elif message.startswith("/help"):
-                        response = [_("OpenStreetMap bot help:") + "\n\n" + _("You can control me by sending these commands:")+
-                        "\n\n" + _("/about - Show info about OSMbot: credits&code, news and ratings&reviews")+"\n\n" +
-                                    _("/details<type><osm_id> - Show some tags from OSM database by ID.") + "\n" +
-                                    _("The ID is generated by /search command, but if you know an OSM ID you can try it.")
-                                    + "\n" + _("The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it")
-                                    + "\n\n"+_("/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot")
-                                    +"\n\n" + _("/map <coord> <format> <scale> - Send a map with different options:")+
-                                    "\n  " + _("<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location") +
-                                    "\n  " + _("<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
-                                    "\n  " + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
-                                    "\n\n" + _("/search <search_term> - search from Nominatim in all OpenStreetMap database.")]
+                        response = [
+                            _("OpenStreetMap bot help:") + "\n\n" + _("You can control me by sending these commands:") +
+                            "\n\n" + _("/about - Show info about OSMbot: credits&code, news and ratings&reviews")+"\n\n" +
+                            _("/details<type><osm_id> - Show some tags from OSM database by ID.") + "\n" +
+                            _("The ID is generated by /search command, but if you know an OSM ID you can try it.")
+                            + "\n" + _("The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it")
+                            + "\n\n"+_("/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot")
+                            +"\n\n" + _("/map <coord> <format> <scale> - Send a map with different options:")+
+                            "\n  " + _("<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location") +
+                            "\n  " + _("<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
+                            "\n  " + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
+                            "\n\n" + _("/search <search_term> - search from Nominatim in all OpenStreetMap database.")]
                     elif re.match("/search.*", message) is not None and message[8:] != "":
                         response += SearchCommand(message,user_config)
                     elif re.match("/search", message) is not None:
@@ -392,7 +407,9 @@ def attend(sc):
                 bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
             except Exception as e:
                 print str(e)
-                bot.sendMessage(chat_id, [gettext.gettext("Something failed")+" \xF0\x9F\x98\xB5 "+gettext.gettext("please try it latter")+" \xE2\x8F\xB3"], disable_web_page_preview=(not preview))
+                bot.sendMessage(chat_id, [gettext.gettext("Something failed")+" \xF0\x9F\x98\xB5 " +
+                                          gettext.gettext("please try it latter")+" \xE2\x8F\xB3"],
+                                disable_web_page_preview=(not preview))
             config["last_id"] = query["update_id"]
             config.write()
         sc.enter(int(config["update_interval"]), 1, attend, (sc,))
