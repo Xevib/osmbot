@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-29 11:40+0200\n"
+"POT-Creation-Date: 2015-08-29 12:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,6 +149,10 @@ msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr ""
 
 #: main.py:370
+msgid "Localization:"
+msgstr ""
+
+#: main.py:370
 msgid "NEWS"
 msgstr ""
 
@@ -237,6 +241,10 @@ msgstr ""
 
 #: main.py:391
 msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr ""
+
+#: main.py:395
+msgid "Something failed"
 msgstr ""
 
 #: main.py:395
