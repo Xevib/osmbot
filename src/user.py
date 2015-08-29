@@ -32,7 +32,6 @@ class User(object):
         cur.execute("SELECT count(id) as count FROM user WHERE id = ?", (id,))
         num = cur.fetchone()
         if num['count'] == 0:
-            print "insert"
             cur.execute("INSERT INTO user (id,{0}) VALUES (?,?)".format(field), (id, value))
         else:
             cur.execute("UPDATE user SET {0} = ? WHERE id = ? ".format(field), (value, id))
