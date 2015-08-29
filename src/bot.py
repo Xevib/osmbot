@@ -15,7 +15,6 @@ class OSMbot(object):
             'limit': limit,
             'timeout': timeout
         }
-
         return json.loads(requests.get(self.url.format(self.token, method), params=params).content)
 
     def setWebhook(self):

@@ -32,7 +32,7 @@ def getData(id, geom_type=None):
         osm_data = api.RelationGet(int(id))
     return osm_data
 
-def SetLanguageCommand(message,user_id,u):
+def SetLanguageCommand(message,user_id,chat_id,u):
     if message in avaible_languages:
         if message == 'Catalan':
             u.set_field(user_id, 'lang', 'ca')
@@ -43,12 +43,18 @@ def SetLanguageCommand(message,user_id,u):
         elif message == 'Swedish':
             u.set_field(user_id, 'lang', 'sv')
         u.set_field(user_id, 'mode', 'normal')
-        return [_("Now I will talk you with the new language")+' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC']
+        bot.sendMessage(chat_id, _("Now I will talk you with the new language") +
+                        ' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC', reply_markup={'hide_keyboard': True})
+        return []
     else:
         u.set_field(user_id, 'mode', 'normal')
-        return [_("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _("yet") +
-                ' \xF0\x9F\x98\x89)\n' + _("But you can help me to learn it in Transifex") +
-                ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/']
+
+        bot.sendMessage(chat_id,
+                        _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _("yet") +
+                        ' \xF0\x9F\x98\x89)\n' + _("But you can help me to learn it in Transifex") +
+                        ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/',
+                        reply_markup={'hide_keyboard': True})
+        return []
 
 def LanguageCommand(message, user_id, chat_id, user):
     keyboard = []
@@ -347,7 +353,7 @@ def attend(sc):
                         response = [_('Setting not recognized')]
                         user.set_field(chat_id, 'mode', 'normal')
                 elif user_config['mode'] == 'setlanguage':
-                    response += SetLanguageCommand(message, user_id, user)
+                    response += SetLanguageCommand(message, user_id, chat_id, user)
                 elif "text" in query["message"]:
                     if message == "/start":
                         response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _("How I can help you?")]
@@ -358,7 +364,7 @@ def attend(sc):
                         response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"],
                                                imgformat=user_config["format"], lat=float(lat), lon=float(lon))
                     elif message == "Language":
-                        response += LanguageCommand(message, chat_id, user)
+                        response += LanguageCommand(message, user_id, chat_id, user)
                     elif message.startswith("/settings"):
                         response += SettingsCommand(message, user_id, chat_id, user)
                     elif message.startswith("/map"):
