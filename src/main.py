@@ -43,10 +43,10 @@ def SetLanguageCommand(message,user_id,u):
         elif message == 'Swedish':
             u.set_field(user_id,'lang', 'sv')
         u.set_field(user_id,'mode','normal')
-        return [_("Language set")]
+        return [_("Now I will talk you with the new language")+' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC']
     else:
         u.set_field(user_id, 'mode', 'normal')
-        return [_("Language not avaible yet")]
+        return [_("Ooops! I can't talk this language")+' \xF0\x9F\x98\xB7 ('+_("yet")+' \xF0\x9F\x98\x89)\n'+_("But you can help me to learn it in Transifex")+' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/']
 
 
 
@@ -54,12 +54,12 @@ def LanguageCommand(message,user_id,chat_id,user):
     keyboard = []
     for lang in avaible_languages:
         keyboard.append([lang])
-    bot.sendMessage(chat_id,_("Choose the language"), reply_markup={'keyboard': keyboard, 'one_time_keyboard': True})
+    bot.sendMessage(chat_id,_("Choose the language for talk with you")+' \xF0\x9F\x98\x8F', reply_markup={'keyboard': keyboard, 'one_time_keyboard': True})
     user.set_field(user_id, 'mode', 'setlanguage')
     return []
 
 def SettingsCommand(message,user_id,chat_id,u):
-    bot.sendMessage(chat_id,"Choose the settings",reply_markup={'keyboard': [['Language']],'one_time_keyboard': True})
+    bot.sendMessage(chat_id,_("What do you want to configure?")+' \xF0\x9F\x91\x86',reply_markup={'keyboard': [['Language']],'one_time_keyboard': True})
     u.set_field(user_id,'mode', 'settings')
     return []
 
@@ -88,7 +88,7 @@ def SearchCommand(message):
         response = [_('Sorry but I couldn\'t find any result for "{0}"').format(search)+" \xF0\x9F\x98\xA2\n" +
                     _('But you can try to improve OpenStreetMap')+'\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org']
     else:
-        t = 'Results for "{0}":\n\n'.format(search)
+        t = _("Results for")+' "{0}":\n\n'.format(search)
         for result in results:
             if 'osm_id' in result:
                 try:
@@ -104,7 +104,7 @@ def SearchCommand(message):
                 t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
             t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
             if osm_data is not None and ('phone' in osm_data['tag'] or 'contact:phone' in osm_data['tag']):
-                t += "\n"+_("More info /details{0}") + "\n" + _("Phone /phone{0}").format(result['osm_id']) + "\n\n"
+                t += "\n"+_("More info")+" /details{0}"+"\n"+_("Phone")+" /phone{0}".format(result['osm_id']) + "\n\n"
             else:
                 if 'osm_id' in result:
                     if 'osm_type' in result and result['osm_type'] =="node":
@@ -125,7 +125,7 @@ def pretty_tags(data):
     response = []
     t = ""
     if 'name' in tags:
-        t = "\xE2\x84\xB9 for "+str(tags['name'])+"\n"
+        t = "\xE2\x84\xB9 "+_("Tags for ")+str(tags['name'])+"\n"
     if 'addr:housenumber' in tags or 'addr:street' in tags or 'addr:city' in tags or 'addr:country' in tags:
         t += "\n"
     if 'addr:housenumber' and 'addr:street' in tags:
@@ -159,7 +159,7 @@ def pretty_tags(data):
     if 'population' in tags:
         t += "\xF0\x9F\x91\xAA "+str(tags['population'])+"\n"
     if 'ele' in tags:
-        t += "\xF0\x9F\x93\x8F "+str(tags['ele'])+" meters\n"
+        t += "\xF0\x9F\x93\x8F "+str(tags['ele'])+" "+_("meters")+"\n"
     if 'wikidata' in tags:
         preview = True
         t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(urllib.quote(tags["wikidata"]))+"\n"
@@ -367,7 +367,7 @@ def attend(sc):
                         response = [ _("OpenStreetMap bot info:") + "\n\n" + _("CREDITS&CODE") + "\n\xF0\x9F\x91\xA5 " +
                                       _("Author: OSM català (Catalan OpenStreetMap community)")
                                      + "\n\xF0\x9F\x94\xA7 " + _("Code:") + " https://github.com/Xevib/osmbot\n\xE2\x99\xBB "+_("License: GPLv3")+
-                                      ", http://www.gnu.org/licenses/gpl-3.0.en.html\n\n" + _("NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\n"+
+                                      ", "_("http://www.gnu.org/licenses/gpl-3.0.en.html")+"\n\n" + _("NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\n"+
                                       _("RATING")+"\n\xE2\xAD\x90 "+_("Rating&reviews")+
                                       ": http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D "+_("Please rate me at") +
                                       ": https://telegram.me/storebot?start=osmbot\n\n"+_("Thanks for use @OSMbot!!")]
@@ -382,17 +382,17 @@ def attend(sc):
                                     "\n  " + _("<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location") +
                                     "\n  " + _("<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
                                     "\n  " + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
-                                    "\n\n" + _("/search <search term> - search from Nominatim in all OpenStreetMap database.")]
+                                    "\n\n" + _("/search <search_term> - search from Nominatim in all OpenStreetMap database.")]
                     elif re.match("/search.*", message) is not None and message[8:] != "":
                         response += SearchCommand(message)
                     elif re.match("/search", message) is not None:
-                        response = [_("Please indicate what are you searching with command /search <search term>")]
+                        response = [_("Please indicate what are you searching with command /search <search_term>")]
                     else:
-                        response = [_("Use /search <search term> command to indicate what you are searching")]
+                        response = [_("Use /search <search_term> command to indicate what you are searching")]
                 bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
             except Exception as e:
                 print str(e)
-                bot.sendMessage(chat_id, [gettext.gettext("Something failed please try it latter")], disable_web_page_preview=(not preview))
+                bot.sendMessage(chat_id, [gettext.gettext_("Something failed")+" \xF0\x9F\x98\xB5 "+_("please try it latter")+" \xE2\x8F\xB3"], disable_web_page_preview=(not preview))
             config["last_id"] = query["update_id"]
             config.write()
         sc.enter(int(config["update_interval"]), 1, attend, (sc,))
