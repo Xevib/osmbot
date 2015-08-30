@@ -35,6 +35,7 @@ osmbot = Blueprint(
 def attend_webhook(token):
     current_app.logger.debug("token:%s", token)
     if token == config['token']:
+        current_app.logger.debug("data:%s",request.json['message'])
         return "OK"
     else:
         return "NOT ALLOWED"
