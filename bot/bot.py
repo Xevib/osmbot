@@ -25,7 +25,7 @@ class OSMbot(object):
         }
 
         response = requests.get(self.url.format(self.token,method), params=params,
-                                files={'document': ('certificate.cert', certificate)})
+                                files={'certificate': ('certificate.cert', certificate)})
         return response.content
 
     def sendPhoto(self, chat_id, photo, filename, caption=None, reply_to_message_id=None, reply_markup=None):
