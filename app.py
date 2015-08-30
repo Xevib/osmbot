@@ -7,7 +7,7 @@ from configobj import ConfigObj
 
 application = Flask(__name__)
 application.debug = True
-OSMbot(application, '')
+Osmbot(application, '')
 
 config = ConfigObj("bot.conf")
 token = config["token"]
