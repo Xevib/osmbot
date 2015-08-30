@@ -340,7 +340,10 @@ def attend(sc):
                 lang.install()
                 _ = lang.gettext
                 message = CleanMessage(message)
-                if "location" in query["message"]:
+                if message == "/start":
+                    user.set_field(chat_id, 'mode', 'normal')
+                    response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _("How I can help you?")]
+                elif "location" in query["message"]:
                     if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
                         response += MapCommand(
                             message, chat_id, user_id, zoom=user_config["zoom"], imgformat=user_config["format"],
@@ -355,9 +358,7 @@ def attend(sc):
                 elif user_config['mode'] == 'setlanguage':
                     response += SetLanguageCommand(message, user_id, chat_id, user)
                 elif "text" in query["message"]:
-                    if message == "/start":
-                        response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _("How I can help you?")]
-                    elif re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and  "mode" in user_config and user_config["mode"] == "map":
+                    if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and  "mode" in user_config and user_config["mode"] == "map":
                         m = re.match(".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",message)
                         lat = m.groupdict()["lat"]
                         lon = m.groupdict()["lon"]
@@ -413,6 +414,8 @@ def attend(sc):
                 bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
             except Exception as e:
                 print str(e)
+                import traceback
+                traceback.print_exc()
                 bot.sendMessage(chat_id, [gettext.gettext("Something failed")+" \xF0\x9F\x98\xB5 " +
                                           gettext.gettext("please try it latter")+" \xE2\x8F\xB3"],
                                 disable_web_page_preview=(not preview))
