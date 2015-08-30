@@ -1,5 +1,5 @@
 import logging
-from bot import Osmbot
+from bot.bot import OSMbot
 
 from flask import Flask, request
 from bot import Osmbot
