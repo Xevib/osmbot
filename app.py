@@ -1,8 +1,8 @@
 import logging
-from . import Osmbot
+from bot import Osmbot
 
 from flask import Flask, request
-from bot import OSMbot
+from bot import Osmbot
 from configobj import ConfigObj
 
 application = Flask(__name__)
