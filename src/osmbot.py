@@ -20,7 +20,7 @@ application.debug = True
 config = ConfigObj("bot.conf")
 
 @application.route("/hook/<string:token>",methods=["POST"])
-def attend_webhook(token):
+def attend_webhook(token): 
     current_app.logger.debug("token:%s",token)
     if token == config['token']:
         return "OK"
