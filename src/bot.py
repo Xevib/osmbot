@@ -17,10 +17,14 @@ class OSMbot(object):
         }
         return json.loads(requests.get(self.url.format(self.token, method), params=params).content)
 
-    def setWebhook(self):
+    def setWebhook(self,url=None, certificate=None):
         method = "setWebhook"
-        params = {}
-        response = requests.get(self.url.format(self.token,method), params=params)
+        params = {
+            'url': url,
+            'certificate': certificate
+        }
+
+        response = requests.get(self.url.format(self.token,method), params=params,files={'document': ('certificate.cert', document)})
         return response.content
 
     def sendPhoto(self, chat_id, photo, filename, caption=None, reply_to_message_id=None, reply_markup=None):
