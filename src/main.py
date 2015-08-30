@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from flask import Flask
+from flask import request, abort,current_app
 import re
 import nominatim
 import sched, time
@@ -12,6 +14,20 @@ import gettext
 
 import user as u
 avaible_languages = ['Catalan', 'English', 'Spanish', 'Swedish']
+
+application = Flask(__name__)
+application.debug = True
+
+@application.route("/hook/<string:token>",methods=["POST"])
+def attend_webhook(token):
+    current_app.logger.debug("token:%s",token)
+    if token == config['token']:
+        return "OK"
+    else:
+        return "NOT ALLOWED"
+
+
+
 
 def getData(id, geom_type=None):
     if geom_type is None:
@@ -427,6 +443,13 @@ nom = nominatim.Nominatim()
 bot = OSMbot(token)
 user = u.User("osmbot.db")
 
-s = sched.scheduler(time.time, time.sleep)
-s.enter(1, 1, attend, (s,))
-s.run()
+if config['hooks'].lower() == "true":
+    print "Webhook mode started"
+    application.run(host='0.0.0.0')
+else:
+    print "getUpdates mode started"
+    s = sched.scheduler(time.time, time.sleep)
+    s.enter(1, 1, attend, (s,))
+    s.run()
+
+
