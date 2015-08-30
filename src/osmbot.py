@@ -18,9 +18,11 @@ avaible_languages = ['Catalan', 'English', 'Spanish', 'Swedish']
 application = Flask(__name__)
 application.debug = True
 config = ConfigObj("bot.conf")
+token = config["token"]
+bot = OSMbot(token)
 
 @application.route("/hook/<string:token>",methods=["POST"])
-def attend_webhook(token): 
+def attend_webhook(token):
     current_app.logger.debug("token:%s",token)
     if token == config['token']:
         return "OK"
@@ -28,4 +30,8 @@ def attend_webhook(token):
         return "NOT ALLOWED"
 
 if __name__ == "__main__":
+    f = open("certificate.crt","r")
+    cert_data = f.read()
+    f.close()
+    bot.setWebhook(config['webhook'],'')
     application.run(host='0.0.0.0')
