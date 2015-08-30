@@ -1,4 +1,5 @@
 import logging
+from . import Osmbot
 
 from flask import Flask, request
 from bot import OSMbot
@@ -6,6 +7,7 @@ from configobj import ConfigObj
 
 application = Flask(__name__)
 application.debug = True
+OSMbot(application, '')
 
 config = ConfigObj("bot.conf")
 token = config["token"]
