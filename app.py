@@ -13,7 +13,7 @@ config = ConfigObj("bot.conf")
 token = config["token"]
 bot = OSMbot(token)
 
-f = open("certificate.crt", "r")
+f = open("nginx.crt", "r")
 cert_data = f.read()
 f.close()
 application.logger.debug("webhook:%s", config['webhook'])
