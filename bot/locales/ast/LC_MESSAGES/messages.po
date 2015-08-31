@@ -4,8 +4,7 @@
 # 
 # Translators:
 # Albert F <lakonfrariadelavila@gmail.com>, 2015
-# jmontane <joan@montane.cat>, 2015
-# Xevi <xbarnada@gmail.com>, 2015
+# Xuacu Saturio <xuacusk8@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
@@ -13,70 +12,70 @@ msgstr ""
 "POT-Creation-Date: 2015-08-31 22:13+0200\n"
 "PO-Revision-Date: 2015-08-31 20:14+0000\n"
 "Last-Translator: Xevi <xbarnada@gmail.com>\n"
-"Language-Team: Catalan (http://www.transifex.com/osm-catala/osmbot/language/ca/)\n"
+"Language-Team: Asturian (http://www.transifex.com/osm-catala/osmbot/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
+"Language: ast\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: osmbot_blueprint.py:63
 msgid "Now I will talk you with the new language"
-msgstr "A partir d'ara us parlaré amb aquesta llengua"
+msgstr "Agora falaréte na nueva llingua"
 
 #: osmbot_blueprint.py:70
 msgid "Ooops! I can't talk this language"
-msgstr "Ostres! No puc parlar en aquesta llengua"
+msgstr "¡Ups! Nun puedo falar n'esta llingua"
 
 #: osmbot_blueprint.py:70
 msgid "yet"
-msgstr "encara"
+msgstr "entá"
 
 #: osmbot_blueprint.py:71
 msgid "But you can help me to learn it in Transifex"
-msgstr "Però em podeu ajudar a aprendre-la a Transifex"
+msgstr "Pero pues ayudame a deprendela en Transifex"
 
 #: osmbot_blueprint.py:80
 msgid "Choose the language for talk with you"
-msgstr "Trieu la llengua amb la que voleu que us parli"
+msgstr "Escueye la llingua pa falar contigo"
 
 #: osmbot_blueprint.py:86
 msgid "What do you want to configure?"
-msgstr "Què voleu configurar?"
+msgstr "¿Qué quies configurar?"
 
 #: osmbot_blueprint.py:102
 msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "Si veieu emojis estranys es deuen a un ou de Pasqua del Telegram"
+msgstr "Si ves emojis raros ye por un güevu pintu de Telegram"
 
 #: osmbot_blueprint.py:104
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "No s'ha trobat cap emoji, podeu provar amb /legend <clau_osm:valor>"
+msgstr "Nun s'alcontró nengún emoji, seique tengas qu'intentalo con /legend <osm_key:value>"
 
 #: osmbot_blueprint.py:113
 #, python-brace-format
 msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "No he trobat cap resultat per a «{0}»"
+msgstr "Nun pude alcontrar nengún resultáu pa \"{0}\""
 
 #: osmbot_blueprint.py:114
 msgid "But you can try to improve OpenStreetMap"
-msgstr "Però podeu intentar millorar l'OpenStreetMap"
+msgstr "Pero pues intentar ameyorar OpenStreetMap"
 
 #: osmbot_blueprint.py:116
 msgid "Results for"
-msgstr "Resultats per"
+msgstr "Resultaos pa"
 
 #: osmbot_blueprint.py:132 osmbot_blueprint.py:136 osmbot_blueprint.py:138
 #: osmbot_blueprint.py:140 osmbot_blueprint.py:142
 msgid "More info"
-msgstr "Més informació"
+msgstr "Más info"
 
 #: osmbot_blueprint.py:132
 msgid "Phone"
-msgstr "Telèfon"
+msgstr "Teléfonu"
 
 #: osmbot_blueprint.py:144 osmbot_blueprint.py:199
 msgid "OpenStreetMap contributors"
-msgstr "Col·laboradors de l'OpenStreetMap"
+msgstr "Collaboradores d'OpenStreetMap"
 
 #: osmbot_blueprint.py:153
 msgid "Tags for"
@@ -84,178 +83,178 @@ msgstr ""
 
 #: osmbot_blueprint.py:187
 msgid "meters"
-msgstr "metres"
+msgstr "metros"
 
 #: osmbot_blueprint.py:226
 msgid "Please send me your location"
-msgstr "Envieu-me la vostra ubicació"
+msgstr "Mándame'l to allugamientu"
 
 #: osmbot_blueprint.py:227
 msgid "to receive the map."
-msgstr "per rebre el mapa."
+msgstr "pa recibir el mapa."
 
 #: osmbot_blueprint.py:228
 msgid "You can do it with the Telegram paperclip button"
-msgstr "Podeu fer-ho amb el botó del clip del Telegram"
+msgstr "Pues facelo col iconu del clip de Telegram"
 
 #: osmbot_blueprint.py:284 osmbot_blueprint.py:287
 msgid "Sorry, I can't understand you"
-msgstr "Ho sento, no us he entès"
+msgstr "Siéntolo, nun t'entiendo"
 
 #: osmbot_blueprint.py:285 osmbot_blueprint.py:288
 msgid "Perhaps I could help you with the command /help"
-msgstr "Potser us podria ajudar amb la comanda /help"
+msgstr "Igual puedo ayudate col comandu /help"
 
 #: osmbot_blueprint.py:318
 msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "Em sap greu però no he trobat cap resultat, comproveu l'ID"
+msgstr "Siéntolo pero nun alcontré nengún resultáu, comprueba la ID"
 
 #: osmbot_blueprint.py:321
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr "Malauradament no reconec etiquetes per a aquest element, potser quan m'afegeixin funcionalitats ho podré fer"
+msgstr "Agora nun puedo reconocer les etiquetes d'esti elementu, seique coles nueves carauterístiques podré"
 
 #: osmbot_blueprint.py:356
 msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "Hola, sóc el robot de les dades de l'OpenStreetMap"
+msgstr "Bones, soi el robot de datos d'OpenStreetMap"
 
 #: osmbot_blueprint.py:356
 msgid "How I can help you?"
-msgstr "Com us puc ajudar?"
+msgstr "¿Cómo puedo ayudate?"
 
 #: osmbot_blueprint.py:367
 msgid "Setting not recognized"
-msgstr "No s'ha reconegut el paràmetre"
+msgstr "Configuración nun reconocida"
 
 #: osmbot_blueprint.py:396
 msgid "OpenStreetMap bot info:"
-msgstr "Informació del robot de l'OpenStreetMap:"
+msgstr "Info del bot d'OpenStreetMap:"
 
 #: osmbot_blueprint.py:396
 msgid "CREDITS&CODE"
-msgstr "CRÈDITS I CODI"
+msgstr "CRÉDITOS & CÓDIGU"
 
 #: osmbot_blueprint.py:397
 msgid "Author: OSM català (Catalan OpenStreetMap community)"
-msgstr "Autor: OSM català (comunitat catalana de l'OpenStreetMap)"
+msgstr "Autor: OSM català (Comunidá catalana d'OpenStreetMap)"
 
 #: osmbot_blueprint.py:398
 msgid "Code:"
-msgstr "Codi:"
+msgstr "Códigu:"
 
 #: osmbot_blueprint.py:399
 msgid "License: GPLv3"
-msgstr "Llicència: GPLv3"
+msgstr "Llicencia: GPLv3"
 
 #: osmbot_blueprint.py:400
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
-msgstr "http://www.gnu.org/licenses/gpl-3.0.ca.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
 
 #: osmbot_blueprint.py:401
 msgid "Localization:"
-msgstr "Localització:"
+msgstr "Llocalización:"
 
 #: osmbot_blueprint.py:402
 msgid "NEWS"
-msgstr "NOTÍCIES"
+msgstr "NOTICIES"
 
 #: osmbot_blueprint.py:403
 msgid "RATING"
-msgstr "VALORACIÓ"
+msgstr "PUNTUACIÓN"
 
 #: osmbot_blueprint.py:403
 msgid "Rating&reviews"
-msgstr "Valoració i comentaris"
+msgstr "Puntuación y revisiones"
 
 #: osmbot_blueprint.py:404
 msgid "Please rate me at"
-msgstr "Valoreu-me a"
+msgstr "Puntúame en"
 
 #: osmbot_blueprint.py:405
 msgid "Thanks for use @OSMbot!!"
-msgstr "Gràcies per utilitzar l'@OSMbot."
+msgstr "¡¡Gracies por usar @OSMbot!!"
 
 #: osmbot_blueprint.py:408
 msgid "OpenStreetMap bot help:"
-msgstr "Ajuda del robot de l'OpenStreetMap:"
+msgstr "Ayuda del bot d'OpenStreetMap:"
 
 #: osmbot_blueprint.py:408
 msgid "You can control me by sending these commands:"
-msgstr "Em podeu controlar enviant aquestes ordres:"
+msgstr "Pues controlame unviando estos comandos:"
 
 #: osmbot_blueprint.py:409
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
-msgstr "/about - Mostra informació de l'OSMbot: crèdits, codi, notícies, valoracions i comentaris"
+msgstr "/about - Amuesa info sobro OSMbot: créditos&códigu, noticies y puntuaciones&revisiones"
 
 #: osmbot_blueprint.py:410
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/details<tipus><id_osm> - Mostra algunes etiquetes de la base de dades de l'OSM per a l'ID indicat."
+msgstr "/details<type><osm_id> - Ver delles etiquetes de la base de datos d'OSM por ID."
 
 #: osmbot_blueprint.py:411
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
-msgstr "L'ordre /search genera l'ID, però si coneixeu un ID de l'OSM també podeu provar-ho."
+msgstr "La ID xenérase col comandu /search, pero si conoces una ID d'OSM pues probala."
 
 #: osmbot_blueprint.py:412
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
-msgstr "El tipus és opcional i ha de ser nod (node), way (camí) o rel (relació). Si no especifiqueu cap tipus, el bot l'intentarà deduir."
+msgstr "El tipu ye opcional y pué ser nod(nodu), way(vía) o rel(rellación). Si nun lu especifiques, el bot intentará deducilu"
 
 #: osmbot_blueprint.py:413
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
-msgstr "/legend <clau_osm> - Mostra una llista de parells clau=valor i el seu emoji a l'OSMbot. Si no especifiqueu una <clau_osm> es mostren tots els parells de clau=valor que reconeix l'OSMbot i els seus emojis."
+msgstr "/legend <osm_key> - Amuesa una llista de pares clave=valor ya'l so emoji en OSMbot. Si nun especifiques una clave <osm_key>, amuesa tolos pares de clave=valor con emoji en Osmbot"
 
 #: osmbot_blueprint.py:414
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "/map <coord> <format> <escala> - Envia un mapa amb opcions diverses:"
+msgstr "/map <coord> <format> <scale> - Unvia un mapa con diferentes opciones:"
 
 #: osmbot_blueprint.py:415
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
-msgstr "<coord> Pot ser un punt (lat, lon) o una caixa contenidora (minlon, minlat, maxlon, maxlat). Si no utilitzeu aquesta opció podeu enviar la vostra ubicació."
+msgstr "<coord> Pué ser un puntu (lat,lon) o un cuadru de llende (minlon,minlat,maxlon,maxlat). Si nun uses esta opción pué unviar el to allugamientu"
 
 #: osmbot_blueprint.py:416
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
-msgstr "<format> Pot ser png, jpeg o pdf. Si no utilitzeu aquesta opció, el bot envia un png de forma predeterminada."
+msgstr "<format> Pué ser png, jpeg o pdf. Si nun uses esta opción, el bot usa png de mou predetermináu"
 
 #: osmbot_blueprint.py:417
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
-msgstr "<escala> Nivell d'apropament (entre 1 i 19). Si no utilitzeu aquesta opció el bot utilitza el nivell 19 de forma predeterminada."
+msgstr "<scale> Nivel de zoom (1-19). Si nun uses esta opción, el bot usa 19 de mou predetermináu."
 
 #: osmbot_blueprint.py:418
 msgid ""
 "/search <search_term> - search from Nominatim in all OpenStreetMap database."
-msgstr "/search <terme_de_cerca> - Cerca mitjançant el servei Nominatim a tota la base de dades de l'OpenStreetMap."
+msgstr "/search <términu_a_buscar> - gueta dende Nominatim en tola base de datos d'OpenStreetMap."
 
 #: osmbot_blueprint.py:422
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
-msgstr "Indiqueu-me què cerqueu amb l'ordre /search <terme_de_cerca>"
+msgstr "Indica qué tas buscando col comandu /search <términu_a_buscar>"
 
 #: osmbot_blueprint.py:424
 msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "Utilitzeu l'ordre /search <terme_de_cerca> per a indicar què voleu cercar"
+msgstr "Usa'l comandu /search <términu_a_buscar> pa indicar qué tas buscando"
 
 #: osmbot_blueprint.py:430
 msgid "Something failed"
-msgstr "Quelcom ha fallat"
+msgstr "Daqué falló"
 
 #: osmbot_blueprint.py:431
 msgid "please try it latter"
-msgstr "proveu-ho més tard"
+msgstr "inténtalo más sero"
 
 #: osmbot_blueprint.py:442
 msgid ""
