@@ -13,7 +13,7 @@ from maptools import download, genBBOX
 import gettext
 
 import user as u
-avaible_languages = ['Catalan', 'English', 'Spanish', 'Swedish']
+avaible_languages = {'Catalan':'ca', 'English':'en', 'Spanish':'es', 'Swedish':'sv', 'Asturian':'ast', 'Galician':'gl'}
 
 application = Flask(__name__)
 application.debug = True
@@ -51,14 +51,7 @@ def getData(id, geom_type=None):
 
 def SetLanguageCommand(message,user_id,chat_id,u):
     if message in avaible_languages:
-        if message == 'Catalan':
-            u.set_field(user_id, 'lang', 'ca')
-        elif message == 'English':
-            u.set_field(user_id, 'lang', 'en')
-        elif message == 'Spanish':
-            u.set_field(user_id, 'lang', 'es')
-        elif message == 'Swedish':
-            u.set_field(user_id, 'lang', 'sv')
+        u.set_field(user_id, 'lang', avaible_languages[message])
         u.set_field(user_id, 'mode', 'normal')
         bot.sendMessage(chat_id, _("Now I will talk you with the new language") +
                         ' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC', reply_markup={'hide_keyboard': True})
@@ -75,7 +68,7 @@ def SetLanguageCommand(message,user_id,chat_id,u):
 
 def LanguageCommand(message, user_id, chat_id, user):
     keyboard = []
-    for lang in avaible_languages:
+    for lang in avaible_languages.keys():
         keyboard.append([lang])
     bot.sendMessage(chat_id, _("Choose the language for talk with you") +
                     ' \xF0\x9F\x98\x8F', reply_markup={'keyboard':keyboard, 'one_time_keyboard': True})
