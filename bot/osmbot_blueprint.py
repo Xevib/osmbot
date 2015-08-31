@@ -438,3 +438,9 @@ def attend_webhook(token):
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
+
+_("OpenStreetMap bot finds any location in world from the Nominatim OSM database and can send links and maps from OSM")
+_("OpenStreetMap bot finds any location in the world from the Nominatim OSM database")
+_("The bot can send links and maps (jpg, png or pdf) from OSM")
+_("Data for all the world (cities and towns, shops -with phone number, email...-, Wikipedia links, etc)")
+_("OSMbot is multilingual and speaks *your language here*")
