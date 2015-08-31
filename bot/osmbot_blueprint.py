@@ -12,9 +12,6 @@ from typeemoji import typeemoji
 from maptools import download, genBBOX
 import gettext
 
-
-
-
 import user as u
 avaible_languages = ['Catalan', 'English', 'Spanish', 'Swedish']
 
@@ -440,5 +437,4 @@ def attend_webhook(token):
         return "NOT ALLOWED"
 
 if __name__ == "__main__":
-
     application.run(host='0.0.0.0')
