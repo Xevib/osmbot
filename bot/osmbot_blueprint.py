@@ -350,7 +350,7 @@ def attend_webhook(token):
                 else:
                     message = ""
                 chat_id = query["message"]["chat"]["id"]
-            lang = gettext.translation('messages', localedir='./locales/', languages=[user_config['lang'], 'en'])
+            lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
             _ = lang.gettext
             message = CleanMessage(message)
