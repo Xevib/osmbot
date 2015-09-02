@@ -40,4 +40,7 @@ class User(object):
         return cur.rowcount != 0
 
     def get_defaultconfig(self):
-        return {'lang': 'en','mode':'normal'}
+        return {'lang': 'en', 'mode': 'normal'}
+
+    def close(self):
+        self.conn.close()

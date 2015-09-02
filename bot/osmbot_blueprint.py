@@ -320,6 +320,11 @@ def DetailsCommand(message):
             response.append(message)
     return (preview, response)
 
+@osmbot.teardown_appcontext
+def close_connection(exception):
+    user.close()
+
+
 @osmbot.route("/hook/<string:token>", methods=["POST"])
 def attend_webhook(token):
     current_app.logger.debug("token:%s", token)
