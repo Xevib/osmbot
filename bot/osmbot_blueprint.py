@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask
+from flask import Flask, g
 from flask import request, current_app, Blueprint
 import re
 import nominatim
@@ -320,13 +320,14 @@ def DetailsCommand(message):
             response.append(message)
     return (preview, response)
 
-@osmbot.teardown_appcontext
+@osmbot.teardown_request
 def close_connection(exception):
     user.close()
 
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
 def attend_webhook(token):
+    user = u.User("osmbot.db")
     current_app.logger.debug("token:%s", token)
     if token == config['token']:
         try:
