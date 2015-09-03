@@ -30,7 +30,6 @@ def download(bbox,imageformat='png',zoom=19):
     params['bbox'] = ",".join(map(str,bbox))
     params['format'] = imageformat
     params['scale'] = scale_zoom[int(zoom)]
-    print "params:"+str(params)
     response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params)
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Map too large</p>\n</body>\n</html>\n':
         raise ValueError('Map too large! \xF0\x9F\x98\xB1\nPlease, reduce the bounding box \xE2\x9C\x82 or the scale (zoom level) \xF0\x9F\x94\x8D')

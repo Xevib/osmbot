@@ -1,0 +1,283 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Albert F <lakonfrariadelavila@gmail.com>, 2015
+# Alejandro <alejandroscf@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: OSMbot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-31 22:28+0200\n"
+"PO-Revision-Date: 2015-09-01 17:03+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/osm-catala/osmbot/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: osmbot_blueprint.py:56
+msgid "Now I will talk you with the new language"
+msgstr "Je vais vous parler en la nouvelle langue"
+
+#: osmbot_blueprint.py:63
+msgid "Ooops! I can't talk this language"
+msgstr "Ooops! Je ne sais pas parler cette langue"
+
+#: osmbot_blueprint.py:63
+msgid "yet"
+msgstr "encore"
+
+#: osmbot_blueprint.py:64
+msgid "But you can help me to learn it in Transifex"
+msgstr "Mais vous pouvez m'aider à l'apprendre avec "
+
+#: osmbot_blueprint.py:73
+msgid "Choose the language for talk with you"
+msgstr "Veuillez choisir la langue pour parler avec vous"
+
+#: osmbot_blueprint.py:79
+msgid "What do you want to configure?"
+msgstr "Qu'est-ce que vous voulez configurer?"
+
+#: osmbot_blueprint.py:95
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "Si vous voyez des emoticônes étranges c'est à cause d'un easter egg de Telegram"
+
+#: osmbot_blueprint.py:97
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "Emoticône pas trouvé, peut être vous pouvez essayer le commande /legend <clé_osm:valeur>"
+
+#: osmbot_blueprint.py:106
+#, python-brace-format
+msgid "Sorry but I couldn't find any result for \"{0}\""
+msgstr "Désolé, je ne peux pas trouver aucun résultat pour \"{0}\""
+
+#: osmbot_blueprint.py:107
+msgid "But you can try to improve OpenStreetMap"
+msgstr "Mais vous pouvez améliorer OpenStreetMap"
+
+#: osmbot_blueprint.py:109
+msgid "Results for"
+msgstr "Résultat pour"
+
+#: osmbot_blueprint.py:125 osmbot_blueprint.py:129 osmbot_blueprint.py:131
+#: osmbot_blueprint.py:133 osmbot_blueprint.py:135
+msgid "More info"
+msgstr "Plus d'information"
+
+#: osmbot_blueprint.py:125
+msgid "Phone"
+msgstr "Téléphone"
+
+#: osmbot_blueprint.py:137 osmbot_blueprint.py:192
+msgid "OpenStreetMap contributors"
+msgstr "Contributeurs d'OpenStreetMap"
+
+#: osmbot_blueprint.py:146
+msgid "Tags for"
+msgstr "Attributs pour"
+
+#: osmbot_blueprint.py:180
+msgid "meters"
+msgstr "mètres"
+
+#: osmbot_blueprint.py:219
+msgid "Please send me your location"
+msgstr "Veuillez m'envoyer votre localisation"
+
+#: osmbot_blueprint.py:220
+msgid "to receive the map."
+msgstr "pour recevoir la carte."
+
+#: osmbot_blueprint.py:221
+msgid "You can do it with the Telegram paperclip button"
+msgstr "Vous pouvez faire ça en appuyant sur le bouton du trombone "
+
+#: osmbot_blueprint.py:277 osmbot_blueprint.py:280
+msgid "Sorry, I can't understand you"
+msgstr "Désolé, je ne comprends pas"
+
+#: osmbot_blueprint.py:278 osmbot_blueprint.py:281
+msgid "Perhaps I could help you with the command /help"
+msgstr "Peut être, je peux vous aider avec le commande /help "
+
+#: osmbot_blueprint.py:311
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "Désolé, je ne peux pas trouver aucun résultat, s'il vous plaît vérifier le ID"
+
+#: osmbot_blueprint.py:314
+msgid ""
+"Sorry, but now I can't recognize tags for this element, perhaps with my new "
+"features I will do it"
+msgstr "Désolé, Je ne peux pas reconnaître des attributs pour cet élément, peut être je pourrai avec mes nouvelles fonctionnalités"
+
+#: osmbot_blueprint.py:349
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Salut! Je suis le robot pour les données d'OpenStreetMap"
+
+#: osmbot_blueprint.py:349
+msgid "How I can help you?"
+msgstr "Comment je peux vous aider?"
+
+#: osmbot_blueprint.py:360
+msgid "Setting not recognized"
+msgstr "Configuration non trouvé"
+
+#: osmbot_blueprint.py:389
+msgid "OpenStreetMap bot info:"
+msgstr "Information du robot d'OpenStreetMap"
+
+#: osmbot_blueprint.py:389
+msgid "CREDITS&CODE"
+msgstr "GÉNÉRIQUE et CODE"
+
+#: osmbot_blueprint.py:390
+msgid "Author: OSM català (Catalan OpenStreetMap community)"
+msgstr "Auteur: OSM català (Communauté catalane d'OpenStreetMap)"
+
+#: osmbot_blueprint.py:391
+msgid "Code:"
+msgstr "Code:"
+
+#: osmbot_blueprint.py:392
+msgid "License: GPLv3"
+msgstr " Licence: GPLv3"
+
+#: osmbot_blueprint.py:393
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.fr.html"
+
+#: osmbot_blueprint.py:394
+msgid "Localization:"
+msgstr "Localisation:"
+
+#: osmbot_blueprint.py:395
+msgid "NEWS"
+msgstr "NOUVELLES "
+
+#: osmbot_blueprint.py:396
+msgid "RATING"
+msgstr "CLASSIFICATION"
+
+#: osmbot_blueprint.py:396
+msgid "Rating&reviews"
+msgstr "Classification et critiques"
+
+#: osmbot_blueprint.py:397
+msgid "Please rate me at"
+msgstr "S'il vous plaît, évaluez moi à "
+
+#: osmbot_blueprint.py:398
+msgid "Thanks for use @OSMbot!!"
+msgstr "Merci beaucoup pour utiliser @OSMbot !!"
+
+#: osmbot_blueprint.py:401
+msgid "OpenStreetMap bot help:"
+msgstr "Aide du robot d'OpenStreetMap"
+
+#: osmbot_blueprint.py:401
+msgid "You can control me by sending these commands:"
+msgstr "Vous pouvez me contrôler en envoyant ces commandes:  "
+
+#: osmbot_blueprint.py:402
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - Montrer information de OSMbot: Générique, code, nouvelles, classification et critiques"
+
+#: osmbot_blueprint.py:403
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details<type><osm_id> - Montre certaines attributs de la base de données d'OSM pour cet ID."
+
+#: osmbot_blueprint.py:404
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "L'ID est généré par le commande /search, mais si vous connaissez un l'ID d'OSM, vous pouvez essayer."
+
+#: osmbot_blueprint.py:405
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "Le type est facultatif et il peut être nod (nœud), way (chemin) ou rel (relation). Si vous n'en spécifiez pas, le robot essayera de le déduire."
+
+#: osmbot_blueprint.py:406
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <clé_osm> - Montre la liste des clés/valeurs et l'emoticône correspondant en OSMbot. Si vous ne spécifiez pas une <clé_osm>, montre toutes les clés/valeurs avec emoticône en Osmbot"
+
+#: osmbot_blueprint.py:407
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <coord> <format> <échelle> - Envoie une carte avec différents options: "
+
+#: osmbot_blueprint.py:408
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<coord> Peut être un point (lat,lon) ou une boîte englobante (minlon,minlat,maxlon,maxlat). Si vous n'utilisez pas cette option, vous pouvez envoyer votre localisation"
+
+#: osmbot_blueprint.py:409
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<format> Peut être png, jpeg or pdf. Si vous n'utilisez pas cette option, le robot utilise png par défaut"
+
+#: osmbot_blueprint.py:410
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<échelle> Niveau de zoom (1-19). Si vous n'utilisez pas cette option, le robot utilise 19 par défaut"
+
+#: osmbot_blueprint.py:411
+msgid ""
+"/search <search_term> - search from Nominatim in all OpenStreetMap database."
+msgstr "/search <endroit_à_chercher> - Cherche avec Nominatim dans la base de données d'OpenStreetMap."
+
+#: osmbot_blueprint.py:415
+msgid ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "S'il vous plaît, veuillez m'indiquer qu'est-ce que vous voulez chercher avec le commande /search <endroit_à_chercher>"
+
+#: osmbot_blueprint.py:417
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "Veuillez utiliser le commande /search <endroit_à_chercher> pour indiquer qu'est-ce que vous voulez chercher"
+
+#: osmbot_blueprint.py:423
+msgid "Something failed"
+msgstr "Quelque chose "
+
+#: osmbot_blueprint.py:424
+msgid "please try it latter"
+msgstr "veuillez essayer plus tard"
+
+#: osmbot_blueprint.py:435
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "Le robot d'OpenStreetMap peut chercher des localisations de tout le monde avec la base de données Nominatim d'OSM et envoyer des liens et cartes de OSM"
+
+#: osmbot_blueprint.py:436
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "Le robot d'OpenStreetMap peut chercher des localisations de tout le monde avec la base de données Nominatim d'OSM"
+
+#: osmbot_blueprint.py:437
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "Le robot d'OpenStreetMap peut envoyer des liens et cartes (jpg, png or pdf) de OSM"
+
+#: osmbot_blueprint.py:438
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "Données de tout le monde (villes et villages, magasins -avec numéro de téléphone, email...-, liens vers Wikipedia, etc)"
+
+#: osmbot_blueprint.py:439
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot est multilingue et parle français"

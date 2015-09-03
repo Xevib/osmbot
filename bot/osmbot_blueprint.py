@@ -13,7 +13,8 @@ from maptools import download, genBBOX
 import gettext
 
 import user as u
-avaible_languages = {'Catalan':'ca', 'English':'en', 'Spanish':'es', 'Swedish':'sv', 'Asturian':'ast', 'Galician':'gl'}
+avaible_languages = {'Catalan': 'ca', 'English':'en', 'Spanish':'es', 'Swedish': 'sv', 'Asturian':'ast', 'Galician':'gl',
+                     'French': 'fr'}
 
 application = Flask(__name__)
 application.debug = True
@@ -379,12 +380,12 @@ def attend_webhook(token):
                 elif message.startswith("/settings"):
                     response += SettingsCommand(message, user_id, chat_id, user)
                 elif message.startswith("/map"):
-                    response += MapCommand(message, chat_id, user_id,user)
+                    response += MapCommand(message, chat_id, user_id,user   )
                 elif re.match("/phone.*", message):
                     response += PhoneCommand(message)
                 elif re.match("/details.*", message):
                     try:
-                        (preview,r) = DetailsCommand(message)
+                        (preview, r) = DetailsCommand(message)
                         response += r
                     except:
                         pass
