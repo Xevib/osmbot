@@ -194,7 +194,7 @@ def pretty_tags(data):
     response.append(t)
     return (preview,response)
 
-def MapCommand(message, chat_id, user_id,zoom=None,imgformat=None,lat=None,lon=None):
+def MapCommand(message, chat_id, user_id,user,zoom=None,imgformat=None,lat=None,lon=None):
     response = []
     message = message[4:]
     if lat is not None and lon is not None:
@@ -356,7 +356,7 @@ def attend_webhook(token):
             elif "location" in query["message"]:
                 if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
                     response += MapCommand(
-                        message, chat_id, user_id, zoom=user_config["zoom"], imgformat=user_config["format"],
+                        message, chat_id, user_id,user, zoom=user_config["zoom"], imgformat=user_config["format"],
                         lat=float(query["message"]["location"]["latitude"]),
                         lon=float(query["message"]["location"]["longitude"]))
             elif user_config['mode'] == 'settings':
