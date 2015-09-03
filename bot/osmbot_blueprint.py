@@ -372,14 +372,14 @@ def attend_webhook(token):
                     m = re.match(".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",message)
                     lat = m.groupdict()["lat"]
                     lon = m.groupdict()["lon"]
-                    response += MapCommand(message, chat_id, user_id, zoom=user_config["zoom"],
+                    response += MapCommand(message, chat_id, user_id,user, zoom=user_config["zoom"],
                                            imgformat=user_config["format"], lat=float(lat), lon=float(lon))
                 elif message == "Language":
                     response += LanguageCommand(message, user_id, chat_id, user)
                 elif message.startswith("/settings"):
                     response += SettingsCommand(message, user_id, chat_id, user)
                 elif message.startswith("/map"):
-                    response += MapCommand(message, chat_id, user_id)
+                    response += MapCommand(message, chat_id, user_id,user)
                 elif re.match("/phone.*", message):
                     response += PhoneCommand(message)
                 elif re.match("/details.*", message):
