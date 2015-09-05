@@ -4,7 +4,7 @@ from bot.bot import OSMbot
 from flask import Flask, request, current_app
 from bot import Osmbot
 from configobj import ConfigObj
-import urlparse
+import os
 
 application = Flask(__name__)
 application.debug = True
@@ -17,7 +17,7 @@ bot = OSMbot(token)
 f = open("nginx.crt", "r")
 cert_data = f.read()
 f.close()
-webhook = urlparse.urljoin(config['webhook'],config['token'])
+webhook = os.path.join(config['webhook'], config['token'])
 application.logger.debug("webhook:%s", config['webhook'])
 response = bot.setWebhook(webhook, cert_data)
 application.logger.debug("response:%s", response)
