@@ -13,8 +13,8 @@ from maptools import download, genBBOX
 import gettext
 
 import user as u
-avaible_languages = {'Catalan': 'ca', 'English':'en', 'Spanish':'es', 'Swedish': 'sv', 'Asturian':'ast', 'Galician':'gl',
-                     'French': 'fr'}
+avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
+                     'Galician': 'gl', 'French': 'fr', 'Italian': 'it'}
 
 application = Flask(__name__)
 application.debug = True
