@@ -69,7 +69,7 @@ def SetLanguageCommand(message,user_id,chat_id,u):
 
 def LanguageCommand(message, user_id, chat_id, user):
     keyboard = []
-    for lang in avaible_languages.keys():
+    for lang in sorted(avaible_languages.keys()):
         keyboard.append([lang])
     bot.sendMessage(chat_id, _("Choose the language for talk with you") +
                     ' \xF0\x9F\x98\x8F', reply_markup={'keyboard':keyboard, 'one_time_keyboard': True})
