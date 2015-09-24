@@ -201,7 +201,7 @@ def MapCommand(message, chat_id, user_id,user,zoom=None,imgformat=None,lat=None,
     if lat is not None and lon is not None:
         bbox = genBBOX(lat, lon, 0.1)
         try:
-            data = download(bbox, imageformat=imgformat, zoom=zoom)
+            data = download(bbox,_, imageformat=imgformat, zoom=zoom)
         except ValueError as v:
             response.append(v.message)
         else:
