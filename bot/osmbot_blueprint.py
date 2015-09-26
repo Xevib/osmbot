@@ -191,7 +191,7 @@ def pretty_tags(data, identificador, type):
         else:
             t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"])) + "\n"
 
-        t += "\n" +_('Raw data:')+" /raw"+str(type)+str(identificador)+"\n\n"
+        t += "\n" +_('Raw data:')+" /raw"+str(type)+str(identificador)+"\n"
     t += "\n\xC2\xA9 " + _("OpenStreetMap contributors") + "\n"
 
     response.append(t)
