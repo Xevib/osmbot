@@ -153,8 +153,6 @@ def pretty_tags(data, identificador, type):
     t = ""
     if 'name' in tags:
         t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n\n"
-    if 'addr:housenumber' in tags or 'addr:street' in tags or 'addr:city' in tags or 'addr:country' in tags:
-        t += "\n"
     if 'addr:housenumber' and 'addr:street' in tags:
         t += "\xF0\x9F\x93\xAE "+tags['addr:street']+", "+tags['addr:housenumber']+"\n"
     else:
