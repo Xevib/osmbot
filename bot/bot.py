@@ -46,14 +46,15 @@ class OSMbot(object):
         response = requests.post(self.url.format(self.token, method), params=params, files={'document': (filename, document)})
         return response.content
 
-    def sendMessage(self, chat_id, text, disable_web_page_preview=None, reply_to_message_id=None, reply_markup=None):
+    def sendMessage(self, chat_id, text, parse_mode=None,disable_web_page_preview=None, reply_to_message_id=None, reply_markup=None):
         method = "sendMessage"
         params = {
             'chat_id': chat_id,
             'text': text,
             'disable_web_page_preview': disable_web_page_preview,
             'reply_to_message_id': reply_to_message_id,
-            'reply_markup': json.dumps(reply_markup)
+            'reply_markup': json.dumps(reply_markup),
+            'parse_mode': parse_mode
         }
         if disable_web_page_preview is True:
             params['disable_web_page_preview'] = 'true'
