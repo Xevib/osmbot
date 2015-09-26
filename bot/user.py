@@ -25,6 +25,8 @@ class User(object):
         else:
             if 'lang' not in data:
                 data['lang'] = 'en'
+                data['lang_set'] = False
+            else:
                 data['lang_set'] = True
             if data['lang'] is None:
                 data['lang'] = 'en'
@@ -45,7 +47,7 @@ class User(object):
         return cur.rowcount != 0
 
     def get_defaultconfig(self):
-        return {'lang': 'en', 'mode': 'normal'}
+        return {'lang': 'en', 'mode': 'normal','lang_set':False}
 
     def close(self):
         self.conn.close()
