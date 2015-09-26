@@ -345,9 +345,9 @@ def RawCommand(message):
             parts = 1
             max_parts = 1+len(osm_data['tag'])/20
             if 'name' in osm_data['tag']:
-                t = _('\xE2\x9C\x8F	Raw data for {0} ({1}/{2})\n'.format(osm_data['tag']['name'], parts, max_parts))
+                t = _('\xE2\x9C\x8F	Raw data for {0} ({1}/{2})\n\n'.format(osm_data['tag']['name'], parts, max_parts))
             else:
-                t = _('\xE2\x9C\x8F	Raw data ({0},{1})\n'.format(parts, max_parts))
+                t = _('\xE2\x9C\x8F	Raw data ({0},{1})\n\n'.format(parts, max_parts))
             i = 0
             response = []
             for tag in sorted(osm_data['tag'].keys()):
@@ -357,10 +357,11 @@ def RawCommand(message):
                     response.append(t)
                     i = 0
                     parts += 1
+                    t += "\n\xC2\xA9 " + _("OpenStreetMap contributors")
                     if 'name' in osm_data['tag']:
-                        t = _('\xE2\x9C\x8F	Raw data for {0} ({1}/{2})\n'.format(osm_data['tag']['name'], parts, max_parts))
+                        t = _('\xE2\x9C\x8F	Raw data for {0} ({1}/{2})\n\n'.format(osm_data['tag']['name'], parts, max_parts))
                     else:
-                        t = _('\xE2\x9C\x8F	Raw data ({0}/{1})\n'.format(parts, max_parts))
+                        t = _('\xE2\x9C\x8F	Raw data ({0}/{1})\n\n'.format(parts, max_parts))
             response.append(t)
     return (preview, response)
 
