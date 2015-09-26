@@ -410,7 +410,7 @@ def attend_webhook(token):
             lang.install()
             _ = lang.gettext
             message = CleanMessage(message)
-            if message == "/start":
+            if message.lower() == "/start":
                 user.set_field(chat_id, 'mode', 'normal')
                 response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _("How I can help you?")]
             elif "location" in query["message"]:
@@ -436,19 +436,19 @@ def attend_webhook(token):
                                            imgformat=user_config["format"], lat=float(lat), lon=float(lon))
                 elif message == "Language":
                     response += LanguageCommand(message, user_id, chat_id, user)
-                elif message.startswith("/settings"):
+                elif message.lower().startswith("/settings"):
                     response += SettingsCommand(message, user_id, chat_id, user)
-                elif message.startswith("/map"):
+                elif message.lower().startswith("/map"):
                     response += MapCommand(message, chat_id, user_id,user   )
-                elif re.match("/phone.*", message):
+                elif re.match("/phone.*", message.lower()):
                     response += PhoneCommand(message)
-                elif re.match("/details.*", message):
+                elif re.match("/details.*", message.lower()):
                     try:
                         (preview, r) = DetailsCommand(message)
                         response += r
                     except:
                         pass
-                elif re.match("/raw.*", message):
+                elif re.match("/raw.*", message.lower()):
                     try:
                         (preview, r) = RawCommand(message)
                         response += r
@@ -457,9 +457,9 @@ def attend_webhook(token):
                         import traceback
                         current_app.logger.debug(traceback.format_exc())
                         pass
-                elif message.startswith("/legend"):
+                elif message.lower().startswith("/legend"):
                     response = LegendCommand(message)
-                elif message.startswith("/about"):
+                elif message.lower().startswith("/about"):
                     response = [
                         _("OpenStreetMap bot info:") + "\n\n" + _("CREDITS&CODE") + "\n\xF0\x9F\x91\xA5 " +
                         _("Author: OSM català (Catalan OpenStreetMap community)") + "\n\xF0\x9F\x94\xA7 " +
@@ -471,7 +471,7 @@ def attend_webhook(token):
                         _("RATING")+"\n\xE2\xAD\x90 "+_("Rating&reviews") +
                         ": http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D "+_("Please rate me at") +
                         ": https://telegram.me/storebot?start=osmbot\n\n"+_("Thanks for use @OSMbot!!")]
-                elif message.startswith("/help"):
+                elif message.lower().startswith("/help"):
                     response = [
                         _("OpenStreetMap bot help:") + "\n\n" + _("You can control me by sending these commands:") +
                         "\n\n" + _("/about - Show info about OSMbot: credits&code, news and ratings&reviews")+"\n\n" +
@@ -485,9 +485,9 @@ def attend_webhook(token):
                         "\n  " + _("<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
                         "\n  " + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
                         "\n\n" + _("/search <search_term> - search from Nominatim in all OpenStreetMap database.")]
-                elif re.match("/search.*", message) is not None and message[8:] != "":
+                elif re.match("/search.*", message.lower()) is not None and message[8:] != "":
                     response += SearchCommand(message,user_config)
-                elif re.match("/search", message) is not None:
+                elif re.match("/search", message.lower()) is not None:
                     response = [_("Please indicate what are you searching with command /search <search_term>")]
                 else:
                     response = [_("Use /search <search_term> command to indicate what you are searching")]
