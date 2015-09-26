@@ -321,6 +321,49 @@ def DetailsCommand(message):
             response.append(message)
     return (preview, response)
 
+def RawCommand(message):
+    current_app.logger.debug('RAW')
+    preview = False
+    response =[]
+    t = ""
+    type = message[4:7]
+    if type == "nod" or type == "way" or type == "rel":
+        identificador = message[7:]
+        osm_data = getData(identificador, geom_type=type)
+    else:
+        identificador = message[7:].strip()
+        osm_data = getData(identificador)
+    if osm_data is None:
+        response.append(_("Sorry but I couldn't find any result, please check the ID"))
+    else:
+        if osm_data["tag"] == {}:
+            response = [_("Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it") +
+                        " \xF0\x9F\x98\x8B"]
+        else:
+            response.append(t)
+            preview = False
+            parts = 1
+            max_parts = 1+len(osm_data['tag'])/20
+            if 'name' in osm_data['tag']:
+                t = _('\xE2\x9C\x8F	Raw data for {0} ({1}/{2})\n'.format(osm_data['tag']['name'], parts, max_parts))
+            else:
+                t = _('\xE2\x9C\x8F	Raw data ({0},{1})\n'.format(parts, max_parts))
+            i = 0
+            response = []
+            for tag in sorted(osm_data['tag'].keys()):
+                t += "{0} = {1}\n".format(tag,osm_data['tag'][tag])
+                i += 1
+                if i >= 20:
+                    response.append(t)
+                    i = 0
+                    parts += 1
+                    if 'name' in osm_data['tag']:
+                        t = _('\xE2\x9C\x8F	Raw data for {0} ({1}/{2})\n'.format(osm_data['tag']['name'], parts, max_parts))
+                    else:
+                        t = _('\xE2\x9C\x8F	Raw data ({0}/{1})\n'.format(parts, max_parts))
+            response.append(t)
+    return (preview, response)
+
 @osmbot.teardown_request
 def close_connection(exception):
     user.close()
@@ -388,6 +431,15 @@ def attend_webhook(token):
                         (preview, r) = DetailsCommand(message)
                         response += r
                     except:
+                        pass
+                elif re.match("/raw.*", message):
+                    try:
+                        (preview, r) = RawCommand(message)
+                        response += r
+                    except Exception as e:
+                        current_app.logger.debug(e.message)
+                        import traceback
+                        current_app.logger.debug(traceback.format_exc())
                         pass
                 elif message.startswith("/legend"):
                     response = LegendCommand(message)
