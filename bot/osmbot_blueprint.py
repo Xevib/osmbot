@@ -496,6 +496,9 @@ def attend_webhook(token):
             print str(e)
             import traceback
             traceback.print_exc()
+            lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
+            lang.install()
+            _ = lang.gettext
             bot.sendMessage(chat_id, [gettext.gettext("Something failed")+" \xF0\x9F\x98\xB5 " +
                                       gettext.gettext("please try it latter")+" \xE2\x8F\xB3"],
                             disable_web_page_preview=(not preview))
