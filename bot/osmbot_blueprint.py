@@ -399,7 +399,7 @@ def attend_webhook(token):
                         _("License: GPLv3") + ", " +
                         _("http://www.gnu.org/licenses/gpl-3.0.en.html")+"\n\xF0\x9F\x92\xAC " +
                         _("Localization:") + " https://www.transifex.com/osm-catala/osmbot/" + "\n\n" +
-                        _("NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\n" +
+                        _("NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\xF0\x9F\x93\xA2 " + _("Telegram channel:") + " https://telegram.me/OSMbot_channel\n\n" + 
                         _("RATING")+"\n\xE2\xAD\x90 "+_("Rating&reviews") +
                         ": http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D "+_("Please rate me at") +
                         ": https://telegram.me/storebot?start=osmbot\n\n"+_("Thanks for use @OSMbot!!")]
