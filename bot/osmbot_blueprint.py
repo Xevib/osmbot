@@ -131,17 +131,17 @@ def SearchCommand(message,user_config):
                     t += _("More info") + " /detailsrel{0}\n".format(result['osm_id'])
                 else:
                     t += "\n" + _("More info") + " /details{0}".format(result['osm_id'])
-                t += _("Phone") + " /phone{0}".format(result['osm_id']) + "\n\n\n"
+                t += _("Phone") + " /phone{0}".format(result['osm_id']) + "\n\n"
             else:
                 if 'osm_id' in result:
                     if 'osm_type' in result and result['osm_type'] =="node":
-                        t += _("More info") + " /detailsnod{0}\n\n\n".format(result['osm_id'])
+                        t += _("More info") + " /detailsnod{0}\n\n".format(result['osm_id'])
                     elif 'osm_type' in result and result['osm_type'] == "way":
-                        t += _("More info")+" /detailsway{0}\n\n\n".format(result['osm_id'])
+                        t += _("More info")+" /detailsway{0}\n\n".format(result['osm_id'])
                     elif 'osm_type' in result and result['osm_type'] =="relation":
-                        t += _("More info") + " /detailsrel{0}\n\n\n".format(result['osm_id'])
+                        t += _("More info") + " /detailsrel{0}\n\n".format(result['osm_id'])
                     else:
-                        t += _("More info") + " /details{0}\n\n\n".format(result['osm_id'])
+                        t += _("More info") + " /details{0}\n\n".format(result['osm_id'])
 
         t += "\xC2\xA9" + _("OpenStreetMap contributors") + "\n"
     return response + [t]
