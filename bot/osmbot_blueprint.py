@@ -138,13 +138,13 @@ def SearchCommand(message,user_config):
         t += "\xC2\xA9" + _("OpenStreetMap contributors") + "\n"
     return response + [t]
 
-def pretty_tags(data):
+def pretty_tags(data, identificador, type):
     preview = False
     tags = data['tag']
     response = []
     t = ""
     if 'name' in tags:
-        t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n"
+        t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n\n"
     if 'addr:housenumber' in tags or 'addr:street' in tags or 'addr:city' in tags or 'addr:country' in tags:
         t += "\n"
     if 'addr:housenumber' and 'addr:street' in tags:
@@ -190,6 +190,8 @@ def pretty_tags(data):
             t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang, urllib.quote(term)) + "\n"
         else:
             t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"])) + "\n"
+
+        t += "\n" +_('Raw data:')+" /"+str(type)+str(identificador)
     t += "\n\xC2\xA9 " + _("OpenStreetMap contributors") + "\n"
 
     response.append(t)
@@ -291,11 +293,13 @@ def PhoneCommand(message):
         response = ["\xF0\x9F\x93\x9E " + osm_data["tag"]["contact:phone"]]
     return response
 
+
 def CleanMessage(message):
     if message.startswith("@osmbot"):
         message = message[8:]
     message = message.replace("\n", "").replace("\r", "")
     return message
+
 
 def DetailsCommand(message):
     preview = False
@@ -317,9 +321,10 @@ def DetailsCommand(message):
         else:
             response.append(t)
             t = ""
-            (preview, message) = pretty_tags(osm_data)
+            (preview, message) = pretty_tags(osm_data, id, type)
             response.append(message)
     return (preview, response)
+
 
 def RawCommand(message):
     current_app.logger.debug('RAW')
