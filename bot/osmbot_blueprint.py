@@ -185,7 +185,7 @@ def pretty_tags(data, identificador, type):
         t += "\xE2\x99\xBF " + str(tags['wheelchair']) + "\n"
     if 'population' in tags:
         if 'population:date' in tags:
-            t += "\xF0\x9F\x91\xAA " + str(tags['population']) + " " + _("inhabitants") + _('at') + tags['population:date'] + "\n"
+            t += "\xF0\x9F\x91\xAA " + str(tags['population']) + " " + _("inhabitants") + ' ' + _('at') + ' '+ tags['population:date'] + "\n"
         else:
             t += "\xF0\x9F\x91\xAA " + str(tags['population']) + " " + _("inhabitants") + "\n"
 
