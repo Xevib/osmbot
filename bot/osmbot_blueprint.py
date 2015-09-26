@@ -362,6 +362,7 @@ def RawCommand(message):
                         t = _('\xE2\x9C\x8F	Raw data for {0} ({1}/{2})\n\n'.format(osm_data['tag']['name'], parts, max_parts))
                     else:
                         t = _('\xE2\x9C\x8F	Raw data ({0}/{1})\n\n'.format(parts, max_parts))
+            t += "\n\xC2\xA9 " + _("OpenStreetMap contributors")
             response.append(t)
     return (preview, response)
 
