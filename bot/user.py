@@ -1,4 +1,5 @@
 import sqlite3
+from hashlib import sha1
 
 
 def dict_factory(cursor, row):
@@ -14,8 +15,9 @@ class User(object):
         self.conn.row_factory = dict_factory
         #CREATE TABLE user (id int, mode varchar(30),zoom int,format varchar(30),language varchar(10))
     def get_user(self, id):
+        shaid = sha1(str(id)).hexdigest()
         cur = self.conn.cursor()
-        cur.execute("SELECT * FROM user WHERE id = ? LIMIT 1", (id,))
+        cur.execute("SELECT * FROM user WHERE shaid = ? LIMIT 1", (shaid,))
         data = cur.fetchone()
         cur.close()
         if data is None:
@@ -28,13 +30,14 @@ class User(object):
             return data
 
     def set_field(self, id, field, value):
+        shaid = sha1(str(id)).hexdigest()
         cur = self.conn.cursor()
-        cur.execute("SELECT count(id) as count FROM user WHERE id = ?", (id,))
+        cur.execute("SELECT count(shaid) as count FROM user WHERE shaid = ?", (shaid,))
         num = cur.fetchone()
         if num['count'] == 0:
-            cur.execute("INSERT INTO user (id,{0}) VALUES (?,?)".format(field), (id, value))
+            cur.execute("INSERT INTO user (shaid,{0}) VALUES (?,?)".format(field), (shaid, value))
         else:
-            cur.execute("UPDATE user SET {0} = ? WHERE id = ? ".format(field), (value, id))
+            cur.execute("UPDATE user SET {0} = ? WHERE shaid = ? ".format(field), (value, shaid))
         self.conn.commit()
         cur.close()
         return cur.rowcount != 0
