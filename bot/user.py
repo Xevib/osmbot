@@ -24,9 +24,11 @@ class User(object):
             return self.get_defaultconfig()
         else:
             if 'lang' not in data:
-                data['lang'] ='en'
-            if data['lang'] == None:
                 data['lang'] = 'en'
+                data['lang_set'] = True
+            if data['lang'] is None:
+                data['lang'] = 'en'
+                data['lang_set'] = False
             return data
 
     def set_field(self, id, field, value):

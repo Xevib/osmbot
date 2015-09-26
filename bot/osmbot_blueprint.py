@@ -146,13 +146,20 @@ def SearchCommand(message,user_config):
         t += "\xC2\xA9" + _("OpenStreetMap contributors") + "\n"
     return response + [t]
 
-def pretty_tags(data, identificador, type):
+def pretty_tags(data, identificador, type, user_config):
     preview = False
     tags = data['tag']
     response = []
     t = ""
+
     if 'name' in tags:
-        t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n\n"
+        if not user_config['lang_set']:
+            t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n\n"
+        else:
+            if 'name:'+str(user_config['lang']) in tags:
+                t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name:'+str(user_config['lang'])]) + "\n\n"
+            else:
+                t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n\n"
     if 'addr:housenumber' and 'addr:street' in tags:
         t += "\xF0\x9F\x93\xAE "+tags['addr:street']+", "+tags['addr:housenumber']+"\n"
     else:
@@ -311,7 +318,7 @@ def CleanMessage(message):
     return message
 
 
-def DetailsCommand(message):
+def DetailsCommand(message,user_config):
     preview = False
     response =[]
     t = ""
@@ -331,7 +338,7 @@ def DetailsCommand(message):
         else:
             response.append(t)
             t = ""
-            (preview, message) = pretty_tags(osm_data, id, type)
+            (preview, message) = pretty_tags(osm_data, id, type,user_config)
             response.append(message)
     return (preview, response)
 
@@ -444,7 +451,7 @@ def attend_webhook(token):
                     response += PhoneCommand(message)
                 elif re.match("/details.*", message.lower()):
                     try:
-                        (preview, r) = DetailsCommand(message)
+                        (preview, r) = DetailsCommand(message,user_config)
                         response += r
                     except:
                         pass
