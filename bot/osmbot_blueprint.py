@@ -3,7 +3,6 @@ from flask import Flask, g
 from flask import request, current_app, Blueprint
 import re
 import nominatim
-import sched, time
 from osmapi import OsmApi
 from bot import OSMbot
 import urllib
