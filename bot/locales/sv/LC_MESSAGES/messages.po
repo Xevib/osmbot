@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-26 13:32+0200\n"
-"PO-Revision-Date: 2015-10-01 22:09+0000\n"
-"Last-Translator: Carlos Sánchez López <erielkhan@gmail.com>\n"
+"POT-Creation-Date: 2015-10-04 19:09+0200\n"
+"PO-Revision-Date: 2015-10-04 17:53+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/osm-catala/osmbot/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,293 +21,303 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: bot/osmbot_blueprint.py:57
+#: bot/osmbot_blueprint.py:56
 msgid "Now I will talk you with the new language"
 msgstr "Jag kommer nu att prata med dig med det nya språket"
 
-#: bot/osmbot_blueprint.py:64
+#: bot/osmbot_blueprint.py:63
 msgid "Ooops! I can't talk this language"
 msgstr "Oj da! Jag kan inte detta språk"
 
-#: bot/osmbot_blueprint.py:64
+#: bot/osmbot_blueprint.py:63
 msgid "yet"
 msgstr "ännu"
 
-#: bot/osmbot_blueprint.py:65
+#: bot/osmbot_blueprint.py:64
 msgid "But you can help me to learn it in Transifex"
 msgstr "Du kan hjälpa mig att lära det i Transifex"
 
-#: bot/osmbot_blueprint.py:74
+#: bot/osmbot_blueprint.py:73
 msgid "Choose the language for talk with you"
 msgstr "Ange min språk för att prata med dig"
 
-#: bot/osmbot_blueprint.py:80
+#: bot/osmbot_blueprint.py:79
 msgid "What do you want to configure?"
 msgstr "Vad vill du konfigurera?"
 
-#: bot/osmbot_blueprint.py:96
+#: bot/osmbot_blueprint.py:95
 msgid "If you see strange emojis it's due a Telegram easter egg"
 msgstr "Om du säger ett ovanligt emoji är det en Telegrams påskägg."
 
-#: bot/osmbot_blueprint.py:98
+#: bot/osmbot_blueprint.py:97
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
 msgstr "Det finns ingen emoji. Du skulle prova kommando /legend <osm_nyckelord:värde>"
 
-#: bot/osmbot_blueprint.py:107
+#: bot/osmbot_blueprint.py:106
 #, python-brace-format
 msgid "Sorry but I couldn't find any result for \"{0}\""
 msgstr "Jag finner ingenting för \"{0}\""
 
-#: bot/osmbot_blueprint.py:108
+#: bot/osmbot_blueprint.py:107
 msgid "But you can try to improve OpenStreetMap"
 msgstr "Du kan prova förbättra OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:110
+#: bot/osmbot_blueprint.py:109
 msgid "Results for"
 msgstr "Resultaten för"
 
-#: bot/osmbot_blueprint.py:126 bot/osmbot_blueprint.py:130
-#: bot/osmbot_blueprint.py:132 bot/osmbot_blueprint.py:134
-#: bot/osmbot_blueprint.py:136
+#: bot/osmbot_blueprint.py:126 bot/osmbot_blueprint.py:128
+#: bot/osmbot_blueprint.py:130 bot/osmbot_blueprint.py:132
+#: bot/osmbot_blueprint.py:137 bot/osmbot_blueprint.py:139
+#: bot/osmbot_blueprint.py:141 bot/osmbot_blueprint.py:143
 msgid "More info"
 msgstr "Mer information"
 
-#: bot/osmbot_blueprint.py:126
+#: bot/osmbot_blueprint.py:133
 msgid "Phone"
 msgstr "Telefon"
 
-#: bot/osmbot_blueprint.py:138 bot/osmbot_blueprint.py:195
-#: bot/osmbot_blueprint.py:361 bot/osmbot_blueprint.py:369
+#: bot/osmbot_blueprint.py:145 bot/osmbot_blueprint.py:211
+#: bot/osmbot_blueprint.py:377 bot/osmbot_blueprint.py:385
 msgid "OpenStreetMap contributors"
 msgstr "OpenStreetMaps frivilligor"
 
-#: bot/osmbot_blueprint.py:147
+#: bot/osmbot_blueprint.py:156 bot/osmbot_blueprint.py:159
+#: bot/osmbot_blueprint.py:161
 msgid "Tags for"
 msgstr "Taggar för"
 
-#: bot/osmbot_blueprint.py:179
+#: bot/osmbot_blueprint.py:192 bot/osmbot_blueprint.py:194
 msgid "inhabitants"
 msgstr "invånarer"
 
-#: bot/osmbot_blueprint.py:181
+#: bot/osmbot_blueprint.py:192
+msgid "at"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:197
 msgid "meters"
 msgstr "meter"
 
-#: bot/osmbot_blueprint.py:194
+#: bot/osmbot_blueprint.py:210
 msgid "Raw data:"
 msgstr "Ursprunglig data:"
 
-#: bot/osmbot_blueprint.py:222
+#: bot/osmbot_blueprint.py:238
 msgid "Please send me your location"
 msgstr "Skicka mig din läge"
 
-#: bot/osmbot_blueprint.py:223
+#: bot/osmbot_blueprint.py:239
 msgid "to receive the map."
 msgstr "att få kartan."
 
-#: bot/osmbot_blueprint.py:224
+#: bot/osmbot_blueprint.py:240
 msgid "You can do it with the Telegram paperclip button"
 msgstr "Du kan göra det genom Telegrams gem knappen"
 
-#: bot/osmbot_blueprint.py:280 bot/osmbot_blueprint.py:283
+#: bot/osmbot_blueprint.py:296 bot/osmbot_blueprint.py:299
 msgid "Sorry, I can't understand you"
 msgstr "Förlåt. Jag kan inte förstå dig"
 
-#: bot/osmbot_blueprint.py:281 bot/osmbot_blueprint.py:284
+#: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:300
 msgid "Perhaps I could help you with the command /help"
 msgstr "Kanske jag kan hjälpa dig genom komman /help"
 
-#: bot/osmbot_blueprint.py:316 bot/osmbot_blueprint.py:341
+#: bot/osmbot_blueprint.py:332 bot/osmbot_blueprint.py:357
 msgid "Sorry but I couldn't find any result, please check the ID"
 msgstr "Jag finner ingenting. Du kan kolla ID och prova igen"
 
-#: bot/osmbot_blueprint.py:319 bot/osmbot_blueprint.py:344
+#: bot/osmbot_blueprint.py:335 bot/osmbot_blueprint.py:360
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "Jag kan inte erkänna etiketter för detta element. Jag kanske ska göra det med mina framtida funktioner"
 
-#: bot/osmbot_blueprint.py:352 bot/osmbot_blueprint.py:366
+#: bot/osmbot_blueprint.py:368 bot/osmbot_blueprint.py:382
 msgid "Raw data for"
 msgstr "Ursprunglig data av"
 
-#: bot/osmbot_blueprint.py:354 bot/osmbot_blueprint.py:368
+#: bot/osmbot_blueprint.py:370 bot/osmbot_blueprint.py:384
 msgid "Raw data"
 msgstr "Ursprunglig data"
 
-#: bot/osmbot_blueprint.py:405
+#: bot/osmbot_blueprint.py:421
 msgid "Hi, I'm the robot for OpenStreetMap data"
 msgstr "Hej! Jag är den OpenStreetMaps uppgifter robot."
 
-#: bot/osmbot_blueprint.py:405
+#: bot/osmbot_blueprint.py:421
 msgid "How I can help you?"
 msgstr "Hur kan jag hjälpa dig?"
 
-#: bot/osmbot_blueprint.py:416
+#: bot/osmbot_blueprint.py:432
 msgid "Setting not recognized"
 msgstr "Inställning är inte erkänd"
 
-#: bot/osmbot_blueprint.py:454
+#: bot/osmbot_blueprint.py:470
 msgid "OpenStreetMap bot info:"
 msgstr "OpenStreetMap bot info:"
 
-#: bot/osmbot_blueprint.py:454
+#: bot/osmbot_blueprint.py:470
 msgid "CREDITS&CODE"
 msgstr "EFTERTEXTER&DATAKOD"
 
-#: bot/osmbot_blueprint.py:455
-msgid "Author: OSM català (Catalan OpenStreetMap community)"
-msgstr "Upphovsman: OSM català (Katalanska OpenStreetMap gemenskap)"
+#: bot/osmbot_blueprint.py:471
+msgid "Author:"
+msgstr "Upphovsman:"
 
-#: bot/osmbot_blueprint.py:456
+#: bot/osmbot_blueprint.py:471
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(Katalanska OpenStreetMap gemenskap)"
+
+#: bot/osmbot_blueprint.py:472
 msgid "Code:"
 msgstr "Datakod:"
 
-#: bot/osmbot_blueprint.py:457
+#: bot/osmbot_blueprint.py:473
 msgid "License: GPLv3"
 msgstr "Licens: GPLv3"
 
-#: bot/osmbot_blueprint.py:458
+#: bot/osmbot_blueprint.py:474
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
 
-#: bot/osmbot_blueprint.py:459
+#: bot/osmbot_blueprint.py:475
 msgid "Localization:"
 msgstr "Läge:"
 
-#: bot/osmbot_blueprint.py:460
+#: bot/osmbot_blueprint.py:476
 msgid "NEWS"
 msgstr "NYHETER"
 
-#: bot/osmbot_blueprint.py:460
+#: bot/osmbot_blueprint.py:476
 msgid "Telegram channel:"
 msgstr "Telegrams kanal:"
 
-#: bot/osmbot_blueprint.py:461
+#: bot/osmbot_blueprint.py:477
 msgid "RATING"
 msgstr "BETYGSÄTTA"
 
-#: bot/osmbot_blueprint.py:461
+#: bot/osmbot_blueprint.py:477
 msgid "Rating&reviews"
 msgstr "Betyg&omdömer"
 
-#: bot/osmbot_blueprint.py:462
+#: bot/osmbot_blueprint.py:478
 msgid "Please rate me at"
 msgstr "Var vänlig och betygsätt mig i"
 
-#: bot/osmbot_blueprint.py:463
+#: bot/osmbot_blueprint.py:479
 msgid "Thanks for use @OSMbot!!"
 msgstr "Tack för använda @OSMbot!!"
 
-#: bot/osmbot_blueprint.py:466
+#: bot/osmbot_blueprint.py:482
 msgid "OpenStreetMap bot help:"
 msgstr "OpenStreetMap bot hjälp: "
 
-#: bot/osmbot_blueprint.py:466
+#: bot/osmbot_blueprint.py:482
 msgid "You can control me by sending these commands:"
 msgstr "Du kan styra mig genom dessa kommandon: "
 
-#: bot/osmbot_blueprint.py:467
+#: bot/osmbot_blueprint.py:483
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
 msgstr "/about - Visa info om OSMbot: eftertexter&datakod, nyheter och betyg&omdömer"
 
-#: bot/osmbot_blueprint.py:468
+#: bot/osmbot_blueprint.py:484
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
 msgstr "/details<typ><osm_id> - Visa taggar från OSMs databas av ID. "
 
-#: bot/osmbot_blueprint.py:469
+#: bot/osmbot_blueprint.py:485
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
 msgstr "/raw<typ><osm_id> - Visa alla taggar från OSMs databas av ID under ursprunglig format."
 
-#: bot/osmbot_blueprint.py:470
+#: bot/osmbot_blueprint.py:486
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
 msgstr "ID skapas genom /search kommando, men om vet du en OSM-ID kan du prova det."
 
-#: bot/osmbot_blueprint.py:471
+#: bot/osmbot_blueprint.py:487
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
 msgstr "Typen är frivillig. Det kan vara nod (punkt), way (väg) eller rel (relation). Roboten kommer att sluta sig till det om inte du anger det."
 
-#: bot/osmbot_blueprint.py:472
+#: bot/osmbot_blueprint.py:488
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
 msgstr "/legend <osm_nyckelord> - Visa lista om nyckelord=värde par med Emoji i OSMbot. Om du inte anger ett <osm_nyckelord>, visar det alla nyckelord=värde par med Emoji."
 
-#: bot/osmbot_blueprint.py:473
+#: bot/osmbot_blueprint.py:489
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
 msgstr "/map <koord> <bildformat> <skala> - Skapa en karta med olika optioner: "
 
-#: bot/osmbot_blueprint.py:474
+#: bot/osmbot_blueprint.py:490
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
 msgstr "<koord> Kan vara en punkt (lat, lon) eller en markeringsruta (minlon, minlat, maxlon, maxlat). Om du inte använder det kan robot skapa din läge."
 
-#: bot/osmbot_blueprint.py:475
+#: bot/osmbot_blueprint.py:491
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
 msgstr "<bildformat> Kan vara png, jpeg eller pdf. Om du inte anger format använder bot png som standard."
 
-#: bot/osmbot_blueprint.py:476
+#: bot/osmbot_blueprint.py:492
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
 msgstr "<skala> Zoom-nivå (1-19). Om du inte använder det väljer bot ut 19 som standard."
 
-#: bot/osmbot_blueprint.py:477
+#: bot/osmbot_blueprint.py:493
 msgid ""
 "/search <search_term> - search from Nominatim in all OpenStreetMap database."
 msgstr "/search <sökte_term> - söker från Nominatim i alla OpenStreetMaps databas."
 
-#: bot/osmbot_blueprint.py:481
+#: bot/osmbot_blueprint.py:497
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
 msgstr "Ange vad du söker genom kommando /search <sökte_term>"
 
-#: bot/osmbot_blueprint.py:483
+#: bot/osmbot_blueprint.py:499
 msgid "Use /search <search_term> command to indicate what you are searching"
 msgstr "Använda /search <sökte_term> kommando för ange vad du söker"
 
-#: bot/osmbot_blueprint.py:489
+#: bot/osmbot_blueprint.py:508
 msgid "Something failed"
 msgstr "Någonting misslyckades"
 
-#: bot/osmbot_blueprint.py:490
+#: bot/osmbot_blueprint.py:509
 msgid "please try it latter"
 msgstr "du kan prova igen senare"
 
-#: bot/osmbot_blueprint.py:501
+#: bot/osmbot_blueprint.py:520
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
 msgstr "OpenStreetMaps bot finner någon världens läge från Nominatim OSM databas och kan skicka länkar och kartor från OSM"
 
-#: bot/osmbot_blueprint.py:502
+#: bot/osmbot_blueprint.py:521
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
 msgstr "OpenStreetMaps bot finner någon världens läge från Nominatim OSM databas"
 
-#: bot/osmbot_blueprint.py:503
+#: bot/osmbot_blueprint.py:522
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
 msgstr "Roboten kan skicka länkar och kartor (jpg, png eller pdf) från OSM"
 
-#: bot/osmbot_blueprint.py:504
+#: bot/osmbot_blueprint.py:523
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
 msgstr "Data för hela världen (städer och butiker -med telefonnummer, e-post...-, Wikipedia länkar, etc)"
 
-#: bot/osmbot_blueprint.py:505
+#: bot/osmbot_blueprint.py:524
 msgid "OSMbot is multilingual and speaks *your language here*"
 msgstr "OSMbot är flerspråkig och kan svenska"
 
