@@ -10,7 +10,6 @@ from configobj import ConfigObj
 from typeemoji import typeemoji
 from maptools import download, genBBOX
 import gettext
-from countries import country_continent
 
 import user as u
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
@@ -151,22 +150,22 @@ def pretty_tags(data, identificador, type, user_config):
     preview = False
     tags = data['tag']
     response = []
-    t = ''
-    if 'admin_level' in tags and tags['admin_level'] == 2:
-        if 'is_in' in tags and (country_continent[tags['name']] == 'Europe' or country_continent[tags['name']] == 'Africa'):
+    t = '\xE2\x84\xB9'
+    if 'admin_level' in tags and tags['admin_level'] == '2':
+        if 'is_in:continent' in tags and (tags['is_in:continent'] == 'Europe' or tags['is_in:continent'] == 'Africa'):
             t += '\xF0\x9F\x8C\x8D'
-        elif 'is_in' in tags and (country_continent[tags['name']] == 'North America' or country_continent[tags['name']] == 'South America'):
+        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'North America' or tags['is_in:continent'] == 'South America'):
             t += '\xF0\x9F\x8C\x8E'
-        elif 'is_in' in tags and (country_continent[tags['name']] == 'Asia' or country_continent[tags['name']] == 'Australia'):
+        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Asia' or tags['is_in:continent'] == 'Oceania'):
             t += '\xF0\x9F\x8C\x8F'
     if 'name' in tags:
         if not user_config['lang_set']:
-            t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
+            t += ' ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
         else:
             if 'name:' + str(user_config['lang']) in tags:
-                t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name:'+str(user_config['lang'])]) + '\n\n'
+                t += ' ' + _('Tags for') + ' ' + str(tags['name:'+str(user_config['lang'])]) + '\n\n'
             else:
-                t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
+                t += ' ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
     if 'addr:housenumber' and 'addr:street' in tags:
         t += '\xF0\x9F\x93\xAE ' + tags['addr:street'] + ', ' + tags['addr:housenumber'] + '\n'
     else:
