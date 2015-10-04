@@ -18,8 +18,8 @@ avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish
 application = Flask(__name__)
 application.debug = True
 config = ConfigObj('bot.conf')
-token = config["token"]
-user = u.User("osmbot.db")
+token = config['token']
+user = u.User('osmbot.db')
 bot = OSMbot(token)
 api = OsmApi()
 nom = nominatim.Nominatim()
@@ -41,11 +41,11 @@ def getData(id, geom_type=None):
                     osm_data = api.RelationGet(int(id))
         except:
             osm_data = None
-    elif geom_type == "nod":
+    elif geom_type == 'nod':
         osm_data = api.NodeGet(int(id))
-    elif geom_type == "way":
+    elif geom_type == 'way':
             osm_data = api.WayGet(int(id))
-    elif geom_type == "rel":
+    elif geom_type == 'rel':
         osm_data = api.RelationGet(int(id))
     return osm_data
 
@@ -53,15 +53,15 @@ def SetLanguageCommand(message,user_id,chat_id,u):
     if message in avaible_languages:
         u.set_field(user_id, 'lang', avaible_languages[message])
         u.set_field(user_id, 'mode', 'normal')
-        bot.sendMessage(chat_id, _("Now I will talk you with the new language") +
+        bot.sendMessage(chat_id, _('Now I will talk you with the new language') +
                         ' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC', reply_markup={'hide_keyboard': True})
         return []
     else:
         u.set_field(user_id, 'mode', 'normal')
 
         bot.sendMessage(chat_id,
-                        _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _("yet") +
-                        ' \xF0\x9F\x98\x89)\n' + _("But you can help me to learn it in Transifex") +
+                        _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _('yet') +
+                        ' \xF0\x9F\x98\x89)\n' + _('But you can help me to learn it in Transifex') +
                         ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/',
                         reply_markup={'hide_keyboard': True})
         return []
@@ -70,8 +70,8 @@ def LanguageCommand(message, user_id, chat_id, user):
     keyboard = []
     for lang in sorted(avaible_languages.keys()):
         keyboard.append([lang])
-    bot.sendMessage(chat_id, _("Choose the language for talk with you") +
-                    ' \xF0\x9F\x98\x8F', reply_markup={'keyboard':keyboard, 'one_time_keyboard': True})
+    bot.sendMessage(chat_id, _('Choose the language for talk with you') +
+                    ' \xF0\x9F\x98\x8F', reply_markup={'keyboard': keyboard, 'one_time_keyboard': True})
     user.set_field(user_id, 'mode', 'setlanguage')
     return []
 
@@ -90,8 +90,8 @@ def LegendCommand(message):
             selected_keys.append(key)
     selected_keys = sorted(selected_keys)
     for key in selected_keys:
-        t += typeemoji[key]+" "+key+"\n"
-    if len(selected_keys)>50:
+        t += typeemoji[key]+' ' + key+'\n'
+    if len(selected_keys) > 50:
         return [t, _("If you see strange emojis it's due a Telegram easter egg")]
     elif len(selected_keys) == 0:
         return [_('No emoji found, perhaps you should try with /legend <osm_key:value>')]
@@ -99,8 +99,8 @@ def LegendCommand(message):
 
 def SearchCommand(message,user_config):
     response = []
-    t = ""
-    search = message[8:].replace("\n", "").replace("\r", "")
+    t = ''
+    search = message[8:].replace('\n', '').replace('\r', '')
     results = nom.query(search, acceptlanguage=user_config['lang'])
     if len(results) == 0:
         response = [_('Sorry but I couldn\'t find any result for "{0}"').format(search)+" \xF0\x9F\x98\xA2\n" +
@@ -115,65 +115,66 @@ def SearchCommand(message,user_config):
                     osm_data = None
             else:
                 osm_data = None
-            type = result['class']+":"+result['type']
+            type = result['class'] + ':' + result['type']
             if type in typeemoji:
-                t += typeemoji[result['class'] + ":" + result['type']] + " " + result["display_name"] + "\n"
+                t += typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
             else:
-                t += "\xE2\x96\xB6 "+result["display_name"]+"\n"
-            t += "\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n".format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
+                t += '\xE2\x96\xB6 ' + result['display_name']+'\n'
+            t += '\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n'.format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
             if osm_data is not None and ('phone' in osm_data['tag'] or 'contact:phone' in osm_data['tag']):
-                if 'osm_type' in result and result['osm_type'] =="node":
-                    t += _("More info") + " /detailsnod{0}\n".format(result['osm_id'])
-                elif 'osm_type' in result and result['osm_type'] == "way":
-                    t += _("More info")+" /detailsway{0}\n".format(result['osm_id'])
-                elif 'osm_type' in result and result['osm_type'] =="relation":
-                    t += _("More info") + " /detailsrel{0}\n".format(result['osm_id'])
+                if 'osm_type' in result and result['osm_type'] == 'node':
+                    t += _('More info') + ' /detailsnod{0}\n'.format(result['osm_id'])
+                elif 'osm_type' in result and result['osm_type'] == 'way':
+                    t += _('More info')+' /detailsway{0}\n'.format(result['osm_id'])
+                elif 'osm_type' in result and result['osm_type'] == 'relation':
+                    t += _('More info') + ' /detailsrel{0}\n'.format(result['osm_id'])
                 else:
-                    t += "\n" + _("More info") + " /details{0}".format(result['osm_id'])
+                    t += '\n' + _('More info') + ' /details{0}'.format(result['osm_id'])
                 t += _("Phone") + " /phone{0}".format(result['osm_id']) + "\n\n"
             else:
                 if 'osm_id' in result:
-                    if 'osm_type' in result and result['osm_type'] =="node":
-                        t += _("More info") + " /detailsnod{0}\n\n".format(result['osm_id'])
-                    elif 'osm_type' in result and result['osm_type'] == "way":
-                        t += _("More info")+" /detailsway{0}\n\n".format(result['osm_id'])
+                    if 'osm_type' in result and result['osm_type'] == 'node':
+                        t += _('More info') + ' /detailsnod{0}\n\n'.format(result['osm_id'])
+                    elif 'osm_type' in result and result['osm_type'] == 'way':
+                        t += _('More info')+' /detailsway{0}\n\n'.format(result['osm_id'])
                     elif 'osm_type' in result and result['osm_type'] =="relation":
-                        t += _("More info") + " /detailsrel{0}\n\n".format(result['osm_id'])
+                        t += _('More info') + ' /detailsrel{0}\n\n'.format(result['osm_id'])
                     else:
-                        t += _("More info") + " /details{0}\n\n".format(result['osm_id'])
+                        t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
 
-        t += "\xC2\xA9" + _("OpenStreetMap contributors") + "\n"
+        t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
     return response + [t]
+
 
 def pretty_tags(data, identificador, type, user_config):
     preview = False
     tags = data['tag']
     response = []
-    t = ""
+    t = ''
 
     if 'name' in tags:
         if not user_config['lang_set']:
-            t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n\n"
+            t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
         else:
-            if 'name:'+str(user_config['lang']) in tags:
-                t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name:'+str(user_config['lang'])]) + "\n\n"
+            if 'name:' + str(user_config['lang']) in tags:
+                t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name:'+str(user_config['lang'])]) + '\n\n'
             else:
-                t = "\xE2\x84\xB9 " + _("Tags for") + " "+str(tags['name']) + "\n\n"
+                t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
     if 'addr:housenumber' and 'addr:street' in tags:
-        t += "\xF0\x9F\x93\xAE "+tags['addr:street']+", "+tags['addr:housenumber']+"\n"
+        t += '\xF0\x9F\x93\xAE ' + tags['addr:street'] + ', ' + tags['addr:housenumber'] + '\n'
     else:
         if 'addr:housenumber' in tags:
-            t += "\xF0\x9F\x93\xAE "+tags['addr:housenumber']+"\n"
+            t += '\xF0\x9F\x93\xAE ' + tags['addr:housenumber'] + '\n'
         if 'addr:street' in tags:
-            t += "\xF0\x9F\x93\xAE "+tags['addr:street']+"\n"
+            t += '\xF0\x9F\x93\xAE ' + tags['addr:street'] + '\n'
     if 'addr:city' in tags:
-        t += tags['addr:city'] + "\n"
+        t += tags['addr:city'] + '\n'
     if 'addr:country' in tags:
-       t += tags['addr:country'] + "\n"
+       t += tags['addr:country'] + '\n'
     if 'phone' in tags:
-        t += "\xF0\x9F\x93\x9E " + str(tags['phone']) + "\n"
+        t += '\xF0\x9F\x93\x9E ' + str(tags['phone']) + '\n'
     if 'contact:phone' in tags:
-        t += "\xF0\x9F\x93\x9E " + str(tags['contact:phone']) + "\n"
+        t += '\xF0\x9F\x93\x9E ' + str(tags['contact:phone']) + '\n'
     if 'fax' in tags:
         t += "\xF0\x9F\x93\xA0 " + str(tags['fax']) + "\n"
     if 'email' in tags:
@@ -483,10 +484,10 @@ def attend_webhook(token):
                         "\n\n" + _("/about - Show info about OSMbot: credits&code, news and ratings&reviews")+"\n\n" +
                         _("/details<type><osm_id> - Show some tags from OSM database by ID.") + "\n" +
                         _("/raw<type><osm_id> - Show all tags from OSM database by ID in raw format.") + "\n" +
-                        _("The ID is generated by /search command, but if you know an OSM ID you can try it.")
-                        + "\n" + _("The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it")
-                        + "\n\n"+_("/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot")
-                        +"\n\n" + _("/map <coord> <format> <scale> - Send a map with different options:")+
+                        _("The ID is generated by /search command, but if you know an OSM ID you can try it.") +
+                        "\n" + _("The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it") +
+                        "\n\n"+_("/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot") +
+                        "\n\n" + _("/map <coord> <format> <scale> - Send a map with different options:")+
                         "\n  " + _("<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location") +
                         "\n  " + _("<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
                         "\n  " + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
