@@ -10,6 +10,7 @@ from configobj import ConfigObj
 from typeemoji import typeemoji
 from maptools import download, genBBOX
 import gettext
+from countries import country_continent
 
 import user as u
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
@@ -151,7 +152,13 @@ def pretty_tags(data, identificador, type, user_config):
     tags = data['tag']
     response = []
     t = ''
-
+    if 'admin_level' in tags and tags['admin_level'] == 2:
+        if 'is_in' in tags and (country_continent[tags['name']] == 'Europe' or country_continent[tags['name']] == 'Africa'):
+            t += '\xF0\x9F\x8C\x8D'
+        elif 'is_in' in tags and (country_continent[tags['name']] == 'North America' or country_continent[tags['name']] == 'South America'):
+            t += '\xF0\x9F\x8C\x8E'
+        elif 'is_in' in tags and (country_continent[tags['name']] == 'Asia' or country_continent[tags['name']] == 'Australia'):
+            t += '\xF0\x9F\x8C\x8F'
     if 'name' in tags:
         if not user_config['lang_set']:
             t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
