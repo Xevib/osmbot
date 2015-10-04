@@ -152,12 +152,18 @@ def pretty_tags(data, identificador, type, user_config):
     response = []
     t = '\xE2\x84\xB9'
     if 'admin_level' in tags and tags['admin_level'] == '2':
-        if 'is_in:continent' in tags and (tags['is_in:continent'] == 'Europe' or tags['is_in:continent'] == 'Africa'):
-            t += '\xF0\x9F\x8C\x8D'
-        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'North America' or tags['is_in:continent'] == 'South America'):
-            t += '\xF0\x9F\x8C\x8E'
-        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Asia' or tags['is_in:continent'] == 'Oceania'):
-            t += '\xF0\x9F\x8C\x8F'
+        if 'is_in:continent' in tags and (tags['is_in:continent'] == 'Europe'):
+            t += '\xF0\x9F\x8C\x8D ' + _('European country')
+        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Africa'):
+            t += '\xF0\x9F\x8C\x8D ' + _('African country')
+        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'North America'):
+            t += '\xF0\x9F\x8C\x8E ' + _('North America country')
+        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'South America'):
+            t += '\xF0\x9F\x8C\x8E ' + _('South America country')
+        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Asia'):
+            t += '\xF0\x9F\x8C\x8F ' + _('Asian country')
+        elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Oceania'):
+            t += '\xF0\x9F\x8C\x8F' + _('Oceania country')
     if 'name' in tags:
         if not user_config['lang_set']:
             t += ' ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
