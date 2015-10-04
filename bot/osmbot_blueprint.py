@@ -467,8 +467,8 @@ def attend_webhook(token):
                     response = LegendCommand(message)
                 elif message.lower().startswith("/about"):
                     response = [
-                        _("OpenStreetMap bot info:") + "\n\n" + _("CREDITS&CODE") + "\n\xF0\x9F\x91\xA5 " +
-                        _("Author: OSM català (Catalan OpenStreetMap community)") + "\n\xF0\x9F\x94\xA7 " +
+                        _('OpenStreetMap bot info:') + '\n\n' + _('CREDITS&CODE') + "\n\xF0\x9F\x91\xA5 " +
+                        _('Author:'+' '+'OSM català'+' '+'(Catalan OpenStreetMap community)') + "\n\xF0\x9F\x94\xA7 " +
                         _("Code:") + " https://github.com/Xevib/osmbot\n\xE2\x99\xBB " +
                         _("License: GPLv3") + ", " +
                         _("http://www.gnu.org/licenses/gpl-3.0.en.html")+"\n\xF0\x9F\x92\xAC " +
