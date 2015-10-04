@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-04 19:09+0200\n"
+"POT-Creation-Date: 2015-10-04 21:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,8 +73,8 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:145 bot/osmbot_blueprint.py:211
-#: bot/osmbot_blueprint.py:377 bot/osmbot_blueprint.py:385
+#: bot/osmbot_blueprint.py:145 bot/osmbot_blueprint.py:224
+#: bot/osmbot_blueprint.py:390 bot/osmbot_blueprint.py:398
 msgid "OpenStreetMap contributors"
 msgstr ""
 
@@ -95,223 +95,247 @@ msgstr ""
 msgid "meters"
 msgstr ""
 
+#: bot/osmbot_blueprint.py:200
+msgid "European country"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:202
+msgid "African country"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:204
+msgid "North America country"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:206
+msgid "South America country"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:208
+msgid "Asian country"
+msgstr ""
+
 #: bot/osmbot_blueprint.py:210
+msgid "Oceania country"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:223
 msgid "Raw data:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:238
+#: bot/osmbot_blueprint.py:251
 msgid "Please send me your location"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:239
+#: bot/osmbot_blueprint.py:252
 msgid "to receive the map."
 msgstr ""
 
-#: bot/osmbot_blueprint.py:240
+#: bot/osmbot_blueprint.py:253
 msgid "You can do it with the Telegram paperclip button"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:296 bot/osmbot_blueprint.py:299
+#: bot/osmbot_blueprint.py:309 bot/osmbot_blueprint.py:312
 msgid "Sorry, I can't understand you"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:300
+#: bot/osmbot_blueprint.py:310 bot/osmbot_blueprint.py:313
 msgid "Perhaps I could help you with the command /help"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:332 bot/osmbot_blueprint.py:357
+#: bot/osmbot_blueprint.py:345 bot/osmbot_blueprint.py:370
 msgid "Sorry but I couldn't find any result, please check the ID"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:335 bot/osmbot_blueprint.py:360
+#: bot/osmbot_blueprint.py:348 bot/osmbot_blueprint.py:373
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:368 bot/osmbot_blueprint.py:382
+#: bot/osmbot_blueprint.py:381 bot/osmbot_blueprint.py:395
 msgid "Raw data for"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:370 bot/osmbot_blueprint.py:384
+#: bot/osmbot_blueprint.py:383 bot/osmbot_blueprint.py:397
 msgid "Raw data"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:421
+#: bot/osmbot_blueprint.py:434
 msgid "Hi, I'm the robot for OpenStreetMap data"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:421
+#: bot/osmbot_blueprint.py:434
 msgid "How I can help you?"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:432
+#: bot/osmbot_blueprint.py:445
 msgid "Setting not recognized"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:470
+#: bot/osmbot_blueprint.py:483
 msgid "OpenStreetMap bot info:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:470
+#: bot/osmbot_blueprint.py:483
 msgid "CREDITS&CODE"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:471
+#: bot/osmbot_blueprint.py:484
 msgid "Author:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:471
+#: bot/osmbot_blueprint.py:484
 msgid "(Catalan OpenStreetMap community)"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:472
+#: bot/osmbot_blueprint.py:485
 msgid "Code:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:473
+#: bot/osmbot_blueprint.py:486
 msgid "License: GPLv3"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:474
+#: bot/osmbot_blueprint.py:487
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:475
+#: bot/osmbot_blueprint.py:488
 msgid "Localization:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:476
+#: bot/osmbot_blueprint.py:489
 msgid "NEWS"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:476
+#: bot/osmbot_blueprint.py:489
 msgid "Telegram channel:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:477
+#: bot/osmbot_blueprint.py:490
 msgid "RATING"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:477
+#: bot/osmbot_blueprint.py:490
 msgid "Rating&reviews"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:478
+#: bot/osmbot_blueprint.py:491
 msgid "Please rate me at"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:479
+#: bot/osmbot_blueprint.py:492
 msgid "Thanks for use @OSMbot!!"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:482
+#: bot/osmbot_blueprint.py:495
 msgid "OpenStreetMap bot help:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:482
+#: bot/osmbot_blueprint.py:495
 msgid "You can control me by sending these commands:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:483
+#: bot/osmbot_blueprint.py:496
 msgid "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:484
+#: bot/osmbot_blueprint.py:497
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
 msgstr ""
 
-#: bot/osmbot_blueprint.py:485
+#: bot/osmbot_blueprint.py:498
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
 msgstr ""
 
-#: bot/osmbot_blueprint.py:486
+#: bot/osmbot_blueprint.py:499
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
 msgstr ""
 
-#: bot/osmbot_blueprint.py:487
+#: bot/osmbot_blueprint.py:500
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:488
+#: bot/osmbot_blueprint.py:501
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If "
 "you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:489
+#: bot/osmbot_blueprint.py:502
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:490
+#: bot/osmbot_blueprint.py:503
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,"
 "maxlat). If you don't use this option can send your location"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:491
+#: bot/osmbot_blueprint.py:504
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:492
+#: bot/osmbot_blueprint.py:505
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
 msgstr ""
 
-#: bot/osmbot_blueprint.py:493
+#: bot/osmbot_blueprint.py:506
 msgid ""
 "/search <search_term> - search from Nominatim in all OpenStreetMap database."
 msgstr ""
 
-#: bot/osmbot_blueprint.py:497
+#: bot/osmbot_blueprint.py:510
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:499
+#: bot/osmbot_blueprint.py:512
 msgid "Use /search <search_term> command to indicate what you are searching"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:508
+#: bot/osmbot_blueprint.py:521
 msgid "Something failed"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:509
+#: bot/osmbot_blueprint.py:522
 msgid "please try it latter"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:520
+#: bot/osmbot_blueprint.py:533
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:521
+#: bot/osmbot_blueprint.py:534
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:522
+#: bot/osmbot_blueprint.py:535
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:523
+#: bot/osmbot_blueprint.py:536
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:524
+#: bot/osmbot_blueprint.py:537
 msgid "OSMbot is multilingual and speaks *your language here*"
 msgstr ""
 
