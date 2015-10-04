@@ -197,17 +197,17 @@ def pretty_tags(data, identificador, type, user_config):
         t += "\xF0\x9F\x93\x8F " + str(tags['ele']) + " " + _("meters") + "\n"
     if 'admin_level' in tags and tags['admin_level'] == '2':
         if 'is_in:continent' in tags and (tags['is_in:continent'] == 'Europe'):
-            t += '\xF0\x9F\x8C\x8D ' + _('European country')
+            t += '\xF0\x9F\x8C\x8D ' + _('European country') + '\n'
         elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Africa'):
-            t += '\xF0\x9F\x8C\x8D ' + _('African country')
+            t += '\xF0\x9F\x8C\x8D ' + _('African country') + '\n'
         elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'North America'):
-            t += '\xF0\x9F\x8C\x8E ' + _('North America country')
+            t += '\xF0\x9F\x8C\x8E ' + _('North America country') + '\n'
         elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'South America'):
-            t += '\xF0\x9F\x8C\x8E ' + _('South America country')
+            t += '\xF0\x9F\x8C\x8E ' + _('South America country') + '\n'
         elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Asia'):
-            t += '\xF0\x9F\x8C\x8F ' + _('Asian country')
+            t += '\xF0\x9F\x8C\x8F ' + _('Asian country') + '\n'
         elif 'is_in:continent' in tags and (tags['is_in:continent'] == 'Oceania'):
-            t += '\xF0\x9F\x8C\x8F' + _('Oceania country')
+            t += '\xF0\x9F\x8C\x8F' + _('Oceania country') + '\n'
     if 'wikidata' in tags:
         preview = True
         t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(urllib.quote(tags["wikidata"])) + "\n"
