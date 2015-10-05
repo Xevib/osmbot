@@ -159,7 +159,7 @@ def pretty_tags(data, identificador, type, user_config):
             if 'name:' + str(user_config['lang']) in tags:
                 t += ' ' + _('Tags for') + ' ' + str(tags['name:'+str(user_config['lang'])]) + '\n\n'
             else:
-                t += '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
+                t += _('Tags for') + ' ' + str(tags['name']) + '\n\n'
     if tags.get('admin_level') == '2' and "Europe" in tags.get("is_in:continent", ''):
         t += "\xF0\x9F\x8C\x8D " + _('European country') + "\n"
     elif tags.get('admin_level') == '2' and "Europa" in tags.get('is_in:continent', ''):
@@ -193,7 +193,7 @@ def pretty_tags(data, identificador, type, user_config):
     elif tags.get('admin_level') == '2' and "Europe; Asia" in tags.get("is_in:continent", ''):
         t += "\xF0\x9F\x8C\x8D \xF0\x9F\x8C\x8F " + _("Eurasian country") + "\n"
     if 'flag' in tags:
-        t += "\xF0\x9F\x8E\x8C " + str(tags['flag']) + "\n"
+        t += '\xF0\x9F\x8E\x8C {}\n'.format(tags.get('flag'))
     if 'currency' in tags:
         t += "\xF0\x9F\x92\xB5 " + str(tags['currency']) + "\n"
     if 'timezone' in tags:
