@@ -375,7 +375,7 @@ def DetailsCommand(message, user_config):
         else:
             response.append(t)
             t = ''
-            (preview, message) = pretty_tags(osm_data, id, type, user_config)
+            (preview, message) = pretty_tags(osm_data, identifier, type, user_config)
             response.append(message)
     return preview, response
 
