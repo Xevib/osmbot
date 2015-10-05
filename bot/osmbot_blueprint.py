@@ -159,37 +159,37 @@ def pretty_tags(data, identificador, type, user_config):
                 t += ' ' + _('Tags for') + ' ' + str(tags['name:'+str(user_config['lang'])]) + '\n\n'
             else:
                 t += '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
-    if tags.get("admin_level") == '2' and "Europe" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Europe" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8D " + _("European country") + "\n"
-    if tags.get("admin_level") == '2' and "Europa" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Europa" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8D " + _("European country") + "\n"
-    if tags.get("admin_level") == '2' and "Africa" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Africa" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8D " + _("African country") + "\n"
-    if tags.get("admin_level") == '2' and "South America" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "South America" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8E " + _("South american country") + "\n"
-    if tags.get("admin_level") == '2' and "Latin America" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Latin America" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8E " + _("South american country") + "\n"
-    if tags.get("admin_level") == '2' and "America del Sur" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "America del Sur" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8E " + _("South american country") + "\n"
-    if tags.get("admin_level") == '2' and "North America" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "North America" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8E " + _("North american country") + "\n"
-    if tags.get("admin_level") == '2' and "Amérique du Nord" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Amérique du Nord" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8E " + _("North american country") + "\n"
-    if tags.get("admin_level") == '2' and "Central America" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Central America" in tags.get('is_in:continent',''):
         t += "\xF0\x9F\x8C\x8E " + _("Central american country") + "\n"
-    if tags.get("admin_level") == '2' and "América" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "América" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8E " + _("American country") + "\n"
-    if tags.get("admin_level") == '2' and "America" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "America" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8E " + _("American country") + "\n"
-    if tags.get("admin_level") == '2' and "Asia" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Asia" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8F " + _("Asian country") + "\n"
-    if tags.get("admin_level") == '2' and "Oceania" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Oceania" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8F " + _("Oceanian country") + "\n"
-    if tags.get("admin_level") == '2' and "Australia" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Australia" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8F " + _("Oceanian country") + "\n"
-    if tags.get("admin_level") == '2' and "Eurasia" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Eurasia" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8D \xF0\x9F\x8C\x8F " + _("Eurasian country") + "\n"
-    if tags.get("admin_level") == '2' and "Europe; Asia" in tags.get("is_in:continent"):
+    if tags.get('admin_level') == '2' and "Europe; Asia" in tags.get("is_in:continent",''):
         t += "\xF0\x9F\x8C\x8D \xF0\x9F\x8C\x8F " + _("Eurasian country") + "\n"
     if 'flag' in tags:
         t += "\xF0\x9F\x8E\x8C " + str(tags['flag']) + "\n"
