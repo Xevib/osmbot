@@ -193,7 +193,7 @@ def pretty_tags(data, identificador, type, user_config):
     elif tags.get('admin_level') == '2' and "Europe; Asia" in tags.get("is_in:continent", ''):
         t += "\xF0\x9F\x8C\x8D \xF0\x9F\x8C\x8F " + _("Eurasian country") + "\n"
     if 'flag' in tags:
-        t += '\xF0\x9F\x8E\x8C {}\n'.format(tags.get('flag'))
+        t += '\xF0\x9F\x9A\xA9 {}\n'.format(tags.get('flag'))
     if 'currency' in tags:
         t += "\xF0\x9F\x92\xB5 " + str(tags['currency']) + "\n"
     if 'timezone' in tags:
