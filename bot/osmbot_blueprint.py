@@ -346,23 +346,37 @@ def DetailsCommand(message,user_config):
     return (preview, response)
 
 
-def NearestCommand(message, user_id, user, lat=None, lon=None):
+def NearestCommand(message, chat_id,user_id, user, lat=None, lon=None):
+
     if lat is None and lon is None:
-        user.set_field(user_id, 'mode', 'map')
-    else:
+        user_data = user.get_user(user_id)
+        distance = int(user_data['distance'])
+        type = user_data['type']
         api = overpass.API()
-        type = message.split(' ')[1]
         query = type_query[type]
+        bbox = genBBOX(lat, lon, float(distance)/float(1000))
+        bbox = ','.join(bbox)
+        data = api.Get(query.format(bbox))
+        user.set_field(user_id, 'mode', 'normal')
+
+    else:
+
+        type = message.split(' ')[1]
+
         if len(message) == 2:
             if message[2].lower()[-2:] == 'km':
-                dist = int(message[:-1]) * 1000
+                distance = int(message[:-1]) * 1000
             elif message[2].lower()[-1:] == 'm':
-                dist = int(message[:-1])
+                distance = int(message[:-1])
             else:
-                dist = int(message)
-        bbox = genBBOX(lat, lon, float(dist)/float(1000))
-        bbox = ','.join(bbox)
-        api.Get(query.format(bbox))
+                distance = int(message)
+            user.set_field(user_id, 'type', str(type))
+            user.set_field(user_id, 'distance', str(distance))
+            user.set_field(user_id, 'mode', 'nearest')
+        return [_('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
+                        _('send the nearest element.') + '.\n' +
+                        _('You can do it with the Telegram paperclip button') + ' \xF0\x9F\x93\x8E.')]
+
 
 
 def RawCommand(message):
@@ -467,8 +481,10 @@ def attend_webhook(token):
                     response += LanguageCommand(message, user_id, chat_id, user)
                 elif message.lower().startswith("/settings"):
                     response += SettingsCommand(message, user_id, chat_id, user)
+                elif message.lower().startswith("/nearest"):
+                    response += NearestCommand(message, chat_id, user_id, user)
                 elif message.lower().startswith("/map"):
-                    response += MapCommand(message, chat_id, user_id,user   )
+                    response += MapCommand(message, chat_id, user_id, user)
                 elif re.match("/phone.*", message.lower()):
                     response += PhoneCommand(message)
                 elif re.match("/details.*", message.lower()):
