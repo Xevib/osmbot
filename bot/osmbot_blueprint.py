@@ -368,35 +368,35 @@ def CleanMessage(message):
     return message
 
 
-def DetailsCommand(message,user_config):
+def DetailsCommand(message, user_config):
     preview = False
     response = []
     t = ''
     type = message[8:11]
     if type == 'nod' or type == 'way' or type == 'rel':
-        id = message[11:]
-        osm_data = getData(id, geom_type=type)
+        identifier = message[11:]
+        osm_data = getData(identifier, geom_type=type)
     else:
-        id = message[8:].strip()
-        osm_data = getData(id)
+        identifier = message[8:].strip()
+        osm_data = getData(identifier)
     if osm_data is None:
         response.append(_("Sorry but I couldn't find any result, please check the ID"))
     else:
-        if osm_data["tag"] == {}:
+        if osm_data['tag'] == {}:
             response = [_("Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it") +
-                        " \xF0\x9F\x98\x8B"]
+                        ' \xF0\x9F\x98\x8B']
         else:
             response.append(t)
-            t = ""
-            (preview, message) = pretty_tags(osm_data, id, type,user_config)
+            t = ''
+            (preview, message) = pretty_tags(osm_data, id, type, user_config)
             response.append(message)
-    return (preview, response)
+    return preview, response
 
 
 def RawCommand(message):
     preview = False
-    response =[]
-    t = ""
+    response = []
+    t = ''
     type = message[4:7]
     if type == "nod" or type == "way" or type == "rel":
         identificador = message[7:]
