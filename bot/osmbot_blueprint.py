@@ -216,6 +216,7 @@ def pretty_tags(data, identificador, type, user_config):
     response.append(t)
     return (preview,response)
 
+
 def MapCommand(message, chat_id, user_id,user,zoom=None,imgformat=None,lat=None,lon=None):
     response = []
     message = message[4:]
@@ -339,31 +340,29 @@ def DetailsCommand(message,user_config):
                         " \xF0\x9F\x98\x8B"]
         else:
             response.append(t)
-            t = ""
+            t = ''
             (preview, message) = pretty_tags(osm_data, id, type,user_config)
             response.append(message)
     return (preview, response)
 
 
-def NearestCommand(message,):
-    api = overpass.API()
-    type = message.split(' ')[1]
-    query = type_query[type]
-    if len(message) == 2:
-        if message[2].lower()[-2:] == 'km':
-            dist = int(message[:-1]) * 1000
-        elif message[2].lower()[-1:] == 'm':
-            dist = int(message[:-1])
-        else:
-            dist = int(message)
-
-    bbox = ''
-    api.Get(query.format(bbox))
-
-
-
-
-
+def NearestCommand(message, user_id, user, lat=None, lon=None):
+    if lat is None and lon is None:
+        user.set_field(user_id, 'mode', 'map')
+    else:
+        api = overpass.API()
+        type = message.split(' ')[1]
+        query = type_query[type]
+        if len(message) == 2:
+            if message[2].lower()[-2:] == 'km':
+                dist = int(message[:-1]) * 1000
+            elif message[2].lower()[-1:] == 'm':
+                dist = int(message[:-1])
+            else:
+                dist = int(message)
+        bbox = genBBOX(lat, lon, float(dist)/float(1000))
+        bbox = ','.join(bbox)
+        api.Get(query.format(bbox))
 
 
 def RawCommand(message):
