@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, g
+from flask import Flask
 from flask import request, current_app, Blueprint
 import re
 import nominatim
@@ -10,6 +10,8 @@ from configobj import ConfigObj
 from typeemoji import typeemoji
 from maptools import download, genBBOX
 import gettext
+import overpass
+from overpass_query import type_query
 
 import user as u
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
@@ -341,6 +343,27 @@ def DetailsCommand(message,user_config):
             (preview, message) = pretty_tags(osm_data, id, type,user_config)
             response.append(message)
     return (preview, response)
+
+
+def NearestCommand(message,):
+    api = overpass.API()
+    type = message.split(' ')[1]
+    query = type_query[type]
+    if len(message) == 2:
+        if message[2].lower()[-2:] == 'km':
+            dist = int(message[:-1]) * 1000
+        elif message[2].lower()[-1:] == 'm':
+            dist = int(message[:-1])
+        else:
+            dist = int(message)
+
+    bbox = ''
+    api.Get(query.format(bbox))
+
+
+
+
+
 
 
 def RawCommand(message):
