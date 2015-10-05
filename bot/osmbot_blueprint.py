@@ -197,7 +197,7 @@ def pretty_tags(data, identificador, type, user_config):
     if 'currency' in tags:
         t += "\xF0\x9F\x92\xB5 " + str(tags['currency']) + "\n"
     if 'timezone' in tags:
-        t += "\xF0\x9F\x95\x92 \xF0\x9F\x8C\x90 " + str(tags['timezone']) + "\n"
+        t += "\xF0\x9F\x95\x92\xF0\x9F\x8C\x90 " + str(tags['timezone']) + "\n"
     if 'addr:housenumber' and 'addr:street' in tags:
         t += '\xF0\x9F\x93\xAE ' + tags['addr:street'] + ', ' + tags['addr:housenumber'] + '\n'
     else:
