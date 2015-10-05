@@ -266,7 +266,7 @@ def pretty_tags(data, identificador, type, user_config):
     return (preview,response)
 
 
-def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat=None, lat=None, lon=None):
+def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
     response = []
     message = message[4:]
     if lat is not None and lon is not None:
@@ -301,13 +301,12 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat=None, lat=N
 
         elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)? (pngjpg|pdf)? ?(\d?\d)?", message):
             m = re.match(" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpeg|pdf)? ?(?P<zoom>\d{0,2})",message)
-            lat = float(m.groupdict()["lat"])
-            lon = float(m.groupdict()["lon"])
-            imgformat = m.groupdict()["imgformat"]
-            zoom = m.groupdict()["zoom"]
+            lat = float(m.groupdict()['lat'])
+            lon = float(m.groupdict()['lon'])
+            imgformat = m.groupdict()['imgformat']
+            zoom = m.groupdict()['zoom']
             bbox = genBBOX(lat, lon, 0.1)
-            if imgformat is None:
-                imgformat = 'png'
+
             if zoom == '':
                 zoom = 19
             try:
@@ -318,20 +317,18 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat=None, lat=N
                 if imgformat == 'pdf':
                     bot.sendDocument(chat_id, data, 'map.pdf')
                 elif imgformat == 'jpeg':
-                    bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+                    bot.sendPhoto(chat_id, data, 'map.jpg', 'Map')
                 elif imgformat == 'png':
-                    bot.sendPhoto(chat_id, data, "map.png", "Map")
+                    bot.sendPhoto(chat_id, data, 'map.png', 'Map')
         elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
             m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
             if m is not None:
-                bbox1 = m.groupdict()["bb1"]
-                bbox2 = m.groupdict()["bb2"]
-                bbox3 = m.groupdict()["bb3"]
-                bbox4 = m.groupdict()["bb4"]
-                imgformat = m.groupdict()["format"]
-                zoom = m.groupdict()["zoom"]
-                if imgformat is None:
-                    imgformat = 'png'
+                bbox1 = m.groupdict()['bb1']
+                bbox2 = m.groupdict()['bb2']
+                bbox3 = m.groupdict()['bb3']
+                bbox4 = m.groupdict()['bb4']
+                imgformat = m.groupdict()['format']
+                zoom = m.groupdict()['zoom']
                 if zoom == '':
                     zoom = 19
                 try:
@@ -342,41 +339,41 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat=None, lat=N
                     if imgformat == 'pdf':
                         bot.sendDocument(chat_id, data, 'map.pdf')
                     elif imgformat == 'jpeg':
-                        bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+                        bot.sendPhoto(chat_id, data, 'map.jpg', 'Map')
                     elif imgformat == 'png':
-                        bot.sendPhoto(chat_id, data, "map.png", "Map")
+                        bot.sendPhoto(chat_id, data, 'map.png', 'Map')
             else:
                 response.append(_("Sorry, I can't understand you")+" \xF0\x9F\x98\xB5\n" +
                                 _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
         else:
-            response.append(_("Sorry, I can't understand you") + " \xF0\x9F\x98\xB5\n" +
-                            _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
+            response.append(_("Sorry, I can't understand you") + ' \xF0\x9F\x98\xB5\n' +
+                            _('Perhaps I could help you with the command /help') + ' \xF0\x9F\x91\x8D')
     return response
 
 
 def PhoneCommand(message):
     id = message[6:]
     osm_data = getData(id)
-    if "phone" in osm_data["tag"]:
-        response = ["\xF0\x9F\x93\x9E " + osm_data["tag"]["phone"]]
-    if "contact:phone" in osm_data["tag"]:
-        response = ["\xF0\x9F\x93\x9E " + osm_data["tag"]["contact:phone"]]
-    return response
+    if 'phone' in osm_data['tag']:
+        return ['\xF0\x9F\x93\x9E {}'.format(osm_data['tag']['phone'])]
+    if 'contact:phone' in osm_data['tag']:
+        return ['\xF0\x9F\x93\x9E {}'.format(osm_data["tag"]["contact:phone"])]
+    return []
 
 
 def CleanMessage(message):
-    if message.startswith("@osmbot"):
+    if message.startswith('@osmbot'):
         message = message[8:]
-    message = message.replace("\n", "").replace("\r", "")
+    message = message.replace('\n', '').replace('\r', '')
     return message
 
 
 def DetailsCommand(message,user_config):
     preview = False
-    response =[]
-    t = ""
+    response = []
+    t = ''
     type = message[8:11]
-    if type == "nod" or type == "way" or type == "rel":
+    if type == 'nod' or type == 'way' or type == 'rel':
         id = message[11:]
         osm_data = getData(id, geom_type=type)
     else:
