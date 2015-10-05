@@ -160,6 +160,44 @@ def pretty_tags(data, identificador, type, user_config):
                 t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name:'+str(user_config['lang'])]) + '\n\n'
             else:
                 t = '\xE2\x84\xB9 ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
+    if "2" in tags["admin_level"] and "Europe" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8D " + _("European country") + "\n"
+    if "2" in tags["admin_level"] and "Europa" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8D " + _("European country") + "\n"
+    if "2" in tags["admin_level"] and "Africa" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8D " + _("African country") + "\n"
+    if "2" in tags["admin_level"] and "South America" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("South american country") + "\n"
+    if "2" in tags["admin_level"] and "Latin America" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("South american country") + "\n"
+    if "2" in tags["admin_level"] and "America del Sur" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("South american country") + "\n"
+    if "2" in tags["admin_level"] and "North America" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("North american country") + "\n"
+    if "2" in tags["admin_level"] and "Amérique du Nord" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("North american country") + "\n"
+    if "2" in tags["admin_level"] and "Central America" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("Central american country") + "\n"
+    if "2" in tags["admin_level"] and "América" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("American country") + "\n"
+    if "2" in tags["admin_level"] and "America" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8E " + _("American country") + "\n"
+    if "2" in tags["admin_level"] and "Asia" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8F " + _("Asian country") + "\n"
+    if "2" in tags["admin_level"] and "Oceania" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8F " + _("Oceanian country") + "\n"
+    if "2" in tags["admin_level"] and "Australia" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8F " + _("Oceanian country") + "\n"
+    if "2" in tags["admin_level"] and "Eurasia" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8D \xF0\x9F\x8C\x8F " + _("Eurasian country") + "\n"
+    if "2" in tags["admin_level"] and "Europe; Asia" in tags["is_in:continent"]:
+        t += "\xF0\x9F\x8C\x8D \xF0\x9F\x8C\x8F " + _("Eurasian country") + "\n"
+    if 'flag' in tags:
+        t += "\xF0\x9F\x8E\x8C " + str(tags['flag']) + "\n"
+    if 'currency' in tags:
+        t += "\xF0\x9F\x92\xB5 " + str(tags['currency']) + "\n"
+    if 'timezone' in tags:
+        t += "\xF0\x9F\x95\x92 \xF0\x9F\x8C\x90 " + str(tags['timezone']) + "\n"
     if 'addr:housenumber' and 'addr:street' in tags:
         t += '\xF0\x9F\x93\xAE ' + tags['addr:street'] + ', ' + tags['addr:housenumber'] + '\n'
     else:
