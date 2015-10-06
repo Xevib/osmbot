@@ -376,9 +376,9 @@ def NearestCommand(message, chat_id, user_id, user, lat=None, lon=None):
             user.set_field(user_id, 'type', str(type))
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
-        return [_('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
+        return [ _('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
                         _('send the nearest element') + '.\n' +
-                        _('You can do it with the Telegram paperclip button') + ' \xF0\x9F\x93\x8E.')]
+                        _('You can do it with the Telegram paperclip button') + ' \xF0\x9F\x93\x8E.']
 
 
 
