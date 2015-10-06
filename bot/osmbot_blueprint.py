@@ -149,9 +149,12 @@ def SearchCommand(message,user_config):
 
 
 def pretty_tags(data, identificador, type, user_config):
-    preview = False
-    tags = data['tag']
     response = []
+    preview = False
+    if 'tag' in data:
+        tags = data['tag']
+    elif 'elements' in data:
+        tags = data['elements']
     t = ''
 
     if 'name' in tags:
@@ -346,7 +349,7 @@ def DetailsCommand(message,user_config):
     return (preview, response)
 
 
-def NearestCommand(message, chat_id,user_id, user, lat=None, lon=None):
+def NearestCommand(message, chat_id, user_id, user, lat=None, lon=None):
 
     if lat is None and lon is None:
         user_data = user.get_user(user_id)
@@ -358,7 +361,7 @@ def NearestCommand(message, chat_id,user_id, user, lat=None, lon=None):
         bbox = ','.join(bbox)
         data = api.Get(query.format(bbox))
         user.set_field(user_id, 'mode', 'normal')
-
+        pretty_tags(data)
     else:
 
         type = message.split(' ')[1]
@@ -374,7 +377,7 @@ def NearestCommand(message, chat_id,user_id, user, lat=None, lon=None):
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
         return [_('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
-                        _('send the nearest element.') + '.\n' +
+                        _('send the nearest element') + '.\n' +
                         _('You can do it with the Telegram paperclip button') + ' \xF0\x9F\x93\x8E.')]
 
 
