@@ -349,12 +349,12 @@ def DetailsCommand(message,user_config):
     return (preview, response)
 
 
-def NearestCommand(message, chat_id, user_id, user, lat=None, lon=None):
+def NearestCommand(message, chat_id, user_id, user, lat=None, lon=None, type=None, distance=None):
 
     if lat is not None and lon is not None:
         user_data = user.get_user(user_id)
-        distance = int(user_data['distance'])
-        type = user_data['type']
+        #distance = int(user_data['distance'])
+        #type = user_data['type']
         api = overpass.API()
         query = type_query[type]['query']
         bbox = genBBOX(lat, lon, float(distance)/float(1000))
@@ -466,6 +466,12 @@ def attend_webhook(token):
                         message, chat_id, user_id,user, zoom=user_config["zoom"], imgformat=user_config["format"],
                         lat=float(query["message"]["location"]["latitude"]),
                         lon=float(query["message"]["location"]["longitude"]))
+                elif user_config is not None and 'mode' in user_config and user_config['mode'] == 'nearest':
+                    response += NearestCommand(
+                        message, chat_id, user_id, user, lat=float(query["message"]["location"]["latitude"]),
+                        lon=float(query['message']['location']['longitude']),
+                        distance=user_config['distance'], type=user_config['type'],
+                    )
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
                     response += LanguageCommand(message, user_id, chat_id, user)
