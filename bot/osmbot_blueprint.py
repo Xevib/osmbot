@@ -356,23 +356,24 @@ def NearestCommand(message, chat_id, user_id, user, lat=None, lon=None):
         distance = int(user_data['distance'])
         type = user_data['type']
         api = overpass.API()
-        query = type_query[type]
+        query = type_query[type]['query']
         bbox = genBBOX(lat, lon, float(distance)/float(1000))
         bbox = ','.join(bbox)
         data = api.Get(query.format(bbox))
         user.set_field(user_id, 'mode', 'normal')
         pretty_tags(data)
     else:
-
         type = message.split(' ')[1]
 
-        if len(message) == 2:
+        if len(message) == 3:
             if message[2].lower()[-2:] == 'km':
                 distance = int(message[:-1]) * 1000
             elif message[2].lower()[-1:] == 'm':
                 distance = int(message[:-1])
             else:
                 distance = int(message)
+        else:
+            distance = type_query[type]['distance']
             user.set_field(user_id, 'type', str(type))
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
