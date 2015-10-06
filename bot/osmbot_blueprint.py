@@ -351,7 +351,7 @@ def DetailsCommand(message,user_config):
 
 def NearestCommand(message, chat_id, user_id, user, lat=None, lon=None):
 
-    if lat is None and lon is None:
+    if lat is not None and lon is not None:
         user_data = user.get_user(user_id)
         distance = int(user_data['distance'])
         type = user_data['type']
