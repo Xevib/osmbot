@@ -359,7 +359,7 @@ def NearestCommand(message, chat_id, user_id, user, lat=None, lon=None, type=Non
         query = type_query[type]['query']
         bbox = genBBOX(lat, lon, float(distance)/float(1000))
 
-        bbox =  '{0},{1},{2},{3}'.format(bbox[0],bbox[1],bbox[2],bbox[3])
+        bbox = '{0},{1},{2},{3}'.format(bbox[0],bbox[1],bbox[2],bbox[3])
         data = api.Get(query.format(bbox))
         user.set_field(user_id, 'mode', 'normal')
         pretty_tags(data)
