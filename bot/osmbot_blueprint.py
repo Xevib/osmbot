@@ -349,7 +349,7 @@ def DetailsCommand(message,user_config):
     return (preview, response)
 
 
-def NearestCommand(message, chat_id, user_id, user,user_config, lat=None, lon=None, type=None, distance=None):
+def NearestCommand(message, chat_id, user_id, user,user_config=None, lat=None, lon=None, type=None, distance=None):
 
     if lat is not None and lon is not None:
         user_data = user.get_user(user_id)
