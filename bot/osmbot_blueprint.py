@@ -466,7 +466,7 @@ def attend_webhook(token):
                         message, chat_id, user_id,user, zoom=user_config["zoom"], imgformat=user_config["format"],
                         lat=float(query["message"]["location"]["latitude"]),
                         lon=float(query["message"]["location"]["longitude"]))
-                elif user_config is not None and 'mode' in user_config and user_config['mode'] == 'nearest':
+                elif user_config.get('mode', None) == 'nearest':
                     response += NearestCommand(
                         message, chat_id, user_id, user, lat=float(query["message"]["location"]["latitude"]),
                         lon=float(query['message']['location']['longitude']),
