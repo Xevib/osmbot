@@ -349,7 +349,7 @@ def DetailsCommand(message,user_config):
     return (preview, response)
 
 
-def NearestCommand(message, chat_id, user_id, user,user_config=None, lat=None, lon=None, type=None, distance=None):
+def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
 
     if lat is not None and lon is not None:
         user_data = user.get_user(user_id)
@@ -362,7 +362,7 @@ def NearestCommand(message, chat_id, user_id, user,user_config=None, lat=None, l
         bbox = '{0},{1},{2},{3}'.format(bbox[0],bbox[1],bbox[2],bbox[3])
         data = api.Get(query.format(bbox))
         user.set_field(user_id, 'mode', 'normal')
-        pretty_tags(data, chat_id, type, user_config)
+        pretty_tags(data, chat_id, type, config)
     else:
         type = message.split(' ')[1]
 
@@ -471,7 +471,7 @@ def attend_webhook(token):
                     response += NearestCommand(
                         message, chat_id, user_id, user, lat=float(query["message"]["location"]["latitude"]),
                         lon=float(query['message']['location']['longitude']),
-                        distance=user_config['distance'], type=user_config['type'],user_config=user_config
+                        distance=user_config['distance'], type=user_config['type'], config=user_config
                     )
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
