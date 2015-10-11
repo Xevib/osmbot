@@ -17,9 +17,10 @@ bot = OSMbot(token)
 
 if 'sentry_dsn' in config:
     application.config['sentry_dsn'] = config['sentry_dsn']
-    sentry = Sentry(application,dsn=config['sentry_dsn'])
+    sentry = Sentry(application, dsn=config['sentry_dsn'])
     sentry.captureMessage('OSMBot started', level=logging.INFO)
-
+    application.sentry = sentry
+    
 f = open('nginx.crt', 'r')
 cert_data = f.read()
 f.close()

@@ -12,6 +12,7 @@ from maptools import download, genBBOX
 import gettext
 
 import user as u
+
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
                      'Galician': 'gl', 'French': 'fr', 'Italian': 'it'}
 
@@ -540,6 +541,7 @@ def attend_webhook(token):
         except Exception as e:
             print str(e)
             import traceback
+            current_app.sentry.captureMessage()
             traceback.print_exc()
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
