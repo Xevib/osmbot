@@ -15,9 +15,10 @@ config = ConfigObj('bot.conf')
 token = config['token']
 bot = OSMbot(token)
 
-if 'SENTRY_DSN' in config:
+if 'sentry_dsn' in config:
     application.config['sentry_dsn'] = config['sentry_dsn']
     sentry = Sentry(application)
+    sentry.captureMessage('OSMBot started', level=logging.INFO)
 
 f = open('nginx.crt', 'r')
 cert_data = f.read()
@@ -26,6 +27,7 @@ webhook = os.path.join(config['webhook'], config['token'])
 application.logger.debug('webhook:%s', config['webhook'])
 response = bot.setWebhook(webhook, cert_data)
 application.logger.debug('response:%s', response)
+
 
 if __name__ == '__main__':
     application.run(host='0.0.0.0', debug=True)
