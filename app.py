@@ -5,6 +5,7 @@ from flask import Flask, request, current_app
 from bot import Osmbot
 from configobj import ConfigObj
 import os
+from raven.contrib.flask import Sentry
 
 application = Flask(__name__)
 application.debug = True
@@ -13,6 +14,10 @@ Osmbot(application, '')
 config = ConfigObj('bot.conf')
 token = config['token']
 bot = OSMbot(token)
+
+if 'SENTRY_DSN' in config:
+    application.config['sentry_dsn'] = config['sentry_dsn']
+    sentry = Sentry(application)
 
 f = open('nginx.crt', 'r')
 cert_data = f.read()
