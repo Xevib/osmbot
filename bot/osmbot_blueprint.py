@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 from flask import request, current_app, Blueprint
-import re
+import re, math
 import nominatim
 from osmapi import OsmApi
 from bot import OSMbot
@@ -148,13 +148,45 @@ def SearchCommand(message,user_config):
     return response + [t]
 
 
-def pretty_tags(data, identificador, type, user_config):
+def pretty_tags(data, identificador, type, user_config,lat = None,lon =None):
     response = []
     preview = False
     if 'tag' in data:
         tags = data['tag']
     elif 'elements' in data:
         tags = data['elements']
+        min_dist =None
+        for element in tags:
+            if 'lat' in element and 'lon' in element:
+                element_lat = element['lat']
+                element_lon = element['lon']
+
+                dist = math.sqrt((element_lat - lat)**2 + (element_lon - lon)**2)
+            elif 'center' in element:
+                element_lat = element['center']['lat']
+                element_lon = element['center']['lon']
+                dist = math.sqrt((element_lat - lat)**2 + (element_lon - lon)**2)
+            if min_dist is None:
+                identificador = element['id']
+                if element['type'] == 'node':
+                    type = 'nod'
+                elif element['type'] == 'way':
+                    type = 'way'
+                else:
+                    type = 'rel'
+                nearest = element
+                min_dist = dist
+            elif dist < min_dist:
+                nearest = element
+                min_dist = dist
+                identificador = element['id']
+                if element['type'] == 'node':
+                    type = 'nod'
+                elif element['type'] == 'way':
+                    type = 'way'
+                else:
+                    type = 'rel'
+        tags = nearest['tags']
     t = ''
 
     if 'name' in tags:
@@ -359,10 +391,16 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         query = type_query[type]['query']
         bbox = genBBOX(lat, lon, float(distance)/float(1000))
 
-        bbox = '{0},{1},{2},{3}'.format(bbox[0],bbox[1],bbox[2],bbox[3])
+        bbox = 'around:{0},{1},{2}'.format(distance, lat, lon)
+        current_app.logger.debug('bbox:{}'.format(bbox))
+        query = query.format(bbox)
+        query = '({});out body center;'.format(query)
+        current_app.logger.debug('query:{}'.format(query))
         data = api.Get(query.format(bbox))
+
         user.set_field(user_id, 'mode', 'normal')
-        pretty_tags(data, chat_id, type, config)
+
+        return pretty_tags(data, chat_id, type, config,lat=lat,lon=lon)
     else:
         type = message.split(' ')[1]
 
@@ -428,9 +466,9 @@ def RawCommand(message):
             response.append(t)
     return (preview, response)
 
-@osmbot.teardown_request
-def close_connection(exception):
-    user.close()
+#@osmbot.teardown_request
+#def close_connection(exception):
+#    user.close()
 
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
@@ -472,7 +510,7 @@ def attend_webhook(token):
                         message, chat_id, user_id, user, lat=float(query["message"]["location"]["latitude"]),
                         lon=float(query['message']['location']['longitude']),
                         distance=user_config['distance'], type=user_config['type'], config=user_config
-                    )
+                    )[1]
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
                     response += LanguageCommand(message, user_id, chat_id, user)
