@@ -20,7 +20,7 @@ if 'sentry_dsn' in config:
     sentry = Sentry(application, dsn=config['sentry_dsn'])
     sentry.captureMessage('OSMBot started', level=logging.INFO)
     application.sentry = sentry
-    
+
 f = open('nginx.crt', 'r')
 cert_data = f.read()
 f.close()
