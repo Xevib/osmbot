@@ -1,5 +1,6 @@
 
 
+
 type_query = {
 		'hospital':
 		{'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});', 'distance': 10000},
@@ -17,15 +18,15 @@ type_query = {
 		{'query': 'node["amenity"="fast_food"]({0});way["amenity"="fast_food"]({0});relation["amenity"="fast_food"]({0});', 'distance': 10000},
 		'foodcourt':
 		{'query': 'node["amenity"="food_court"]({0});way["amenity"="food_court"]({0});relation["amenity"="food_court"]({0});', 'distance': 10000},
-		'fastfood':
-		{'icecream': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});', 'distance': 10000},
-		'fastfood':
-		{'pub': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});', 'distance': 10000},
-		'fastfood':
+		'icecream':
+		{'query': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});', 'distance': 10000},
+		'pub':
+		{'query': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});', 'distance': 10000},
+		'restaurant':
 		{'restaurant': 'node["amenity"="restaurant"]({0});way["amenity"="restaurant"]({0});relation["amenity"="restaurant"]({0});', 'distance': 10000},
 		'college':
 		{'query': 'node["amenity"="college"]({0});way["amenity"="college"]({0});relation["amenity"="college"]({0});', 'distance': 10000},
-		'Kindergarten':
+		'kindergarten':
 		{'query': 'node["amenity"="kindergarten"]({0});way["amenity"="kindergarten"]({0});relation["amenity"="kindergarten"]({0});', 'distance': 10000},
 		'library':
 		{'query': 'node["amenity"="library"]({0});way["amenity"="library"]({0});relation["amenity"="library"]({0});', 'distance': 10000},
