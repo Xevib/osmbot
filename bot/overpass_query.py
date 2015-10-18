@@ -2,13 +2,13 @@ type_query = {
     'hospital':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8F\xA5':
+    u'\xF0\x9F\x8F\xA5':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
     'bar':
         {'query': 'node["amenity"="bar"]({0});way["amenity"="bar"]({0});relation["amenity"="bar"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8D\xB8':
+    u'\xF0\x9F\x8D\xB8':
         {'query': 'node["amenity"="bar"]({0});way["amenity"="bar"]({0});relation["amenity"="bar"]({0});',
          'distance': 10000},
     'bbq':
@@ -21,7 +21,7 @@ type_query = {
     'cafe':
         {'query': 'node["amenity"="cafe"]({0});way["amenity"="cafe"]({0});relation["amenity"="cafe"]({0});',
          'distance': 10000},
-    '\xE2\x98\x95':
+    u'\xE2\x98\x95':
         {'query': 'node["amenity"="cafe"]({0});way["amenity"="cafe"]({0});relation["amenity"="cafe"]({0});',
          'distance': 10000},
     'water':
@@ -32,7 +32,7 @@ type_query = {
         {
             'query': 'node["amenity"="drinking_water"]({0});way["amenity"="drinking_water"]({0});relation["amenity"="drinking_water"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x9A\xB0':
+    u'\xF0\x9F\x9A\xB0':
         {
             'query': 'node["amenity"="drinking_water"]({0});way["amenity"="drinking_water"]({0});relation["amenity"="drinking_water"]({0});',
             'distance': 10000},
@@ -41,7 +41,7 @@ type_query = {
         {
             'query': 'node["amenity"="fast_food"]({0});way["amenity"="fast_food"]({0});relation["amenity"="fast_food"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x8D\x94':
+    u'\xF0\x9F\x8D\x94':
         {
             'query': 'node["amenity"="fast_food"]({0});way["amenity"="fast_food"]({0});relation["amenity"="fast_food"]({0});',
             'distance': 10000},
@@ -53,42 +53,42 @@ type_query = {
         {
             'query': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x8D\xA6':
+    u'\xF0\x9F\x8D\xA6':
         {
             'query': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});',
             'distance': 10000},
     'pub':
         {'query': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8D\xBA':
+    u'\xF0\x9F\x8D\xBA':
         {'query': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});',
          'distance': 10000},
     'restaurant':
         {
             'restaurant': 'node["amenity"="restaurant"]({0});way["amenity"="restaurant"]({0});relation["amenity"="restaurant"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x8D\xB4':
+    u'\xF0\x9F\x8D\xB4':
         {
             'restaurant': 'node["amenity"="restaurant"]({0});way["amenity"="restaurant"]({0});relation["amenity"="restaurant"]({0});',
             'distance': 10000},
     'college':
         {'query': 'node["amenity"="college"]({0});way["amenity"="college"]({0});relation["amenity"="college"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8E\x93':
+    u'\xF0\x9F\x8E\x93':
         {'query': 'node["amenity"="college"]({0});way["amenity"="college"]({0});relation["amenity"="college"]({0});',
          'distance': 10000},
     'kindergarten':
         {
             'query': 'node["amenity"="kindergarten"]({0});way["amenity"="kindergarten"]({0});relation["amenity"="kindergarten"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x91\xB6':
+    u'\xF0\x9F\x91\xB6':
         {
             'query': 'node["amenity"="kindergarten"]({0});way["amenity"="kindergarten"]({0});relation["amenity"="kindergarten"]({0});',
             'distance': 10000},
     'library':
         {'query': 'node["amenity"="library"]({0});way["amenity"="library"]({0});relation["amenity"="library"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x93\x96':
+    u'\xF0\x9F\x93\x96':
         {'query': 'node["amenity"="library"]({0});way["amenity"="library"]({0});relation["amenity"="library"]({0});',
          'distance': 10000},
     'public bookcase':
@@ -99,14 +99,14 @@ type_query = {
     'school':
         {'query': 'node["amenity"="school"]({0});way["amenity"="school"]({0});relation["amenity"="school"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8E\x92':
+    u'\xF0\x9F\x8E\x92':
         {'query': 'node["amenity"="school"]({0});way["amenity"="school"]({0});relation["amenity"="school"]({0});',
          'distance': 10000},
     'university':
         {
             'query': 'node["amenity"="university"]({0});way["amenity"="university"]({0});relation["amenity"="university"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x8E\x93':
+    u'\xF0\x9F\x8E\x93':
         {
             'query': 'node["amenity"="university"]({0});way["amenity"="university"]({0});relation["amenity"="university"]({0});',
             'distance': 10000},
