@@ -402,8 +402,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
 
         return pretty_tags(data, chat_id, type, config,lat=lat,lon=lon)
     else:
-
-        t = ' '.join(message.split(' ')[1])
+        t = message.replace('/nearest', '').strip().split(' ')[0]
         if t not in type_query:
             return ['', _('Sorry but this querry it\'s not implemented yet')]
 
@@ -415,8 +414,8 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
             else:
                 distance = int(message)
         else:
-            distance = type_query[type]['distance']
-            user.set_field(user_id, 'type', str(type))
+            distance = type_query[t]['distance']
+            user.set_field(user_id, 'type', str(t))
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
         return [ _('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
