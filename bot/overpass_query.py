@@ -1018,6 +1018,9 @@ type_query = {
         {
             'query': 'node["leisure"="bowling_alley"]({0});way["leisure"="bowling_alley"]({0});relation["leisure"="bowling_alley"]({0});',
             'distance': 10000},
+	'internet_access':
+		{
+		    'query': 'node["internet_access"="wlan"]({0});way["internet_access"="wlan"]({0});relation["internet_access"="wlan"]({0});', 'distance': 10000},
     'bowling':
         {
             'query': 'node["leisure"="bowling_alley"]({0});way["leisure"="bowling_alley"]({0});relation["leisure"="bowling_alley"]({0});',
