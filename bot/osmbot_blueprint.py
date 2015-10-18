@@ -388,7 +388,10 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         #distance = int(user_data['distance'])
         #type = user_data['type']
         api = overpass.API()
-        query = type_query[type]['query']
+        if type in type_query:
+            query = type_query[type]['query']
+        else:
+            return ['', _('Sorry but this querry it\'s not implemented yet')]
         bbox = genBBOX(lat, lon, float(distance)/float(1000))
 
         bbox = 'around:{0},{1},{2}'.format(distance, lat, lon)
