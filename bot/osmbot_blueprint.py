@@ -402,9 +402,10 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
 
         return pretty_tags(data, chat_id, type, config,lat=lat,lon=lon)
     else:
-        if type not in type_query:
+
+        t = ' '.join(message.split(' ')[1])
+        if t not in type_query:
             return ['', _('Sorry but this querry it\'s not implemented yet')]
-        type = ' '.join(message.split(' ')[:-1])
 
         if len(message) == 3:
             if message[2].lower()[-2:] == 'km':
