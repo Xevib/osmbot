@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 from flask import request, current_app, Blueprint
-import re
+import re, math
 import nominatim
 from osmapi import OsmApi
 from bot import OSMbot
@@ -10,9 +10,10 @@ from configobj import ConfigObj
 from typeemoji import typeemoji
 from maptools import download, genBBOX
 import gettext
+import overpass
+from overpass_query import type_query
 
 import user as u
-
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
                      'Galician': 'gl', 'French': 'fr', 'Italian': 'it'}
 
@@ -98,7 +99,6 @@ def LegendCommand(message):
         return [_('No emoji found, perhaps you should try with /legend <osm_key:value>')]
     return t
 
-
 def SearchCommand(message, user_config):
     response = []
     t = ''
@@ -148,11 +148,47 @@ def SearchCommand(message, user_config):
     return response + [t]
 
 
-def pretty_tags(data, identificador, type, user_config):
-    preview = False
-    tags = data['tag']
+def pretty_tags(data, identificador, type, user_config,lat = None,lon =None):
     response = []
-    t = '\xE2\x84\xB9'
+    preview = False
+    if 'tag' in data:
+        tags = data['tag']
+    elif 'elements' in data:
+        tags = data['elements']
+        min_dist =None
+        for element in tags:
+            if 'lat' in element and 'lon' in element:
+                element_lat = element['lat']
+                element_lon = element['lon']
+
+                dist = math.sqrt((element_lat - lat)**2 + (element_lon - lon)**2)
+            elif 'center' in element:
+                element_lat = element['center']['lat']
+                element_lon = element['center']['lon']
+                dist = math.sqrt((element_lat - lat)**2 + (element_lon - lon)**2)
+            if min_dist is None:
+                identificador = element['id']
+                if element['type'] == 'node':
+                    type = 'nod'
+                elif element['type'] == 'way':
+                    type = 'way'
+                else:
+                    type = 'rel'
+                nearest = element
+                min_dist = dist
+            elif dist < min_dist:
+                nearest = element
+                min_dist = dist
+                identificador = element['id']
+                if element['type'] == 'node':
+                    type = 'nod'
+                elif element['type'] == 'way':
+                    type = 'way'
+                else:
+                    type = 'rel'
+        tags = nearest['tags']
+    t = ''
+
     if 'name' in tags:
         if not user_config['lang_set']:
             t += ' ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
@@ -294,7 +330,8 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
             imgformat = m.groupdict()['imgformat']
             zoom = m.groupdict()['zoom']
             bbox = genBBOX(lat, lon, 0.1)
-
+            if imgformat is None:
+                imgformat = 'png'
             if zoom == '':
                 zoom = 19
             try:
@@ -317,6 +354,8 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                 bbox4 = m.groupdict()['bb4']
                 imgformat = m.groupdict()['format']
                 zoom = m.groupdict()['zoom']
+                if imgformat is None:
+                    imgformat = 'png'
                 if zoom == '':
                     zoom = 19
                 try:
@@ -337,7 +376,6 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
             response.append(_("Sorry, I can't understand you") + ' \xF0\x9F\x98\xB5\n' +
                             _('Perhaps I could help you with the command /help') + ' \xF0\x9F\x91\x8D')
     return response
-
 
 def PhoneCommand(message):
     id = message[6:]
@@ -379,6 +417,49 @@ def DetailsCommand(message, user_config):
             (preview, message) = pretty_tags(osm_data, identifier, type, user_config)
             response.append(message)
     return preview, response
+
+
+def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
+
+    if lat is not None and lon is not None:
+        user_data = user.get_user(user_id)
+        #distance = int(user_data['distance'])
+        #type = user_data['type']
+        api = overpass.API()
+        query = type_query[type]['query']
+        bbox = genBBOX(lat, lon, float(distance)/float(1000))
+
+        bbox = 'around:{0},{1},{2}'.format(distance, lat, lon)
+        current_app.logger.debug('bbox:{}'.format(bbox))
+        query = query.format(bbox)
+        query = '({});out body center;'.format(query)
+        current_app.logger.debug('query:{}'.format(query))
+        data = api.Get(query.format(bbox))
+
+        user.set_field(user_id, 'mode', 'normal')
+
+        return pretty_tags(data, chat_id, type, config,lat=lat,lon=lon)
+    else:
+        t = message.replace('/nearest', '').strip().split(' ')[0]
+        if t not in type_query:
+            return ['', _('Sorry but this querry it\'s not implemented yet')]
+
+        if len(message) == 3:
+            if message[2].lower()[-2:] == 'km':
+                distance = int(message[:-1]) * 1000
+            elif message[2].lower()[-1:] == 'm':
+                distance = int(message[:-1])
+            else:
+                distance = int(message)
+        else:
+            distance = type_query[t]['distance']
+            user.set_field(user_id, 'type', str(t))
+            user.set_field(user_id, 'distance', str(distance))
+            user.set_field(user_id, 'mode', 'nearest')
+        return [ _('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
+                        _('send the nearest element') + '.\n' +
+                        _('You can do it with the Telegram paperclip button') + ' \xF0\x9F\x93\x8E.']
+
 
 
 def RawCommand(message):
@@ -426,10 +507,6 @@ def RawCommand(message):
     return preview, response
 
 
-@osmbot.teardown_request
-def close_connection(exception):
-    user.close()
-
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
 def attend_webhook(token):
@@ -465,6 +542,12 @@ def attend_webhook(token):
                         message, chat_id, user_id,user, zoom=user_config["zoom"], imgformat=user_config["format"],
                         lat=float(query["message"]["location"]["latitude"]),
                         lon=float(query["message"]["location"]["longitude"]))
+                elif user_config.get('mode', None) == 'nearest':
+                    response += NearestCommand(
+                        message, chat_id, user_id, user, lat=float(query["message"]["location"]["latitude"]),
+                        lon=float(query['message']['location']['longitude']),
+                        distance=user_config['distance'], type=user_config['type'], config=user_config
+                    )[1]
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
                     response += LanguageCommand(message, user_id, chat_id, user)
@@ -484,8 +567,10 @@ def attend_webhook(token):
                     response += LanguageCommand(message, user_id, chat_id, user)
                 elif message.lower().startswith("/settings"):
                     response += SettingsCommand(message, user_id, chat_id, user)
+                elif message.lower().startswith("/nearest"):
+                    response += NearestCommand(message, chat_id, user_id, user)
                 elif message.lower().startswith("/map"):
-                    response += MapCommand(message, chat_id, user_id,user   )
+                    response += MapCommand(message, chat_id, user_id, user)
                 elif re.match("/phone.*", message.lower()):
                     response += PhoneCommand(message)
                 elif re.match("/details.*", message.lower()):
@@ -555,7 +640,7 @@ def attend_webhook(token):
     else:
         return 'NOT ALLOWED'
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     application.run(host='0.0.0.0')
 
 gettext.gettext('OpenStreetMap bot finds any location in world from the Nominatim OSM database and can send links and maps from OSM')

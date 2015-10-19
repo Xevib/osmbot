@@ -44,15 +44,18 @@ def download(bbox,_,imageformat='png',zoom=19):
 def deg2rad(degrees):
     return math.pi*degrees/180.0
 
+
 def rad2deg(radians):
     return 180.0*radians/math.pi
+
 
 def WGS84EarthRadius(lat):
     An = WGS84_a*WGS84_a * math.cos(lat)
     Bn = WGS84_b*WGS84_b * math.sin(lat)
     Ad = WGS84_a * math.cos(lat)
     Bd = WGS84_b * math.sin(lat)
-    return math.sqrt( (An*An + Bn*Bn)/(Ad*Ad + Bd*Bd) )
+    return math.sqrt((An*An + Bn*Bn)/(Ad*Ad + Bd*Bd))
+
 
 def genBBOX(latitudeInDegrees, longitudeInDegrees, halfSideInKm):
     lat = deg2rad(latitudeInDegrees)
@@ -68,11 +71,12 @@ def genBBOX(latitudeInDegrees, longitudeInDegrees, halfSideInKm):
     latMax = lat + halfSide/radius
     lonMin = lon - halfSide/pradius
     lonMax = lon + halfSide/pradius
-    return (rad2deg(lonMin), rad2deg(latMin), rad2deg(lonMax), rad2deg(latMax))
+    return rad2deg(lonMin), rad2deg(latMin), rad2deg(lonMax), rad2deg(latMax)
 
 
 def dps2deg(degrees, primes, seconds):
     return degrees + primes/60.0 + seconds/3600.0
+
 
 def deg2dps(degrees):
     intdeg = math.floor(degrees)
@@ -80,4 +84,4 @@ def deg2dps(degrees):
     intpri = math.floor(primes)
     seconds = (primes - intpri)*60.0
     intsec = round(seconds)
-    return (int(intdeg), int(intpri), int(intsec))
+    return int(intdeg), int(intpri), int(intsec)
