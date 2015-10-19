@@ -157,7 +157,7 @@ def SearchCommand(message, user_config):
     return response + [t]
 
 
-def pretty_tags(data, identificador, type, user_config, lat=None, lon=None):
+def pretty_tags(data, identificador, type, user_config, lat=None, lon=None, link=False):
     response = []
     preview = False
     if 'tag' in data:
@@ -293,6 +293,13 @@ def pretty_tags(data, identificador, type, user_config, lat=None, lon=None):
             t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"])) + "\n"
 
     t += '\n' +_('Raw data:') + ' /raw' + str(type) + str(identificador) + '\n'
+    if link:
+        if type == 'nod':
+            t += 'http://osm.org/node/{0}\n'.format(str(identificador))
+        elif type == 'way':
+            t += 'http://osm.org/way/{0}\n'.format(str(identificador))
+        else:
+            t += 'http://osm.org/relation/{0}\n'.format(str(identificador))
     t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors') + '\n'
 
     response.append(t)
@@ -448,7 +455,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
 
         user.set_field(user_id, 'mode', 'normal')
 
-        return pretty_tags(data, chat_id, type, config,lat=lat,lon=lon)
+        return pretty_tags(data, chat_id, type, config, lat=lat, lon=lon, link=True)
     else:
         t = message.replace('/nearest', '').strip().split(' ')[0]
         if t not in type_query:
