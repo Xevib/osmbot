@@ -580,7 +580,7 @@ type_query = {
     'watches':
         {'query': 'node["shop"="watches"]({0});way["shop"="watches"]({0});relation["shop"="watches"]({0});',
          'distance': 10000},
-    u'\U000231A':
+    u'\U0001231A':
         {'query': 'node["shop"="watches"]({0});way["shop"="watches"]({0});relation["shop"="watches"]({0});',
          'distance': 10000},
     'charity':
