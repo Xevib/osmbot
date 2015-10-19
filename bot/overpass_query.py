@@ -2,13 +2,13 @@ type_query = {
     'hospital':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
-    u'\xF0\x9F\x8F\xA5':
+    u'\U0001F3E5':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
     'bar':
         {'query': 'node["amenity"="bar"]({0});way["amenity"="bar"]({0});relation["amenity"="bar"]({0});',
          'distance': 10000},
-    u'\xF0\x9F\x8D\xB8':
+    u'\U0001F378':
         {'query': 'node["amenity"="bar"]({0});way["amenity"="bar"]({0});relation["amenity"="bar"]({0});',
          'distance': 10000},
     'bbq':
@@ -21,7 +21,7 @@ type_query = {
     'cafe':
         {'query': 'node["amenity"="cafe"]({0});way["amenity"="cafe"]({0});relation["amenity"="cafe"]({0});',
          'distance': 10000},
-    u'\xE2\x98\x95':
+    u'\U00012615':
         {'query': 'node["amenity"="cafe"]({0});way["amenity"="cafe"]({0});relation["amenity"="cafe"]({0});',
          'distance': 10000},
     'water':
@@ -32,7 +32,7 @@ type_query = {
         {
             'query': 'node["amenity"="drinking_water"]({0});way["amenity"="drinking_water"]({0});relation["amenity"="drinking_water"]({0});',
             'distance': 10000},
-    u'\xF0\x9F\x9A\xB0':
+    u'\U0001F6B0':
         {
             'query': 'node["amenity"="drinking_water"]({0});way["amenity"="drinking_water"]({0});relation["amenity"="drinking_water"]({0});',
             'distance': 10000},
@@ -41,7 +41,7 @@ type_query = {
         {
             'query': 'node["amenity"="fast_food"]({0});way["amenity"="fast_food"]({0});relation["amenity"="fast_food"]({0});',
             'distance': 10000},
-    u'\xF0\x9F\x8D\x94':
+    u'\U0001F354':
         {
             'query': 'node["amenity"="fast_food"]({0});way["amenity"="fast_food"]({0});relation["amenity"="fast_food"]({0});',
             'distance': 10000},
@@ -53,60 +53,59 @@ type_query = {
         {
             'query': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});',
             'distance': 10000},
-    u'\xF0\x9F\x8D\xA6':
+    u'\U0001F366':
         {
             'query': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});',
             'distance': 10000},
     'pub':
         {'query': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});',
          'distance': 10000},
-    u'\xF0\x9F\x8D\xBA':
+    u'\U0001F37A':
         {'query': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});',
          'distance': 10000},
     'restaurant':
         {
             'restaurant': 'node["amenity"="restaurant"]({0});way["amenity"="restaurant"]({0});relation["amenity"="restaurant"]({0});',
             'distance': 10000},
-    u'\xF0\x9F\x8D\xB4':
+    u'\U0001F374':
         {
             'restaurant': 'node["amenity"="restaurant"]({0});way["amenity"="restaurant"]({0});relation["amenity"="restaurant"]({0});',
             'distance': 10000},
     'college':
         {'query': 'node["amenity"="college"]({0});way["amenity"="college"]({0});relation["amenity"="college"]({0});',
          'distance': 10000},
-    u'\xF0\x9F\x8E\x93':
+    u'\U0001F393':
         {'query': 'node["amenity"="college"]({0});way["amenity"="college"]({0});relation["amenity"="college"]({0});',
          'distance': 10000},
     'kindergarten':
         {
             'query': 'node["amenity"="kindergarten"]({0});way["amenity"="kindergarten"]({0});relation["amenity"="kindergarten"]({0});',
             'distance': 10000},
-    u'\xF0\x9F\x91\xB6':
+    u'\U0001F476':
         {
             'query': 'node["amenity"="kindergarten"]({0});way["amenity"="kindergarten"]({0});relation["amenity"="kindergarten"]({0});',
             'distance': 10000},
     'library':
         {'query': 'node["amenity"="library"]({0});way["amenity"="library"]({0});relation["amenity"="library"]({0});',
          'distance': 10000},
-    u'\xF0\x9F\x93\x96':
+    u'\U0001F4D6':
         {'query': 'node["amenity"="library"]({0});way["amenity"="library"]({0});relation["amenity"="library"]({0});',
          'distance': 10000},
     'public bookcase':
         {
             'query': 'node["amenity"="public_bookcase"]({0});way["amenity"="public_bookcase"]({0});relation["amenity"="public_bookcase"]({0});',
             'distance': 10000},
-
     'school':
         {'query': 'node["amenity"="school"]({0});way["amenity"="school"]({0});relation["amenity"="school"]({0});',
          'distance': 10000},
-    u'\xF0\x9F\x8E\x92':
+    u'\U0001F392':
         {'query': 'node["amenity"="school"]({0});way["amenity"="school"]({0});relation["amenity"="school"]({0});',
          'distance': 10000},
     'university':
         {
             'query': 'node["amenity"="university"]({0});way["amenity"="university"]({0});relation["amenity"="university"]({0});',
             'distance': 10000},
-    u'\xF0\x9F\x8E\x93':
+    u'\U0001F394':
         {
             'query': 'node["amenity"="university"]({0});way["amenity"="university"]({0});relation["amenity"="university"]({0});',
             'distance': 10000},
@@ -152,7 +151,7 @@ type_query = {
     'fuel':
         {'query': 'node["amenity"="fuel"]({0});way["amenity"="fuel"]({0});relation["amenity"="fuel"]({0});',
          'distance': 10000},
-    '\xE2\x9B\xBD':
+    u'\U000126FD':
         {'query': 'node["amenity"="fuel"]({0});way["amenity"="fuel"]({0});relation["amenity"="fuel"]({0});',
          'distance': 10000},
     'grit':
@@ -179,13 +178,13 @@ type_query = {
     'atm':
         {'query': 'node["amenity"="atm"]({0});way["amenity"="atm"]({0});relation["amenity"="atm"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x92\xB3':
+    u'\U0001F4B3':
         {'query': 'node["amenity"="atm"]({0});way["amenity"="atm"]({0});relation["amenity"="atm"]({0});',
          'distance': 10000},
     'bank':
         {'query': 'node["amenity"="bank"]({0});way["amenity"="bank"]({0});relation["amenity"="bank"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x92\xB0':
+    u'\U0001F4B0':
         {'query': 'node["amenity"="bank"]({0});way["amenity"="bank"]({0});relation["amenity"="bank"]({0});',
          'distance': 10000},
     'bureau de change':
@@ -212,7 +211,7 @@ type_query = {
     'pharmacy':
         {'query': 'node["amenity"="pharmacy"]({0});way["amenity"="pharmacy"]({0});relation["amenity"="pharmacy"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x92\x8A':
+    u'\U0001F48A':
         {'query': 'node["amenity"="pharmacy"]({0});way["amenity"="pharmacy"]({0});relation["amenity"="pharmacy"]({0});',
          'distance': 10000},
     'social':
@@ -236,7 +235,7 @@ type_query = {
     'cinema':
         {'query': 'node["amenity"="cinema"]({0});way["amenity"="cinema"]({0});relation["amenity"="cinema"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8E\xAC':
+    u'\U0001F3AC':
         {'query': 'node["amenity"="cinema"]({0});way["amenity"="cinema"]({0});relation["amenity"="cinema"]({0});',
          'distance': 10000},
     'community':
@@ -275,7 +274,7 @@ type_query = {
     'theatre':
         {'query': 'node["amenity"="theatre"]({0});way["amenity"="theatre"]({0});relation["amenity"="theatre"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8E\xAD':
+    u'\U0001F3AD':
         {'query': 'node["amenity"="theatre"]({0});way["amenity"="theatre"]({0});relation["amenity"="theatre"]({0});',
          'distance': 10000},
     'animalboard':
@@ -321,7 +320,7 @@ type_query = {
         {
             'query': 'node["amenity"="fire_station"]({0});way["amenity"="fire_station"]({0});relation["amenity"="fire_station"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x9A\x92':
+    u'\U0001F692':
         {
             'query': 'node["amenity"="fire_station"]({0});way["amenity"="fire_station"]({0});relation["amenity"="fire_station"]({0});',
             'distance': 10000},
@@ -356,14 +355,14 @@ type_query = {
         {
             'query': 'node["amenity"="place_of_worship"]({0});way["amenity"="place_of_worship"]({0});relation["amenity"="place_of_worship"]({0});',
             'distance': 10000},
-    '\xE2\x9B\xAA':
+    u'\U000126EA':
         {
             'query': 'node["amenity"="place_of_worship"]({0});way["amenity"="place_of_worship"]({0});relation["amenity"="place_of_worship"]({0});',
             'distance': 10000},
     'police':
         {'query': 'node["amenity"="police"]({0});way["amenity"="police"]({0});relation["amenity"="police"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x9A\x93':
+    u'\U0001F693':
         {'query': 'node["amenity"="police"]({0});way["amenity"="police"]({0});relation["amenity"="police"]({0});',
          'distance': 10000},
     'postbox':
@@ -409,7 +408,7 @@ type_query = {
         {
             'query': 'node["amenity"="telephone"]({0});way["amenity"="telephone"]({0});relation["amenity"="telephone"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x93\x9E':
+    u'\U0001F4DE':
         {
             'query': 'node["amenity"="telephone"]({0});way["amenity"="telephone"]({0});relation["amenity"="telephone"]({0});',
             'distance': 10000},
@@ -419,7 +418,7 @@ type_query = {
     'wc':
         {'query': 'node["amenity"="toilets"]({0});way["amenity"="toilets"]({0});relation["amenity"="toilets"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x9A\xBB':
+    u'\U0001F6BB':
         {'query': 'node["amenity"="toilets"]({0});way["amenity"="toilets"]({0});relation["amenity"="toilets"]({0});',
          'distance': 10000},
     'townhall':
@@ -451,7 +450,7 @@ type_query = {
     'bakery':
         {'query': 'node["shop"="bakery"]({0});way["shop"="bakery"]({0});relation["shop"="bakery"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8D\x9E':
+    u'\U0001F35E':
         {'query': 'node["shop"="bakery"]({0});way["shop"="bakery"]({0});relation["shop"="bakery"]({0});',
          'distance': 10000},
     'beverages':
@@ -460,7 +459,7 @@ type_query = {
     'butcher':
         {'query': 'node["shop"="butcher"]({0});way["shop"="butcher"]({0});relation["shop"="butcher"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8D\x97':
+    u'\U0001F357':
         {'query': 'node["shop"="butcher"]({0});way["shop"="butcher"]({0});relation["shop"="butcher"]({0});',
          'distance': 10000},
     'cheese':
@@ -469,7 +468,7 @@ type_query = {
     'chocolate':
         {'query': 'node["shop"="chocolate"]({0});way["shop"="chocolate"]({0});relation["shop"="chocolate"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8D\xAB':
+    u'\U0001F36B':
         {'query': 'node["shop"="chocolate"]({0});way["shop"="chocolate"]({0});relation["shop"="chocolate"]({0});',
          'distance': 10000},
     'coffe':
@@ -479,11 +478,10 @@ type_query = {
         {
             'query': 'node["shop"="confectionery"]({0});way["shop"="confectionery"]({0});relation["shop"="confectionery"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x8D\xB0':
+    u'\U0001F370':
         {
             'query': 'node["shop"="confectionery"]({0});way["shop"="confectionery"]({0});relation["shop"="confectionery"]({0});',
             'distance': 10000},
-
     'convenience':
         {'query': 'node["shop"="convenience"]({0});way["shop"="convenience"]({0});relation["shop"="convenience"]({0});',
          'distance': 10000},
@@ -497,7 +495,7 @@ type_query = {
     'greengrocer':
         {'query': 'node["shop"="greengrocer"]({0});way["shop"="greengrocer"]({0});relation["shop"="greengrocer"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8D\x89':
+    u'\xF0\x9F\x8D\x89':
         {'query': 'node["shop"="greengrocer"]({0});way["shop"="greengrocer"]({0});relation["shop"="greengrocer"]({0});',
          'distance': 10000},
     'pasta':
@@ -506,13 +504,13 @@ type_query = {
     'pastry':
         {'query': 'node["shop"="pastry"]({0});way["shop"="pastry"]({0});relation["shop"="pastry"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8D\xAA':
+    u'\xF0\x9F\x8D\xAA':
         {'query': 'node["shop"="pastry"]({0});way["shop"="pastry"]({0});relation["shop"="pastry"]({0});',
          'distance': 10000},
     'seafood':
         {'query': 'node["shop"="seafood"]({0});way["shop"="seafood"]({0});relation["shop"="seafood"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x90\x9F':
+    u'\xF0\x9F\x90\x9F':
         {'query': 'node["shop"="seafood"]({0});way["shop"="seafood"]({0});relation["shop"="seafood"]({0});',
          'distance': 10000},
     'tea':
