@@ -809,7 +809,7 @@ type_query = {
     'sports':
         {'query': 'node["shop"="sports"]({0});way["shop"="sports"]({0});relation["shop"="sports"]({0});',
          'distance': 10000},
-    u'\U00026BD':
+    u'\U000126BD':
         {'query': 'node["shop"="sports"]({0});way["shop"="sports"]({0});relation["shop"="sports"]({0});',
          'distance': 10000},
     'tyres':
