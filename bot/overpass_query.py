@@ -974,7 +974,7 @@ type_query = {
         {
             'query': 'node["tourism"="camp_site"]({0});way["tourism"="camp_site"]({0});relation["tourism"="camp_site"]({0});',
             'distance': 10000},
-    u'\U00026FA':
+    u'\U000126FA':
         {
             'query': 'node["tourism"="camp_site"]({0});way["tourism"="camp_site"]({0});relation["tourism"="camp_site"]({0});',
             'distance': 10000},
@@ -986,7 +986,7 @@ type_query = {
         {
             'query': 'node["tourism"="information"]({0});way["tourism"="information"]({0});relation["tourism"="information"]({0});',
             'distance': 10000},
-    u'\U0002139':
+    u'\U00012139':
         {
             'query': 'node["tourism"="information"]({0});way["tourism"="information"]({0});relation["tourism"="information"]({0});',
             'distance': 10000},
@@ -1008,7 +1008,7 @@ type_query = {
         {
             'query': 'node["leisure"="golf_course"]({0});way["leisure"="golf_course"]({0});relation["leisure"="golf_course"]({0});',
             'distance': 10000},
-    u'\U00026F3':
+    u'\U000126F3':
         {
             'query': 'node["leisure"="golf_course"]({0});way["leisure"="golf_course"]({0});relation["leisure"="golf_course"]({0});',
             'distance': 10000},
