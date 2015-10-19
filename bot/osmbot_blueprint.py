@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+import re
+import math
 from flask import Flask
 from flask import request, current_app, Blueprint
-import re, math
 import nominatim
 from osmapi import OsmApi
 from bot import OSMbot
@@ -13,6 +14,8 @@ import gettext
 import overpass
 from overpass_query import type_query
 import user as u
+
+
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
                      'Galician': 'gl', 'French': 'fr', 'Italian': 'it'}
 
@@ -31,6 +34,7 @@ osmbot = Blueprint(
     template_folder='templates',
     static_folder='static'
 )
+
 
 def getData(id, geom_type=None):
     if geom_type is None:
@@ -51,6 +55,7 @@ def getData(id, geom_type=None):
         osm_data = api.RelationGet(int(id))
     return osm_data
 
+
 def SetLanguageCommand(message,user_id,chat_id,u):
     if message in avaible_languages:
         u.set_field(user_id, 'lang', avaible_languages[message])
@@ -68,6 +73,7 @@ def SetLanguageCommand(message,user_id,chat_id,u):
                         reply_markup={'hide_keyboard': True})
         return []
 
+
 def LanguageCommand(message, user_id, chat_id, user):
     keyboard = []
     for lang in sorted(avaible_languages.keys()):
@@ -77,11 +83,13 @@ def LanguageCommand(message, user_id, chat_id, user):
     user.set_field(user_id, 'mode', 'setlanguage')
     return []
 
+
 def SettingsCommand(message,user_id,chat_id,u):
     bot.sendMessage(chat_id, _('What do you want to configure?') +
                     ' \xF0\x9F\x91\x86', reply_markup={'keyboard': [['Language']], 'one_time_keyboard': True})
     u.set_field(user_id, 'mode', 'settings')
     return []
+
 
 def LegendCommand(message):
     t = ''
@@ -98,6 +106,7 @@ def LegendCommand(message):
     elif len(selected_keys) == 0:
         return [_('No emoji found, perhaps you should try with /legend <osm_key:value>')]
     return t
+
 
 def SearchCommand(message, user_config):
     response = []
@@ -287,7 +296,7 @@ def pretty_tags(data, identificador, type, user_config, lat=None, lon=None):
     t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors') + '\n'
 
     response.append(t)
-    return (preview,response)
+    return preview, response
 
 
 def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
@@ -377,6 +386,7 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                             _('Perhaps I could help you with the command /help') + ' \xF0\x9F\x91\x8D')
     return response
 
+
 def PhoneCommand(message):
     id = message[6:]
     osm_data = getData(id)
@@ -461,7 +471,6 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
                         _('You can do it with the Telegram paperclip button') + ' \xF0\x9F\x93\x8E.']
 
 
-
 def RawCommand(message):
     preview = False
     response = []
@@ -505,7 +514,6 @@ def RawCommand(message):
             t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors')
             response.append(t)
     return preview, response
-
 
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
