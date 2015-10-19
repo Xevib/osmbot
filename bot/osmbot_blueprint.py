@@ -12,7 +12,6 @@ from maptools import download, genBBOX
 import gettext
 import overpass
 from overpass_query import type_query
-
 import user as u
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
                      'Galician': 'gl', 'French': 'fr', 'Italian': 'it'}
@@ -20,6 +19,7 @@ avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish
 application = Flask(__name__)
 application.debug = True
 config = ConfigObj('bot.conf')
+
 token = config['token']
 user = u.User('osmbot.db')
 bot = OSMbot(token)
@@ -148,7 +148,7 @@ def SearchCommand(message, user_config):
     return response + [t]
 
 
-def pretty_tags(data, identificador, type, user_config,lat = None,lon =None):
+def pretty_tags(data, identificador, type, user_config, lat=None, lon=None):
     response = []
     preview = False
     if 'tag' in data:
@@ -453,7 +453,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
                 distance = int(message)
         else:
             distance = type_query[t]['distance']
-            user.set_field(user_id, 'type', str(t))
+            user.set_field(user_id, 'type', unicode(t))
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
         return [ _('Please send me your location') + ' \xF0\x9F\x93\x8D ' +

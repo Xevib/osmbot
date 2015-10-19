@@ -894,7 +894,7 @@ type_query = {
     'ticket':
         {'query': 'node["shop"="ticket"]({0});way["shop"="ticket"]({0});relation["shop"="ticket"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8E\xAB':
+    '\\xF0\x9F\x8E\xAB':
         {'query': 'node["shop"="ticket"]({0});way["shop"="ticket"]({0});relation["shop"="ticket"]({0});',
          'distance': 10000},
     'copyshop':
@@ -937,7 +937,7 @@ type_query = {
     'tobacco':
         {'query': 'node["shop"="tobacco"]({0});way["shop"="tobacco"]({0});relation["shop"="tobacco"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x9A\xAC':
+    '\\xf0\\x9f\\x9a\\xac':
         {'query': 'node["shop"="tobacco"]({0});way["shop"="tobacco"]({0});relation["shop"="tobacco"]({0});',
          'distance': 10000},
     'toyshop':
@@ -956,27 +956,27 @@ type_query = {
         {
             'query': 'node["emergency"="defibrillator"]({0});way["emergency"="defibrillator"]({0});relation["emergency"="defibrillator"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x92\x94':
+    u'\U0001f494':
         {
             'query': 'node["emergency"="defibrillator"]({0});way["emergency"="defibrillator"]({0});relation["emergency"="defibrillator"]({0});',
             'distance': 10000},
     'hotel':
         {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x8F\xA8':
+    u'\U0001F3E8':
         {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});',
          'distance': 10000},
     'aquarium':
         {'query': 'node["tourism"="aquarium"]({0});way["tourism"="aquarium"]({0});relation["tourism"="aquarium"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x90\xA0':
+    '\xf0\x9f\x90\xa0':
         {'query': 'node["tourism"="aquarium"]({0});way["tourism"="aquarium"]({0});relation["tourism"="aquarium"]({0});',
          'distance': 10000},
     'camp site':
         {
             'query': 'node["tourism"="camp_site"]({0});way["tourism"="camp_site"]({0});relation["tourism"="camp_site"]({0});',
             'distance': 10000},
-    '\xE2\x9B\xBA':
+    '\xe2\x9b\xba':
         {
             'query': 'node["tourism"="camp_site"]({0});way["tourism"="camp_site"]({0});relation["tourism"="camp_site"]({0});',
             'distance': 10000},
@@ -988,19 +988,19 @@ type_query = {
         {
             'query': 'node["tourism"="information"]({0});way["tourism"="information"]({0});relation["tourism"="information"]({0});',
             'distance': 10000},
-    '\xE2\x84\xB9':
+    '\xe2\x84\xb9':
         {
             'query': 'node["tourism"="information"]({0});way["tourism"="information"]({0});relation["tourism"="information"]({0});',
             'distance': 10000},
     'zoo':
         {'query': 'node["tourism"="zoo"]({0});way["tourism"="zoo"]({0});relation["tourism"="zoo"]({0});',
          'distance': 10000},
-    '\xF0\x9F\x90\x8A':
+    '\\xf0\\x9f\\x90\\x8a':
         {'query': 'node["tourism"="zoo"]({0});way["tourism"="zoo"]({0});relation["tourism"="zoo"]({0});',
          'distance': 10000},
     'art shop':
         {'query': 'node["shop"="art"]({0});way["shop"="art"]({0});relation["shop"="art"]({0});', 'distance': 10000},
-    '\xF0\x9F\x8E\xA8':
+    '\\xf0\\x9f\\x8e\\xa8':
         {'query': 'node["shop"="art"]({0});way["shop"="art"]({0});relation["shop"="art"]({0});', 'distance': 10000},
     'golf_course':
         {
@@ -1010,7 +1010,7 @@ type_query = {
         {
             'query': 'node["leisure"="golf_course"]({0});way["leisure"="golf_course"]({0});relation["leisure"="golf_course"]({0});',
             'distance': 10000},
-    '\xE2\x9B\xB3':
+    '\\xe2\\x9b\\xb3':
         {
             'query': 'node["leisure"="golf_course"]({0});way["leisure"="golf_course"]({0});relation["leisure"="golf_course"]({0});',
             'distance': 10000},
@@ -1026,7 +1026,7 @@ type_query = {
         {
             'query': 'node["leisure"="bowling_alley"]({0});way["leisure"="bowling_alley"]({0});relation["leisure"="bowling_alley"]({0});',
             'distance': 10000},
-    '\xF0\x9F\x8E\xB3':
+    '\\xf0\\x9f\\x8e\\xb3':
         {
             'query': 'node["leisure"="bowling_alley"]({0});way["leisure"="bowling_alley"]({0});relation["leisure"="bowling_alley"]({0});',
             'distance': 10000}
