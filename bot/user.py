@@ -21,12 +21,14 @@ class User(object):
         shaid = sha1(str(identifier)).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
         cur.execute('SELECT * FROM users WHERE shaid = %s LIMIT 1', (shaid,))
-        data = cur.fetchone()
+        d = cur.fetchone()
         cur.close()
-        if data is None:
+        data = dict()
+        if d is None:
             return self.get_defaultconfig()
         else:
-            if 'lang' not in data:
+            data.update(d)
+            if 'lang' not in d:
                 data['lang'] = 'en'
                 data['lang_set'] = False
             else:
