@@ -525,7 +525,7 @@ def RawCommand(message):
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
 def attend_webhook(token):
-    user = u.User("osmbot.db")
+    user = u.User(config['host'], config['database'], config['user'], config['password'])
     current_app.logger.debug("token:%s", token)
     if token == config['token']:
         try:
