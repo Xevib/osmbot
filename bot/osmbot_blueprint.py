@@ -24,7 +24,7 @@ application.debug = True
 config = ConfigObj('bot.conf')
 
 token = config['token']
-user = u.User('osmbot.db')
+user = u.User(config['host'], config['database'], config['user'], config['password'])
 bot = OSMbot(token)
 api = OsmApi()
 nom = nominatim.Nominatim()
