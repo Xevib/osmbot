@@ -20,7 +20,7 @@ class User(object):
     def get_user(self, identifier):
         shaid = sha1(str(identifier)).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
-        cur.execute('SELECT * FROM user WHERE shaid = %s LIMIT 1', (shaid,))
+        cur.execute('SELECT * FROM users WHERE shaid = %s LIMIT 1', (shaid,))
         data = cur.fetchone()
         cur.close()
         if data is None:
@@ -39,12 +39,12 @@ class User(object):
     def set_field(self, identifier, field, value):
         shaid = sha1(str(identifier)).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
-        cur.execute("SELECT count(shaid) as count FROM user WHERE shaid = %s", (shaid,))
+        cur.execute("SELECT count(shaid) as count FROM users WHERE shaid = %s", (shaid,))
         num = cur.fetchone()
         if num['count'] == 0:
-            cur.execute("INSERT INTO user (shaid,{0}) VALUES (%s,%s)".format(field), (shaid, value))
+            cur.execute("INSERT INTO users (shaid,{0}) VALUES (%s,%s)".format(field), (shaid, value))
         else:
-            cur.execute("UPDATE user SET {0} = %s WHERE shaid = %s ".format(field), (value, shaid))
+            cur.execute("UPDATE users SET {0} = %s WHERE shaid = %s ".format(field), (value, shaid))
         self.conn.commit()
         cur.close()
         return cur.rowcount != 0
