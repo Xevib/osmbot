@@ -2,7 +2,7 @@ type_query = {
     'hospital':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
-    u'\U0001F3E5':
+    '\xf0\x9f\x8f\xa5':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
     'bar':
