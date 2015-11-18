@@ -24,7 +24,7 @@ application.debug = True
 config = ConfigObj('bot.conf')
 
 token = config['token']
-user = u.User('osmbot.db')
+user = u.User(config['host'], config['database'], config['user'], config['password'])
 bot = OSMbot(token)
 api = OsmApi()
 nom = nominatim.Nominatim()
@@ -525,7 +525,7 @@ def RawCommand(message):
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
 def attend_webhook(token):
-    user = u.User("osmbot.db")
+    user = u.User(config['host'], config['database'], config['user'], config['password'])
     current_app.logger.debug("token:%s", token)
     if token == config['token']:
         try:
