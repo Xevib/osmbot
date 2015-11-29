@@ -2,10 +2,12 @@
 import requests
 import math
 
+
 WGS84_a = 6378137.0  # Major semiaxis [m]
 WGS84_b = 6356752.3  # Minor semiaxis [m]
 
-def download(bbox,_,imageformat='png',zoom=19):
+
+def download(bbox, _, imageformat='png', zoom=19, scale=None):
     scale_zoom = {19: 804,
                   18: 1300,
                   17: 2600,
@@ -30,7 +32,11 @@ def download(bbox,_,imageformat='png',zoom=19):
     params = {}
     params['bbox'] = ",".join(map(str,bbox))
     params['format'] = imageformat
-    params['scale'] = scale_zoom[int(zoom)]
+    if scale is None:
+        params['scale'] = scale_zoom[int(zoom)]
+    else:
+        params['scale'] = scale
+    print str(params)
     response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params)
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Map too large</p>\n</body>\n</html>\n':
         raise ValueError(_('Map too large!')+' \xF0\x9F\x98\xB1\n'+_('Please, reduce the bounding box')+' \xE2\x9C\x82 '+_('or the scale (zoom level)')+' \xF0\x9F\x94\x8D')
@@ -85,3 +91,12 @@ def deg2dps(degrees):
     seconds = (primes - intpri)*60.0
     intsec = round(seconds)
     return int(intdeg), int(intpri), int(intsec)
+
+
+def getScale(bounds):
+    centerLat = (float(bounds[0]) +float(bounds[2]))/2
+    halfWorldMeters = 6378137 * math.pi * math.cos(centerLat * math.pi / 180)
+    meters = halfWorldMeters * (float(bounds[3]) -float( bounds[1])) / 180
+    pixelsPerMeter = 256 / meters
+    metersPerPixel = 1 / (92 * 39.3701)
+    return round(1 / (pixelsPerMeter * metersPerPixel))
