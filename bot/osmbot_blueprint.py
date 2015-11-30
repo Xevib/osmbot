@@ -390,16 +390,15 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                                 _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
         else:
             res = nom.query(message)
-            if len(res) == 0:
-                response.append(_("Sorry, I can't understand you") + ' \xF0\x9F\x98\xB5\n' +
-                                _('Perhaps I could help you with the command /help') + ' \xF0\x9F\x91\x8D')
-            else:
+            if res:
                 bbox = res[0]['boundingbox']
                 auto_scale = getScale([bbox[0],bbox[2],bbox[1],bbox[3]])
 
                 data = download([bbox[2],bbox[0],bbox[3],bbox[1]], _, scale=auto_scale )
                 bot.sendPhoto(chat_id, data, 'map.png', 'Map')
-
+            else:
+                response.append(_("Sorry, I can't understand you") + ' \xF0\x9F\x98\xB5\n' +
+                                _('Perhaps I could help you with the command /help') + ' \xF0\x9F\x91\x8D')
     return response
 
 

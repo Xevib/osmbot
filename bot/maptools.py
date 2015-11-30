@@ -99,4 +99,5 @@ def getScale(bounds):
     meters = halfWorldMeters * (float(bounds[3]) -float( bounds[1])) / 180
     pixelsPerMeter = 256 / meters
     metersPerPixel = 1 / (92 * 39.3701)
-    return round(1 / (pixelsPerMeter * metersPerPixel))
+    scale = round(1 / (pixelsPerMeter * metersPerPixel))
+    return scale
