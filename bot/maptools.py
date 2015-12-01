@@ -37,7 +37,7 @@ def download(bbox, _, imageformat='png', zoom=19, scale=None):
     else:
         params['scale'] = scale
     print str(params)
-    response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params)
+    response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params,timeout=4)
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Map too large</p>\n</body>\n</html>\n':
         raise ValueError(_('Map too large!')+' \xF0\x9F\x98\xB1\n'+_('Please, reduce the bounding box')+' \xE2\x9C\x82 '+_('or the scale (zoom level)')+' \xF0\x9F\x94\x8D')
     if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Invalid bounding box</p>\n</body>\n</html>\n':
