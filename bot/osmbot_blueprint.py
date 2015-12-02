@@ -453,12 +453,8 @@ def DetailsCommand(message, user_config):
 def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
 
     if lat is not None and lon is not None:
-        user_data = user.get_user(user_id)
-        #distance = int(user_data['distance'])
-        #type = user_data['type']
         api = overpass.API()
         query = type_query[type.encode('unicode_escape')]['query']
-        bbox = genBBOX(lat, lon, float(distance)/float(1000))
 
         bbox = 'around:{0},{1},{2}'.format(distance, lat, lon)
         current_app.logger.debug('bbox:{}'.format(bbox))
