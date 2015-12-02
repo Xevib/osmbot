@@ -325,9 +325,9 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
             if imgformat == 'pdf':
                 bot.sendDocument(chat_id, data, 'map.pdf')
             elif imgformat == 'jpeg':
-                bot.sendPhoto(chat_id, data, "map.jpg", "Map")
+                bot.sendPhoto(chat_id, data, "map.jpg", "©OSM contributors")
             elif imgformat == 'png':
-                bot.sendPhoto(chat_id, data, "map.png", "Map")
+                bot.sendPhoto(chat_id, data, "map.png", "©OSM contributors")
         user.set_field(user_id, 'mode', 'normal')
     else:
         if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
@@ -364,9 +364,9 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                 if imgformat == 'pdf':
                     bot.sendDocument(chat_id, data, 'map.pdf')
                 elif imgformat == 'jpeg':
-                    bot.sendPhoto(chat_id, data, 'map.jpg', 'Map')
+                    bot.sendPhoto(chat_id, data, 'map.jpg', '©OSM contributors')
                 elif imgformat == 'png':
-                    bot.sendPhoto(chat_id, data, 'map.png', 'Map')
+                    bot.sendPhoto(chat_id, data, 'map.png', '©OSM contributors')
         elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
             m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
             if m is not None:
@@ -388,9 +388,9 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                     if imgformat == 'pdf':
                         bot.sendDocument(chat_id, data, 'map.pdf')
                     elif imgformat == 'jpeg':
-                        bot.sendPhoto(chat_id, data, 'map.jpg', 'Map')
+                        bot.sendPhoto(chat_id, data, 'map.jpg', '©OSM contributors')
                     elif imgformat == 'png':
-                        bot.sendPhoto(chat_id, data, 'map.png', 'Map')
+                        bot.sendPhoto(chat_id, data, 'map.png', '©OSM contributors')
             else:
                 response.append(_("Sorry, I can't understand you")+" \xF0\x9F\x98\xB5\n" +
                                 _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
@@ -404,7 +404,7 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                 except ValueError as v:
                     response.append(v.message)
                 else:
-                    bot.sendPhoto(chat_id, data, 'map.png', 'Map')
+                    bot.sendPhoto(chat_id, data, 'map.png', '©OSM contributors')
             else:
                 response.append(_("Sorry, I can't understand you") + ' \xF0\x9F\x98\xB5\n' +
                                 _('Perhaps I could help you with the command /help') + ' \xF0\x9F\x91\x8D')
