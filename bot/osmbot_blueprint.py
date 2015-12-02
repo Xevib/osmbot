@@ -457,7 +457,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         #distance = int(user_data['distance'])
         #type = user_data['type']
         api = overpass.API()
-        query = type_query[type]['query']
+        query = type_query[type.encode('unicode_escape')]['query']
         bbox = genBBOX(lat, lon, float(distance)/float(1000))
 
         bbox = 'around:{0},{1},{2}'.format(distance, lat, lon)
@@ -472,7 +472,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         return pretty_tags(data, chat_id, type, config, lat=lat, lon=lon, link=True)
     else:
         t = message.replace('/nearest', '').strip().split(' ')[0]
-        if t not in type_query:
+        if t.encode('unicode_escape') not in type_query:
             return ['', _('Sorry but this query it\'s not implemented yet')]
 
         if len(message) == 3:
@@ -483,7 +483,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
             else:
                 distance = int(message)
         else:
-            distance = type_query[t]['distance']
+            distance = type_query[t.encode('unicode_escape')]['distance']
             user.set_field(user_id, 'type', unicode(t))
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
