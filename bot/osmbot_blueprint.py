@@ -165,6 +165,7 @@ def pretty_tags(data, identificador, type, user_config, lat=None, lon=None, link
     elif 'elements' in data:
         tags = data['elements']
         min_dist =None
+        nearest = None
         for element in tags:
             if 'lat' in element and 'lon' in element:
                 element_lat = element['lat']
@@ -195,7 +196,12 @@ def pretty_tags(data, identificador, type, user_config, lat=None, lon=None, link
                     type = 'way'
                 else:
                     type = 'rel'
-        tags = nearest['tags']
+        if nearest:
+            tags = nearest['tags']
+        else:
+            response.append(_('No element found'))
+            preview = False
+            return preview, response
     t = ''
 
     if 'name' in tags:
