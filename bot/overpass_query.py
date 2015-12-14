@@ -1039,5 +1039,13 @@ type_query = {
     u'\\U0001F3AF':
         {
             'query': 'node["emergency"="assmbly_point"]({0});way["emergency"="assmbly_point"]({0});relation["emergency"="assmbly_point"]({0});',
+            'distance': 10000},
+    'love_hotel':
+        {
+            'query': 'node["amenity"="love_hotel"]({0});way["amenity"="love_hotel"]({0});relation["amenity"="love_hotel"]({0});',
+            'distance': 10000},
+    u'\\U0001F3E9':
+        {
+            'query': 'node["amenity"="love_hotel"]({0});way["amenity"="love_hotel"]({0});relation["amenity"="love_hotel"]({0});',
             'distance': 10000}
 }
