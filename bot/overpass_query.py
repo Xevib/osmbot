@@ -1031,5 +1031,13 @@ type_query = {
     u'\\U0001F3B3':
         {
             'query': 'node["leisure"="bowling_alley"]({0});way["leisure"="bowling_alley"]({0});relation["leisure"="bowling_alley"]({0});',
+            'distance': 10000},
+    'assembly_point':
+        {
+            'query': 'node["emergency"="assmbly_point"]({0});way["emergency"="assmbly_point"]({0});relation["emergency"="assmbly_point"]({0});',
+            'distance': 10000},
+    u'\\U0001F3AF':
+        {
+            'query': 'node["emergency"="assmbly_point"]({0});way["emergency"="assmbly_point"]({0});relation["emergency"="assmbly_point"]({0});',
             'distance': 10000}
 }
