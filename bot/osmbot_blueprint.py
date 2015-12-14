@@ -96,7 +96,7 @@ def LegendCommand(message):
     filt = message[8:]
     selected_keys = []
     for key in typeemoji.keys():
-        if filt in key.split(':')[0]:
+        if filt in key:
             selected_keys.append(key)
     selected_keys = sorted(selected_keys)
     for key in selected_keys:
