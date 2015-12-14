@@ -2,13 +2,13 @@ type_query = {
     'hospital':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
-    u'\\U0001F349':
+    u'\\U0001f3e5':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
          'distance': 10000},
     'bar':
         {'query': 'node["amenity"="bar"]({0});way["amenity"="bar"]({0});relation["amenity"="bar"]({0});',
          'distance': 10000},
-    '\\U0001F378':
+    u'\\U0001f378':
         {'query': 'node["amenity"="bar"]({0});way["amenity"="bar"]({0});relation["amenity"="bar"]({0});',
          'distance': 10000},
     'bbq':
@@ -32,7 +32,7 @@ type_query = {
         {
             'query': 'node["amenity"="drinking_water"]({0});way["amenity"="drinking_water"]({0});relation["amenity"="drinking_water"]({0});',
             'distance': 10000},
-    u'\\U0001F6B0':
+    u'\\U0001f6b0':
         {
             'query': 'node["amenity"="drinking_water"]({0});way["amenity"="drinking_water"]({0});relation["amenity"="drinking_water"]({0});',
             'distance': 10000},
@@ -41,7 +41,7 @@ type_query = {
         {
             'query': 'node["amenity"="fast_food"]({0});way["amenity"="fast_food"]({0});relation["amenity"="fast_food"]({0});',
             'distance': 10000},
-    u'\\U0001F354':
+    u'\\U0001f354':
         {
             'query': 'node["amenity"="fast_food"]({0});way["amenity"="fast_food"]({0});relation["amenity"="fast_food"]({0});',
             'distance': 10000},
@@ -53,42 +53,42 @@ type_query = {
         {
             'query': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});',
             'distance': 10000},
-    u'\\U0001F366':
+    u'\\U0001f366':
         {
             'query': 'node["amenity"="ice_cream"]({0});way["amenity"="ice_cream"]({0});relation["amenity"="ice_cream"]({0});',
             'distance': 10000},
     'pub':
         {'query': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});',
          'distance': 10000},
-    u'\\U0001F37A':
+    u'\\U0001f37a':
         {'query': 'node["amenity"="pub"]({0});way["amenity"="pub"]({0});relation["amenity"="pub"]({0});',
          'distance': 10000},
     'restaurant':
         {
             'restaurant': 'node["amenity"="restaurant"]({0});way["amenity"="restaurant"]({0});relation["amenity"="restaurant"]({0});',
             'distance': 10000},
-    u'\\U0001F374':
+    u'\\U0001f374':
         {
             'restaurant': 'node["amenity"="restaurant"]({0});way["amenity"="restaurant"]({0});relation["amenity"="restaurant"]({0});',
             'distance': 10000},
     'college':
         {'query': 'node["amenity"="college"]({0});way["amenity"="college"]({0});relation["amenity"="college"]({0});',
          'distance': 10000},
-    u'\\U0001F393':
+    u'\\U0001f393':
         {'query': 'node["amenity"="college"]({0});way["amenity"="college"]({0});relation["amenity"="college"]({0});',
          'distance': 10000},
     'kindergarten':
         {
             'query': 'node["amenity"="kindergarten"]({0});way["amenity"="kindergarten"]({0});relation["amenity"="kindergarten"]({0});',
             'distance': 10000},
-    u'\\U0001F476':
+    u'\\U0001f476':
         {
             'query': 'node["amenity"="kindergarten"]({0});way["amenity"="kindergarten"]({0});relation["amenity"="kindergarten"]({0});',
             'distance': 10000},
     'library':
         {'query': 'node["amenity"="library"]({0});way["amenity"="library"]({0});relation["amenity"="library"]({0});',
          'distance': 10000},
-    u'\\U0001F4D6':
+    u'\\U0001f4d6':
         {'query': 'node["amenity"="library"]({0});way["amenity"="library"]({0});relation["amenity"="library"]({0});',
          'distance': 10000},
     'public bookcase':
@@ -98,14 +98,14 @@ type_query = {
     'school':
         {'query': 'node["amenity"="school"]({0});way["amenity"="school"]({0});relation["amenity"="school"]({0});',
          'distance': 10000},
-    u'\\U0001F392':
+    u'\\U0001f392':
         {'query': 'node["amenity"="school"]({0});way["amenity"="school"]({0});relation["amenity"="school"]({0});',
          'distance': 10000},
     'university':
         {
             'query': 'node["amenity"="university"]({0});way["amenity"="university"]({0});relation["amenity"="university"]({0});',
             'distance': 10000},
-    u'\\U0001F394':
+    u'\\U0001f394':
         {
             'query': 'node["amenity"="university"]({0});way["amenity"="university"]({0});relation["amenity"="university"]({0});',
             'distance': 10000},
@@ -151,7 +151,7 @@ type_query = {
     'fuel':
         {'query': 'node["amenity"="fuel"]({0});way["amenity"="fuel"]({0});relation["amenity"="fuel"]({0});',
          'distance': 10000},
-    u'\\U000126FD':
+    u'\\U000126fd':
         {'query': 'node["amenity"="fuel"]({0});way["amenity"="fuel"]({0});relation["amenity"="fuel"]({0});',
          'distance': 10000},
     'grit':
@@ -178,13 +178,13 @@ type_query = {
     'atm':
         {'query': 'node["amenity"="atm"]({0});way["amenity"="atm"]({0});relation["amenity"="atm"]({0});',
          'distance': 10000},
-    u'\\U0001F4B3':
+    u'\\U0001f4b3':
         {'query': 'node["amenity"="atm"]({0});way["amenity"="atm"]({0});relation["amenity"="atm"]({0});',
          'distance': 10000},
     'bank':
         {'query': 'node["amenity"="bank"]({0});way["amenity"="bank"]({0});relation["amenity"="bank"]({0});',
          'distance': 10000},
-    u'\\U0001F4B0':
+    u'\\U0001f4b0':
         {'query': 'node["amenity"="bank"]({0});way["amenity"="bank"]({0});relation["amenity"="bank"]({0});',
          'distance': 10000},
     'bureau de change':
@@ -211,7 +211,7 @@ type_query = {
     'pharmacy':
         {'query': 'node["amenity"="pharmacy"]({0});way["amenity"="pharmacy"]({0});relation["amenity"="pharmacy"]({0});',
          'distance': 10000},
-    u'\\U0001F48A':
+    u'\\U0001f48A':
         {'query': 'node["amenity"="pharmacy"]({0});way["amenity"="pharmacy"]({0});relation["amenity"="pharmacy"]({0});',
          'distance': 10000},
     'social':
@@ -235,7 +235,7 @@ type_query = {
     'cinema':
         {'query': 'node["amenity"="cinema"]({0});way["amenity"="cinema"]({0});relation["amenity"="cinema"]({0});',
          'distance': 10000},
-    u'\\U0001F3AC':
+    u'\\U0001f3ac':
         {'query': 'node["amenity"="cinema"]({0});way["amenity"="cinema"]({0});relation["amenity"="cinema"]({0});',
          'distance': 10000},
     'community':
@@ -274,7 +274,7 @@ type_query = {
     'theatre':
         {'query': 'node["amenity"="theatre"]({0});way["amenity"="theatre"]({0});relation["amenity"="theatre"]({0});',
          'distance': 10000},
-    u'\\U0001F3AD':
+    u'\\U0001f3ad':
         {'query': 'node["amenity"="theatre"]({0});way["amenity"="theatre"]({0});relation["amenity"="theatre"]({0});',
          'distance': 10000},
     'animalboard':
@@ -320,7 +320,7 @@ type_query = {
         {
             'query': 'node["amenity"="fire_station"]({0});way["amenity"="fire_station"]({0});relation["amenity"="fire_station"]({0});',
             'distance': 10000},
-    u'\\U0001F692':
+    u'\\U0001f692':
         {
             'query': 'node["amenity"="fire_station"]({0});way["amenity"="fire_station"]({0});relation["amenity"="fire_station"]({0});',
             'distance': 10000},
@@ -355,14 +355,14 @@ type_query = {
         {
             'query': 'node["amenity"="place_of_worship"]({0});way["amenity"="place_of_worship"]({0});relation["amenity"="place_of_worship"]({0});',
             'distance': 10000},
-    u'\\U000126EA':
+    u'\\U000126ea':
         {
             'query': 'node["amenity"="place_of_worship"]({0});way["amenity"="place_of_worship"]({0});relation["amenity"="place_of_worship"]({0});',
             'distance': 10000},
     'police':
         {'query': 'node["amenity"="police"]({0});way["amenity"="police"]({0});relation["amenity"="police"]({0});',
          'distance': 10000},
-    u'\\U0001F693':
+    u'\\U0001f693':
         {'query': 'node["amenity"="police"]({0});way["amenity"="police"]({0});relation["amenity"="police"]({0});',
          'distance': 10000},
     'postbox':
@@ -408,7 +408,7 @@ type_query = {
         {
             'query': 'node["amenity"="telephone"]({0});way["amenity"="telephone"]({0});relation["amenity"="telephone"]({0});',
             'distance': 10000},
-    u'\\U0001F4DE':
+    u'\\U0001f4de':
         {
             'query': 'node["amenity"="telephone"]({0});way["amenity"="telephone"]({0});relation["amenity"="telephone"]({0});',
             'distance': 10000},
@@ -418,7 +418,7 @@ type_query = {
     'wc':
         {'query': 'node["amenity"="toilets"]({0});way["amenity"="toilets"]({0});relation["amenity"="toilets"]({0});',
          'distance': 10000},
-    u'\\U0001F6BB':
+    u'\\U0001f6bb':
         {'query': 'node["amenity"="toilets"]({0});way["amenity"="toilets"]({0});relation["amenity"="toilets"]({0});',
          'distance': 10000},
     'townhall':
@@ -450,7 +450,7 @@ type_query = {
     'bakery':
         {'query': 'node["shop"="bakery"]({0});way["shop"="bakery"]({0});relation["shop"="bakery"]({0});',
          'distance': 10000},
-    u'\\U0001F35E':
+    u'\\U0001f35e':
         {'query': 'node["shop"="bakery"]({0});way["shop"="bakery"]({0});relation["shop"="bakery"]({0});',
          'distance': 10000},
     'beverages':
@@ -459,7 +459,7 @@ type_query = {
     'butcher':
         {'query': 'node["shop"="butcher"]({0});way["shop"="butcher"]({0});relation["shop"="butcher"]({0});',
          'distance': 10000},
-    u'\\U0001F357':
+    u'\\U0001f357':
         {'query': 'node["shop"="butcher"]({0});way["shop"="butcher"]({0});relation["shop"="butcher"]({0});',
          'distance': 10000},
     'cheese':
@@ -468,7 +468,7 @@ type_query = {
     'chocolate':
         {'query': 'node["shop"="chocolate"]({0});way["shop"="chocolate"]({0});relation["shop"="chocolate"]({0});',
          'distance': 10000},
-    u'\\U0001F36B':
+    u'\\U0001f36b':
         {'query': 'node["shop"="chocolate"]({0});way["shop"="chocolate"]({0});relation["shop"="chocolate"]({0});',
          'distance': 10000},
     'coffe':
@@ -478,7 +478,7 @@ type_query = {
         {
             'query': 'node["shop"="confectionery"]({0});way["shop"="confectionery"]({0});relation["shop"="confectionery"]({0});',
             'distance': 10000},
-    u'\\U0001F370':
+    u'\\U0001f370':
         {
             'query': 'node["shop"="confectionery"]({0});way["shop"="confectionery"]({0});relation["shop"="confectionery"]({0});',
             'distance': 10000},
@@ -495,7 +495,7 @@ type_query = {
     'greengrocer':
         {'query': 'node["shop"="greengrocer"]({0});way["shop"="greengrocer"]({0});relation["shop"="greengrocer"]({0});',
          'distance': 10000},
-    u'\\U0001F349':
+    u'\\U0001f349':
         {'query': 'node["shop"="greengrocer"]({0});way["shop"="greengrocer"]({0});relation["shop"="greengrocer"]({0});',
          'distance': 10000},
     'pasta':
@@ -504,20 +504,20 @@ type_query = {
     'pastry':
         {'query': 'node["shop"="pastry"]({0});way["shop"="pastry"]({0});relation["shop"="pastry"]({0});',
          'distance': 10000},
-    u'\\U0001F36A':
+    u'\\U0001f36a':
         {'query': 'node["shop"="pastry"]({0});way["shop"="pastry"]({0});relation["shop"="pastry"]({0});',
          'distance': 10000},
     'seafood':
         {'query': 'node["shop"="seafood"]({0});way["shop"="seafood"]({0});relation["shop"="seafood"]({0});',
          'distance': 10000},
-    u'\\U0001F41F':
+    u'\\U0001f41f':
         {'query': 'node["shop"="seafood"]({0});way["shop"="seafood"]({0});relation["shop"="seafood"]({0});',
          'distance': 10000},
     'tea':
         {'query': 'node["shop"="tea"]({0});way["shop"="tea"]({0});relation["shop"="tea"]({0});', 'distance': 10000},
     'wine':
         {'query': 'node["shop"="wine"]({0});way["shop"="wine"]({0});relation["shop"="wine"]({0});', 'distance': 10000},
-    u'\\U0001F377':
+    u'\\U0001f377':
         {'query': 'node["shop"="wine"]({0});way["shop"="wine"]({0});relation["shop"="wine"]({0});', 'distance': 10000},
     'departmentstore':
         {
@@ -537,12 +537,12 @@ type_query = {
     'baby goods':
         {'query': 'node["shop"="baby_goods"]({0});way["shop"="baby_goods"]({0});relation["shop"="baby_goods"]({0});',
          'distance': 10000},
-    u'\\U0001F37C':
+    u'\\U0001f37c':
         {'query': 'node["shop"="baby_goods"]({0});way["shop"="baby_goods"]({0});relation["shop"="baby_goods"]({0});',
          'distance': 10000},
     'bag':
         {'query': 'node["shop"="bag"]({0});way["shop"="bag"]({0});relation["shop"="bag"]({0});', 'distance': 10000},
-    u'\\U0001F45C':
+    u'\\U0001f45c':
         {'query': 'node["shop"="bag"]({0});way["shop"="bag"]({0});relation["shop"="bag"]({0});', 'distance': 10000},
     'boutique':
         {'query': 'node["shop"="boutique"]({0});way["shop"="boutique"]({0});relation["shop"="boutique"]({0});',
@@ -550,7 +550,7 @@ type_query = {
     'clothes':
         {'query': 'node["shop"="clothes"]({0});way["shop"="clothes"]({0});relation["shop"="clothes"]({0});',
          'distance': 10000},
-    u'\\U0001F457':
+    u'\\U0001f457':
         {'query': 'node["shop"="clothes"]({0});way["shop"="clothes"]({0});relation["shop"="clothes"]({0});',
          'distance': 10000},
     'fabric':
@@ -562,7 +562,7 @@ type_query = {
     'jewelry':
         {'query': 'node["shop"="jewelry"]({0});way["shop"="jewelry"]({0});relation["shop"="jewelry"]({0});',
          'distance': 10000},
-    u'\\U0001F48D':
+    u'\\U0001f48d':
         {'query': 'node["shop"="jewelry"]({0});way["shop"="jewelry"]({0});relation["shop"="jewelry"]({0});',
          'distance': 10000},
     'leather':
@@ -571,7 +571,7 @@ type_query = {
     'shoes':
         {'query': 'node["shop"="shoes"]({0});way["shop"="shoes"]({0});relation["shop"="shoes"]({0});',
          'distance': 10000},
-    u'\\U0001F45E':
+    u'\\U0001f45e':
         {'query': 'node["shop"="shoes"]({0});way["shop"="shoes"]({0});relation["shop"="shoes"]({0});',
          'distance': 10000},
     'tailor':
@@ -580,7 +580,7 @@ type_query = {
     'watches':
         {'query': 'node["shop"="watches"]({0});way["shop"="watches"]({0});relation["shop"="watches"]({0});',
          'distance': 10000},
-    u'\\U0001231A':
+    u'\\U0001231a':
         {'query': 'node["shop"="watches"]({0});way["shop"="watches"]({0});relation["shop"="watches"]({0});',
          'distance': 10000},
     'charity':
@@ -602,13 +602,13 @@ type_query = {
     'cosmetics':
         {'query': 'node["shop"="cosmetics"]({0});way["shop"="cosmetics"]({0});relation["shop"="cosmetics"]({0});',
          'distance': 10000},
-    u'\\U0001F485':
+    u'\\U0001f485':
         {'query': 'node["shop"="cosmetics"]({0});way["shop"="cosmetics"]({0});relation["shop"="cosmetics"]({0});',
          'distance': 10000},
     'hairdresser':
         {'query': 'node["shop"="hairdresser"]({0});way["shop"="hairdresser"]({0});relation["shop"="hairdresser"]({0});',
          'distance': 10000},
-    u'\\U0001F487':
+    u'\\U0001f487':
         {'query': 'node["shop"="hairdresser"]({0});way["shop"="hairdresser"]({0});relation["shop"="hairdresser"]({0});',
          'distance': 10000},
     'herbalist':
@@ -628,7 +628,7 @@ type_query = {
     'optician':
         {'query': 'node["shop"="optician"]({0});way["shop"="optician"]({0});relation["shop"="optician"]({0});',
          'distance': 10000},
-    u'\\U0001F453':
+    u'\\U0001f453':
         {'query': 'node["shop"="optician"]({0});way["shop"="optician"]({0});relation["shop"="optician"]({0});',
          'distance': 10000},
     'tatto':
@@ -646,7 +646,7 @@ type_query = {
         {
             'query': 'node["shop"="doityourself"]({0});way["shop"="doityourself"]({0});relation["shop"="doityourself"]({0});',
             'distance': 10000},
-    u'\\U0001F527':
+    u'\\U0001f527':
         {
             'query': 'node["shop"="doityourself"]({0});way["shop"="doityourself"]({0});relation["shop"="doityourself"]({0});',
             'distance': 10000},
@@ -659,7 +659,7 @@ type_query = {
     'florist':
         {'query': 'node["shop"="florist"]({0});way["shop"="florist"]({0});relation["shop"="florist"]({0});',
          'distance': 10000},
-    u'\\U0001F490':
+    u'\\U0001f490':
         {'query': 'node["shop"="florist"]({0});way["shop"="florist"]({0});relation["shop"="florist"]({0});',
          'distance': 10000},
     'fumace':
@@ -669,7 +669,7 @@ type_query = {
         {
             'query': 'node["shop"="garden_centre"]({0});way["shop"="garden_centre"]({0});relation["shop"="garden_centre"]({0});',
             'distance': 10000},
-    u'\\U0001F331':
+    u'\\U0001f331':
         {
             'query': 'node["shop"="garden_centre"]({0});way["shop"="garden_centre"]({0});relation["shop"="garden_centre"]({0});',
             'distance': 10000},
@@ -691,7 +691,7 @@ type_query = {
     'locksmith':
         {'query': 'node["shop"="locksmith"]({0});way["shop"="locksmith"]({0});relation["shop"="locksmith"]({0});',
          'distance': 10000},
-    u'\\U0001F511':
+    u'\\U0001f511':
         {'query': 'node["shop"="locksmith"]({0});way["shop"="locksmith"]({0});relation["shop"="locksmith"]({0});',
          'distance': 10000},
     'paint':
@@ -734,24 +734,24 @@ type_query = {
     'computer':
         {'query': 'node["shop"="computer"]({0});way["shop"="computer"]({0});relation["shop"="computer"]({0});',
          'distance': 10000},
-    u'\\U0001F4BB':
+    u'\\U0001f4bb':
         {'query': 'node["shop"="computer"]({0});way["shop"="computer"]({0});relation["shop"="computer"]({0});',
          'distance': 10000},
     'electronics':
         {'query': 'node["shop"="electronics"]({0});way["shop"="electronics"]({0});relation["shop"="electronics"]({0});',
          'distance': 10000},
-    u'\\U0001F4FA':
+    u'\\U0001f4fa':
         {'query': 'node["shop"="electronics"]({0});way["shop"="electronics"]({0});relation["shop"="electronics"]({0});',
          'distance': 10000},
     'erotic':
         {'query': 'node["shop"="erotic"]({0});way["shop"="erotic"]({0});relation["shop"="erotic"]({0});',
          'distance': 10000},
-    u'\\U0001F48B':
+    u'\\U0001f48b':
         {'query': 'node["shop"="erotic"]({0});way["shop"="erotic"]({0});relation["shop"="erotic"]({0});',
          'distance': 10000},
     'hifi':
         {'query': 'node["shop"="hifi"]({0});way["shop"="hifi"]({0});relation["shop"="hifi"]({0});', 'distance': 10000},
-    u'\\U0001F50A':
+    u'\\U0001f50a':
         {'query': 'node["shop"="hifi"]({0});way["shop"="hifi"]({0});relation["shop"="hifi"]({0});', 'distance': 10000},
     'mobile_phone':
         {
@@ -761,7 +761,7 @@ type_query = {
         {
             'query': 'node["shop"="mobile_phone"]({0});way["shop"="mobile_phone"]({0});relation["shop"="mobile_phone"]({0});',
             'distance': 10000},
-    u'\\U0001F4F1':
+    u'\\U0001f4f1':
         {
             'query': 'node["shop"="mobile_phone"]({0});way["shop"="mobile_phone"]({0});relation["shop"="mobile_phone"]({0});',
             'distance': 10000},
@@ -787,7 +787,7 @@ type_query = {
     'fishing':
         {'query': 'node["shop"="fishing"]({0});way["shop"="fishing"]({0});relation["shop"="fishing"]({0});',
          'distance': 10000},
-    u'\\U0001F3A3':
+    u'\\U0001f3a3':
         {'query': 'node["shop"="fishing"]({0});way["shop"="fishing"]({0});relation["shop"="fishing"]({0});',
          'distance': 10000},
     'freeflyingshop':
@@ -809,7 +809,7 @@ type_query = {
     'sports':
         {'query': 'node["shop"="sports"]({0});way["shop"="sports"]({0});relation["shop"="sports"]({0});',
          'distance': 10000},
-    u'\\U000126BD':
+    u'\\U000126bd':
         {'query': 'node["shop"="sports"]({0});way["shop"="sports"]({0});relation["shop"="sports"]({0});',
          'distance': 10000},
     'tyres':
@@ -836,7 +836,7 @@ type_query = {
     'music':
         {'query': 'node["shop"="music"]({0});way["shop"="music"]({0});relation["shop"="music"]({0});',
          'distance': 10000},
-    u'\\U0001F4BF':
+    u'\\U0001f4bf':
         {'query': 'node["shop"="music"]({0});way["shop"="music"]({0});relation["shop"="music"]({0});',
          'distance': 10000},
     'musical_instrumentshop':
@@ -846,7 +846,7 @@ type_query = {
     'photo':
         {'query': 'node["shop"="photo"]({0});way["shop"="photo"]({0});relation["shop"="photo"]({0});',
          'distance': 10000},
-    u'\\U0001F4F7':
+    u'\\U0001f4f7':
         {'query': 'node["shop"="photo"]({0});way["shop"="photo"]({0});relation["shop"="photo"]({0});',
          'distance': 10000},
     'trophy':
@@ -855,13 +855,13 @@ type_query = {
     'video':
         {'query': 'node["shop"="video"]({0});way["shop"="video"]({0});relation["shop"="video"]({0});',
          'distance': 10000},
-    u'\\U0001F4FC':
+    u'\\U0001f4fc':
         {'query': 'node["shop"="video"]({0});way["shop"="video"]({0});relation["shop"="video"]({0});',
          'distance': 10000},
     'video_games':
         {'query': 'node["shop"="video_games"]({0});way["shop"="video_games"]({0});relation["shop"="video_games"]({0});',
          'distance': 10000},
-    u'\\U0001F3AE':
+    u'\\U0001f3ae':
         {'query': 'node["shop"="video_games"]({0});way["shop"="video_games"]({0});relation["shop"="video_games"]({0});',
          'distance': 10000},
     'anime':
@@ -873,17 +873,17 @@ type_query = {
     'books':
         {'query': 'node["shop"="books"]({0});way["shop"="books"]({0});relation["shop"="books"]({0});',
          'distance': 10000},
-    u'\\U0001F4DA':
+    u'\\U0001f4da':
         {'query': 'node["shop"="books"]({0});way["shop"="books"]({0});relation["shop"="books"]({0});',
          'distance': 10000},
     'gift':
         {'query': 'node["shop"="gift"]({0});way["shop"="gift"]({0});relation["shop"="gift"]({0});', 'distance': 10000},
-    u'\\U0001F381':
+    u'\\U0001f381':
         {'query': 'node["shop"="gift"]({0});way["shop"="gift"]({0});relation["shop"="gift"]({0});', 'distance': 10000},
     'newsagent':
         {'query': 'node["shop"="newsagent"]({0});way["shop"="newsagent"]({0});relation["shop"="newsagent"]({0});',
          'distance': 10000},
-    u'\\U0001F4F0':
+    u'\\U0001f4f0':
         {'query': 'node["shop"="newsagent"]({0});way["shop"="newsagent"]({0});relation["shop"="newsagent"]({0});',
          'distance': 10000},
     'stationery':
@@ -892,7 +892,7 @@ type_query = {
     'ticket':
         {'query': 'node["shop"="ticket"]({0});way["shop"="ticket"]({0});relation["shop"="ticket"]({0});',
          'distance': 10000},
-    u'\\U0001F3AB':
+    u'\\U0001f3ab':
         {'query': 'node["shop"="ticket"]({0});way["shop"="ticket"]({0});relation["shop"="ticket"]({0});',
          'distance': 10000},
     'copyshop':
@@ -935,7 +935,7 @@ type_query = {
     'tobacco':
         {'query': 'node["shop"="tobacco"]({0});way["shop"="tobacco"]({0});relation["shop"="tobacco"]({0});',
          'distance': 10000},
-    u'\\U0001F6AC':
+    u'\\U0001f6ac':
         {'query': 'node["shop"="tobacco"]({0});way["shop"="tobacco"]({0});relation["shop"="tobacco"]({0});',
          'distance': 10000},
     'toyshop':
@@ -961,20 +961,20 @@ type_query = {
     'hotel':
         {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});',
          'distance': 10000},
-    u'\\U0001F3E8':
+    u'\\U0001f3e8':
         {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});',
          'distance': 10000},
     'aquarium':
         {'query': 'node["tourism"="aquarium"]({0});way["tourism"="aquarium"]({0});relation["tourism"="aquarium"]({0});',
          'distance': 10000},
-    u'\\U0001F420':
+    u'\\U0001f420':
         {'query': 'node["tourism"="aquarium"]({0});way["tourism"="aquarium"]({0});relation["tourism"="aquarium"]({0});',
          'distance': 10000},
     'camp site':
         {
             'query': 'node["tourism"="camp_site"]({0});way["tourism"="camp_site"]({0});relation["tourism"="camp_site"]({0});',
             'distance': 10000},
-    u'\\U000126FA':
+    u'\\U000126fa':
         {
             'query': 'node["tourism"="camp_site"]({0});way["tourism"="camp_site"]({0});relation["tourism"="camp_site"]({0});',
             'distance': 10000},
@@ -993,12 +993,12 @@ type_query = {
     'zoo':
         {'query': 'node["tourism"="zoo"]({0});way["tourism"="zoo"]({0});relation["tourism"="zoo"]({0});',
          'distance': 10000},
-    u'\\U0001F40A':
+    u'\\U0001f40a':
         {'query': 'node["tourism"="zoo"]({0});way["tourism"="zoo"]({0});relation["tourism"="zoo"]({0});',
          'distance': 10000},
     'art shop':
         {'query': 'node["shop"="art"]({0});way["shop"="art"]({0});relation["shop"="art"]({0});', 'distance': 10000},
-    u'\\U0001F3A8':
+    u'\\U0001f3a8':
         {'query': 'node["shop"="art"]({0});way["shop"="art"]({0});relation["shop"="art"]({0});', 'distance': 10000},
     'golf_course':
         {
@@ -1008,7 +1008,7 @@ type_query = {
         {
             'query': 'node["leisure"="golf_course"]({0});way["leisure"="golf_course"]({0});relation["leisure"="golf_course"]({0});',
             'distance': 10000},
-    u'\\U000126F3':
+    u'\\U000126f3':
         {
             'query': 'node["leisure"="golf_course"]({0});way["leisure"="golf_course"]({0});relation["leisure"="golf_course"]({0});',
             'distance': 10000},
@@ -1020,7 +1020,7 @@ type_query = {
         {
             'query': 'node["internet_access"="wlan"]({0});way["internet_access"="wlan"]({0});relation["internet_access"="wlan"]({0});',
             'distance': 10000},
-    u'\\U0001F4F6':
+    u'\\U0001f4f6':
         {
             'query': 'node["internet_access"="wlan"]({0});way["internet_access"="wlan"]({0});relation["internet_access"="wlan"]({0});',
             'distance': 10000},
@@ -1028,7 +1028,7 @@ type_query = {
         {
             'query': 'node["leisure"="bowling_alley"]({0});way["leisure"="bowling_alley"]({0});relation["leisure"="bowling_alley"]({0});',
             'distance': 10000},
-    u'\\U0001F3B3':
+    u'\\U0001f3b3':
         {
             'query': 'node["leisure"="bowling_alley"]({0});way["leisure"="bowling_alley"]({0});relation["leisure"="bowling_alley"]({0});',
             'distance': 10000},
@@ -1036,7 +1036,7 @@ type_query = {
         {
             'query': 'node["emergency"="assmbly_point"]({0});way["emergency"="assmbly_point"]({0});relation["emergency"="assmbly_point"]({0});',
             'distance': 10000},
-    u'\\U0001F3AF':
+    u'\\U0001f3af':
         {
             'query': 'node["emergency"="assmbly_point"]({0});way["emergency"="assmbly_point"]({0});relation["emergency"="assmbly_point"]({0});',
             'distance': 10000},
@@ -1044,7 +1044,7 @@ type_query = {
         {
             'query': 'node["amenity"="love_hotel"]({0});way["amenity"="love_hotel"]({0});relation["amenity"="love_hotel"]({0});',
             'distance': 10000},
-    u'\\U0001F3E9':
+    u'\\U0001f3e9':
         {
             'query': 'node["amenity"="love_hotel"]({0});way["amenity"="love_hotel"]({0});relation["amenity"="love_hotel"]({0});',
             'distance': 10000}
