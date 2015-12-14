@@ -44,6 +44,7 @@ typeemoji={
     'emergency:ambulance_station': '\xF0\x9F\x9A\x91',
     'emergency:defibrillator': '\xF0\x9F\x92\x94',
     'emergency:phone': '\xF0\x9F\x86\x98',
+    'emergency:assembly_point':'\xF0\x9F\x8E\xAF',
     'highway:bridleway': '\xE3\x80\xB0 \xF0\x9F\x90\x8E',
     'highway:bus_stop': '\xF0\x9F\x9A\x8C',
     'highway:construction': '\xE3\x80\xB0 \xF0\x9F\x9A\xA7',
