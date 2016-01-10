@@ -1,0 +1,404 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# asieriko <asieriko@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: OSMbot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-26 08:42+0100\n"
+"PO-Revision-Date: 2016-01-03 22:39+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
+"Language-Team: Basque (http://www.transifex.com/osm-catala/osmbot/language/eu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bot/osmbot_blueprint.py:63
+msgid "Now I will talk you with the new language"
+msgstr "Orain hizkuntza berrian hitzegingo dizut"
+
+#: bot/osmbot_blueprint.py:70
+msgid "Ooops! I can't talk this language"
+msgstr "Ufa! Ezin naiz hizkuntza honetan aritu"
+
+#: bot/osmbot_blueprint.py:70
+msgid "yet"
+msgstr "oraindik"
+
+#: bot/osmbot_blueprint.py:71
+msgid "But you can help me to learn it in Transifex"
+msgstr "Baina zuk Transifexen ikasten lagun nazakezu"
+
+#: bot/osmbot_blueprint.py:81
+msgid "Choose the language for talk with you"
+msgstr "Hautatu zurekin hitzegiteko hizkuntza"
+
+#: bot/osmbot_blueprint.py:88
+msgid "What do you want to configure?"
+msgstr "Zer nahi duzu konfiguratu?"
+
+#: bot/osmbot_blueprint.py:105
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "Emoji arraroak ikusiz gero Telegrameko \"easter egg\" bati zor zaio"
+
+#: bot/osmbot_blueprint.py:107
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "Ez da emojirik aurkitu, agian /legend <osm_key:value>rekin probatu beharko zenuke"
+
+#: bot/osmbot_blueprint.py:117
+#, python-brace-format
+msgid "Sorry but I couldn't find any result for \"{0}\""
+msgstr "Barkatu baina ezin dut \"{0}\"rako emaitzik aurkitu"
+
+#: bot/osmbot_blueprint.py:118
+msgid "But you can try to improve OpenStreetMap"
+msgstr "Baina OpenStreetMap hobetzen saia zaitezke"
+
+#: bot/osmbot_blueprint.py:120
+msgid "Results for"
+msgstr "Honen emaitzak"
+
+#: bot/osmbot_blueprint.py:137 bot/osmbot_blueprint.py:139
+#: bot/osmbot_blueprint.py:141 bot/osmbot_blueprint.py:143
+#: bot/osmbot_blueprint.py:148 bot/osmbot_blueprint.py:150
+#: bot/osmbot_blueprint.py:152 bot/osmbot_blueprint.py:154
+msgid "More info"
+msgstr "Informazio gehiago"
+
+#: bot/osmbot_blueprint.py:144
+msgid "Phone"
+msgstr "Telefonoa"
+
+#: bot/osmbot_blueprint.py:156 bot/osmbot_blueprint.py:303
+#: bot/osmbot_blueprint.py:513 bot/osmbot_blueprint.py:521
+msgid "OpenStreetMap contributors"
+msgstr "OpenStreetMap partehartzaileak"
+
+#: bot/osmbot_blueprint.py:203 bot/osmbot_blueprint.py:206
+#: bot/osmbot_blueprint.py:208
+msgid "Tags for"
+msgstr "Honentzako etiketak"
+
+#: bot/osmbot_blueprint.py:210 bot/osmbot_blueprint.py:212
+msgid "European country"
+msgstr "Europako herrialdea"
+
+#: bot/osmbot_blueprint.py:214
+msgid "African country"
+msgstr "Afrikako herrialdea"
+
+#: bot/osmbot_blueprint.py:216 bot/osmbot_blueprint.py:218
+#: bot/osmbot_blueprint.py:220
+msgid "South american country"
+msgstr "Hego Amerikako herrialdea"
+
+#: bot/osmbot_blueprint.py:222 bot/osmbot_blueprint.py:224
+msgid "North american country"
+msgstr "Ipar Amerikako herrialdea"
+
+#: bot/osmbot_blueprint.py:226
+msgid "Central american country"
+msgstr "Ertamerikako herrialdea"
+
+#: bot/osmbot_blueprint.py:228 bot/osmbot_blueprint.py:230
+msgid "American country"
+msgstr "Amerikako herrialdea"
+
+#: bot/osmbot_blueprint.py:232
+msgid "Asian country"
+msgstr "Asiako herrialdea"
+
+#: bot/osmbot_blueprint.py:234 bot/osmbot_blueprint.py:236
+msgid "Oceanian country"
+msgstr "Ozeaniako herrialdea"
+
+#: bot/osmbot_blueprint.py:238 bot/osmbot_blueprint.py:240
+msgid "Eurasian country"
+msgstr "Eurasiako herrialdea"
+
+#: bot/osmbot_blueprint.py:277 bot/osmbot_blueprint.py:279
+msgid "inhabitants"
+msgstr "biztanleak"
+
+#: bot/osmbot_blueprint.py:277
+msgid "at"
+msgstr " urtean:"
+
+#: bot/osmbot_blueprint.py:282
+msgid "meters"
+msgstr "metroak"
+
+#: bot/osmbot_blueprint.py:295
+msgid "Raw data:"
+msgstr "Datu gordinak:"
+
+#: bot/osmbot_blueprint.py:331 bot/osmbot_blueprint.py:476
+msgid "Please send me your location"
+msgstr "Mesedez bidali zure kokapena"
+
+#: bot/osmbot_blueprint.py:332
+msgid "to receive the map."
+msgstr "mapa jasotzeko."
+
+#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:478
+msgid "You can do it with the Telegram paperclip button"
+msgstr "Telegrameko klipa botoiarekin egin dezakezu"
+
+#: bot/osmbot_blueprint.py:389 bot/osmbot_blueprint.py:392
+msgid "Sorry, I can't understand you"
+msgstr "Barkatu, ez zaitut ulertzen"
+
+#: bot/osmbot_blueprint.py:390 bot/osmbot_blueprint.py:393
+msgid "Perhaps I could help you with the command /help"
+msgstr "Agian /help aginduarekin lagun zaitzaket"
+
+#: bot/osmbot_blueprint.py:426 bot/osmbot_blueprint.py:493
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "Barkatu ezin dut emaitzik aurkitu, mesedez egiaztatu IDa"
+
+#: bot/osmbot_blueprint.py:429 bot/osmbot_blueprint.py:496
+msgid ""
+"Sorry, but now I can't recognize tags for this element, perhaps with my new "
+"features I will do it"
+msgstr "Barkatu, baina orain ezin dut etiketarik identifikatu elementu honetarako, agian nire aukera berriekin egin ahal izango dut"
+
+#: bot/osmbot_blueprint.py:462
+msgid "Sorry but this query it's not implemented yet"
+msgstr "Barkatu baina eskari hau ez dago oraindik inplementatuta"
+
+#: bot/osmbot_blueprint.py:477
+msgid "and I'll send you the nearest element"
+msgstr "eta hurbilen dagoen elementura bidaliko zaitut"
+
+#: bot/osmbot_blueprint.py:504 bot/osmbot_blueprint.py:518
+msgid "Raw data for"
+msgstr "Honentzako datu gordinak "
+
+#: bot/osmbot_blueprint.py:506 bot/osmbot_blueprint.py:520
+msgid "Raw data"
+msgstr "Datu gordinak"
+
+#: bot/osmbot_blueprint.py:553
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Kaixo, OpenStreetMap datuen robota naiz"
+
+#: bot/osmbot_blueprint.py:553
+msgid "How I can help you?"
+msgstr "Nola lagun zaitzaket?"
+
+#: bot/osmbot_blueprint.py:570
+msgid "Setting not recognized"
+msgstr "Ezarpenak ez dira ezagutzen"
+
+#: bot/osmbot_blueprint.py:610
+msgid "OpenStreetMap bot info:"
+msgstr "OpenStreetMap bot-aren informazioa:"
+
+#: bot/osmbot_blueprint.py:610
+msgid "CREDITS&CODE"
+msgstr "KREDITUAK&KODEA"
+
+#: bot/osmbot_blueprint.py:611
+msgid "Author:"
+msgstr "Egilea:"
+
+#: bot/osmbot_blueprint.py:611
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(Herrialde Catalanetako OpenStreetMap komunitatea)"
+
+#: bot/osmbot_blueprint.py:612
+msgid "Code:"
+msgstr "Kodea:"
+
+#: bot/osmbot_blueprint.py:613
+msgid "License: GPLv3"
+msgstr "Lizentzia: GPLv3"
+
+#: bot/osmbot_blueprint.py:614
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
+
+#: bot/osmbot_blueprint.py:615
+msgid "Localization:"
+msgstr "Itzulpena:"
+
+#: bot/osmbot_blueprint.py:616
+msgid "NEWS"
+msgstr "BERRIAK"
+
+#: bot/osmbot_blueprint.py:616
+msgid "Telegram channel:"
+msgstr "Telegrameko kanala:"
+
+#: bot/osmbot_blueprint.py:617
+msgid "RATING"
+msgstr "BALORAZIOA"
+
+#: bot/osmbot_blueprint.py:617
+msgid "Rating&reviews"
+msgstr "Balorazioak&iruzkinak"
+
+#: bot/osmbot_blueprint.py:618
+msgid "Please rate me at"
+msgstr "Mesedez balora nazazu hemen "
+
+#: bot/osmbot_blueprint.py:619
+msgid "Thanks for use @OSMbot!!"
+msgstr "Eskerrik asko @OSMbot erabiltzeagatik!!"
+
+#: bot/osmbot_blueprint.py:622
+msgid "OpenStreetMap bot help:"
+msgstr "OpenStreetMap bot-eko laguntza:"
+
+#: bot/osmbot_blueprint.py:622
+msgid "You can control me by sending these commands:"
+msgstr "Kontrol nazakezu hurrego aginduak bidaliz:"
+
+#: bot/osmbot_blueprint.py:623
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - Erakutsi OSMbot-i buruzko informazioa: kredituak&kodea, berriak eta balorazioak&iruzkinak"
+
+#: bot/osmbot_blueprint.py:624
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details<mota><osm_id> - IDaren araberako OSM datu baseko etiketa erakusten ditu."
+
+#: bot/osmbot_blueprint.py:625
+msgid ""
+"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+msgstr "/raw<mota><osm_id> - OSM datu baseko zehaztutako IDaren etiketa guztiak formatu gordinan erakusten ditu."
+
+#: bot/osmbot_blueprint.py:626
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "IDa /search aginduak sortutakoa da, baina OSMko IDrik ezagutzen baduzu horrekin saia zaitezke."
+
+#: bot/osmbot_blueprint.py:627
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "Mota hautazkoa da eta izan daiteke nod(nodoa),way(bidea) edo rel(erlazioa). Ez baduzu zuehazten, bot-a asmatzen saiatuko da"
+
+#: bot/osmbot_blueprint.py:628
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <osm_giltza> - giltza=balioa bikote eta haien OSMbot-eko emojien zerrenda erakusten du. Ez baduzu <osm_giltza> zehazten, OSMbot-en emojia duten giltza=balio guztiak erakusten dira"
+
+#: bot/osmbot_blueprint.py:629
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <koord> <formatua> <eskala> - Mapa bidaltzen du aukera ezberdinekin:"
+
+#: bot/osmbot_blueprint.py:630
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<koord> Puntu (lat,lon) izan daiteke edo kutxa bat (minlon,minlat,maxlon,maxlat). Ez baduzu aukera hau erabiltzen zure kokapena bidali dezake"
+
+#: bot/osmbot_blueprint.py:631
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<formatua> Izan daiteke png,jpeg edo pdf. Ez baduzu aukera hau erabiltzen, bot-ak berez png bidaliko du"
+
+#: bot/osmbot_blueprint.py:632
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<eskala> Zoom maila (1-19). Ez baduzu aukera hau erabiltzen, bot-ak berez 19 erabiliko du."
+
+#: bot/osmbot_blueprint.py:633
+msgid ""
+"/search <search_term> - search from Nominatim in all OpenStreetMap database."
+msgstr "/search <bilaketa_testua> - OpenStreetMapeko datu basean Nominatimetik bilatzen du."
+
+#: bot/osmbot_blueprint.py:637
+msgid ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "Mesedez zehaztu zer ari zaren bilatzen /search <bilaketa_testua> aginduarekin"
+
+#: bot/osmbot_blueprint.py:639
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "Erabili /search <bilaketa_testua> agindua zehazteko zer bilatzen ari zaren"
+
+#: bot/osmbot_blueprint.py:649
+msgid "Something failed"
+msgstr "Zerbaitek huts egin du"
+
+#: bot/osmbot_blueprint.py:650
+msgid "please try it latter"
+msgstr "mesedez saiatu geroago"
+
+#: bot/osmbot_blueprint.py:661
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "OpenStreetMap bot-ak munduko edozein leku bilatzen du OSM datu baseko Nominatinetik eta OSM loturak eta mapak bidal ditzazke"
+
+#: bot/osmbot_blueprint.py:662
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "OpenStreetMap bot-ak munduko edozein leku bilatzen du OSM datu baseko Nominatinetik"
+
+#: bot/osmbot_blueprint.py:663
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "Bot-ak lotura eta mapak (jpg,png edo pdf) bidal ditzazke OSMtik"
+
+#: bot/osmbot_blueprint.py:664
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "Mundu osoko datuak (hiriak eta herriak, dendak - telefono zenbakiarekin, e-postak... -, Wikipediako loturak, etab)"
+
+#: bot/osmbot_blueprint.py:665
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot eleanitza da eta euskaraz hitzegiten du"
+
+#: bot/maptools.py:36
+msgid "Map too large!"
+msgstr "Mapa handiegia!"
+
+#: bot/maptools.py:36
+msgid "Please, reduce the bounding box"
+msgstr "Mesedez, txikitu kutxa"
+
+#: bot/maptools.py:36
+msgid "or the scale (zoom level)"
+msgstr "edo eskala (zoom maila)"
+
+#: bot/maptools.py:38
+msgid "Invalid bounding box!"
+msgstr "Kutxa baliogabea!"
+
+#: bot/maptools.py:38
+msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
+msgstr "Mesedez, saiatu /map minlon,minlat,maxlon,maxlat"
+
+#: bot/maptools.py:38
+msgid "Coordinates' decimals need to be marked with a dot."
+msgstr "Koordenatuen hamartarrak puntu batekin banatzen dira."
+
+#: bot/maptools.py:38
+msgid "For example:"
+msgstr "Adibidez"
+
+#: bot/maptools.py:40
+msgid "Oh,oh... An error occurred"
+msgstr "Oh, oh... akats bat egon da"
+
+#: bot/maptools.py:40
+msgid "You can try with another bounding box or scale (zoom level)"
+msgstr "Beste kutxa batekin edo eskala batekin (zoom maila) saia zaitezke"
+
+#: bot/maptools.py:40
+msgid "Good luck! "
+msgstr "Sorte ona izan!"
