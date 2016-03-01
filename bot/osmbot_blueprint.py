@@ -601,6 +601,8 @@ def attend_webhook(token):
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
             _ = lang.gettext
+            if (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
+                return
             message = CleanMessage(message)
             if message.lower() == "/start":
                 user.set_field(chat_id, 'mode', 'normal')
