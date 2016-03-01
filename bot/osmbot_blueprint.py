@@ -64,7 +64,7 @@ def SetOnlyMention(message, user_id, chat_id, user, group):
     else:
         user.set_field(user_id, 'onlymentions', onlymentions, group=group)
         user.set_field(user_id, 'mode', 'normal', group=group)
-    if onlymentions:
+    if not onlymentions:
         bot.sendMessage(chat_id, _('Now I only will answer when mention'), reply_markup={'hide_keyboard': True})
     else:
         bot.sendMessage(chat_id, _('Now I allways will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC',
@@ -602,7 +602,8 @@ def attend_webhook(token):
             lang.install()
             _ = lang.gettext
             if (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
-                return
+                if message != 'Yes' and message!='No' and message!='Language' and message!='Answer only when mention?':
+                    return 'OK'
             message = CleanMessage(message)
             if message.lower() == "/start":
                 user.set_field(chat_id, 'mode', 'normal')
