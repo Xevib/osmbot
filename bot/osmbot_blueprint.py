@@ -601,7 +601,8 @@ def attend_webhook(token):
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
             _ = lang.gettext
-            if (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
+
+            if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
                 if message != 'Yes' and message!='No' and message!='Language' and message!='Answer only when mention?' and message not in avaible_languages.keys():
                     return 'OK'
             message = CleanMessage(message)
