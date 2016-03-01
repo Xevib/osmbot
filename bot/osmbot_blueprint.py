@@ -58,8 +58,12 @@ def getData(id, geom_type=None):
 
 def SetOnlyMention(message, user_id, chat_id, user, group):
     onlymentions = message == 'Yes'
-    user.set_field(user_id, 'onlymentions', onlymentions, group=group)
-    user.set_field(user_id, 'mode', 'normal', group=group)
+    if group:
+        user.set_field(chat_id, 'onlymentions', onlymentions, group=group)
+        user.set_field(chat_id, 'mode', 'normal', group=group)
+    else:
+        user.set_field(user_id, 'onlymentions', onlymentions, group=group)
+        user.set_field(user_id, 'mode', 'normal', group=group)
     if onlymentions:
         bot.sendMessage(chat_id, _('Now I only will answer when mention'), reply_markup={'hide_keyboard': True})
     else:
@@ -70,8 +74,12 @@ def SetOnlyMention(message, user_id, chat_id, user, group):
 
 def SetLanguageCommand(message, user_id, chat_id, u, group=False):
     if message in avaible_languages:
-        u.set_field(user_id, 'lang', avaible_languages[message],group=group)
-        u.set_field(user_id, 'mode', 'normal', group=group)
+        if group:
+            u.set_field(chat_id, 'lang', avaible_languages[message],group=group)
+            u.set_field(chat_id, 'mode', 'normal', group=group)
+        else:
+            u.set_field(user_id, 'lang', avaible_languages[message],group=group)
+            u.set_field(user_id, 'mode', 'normal', group=group)
         bot.sendMessage(chat_id, _('Now I will talk you with the new language') +
                         ' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC', reply_markup={'hide_keyboard': True})
         return []
@@ -91,7 +99,7 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
 def AnswerCommand(message, user_id, chat_id, user):
     bot.sendMessage(chat_id, _('Should I answer without a mention?') +
                     ' \xF0\x9F\x98\x8F', reply_markup={'keyboard': [['Yes'], ['No']], 'one_time_keyboard': True})
-    user.set_field(user_id, 'mode', 'setonlymention', group=True)
+    user.set_field(chat_id, 'mode', 'setonlymention', group=True)
     return []
 
 def LanguageCommand(message, user_id, chat_id, user, group=False):
