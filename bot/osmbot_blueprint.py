@@ -76,8 +76,10 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
                         ' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC', reply_markup={'hide_keyboard': True})
         return []
     else:
-        u.set_field(user_id, 'mode', 'normal')
-
+        if group:
+            u.set_field(chat_id, 'mode', 'normal')
+        else:
+            u.set_field(user_id, 'mode', 'normal')
         bot.sendMessage(chat_id,
                         _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _('yet') +
                         ' \xF0\x9F\x98\x89)\n' + _('But you can help me to learn it in Transifex') +
@@ -90,7 +92,7 @@ def AnswerCommand(message, user_id, chat_id, user):
     bot.sendMessage(chat_id, _('Should I answer without a mention?') +
                     ' \xF0\x9F\x98\x8F', reply_markup={'keyboard': [['Yes'], ['No']], 'one_time_keyboard': True})
     user.set_field(user_id, 'mode', 'setonlymention', group=True)
-
+    return []
 
 def LanguageCommand(message, user_id, chat_id, user, group=False):
     keyboard = []
@@ -98,9 +100,11 @@ def LanguageCommand(message, user_id, chat_id, user, group=False):
         keyboard.append([lang])
     bot.sendMessage(chat_id, _('Choose the language for talk with you') +
                     ' \xF0\x9F\x98\x8F', reply_markup={'keyboard': keyboard, 'one_time_keyboard': True})
-    user.set_field(user_id, 'mode', 'setlanguage', group=group)
+    if group:
+        user.set_field(chat_id, 'mode', 'setlanguage', group=group)
+    else:
+        user.set_field(user_id, 'mode', 'setlanguage', group=group)
     return []
-
 
 def SettingsCommand(message, user_id, chat_id, u, group=False):
     buttons = [['Language']]
@@ -108,7 +112,10 @@ def SettingsCommand(message, user_id, chat_id, u, group=False):
         buttons.append(['Answer only when mention?'])
     bot.sendMessage(chat_id, _('What do you want to configure?') +
                     ' \xF0\x9F\x91\x86', reply_markup={'keyboard': buttons, 'one_time_keyboard': True})
-    u.set_field(user_id, 'mode', 'settings')
+    if group:
+        u.set_field(chat_id, 'mode', 'settings', group=group)
+    else:
+        u.set_field(user_id, 'mode', 'settings', group=group)
     return []
 
 
@@ -606,7 +613,7 @@ def attend_webhook(token):
                 if message == 'Language':
                     response += LanguageCommand(message, user_id, chat_id, user, is_group)
                 elif message == 'Answer only when mention?':
-                    response += AnswerCommand(message, user_id, chat_id, user, is_group)
+                    response += AnswerCommand(message, user_id, chat_id, user)
                 else:
                     response = [_('Setting not recognized')]
                     user.set_field(chat_id, 'mode', 'normal')
@@ -623,6 +630,8 @@ def attend_webhook(token):
                                            imgformat=user_config["format"], lat=float(lat), lon=float(lon))
                 elif message == "Language":
                     response += LanguageCommand(message, user_id, chat_id, user, is_group)
+                elif message == 'Answer only when mention?':
+                    response += AnswerCommand(message, user_id, chat_id, user)
                 elif message.lower().startswith("/settings"):
                     response += SettingsCommand(message, user_id, chat_id, user, is_group)
                 elif message.lower().startswith("/nearest"):
