@@ -17,10 +17,13 @@ class User(object):
 
         #CREATE TABLE users (id int, mode varchar(30),zoom int,format varchar(30),language varchar(10))
 
-    def get_user(self, identifier):
+    def get_user(self, identifier, group=False):
         shaid = sha1(str(identifier)).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
-        cur.execute('SELECT * FROM users WHERE shaid = %s LIMIT 1', (shaid,))
+        if group:
+            cur.execute('SELECT * FROM groups WHERE shaid = %s LIMIT 1', (shaid,))
+        else:
+            cur.execute('SELECT * FROM users WHERE shaid = %s LIMIT 1', (shaid,))
         d = cur.fetchone()
         cur.close()
         data = dict()
@@ -38,21 +41,30 @@ class User(object):
                 data['lang_set'] = False
             return data
 
-    def set_field(self, identifier, field, value):
+    def set_field(self, identifier, field, value, group=False):
         shaid = sha1(str(identifier)).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
-        cur.execute("SELECT count(shaid) as count FROM users WHERE shaid = %s", (shaid,))
+        if group:
+            cur.execute("SELECT count(shaid) as count FROM groups WHERE shaid = %s", (shaid,))
+        else:
+            cur.execute("SELECT count(shaid) as count FROM users WHERE shaid = %s", (shaid,))
         num = cur.fetchone()
         if num['count'] == 0:
-            cur.execute("INSERT INTO users (shaid,{0}) VALUES (%s,%s)".format(field), (shaid, value))
+            if group:
+                cur.execute("INSERT INTO groups (shaid,{0}) VALUES (%s,%s)".format(field), (shaid, value))
+            else:
+                cur.execute("INSERT INTO users (shaid,{0}) VALUES (%s,%s)".format(field), (shaid, value))
         else:
-            cur.execute("UPDATE users SET {0} = %s WHERE shaid = %s ".format(field), (value, shaid))
+            if group:
+                cur.execute("UPDATE groups SET {0} = %s WHERE shaid = %s ".format(field), (value, shaid))
+            else:
+                cur.execute("UPDATE users SET {0} = %s WHERE shaid = %s ".format(field), (value, shaid))
         self.conn.commit()
         cur.close()
         return cur.rowcount != 0
 
     def get_defaultconfig(self):
-        return {'lang': 'en', 'mode': 'normal', 'lang_set': False}
+        return {'lang': 'en', 'mode': 'normal', 'lang_set': False, 'onlymentions': True}
 
     def close(self):
         self.conn.close()

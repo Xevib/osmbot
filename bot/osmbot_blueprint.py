@@ -56,16 +56,38 @@ def getData(id, geom_type=None):
     return osm_data
 
 
-def SetLanguageCommand(message,user_id,chat_id,u):
+def SetOnlyMention(message, user_id, chat_id, user, group):
+    onlymentions = message == 'Yes'
+    if group:
+        user.set_field(chat_id, 'onlymentions', onlymentions, group=group)
+        user.set_field(chat_id, 'mode', 'normal', group=group)
+    else:
+        user.set_field(user_id, 'onlymentions', onlymentions, group=group)
+        user.set_field(user_id, 'mode', 'normal', group=group)
+    if not onlymentions:
+        bot.sendMessage(chat_id, _('Now I only will answer when mention'), reply_markup={'hide_keyboard': True})
+    else:
+        bot.sendMessage(chat_id, _('Now I allways will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC',
+                        reply_markup={'hide_keyboard': True})
+    return []
+
+
+def SetLanguageCommand(message, user_id, chat_id, u, group=False):
     if message in avaible_languages:
-        u.set_field(user_id, 'lang', avaible_languages[message])
-        u.set_field(user_id, 'mode', 'normal')
+        if group:
+            u.set_field(chat_id, 'lang', avaible_languages[message],group=group)
+            u.set_field(chat_id, 'mode', 'normal', group=group)
+        else:
+            u.set_field(user_id, 'lang', avaible_languages[message],group=group)
+            u.set_field(user_id, 'mode', 'normal', group=group)
         bot.sendMessage(chat_id, _('Now I will talk you with the new language') +
                         ' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC', reply_markup={'hide_keyboard': True})
         return []
     else:
-        u.set_field(user_id, 'mode', 'normal')
-
+        if group:
+            u.set_field(chat_id, 'mode', 'normal')
+        else:
+            u.set_field(user_id, 'mode', 'normal')
         bot.sendMessage(chat_id,
                         _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _('yet') +
                         ' \xF0\x9F\x98\x89)\n' + _('But you can help me to learn it in Transifex') +
@@ -74,20 +96,34 @@ def SetLanguageCommand(message,user_id,chat_id,u):
         return []
 
 
-def LanguageCommand(message, user_id, chat_id, user):
+def AnswerCommand(message, user_id, chat_id, user):
+    bot.sendMessage(chat_id, _('Should I answer without a mention?') +
+                    ' \xF0\x9F\x98\x8F', reply_markup={'keyboard': [['Yes'], ['No']], 'one_time_keyboard': True})
+    user.set_field(chat_id, 'mode', 'setonlymention', group=True)
+    return []
+
+def LanguageCommand(message, user_id, chat_id, user, group=False):
     keyboard = []
     for lang in sorted(avaible_languages.keys()):
         keyboard.append([lang])
     bot.sendMessage(chat_id, _('Choose the language for talk with you') +
                     ' \xF0\x9F\x98\x8F', reply_markup={'keyboard': keyboard, 'one_time_keyboard': True})
-    user.set_field(user_id, 'mode', 'setlanguage')
+    if group:
+        user.set_field(chat_id, 'mode', 'setlanguage', group=group)
+    else:
+        user.set_field(user_id, 'mode', 'setlanguage', group=group)
     return []
 
-
-def SettingsCommand(message,user_id,chat_id,u):
+def SettingsCommand(message, user_id, chat_id, u, group=False):
+    buttons = [['Language']]
+    if group:
+        buttons.append(['Answer only when mention?'])
     bot.sendMessage(chat_id, _('What do you want to configure?') +
-                    ' \xF0\x9F\x91\x86', reply_markup={'keyboard': [['Language']], 'one_time_keyboard': True})
-    u.set_field(user_id, 'mode', 'settings')
+                    ' \xF0\x9F\x91\x86', reply_markup={'keyboard': buttons, 'one_time_keyboard': True})
+    if group:
+        u.set_field(chat_id, 'mode', 'settings', group=group)
+    else:
+        u.set_field(user_id, 'mode', 'settings', group=group)
     return []
 
 
@@ -546,7 +582,12 @@ def attend_webhook(token):
             preview = False
             response = []
             if 'from' in query['message'] and 'id' in query['message']['from']:
-                user_config = user.get_user(query['message']['from']['id'])
+                is_group = query['message']['chat']['type'] == u'group'
+                if is_group:
+                    identifier = query['message']['chat']['id']
+                else:
+                    identifier = query['message']['from']['id']
+                user_config = user.get_user(identifier, group=is_group)
                 user_id = query['message']['from']['id']
             else:
                 user_config = user.get_defaultconfig()
@@ -560,6 +601,10 @@ def attend_webhook(token):
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
             _ = lang.gettext
+
+            if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
+                if message != 'Yes' and message!='No' and message!='Language' and message!='Answer only when mention?' and message not in avaible_languages.keys():
+                    return 'OK'
             message = CleanMessage(message)
             if message.lower() == "/start":
                 user.set_field(chat_id, 'mode', 'normal')
@@ -578,12 +623,16 @@ def attend_webhook(token):
                     )[1]
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
-                    response += LanguageCommand(message, user_id, chat_id, user)
+                    response += LanguageCommand(message, user_id, chat_id, user, is_group)
+                elif message == 'Answer only when mention?':
+                    response += AnswerCommand(message, user_id, chat_id, user)
                 else:
                     response = [_('Setting not recognized')]
                     user.set_field(chat_id, 'mode', 'normal')
             elif user_config['mode'] == 'setlanguage':
-                response += SetLanguageCommand(message, user_id, chat_id, user)
+                response += SetLanguageCommand(message, user_id, chat_id, user, is_group)
+            elif user_config['mode'] == 'setonlymention':
+                response += SetOnlyMention(message, user_id, chat_id, user, is_group)
             elif "text" in query["message"]:
                 if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and  "mode" in user_config and user_config["mode"] == "map":
                     m = re.match(".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",message)
@@ -592,9 +641,11 @@ def attend_webhook(token):
                     response += MapCommand(message, chat_id, user_id,user, zoom=user_config["zoom"],
                                            imgformat=user_config["format"], lat=float(lat), lon=float(lon))
                 elif message == "Language":
-                    response += LanguageCommand(message, user_id, chat_id, user)
+                    response += LanguageCommand(message, user_id, chat_id, user, is_group)
+                elif message == 'Answer only when mention?':
+                    response += AnswerCommand(message, user_id, chat_id, user)
                 elif message.lower().startswith("/settings"):
-                    response += SettingsCommand(message, user_id, chat_id, user)
+                    response += SettingsCommand(message, user_id, chat_id, user, is_group)
                 elif message.lower().startswith("/nearest"):
                     response += NearestCommand(message, chat_id, user_id, user)
                 elif message.lower().startswith("/map"):
