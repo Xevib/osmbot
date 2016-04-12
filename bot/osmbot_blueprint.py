@@ -145,11 +145,18 @@ def LegendCommand(message):
 
 
 def SearchCommand(message, user_config):
+    import json
+    import requests
+
     response = []
     t = ''
     search = message[8:].replace('\n', '').replace('\r', '')
-    results = nom.query(search, acceptlanguage=user_config['lang'])
-    if len(results) == 0:
+    print search
+    #results = nom.query(search)
+    url = "http://nominatim.openstreetmap.org/search/{}?format=json&addressdetails=1"
+    resp = requests.get(url.format(search))
+    results = json.loads(resp.content)
+    if not results:
         response = [_('Sorry but I couldn\'t find any result for "{0}"').format(search) + " \xF0\x9F\x98\xA2\n" +
                     _('But you can try to improve OpenStreetMap') + '\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org']
     else:
@@ -705,8 +712,9 @@ def attend_webhook(token):
         except Exception as e:
             print str(e)
             import traceback
-            current_app.sentry.captureMessage(str(e))
             traceback.print_exc()
+            current_app.sentry.captureMessage(str(e))
+
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
             _ = lang.gettext
