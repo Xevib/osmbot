@@ -48,13 +48,22 @@ class OSMbot(object):
 
     def sendMessage(self, chat_id, text, disable_web_page_preview=None, reply_to_message_id=None, reply_markup=None):
         method = "sendMessage"
-        params = {
-            'chat_id': chat_id,
-            'text': text,
-            'disable_web_page_preview': disable_web_page_preview,
-            'reply_to_message_id': reply_to_message_id,
-            'reply_markup': json.dumps(reply_markup)
-        }
+        if reply_markup:
+            params = {
+                'chat_id': chat_id,
+                'text': text,
+                'disable_web_page_preview': disable_web_page_preview,
+                'reply_to_message_id': reply_to_message_id,
+                'reply_markup': json.dumps(reply_markup)
+            }
+        else:
+            params = {
+                'chat_id': chat_id,
+                'text': text,
+                'disable_web_page_preview': disable_web_page_preview,
+                'reply_to_message_id': reply_to_message_id,
+            }
+
         if disable_web_page_preview is True:
             params['disable_web_page_preview'] = 'true'
         if disable_web_page_preview is False:
