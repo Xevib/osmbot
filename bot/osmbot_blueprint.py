@@ -17,7 +17,7 @@ import user as u
 
 
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
-                     'Galician': 'gl', 'French': 'fr', 'Italian': 'it', 'Basque': 'eu','Polish': 'pl',
+                     'Galician': 'gl', 'French': 'fr', 'Italian': 'it', 'Basque': 'eu', 'Polish': 'pl',
                      'German': 'de'}
 
 application = Flask(__name__)
