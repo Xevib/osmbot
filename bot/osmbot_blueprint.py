@@ -476,12 +476,12 @@ def DetailsCommand(message, user_config):
     preview = False
     response = []
     t = ''
-    type = message[8:11]
+    params = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', '/details nod 1234').groupdict()
+    type = params['type']
+    identifier = params['id']
     if type == 'nod' or type == 'way' or type == 'rel':
-        identifier = message[11:]
         osm_data = getData(identifier, geom_type=type)
     else:
-        identifier = message[8:].strip()
         osm_data = getData(identifier)
     if osm_data is None:
         response.append(_("Sorry but I couldn't find any result, please check the ID"))
