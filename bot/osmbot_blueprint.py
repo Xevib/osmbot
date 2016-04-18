@@ -703,7 +703,7 @@ def attend_webhook(token):
                         '\n  ' + _("<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
                         '\n  ' + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
                         '\n\n' + _("/search <search_term> - Search from Nominatim in all OpenStreetMap database.") +
-                        '\n\n' + _('/nerest <type> <optional meters> - Search from Overpass the element in a certain radius')
+                        '\n\n' + _('/nearest <type> <optional meters> - Search from Overpass the element in a certain radius')
 
                     ]
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
