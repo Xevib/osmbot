@@ -480,7 +480,7 @@ def DetailsCommand(message, user_config):
     element_type = params['type']
     identifier = params['id']
     if element_type in ['nod', 'way', 'rel']:
-        osm_data = getData(identifier, geom_type=type)
+        osm_data = getData(identifier, geom_type=element_type)
     else:
         osm_data = getData(identifier)
     if osm_data is None:
