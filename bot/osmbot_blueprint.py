@@ -477,9 +477,9 @@ def DetailsCommand(message, user_config):
     response = []
     t = ''
     params = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', '/details nod 1234').groupdict()
-    type = params['type']
+    element_type = params['type']
     identifier = params['id']
-    if type == 'nod' or type == 'way' or type == 'rel':
+    if element_type  in ['nod', 'way', 'rel']:
         osm_data = getData(identifier, geom_type=type)
     else:
         osm_data = getData(identifier)
