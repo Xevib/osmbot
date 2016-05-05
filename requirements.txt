@@ -1,0 +1,6 @@
+pynominatim
+requests
+configobj
+raven
+flask
+psycopg2

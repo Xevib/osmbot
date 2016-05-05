@@ -3,7 +3,7 @@ import re
 import math
 from flask import Flask
 from flask import request, current_app, Blueprint
-import nominatim
+import pynominatim
 from osmapi import OsmApi
 from bot import OSMbot
 import urllib
@@ -28,7 +28,7 @@ token = config['token']
 user = u.User(config['host'], config['database'], config['user'], config['password'])
 bot = OSMbot(token)
 api = OsmApi()
-nom = nominatim.Nominatim()
+nom = pynominatim.Nominatim()
 
 osmbot = Blueprint(
     'osmbot', __name__,
@@ -146,17 +146,13 @@ def LegendCommand(message):
 
 
 def SearchCommand(message, user_config):
-    import json
-    import requests
+    import pynominatim
 
     response = []
     t = ''
     search = message[8:].replace('\n', '').replace('\r', '')
-    print search
-    #results = nom.query(search)
-    url = "http://nominatim.openstreetmap.org/search/{}?format=json&addressdetails=1"
-    resp = requests.get(url.format(search))
-    results = json.loads(resp.content)
+    nom = pynominatim.Nominatim()
+    results = nom.query(search)
     if not results:
         response = [_('Sorry but I couldn\'t find any result for "{0}"').format(search) + " \xF0\x9F\x98\xA2\n" +
                     _('But you can try to improve OpenStreetMap') + '\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org']
