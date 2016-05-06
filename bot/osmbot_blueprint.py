@@ -158,7 +158,7 @@ def SearchCommand(message, user_config):
                     _('But you can try to improve OpenStreetMap') + '\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org']
     else:
         t = _('Results for') + ' "{0}":\n\n'.format(search)
-        for result in results:
+        for result in results[:10]:
             if 'osm_id' in result:
                 try:
                     osm_data = getData(result['osm_id'])

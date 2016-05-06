@@ -71,7 +71,7 @@ class OSMbot(object):
         if type(text) == list:
             for t in text:
                 params['text'] = t
-                requests.get(self.url.format(self.token, method), params=params)
+                resp = requests.get(self.url.format(self.token, method), params=params)
             return True
         else:
             return json.loads(requests.get(self.url.format(self.token, method), params=params).content)
