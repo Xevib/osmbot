@@ -171,7 +171,7 @@ def SearchCommand(message, user_config):
                 t += typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
             else:
                 t += '\xE2\x96\xB6 ' + result['display_name']+'\n'
-            t += '\xF0\x9F\x93\x8D http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5}\n'.format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
+            t += '\xF0\x9F\x93\x8D [Map](http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5})\n'.format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
             if osm_data is not None and ('phone' in osm_data['tag'] or 'contact:phone' in osm_data['tag']):
                 if 'osm_type' in result and result['osm_type'] == 'node':
                     t += _('More info') + ' /detailsnod{0}\n'.format(result['osm_id'])
@@ -708,7 +708,7 @@ def attend_webhook(token):
                     response = [_('Please indicate what are you searching with command /search <search_term>')]
                 else:
                     response = [_('Use /search <search_term> command to indicate what you are searching')]
-            bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview))
+            bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview),parse_mode='Markdown')
         except Exception as e:
             print str(e)
             import traceback
