@@ -713,7 +713,7 @@ def attend_webhook(token):
             print str(e)
             import traceback
             traceback.print_exc()
-            current_app.sentry.captureMessage(str(e))
+            current_app.sentry.captureException()
 
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
