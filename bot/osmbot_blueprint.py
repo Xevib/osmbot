@@ -365,18 +365,20 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
             if imgformat == 'pdf':
                 bot.sendDocument(chat_id, data, 'map.pdf')
             elif imgformat == 'jpeg':
-                bot.sendPhoto(chat_id, data, "map.jpg", "©OSM contributors")
+                bot.sendPhoto(chat_id, data, 'map.jpg', _('©OSM contributors'))
             elif imgformat == 'png':
-                bot.sendPhoto(chat_id, data, "map.png", "©OSM contributors")
+                bot.sendPhoto(chat_id, data, 'map.png', _('©OSM contributors'))
         user.set_field(user_id, 'mode', 'normal')
     else:
         if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
-            m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})$",message)
+            m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})$", message)
             zoom = m.groupdict()["zoom"]
             imgformat = m.groupdict()["imgformat"]
-            response.append(_("Please send me your location") + " \xF0\x9F\x93\x8D " +
-                            _("to receive the map.") + ".\n" +
-                            _("You can do it with the Telegram paperclip button") + " \xF0\x9F\x93\x8E.")
+            response.append(
+                _('Please send me your location') + " \xF0\x9F\x93\x8D " +
+                _("to receive the map.") + '.\n' +
+                _("You can do it with the Telegram paperclip button") +
+                " \xF0\x9F\x93\x8E.")
             if imgformat is None:
                 imgformat = 'png'
             if zoom == '':
@@ -406,9 +408,11 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                 if imgformat == 'pdf':
                     bot.sendDocument(chat_id, data, 'map.pdf')
                 elif imgformat == 'jpeg':
-                    bot.sendPhoto(chat_id, data, 'map.jpg', '©OSM contributors')
+                    bot.sendPhoto(
+                        chat_id, data, 'map.jpg', _('©OSM contributors'))
                 elif imgformat == 'png':
-                    bot.sendPhoto(chat_id, data, 'map.png', '©OSM contributors')
+                    bot.sendPhoto(
+                        chat_id, data, 'map.png', _('©OSM contributors'))
         elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
             m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
             if m is not None:
@@ -423,16 +427,20 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                 if zoom == '':
                     zoom = 19
                 try:
-                    data = download([bbox1, bbox2, bbox3, bbox4], imgformat, zoom=zoom)
+                    data = download(
+                        [bbox1, bbox2, bbox3, bbox4],
+                        imgformat, zoom=zoom)
                 except ValueError as v:
                     response.append(v.message)
                 else:
                     if imgformat == 'pdf':
                         bot.sendDocument(chat_id, data, 'map.pdf')
                     elif imgformat == 'jpeg':
-                        bot.sendPhoto(chat_id, data, 'map.jpg', '©OSM contributors')
+                        bot.sendPhoto(
+                            chat_id, data, 'map.jpg', _('©OSM contributors'))
                     elif imgformat == 'png':
-                        bot.sendPhoto(chat_id, data, 'map.png', '©OSM contributors')
+                        bot.sendPhoto(
+                            chat_id, data, 'map.png', _('©OSM contributors'))
             else:
                 response.append(_("Sorry, I can't understand you")+" \xF0\x9F\x98\xB5\n" +
                                 _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
