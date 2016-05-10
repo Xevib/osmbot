@@ -397,7 +397,9 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
             if zoom == '':
                 zoom = 19
             try:
-                data = download(bbox, imageformat=imgformat, zoom=zoom)
+                user_config = user.get_user(user_id, group=False)
+                lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
+                data = download(bbox, lang.gettext, imageformat=imgformat, zoom=zoom)
             except ValueError as v:
                 response.append(v.message)
             else:
