@@ -3,6 +3,7 @@ import json
 import requests
 import StringIO
 
+
 class OSMbot(object):
     def __init__(self, token):
         self.token=token
@@ -46,7 +47,7 @@ class OSMbot(object):
         response = requests.post(self.url.format(self.token, method), params=params, files={'document': (filename, document)})
         return response.content
 
-    def sendMessage(self, chat_id, text, disable_web_page_preview=None, reply_to_message_id=None, reply_markup=None):
+    def sendMessage(self, chat_id, text,parse_mode=None, disable_web_page_preview=None, reply_to_message_id=None, reply_markup=None):
         method = "sendMessage"
         if reply_markup:
             params = {
@@ -54,7 +55,8 @@ class OSMbot(object):
                 'text': text,
                 'disable_web_page_preview': disable_web_page_preview,
                 'reply_to_message_id': reply_to_message_id,
-                'reply_markup': json.dumps(reply_markup)
+                'reply_markup': json.dumps(reply_markup),
+                'parse_mode':parse_mode
             }
         else:
             params = {
@@ -62,6 +64,7 @@ class OSMbot(object):
                 'text': text,
                 'disable_web_page_preview': disable_web_page_preview,
                 'reply_to_message_id': reply_to_message_id,
+                'parse_mode':parse_mode
             }
 
         if disable_web_page_preview is True:
