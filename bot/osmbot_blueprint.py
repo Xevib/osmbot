@@ -710,15 +710,15 @@ def attend_webhook(token):
                         '\n  ' + _("<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
                         '\n\n' + _("/search <search_term> - Search from Nominatim in all OpenStreetMap database.") +
                         '\n\n' + _('/nearest <type> <optional meters> - Search from Overpass the element in a certain radius')
-
                     ]
+                    response[-1] = response[-1].replace('_', '\_')
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
                     response += SearchCommand(message, user_config)
                 elif re.match('/search', message.lower()) is not None:
                     response = [_('Please indicate what are you searching with command /search <search_term>')]
                 else:
                     response = [_('Use /search <search_term> command to indicate what you are searching')]
-            bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview),parse_mode='Markdown')
+            bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview), parse_mode='Markdown')
         except Exception as e:
             print str(e)
             import traceback
