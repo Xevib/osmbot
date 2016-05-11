@@ -586,7 +586,7 @@ def RawCommand(message):
     return preview, response
 
 
-def answer_message(message, query, chat_id, user_id, user_config, is_group):
+def answer_message(message, query, chat_id, user_id, user_config, is_group, user):
     preview = False
     response = []
     if message.lower() == "/start":
@@ -641,8 +641,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group):
         elif message == 'Answer only when mention?':
             response += AnswerCommand(message, user_id, chat_id, user)
         elif message.lower().startswith("/settings"):
-            response += SettingsCommand(message, user_id, chat_id, user,
-                                        is_group)
+            response += SettingsCommand(message, user_id, chat_id, user,is_group)
         elif message.lower().startswith("/nearest"):
             response += NearestCommand(message, chat_id, user_id, user)
         elif message.lower().startswith("/map"):
@@ -762,7 +761,7 @@ def attend_webhook(token):
                 if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in avaible_languages.keys():
                     return 'OK'
             message = CleanMessage(message)
-            answer_message(message, query, chat_id, user_id, user_config, is_group)
+            answer_message(message, query, chat_id, user_id, user_config, is_group, user)
         except Exception as e:
             print str(e)
             import traceback
