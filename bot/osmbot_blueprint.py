@@ -428,7 +428,7 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                     zoom = 19
                 try:
                     data = download(
-                        [bbox1, bbox2, bbox3, bbox4],
+                        [bbox1, bbox2, bbox3, bbox4], _,
                         imgformat, zoom=zoom)
                 except ValueError as v:
                     response.append(v.message)
