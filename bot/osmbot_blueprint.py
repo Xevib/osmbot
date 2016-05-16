@@ -66,7 +66,7 @@ def SetOnlyMention(message, user_id, chat_id, user, group):
         user.set_field(user_id, 'onlymentions', onlymentions, group=group)
         user.set_field(user_id, 'mode', 'normal', group=group)
     if not onlymentions:
-        bot.sendMessage(chat_id, _('Now I only will answer when mention') +' \xF0\x9F\xA4\x90', 
+        bot.sendMessage(chat_id, _('Now I only will answer when mention') +' \xF0\x9F\xA4\x90',
                         reply_markup={'hide_keyboard': True})
     else:
         bot.sendMessage(chat_id, _('Now I always will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC',
@@ -668,7 +668,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             response = LegendCommand(message)
         elif message.lower().startswith('/about'):
             response = [
-                '**' + _('OpenStreetMap bot info:') + '**\n\n' +
+                '*' + _('OpenStreetMap bot info:') + '*\n\n' +
                 _('CREDITS&CODE') + '\n\xF0\x9F\x91\xA5 ' +
                 _('Author:') + ' ' + 'OSM català' + ' ' +
                 _('(Catalan OpenStreetMap community)') + '\n\xF0\x9F\x94\xA7 ' +
