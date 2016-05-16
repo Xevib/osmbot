@@ -663,29 +663,23 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 import traceback
                 current_app.logger.debug(traceback.format_exc())
                 pass
-        elif message.lower().startswith("/legend"):
+        elif message.lower().startswith('/legend'):
             response = LegendCommand(message)
-        elif message.lower().startswith("/about"):
+        elif message.lower().startswith('/about'):
             response = [
-                _('OpenStreetMap bot info:') + '\n\n' + _(
-                    'CREDITS&CODE') + "\n\xF0\x9F\x91\xA5 " +
-                _('Author:') + ' ' + 'OSM català' + ' ' + _(
-                    '(Catalan OpenStreetMap community)') + "\n\xF0\x9F\x94\xA7 " +
-                _("Code:") + " https://github.com/Xevib/osmbot\n\xE2\x99\xBB " +
-                _("License: GPLv3") + ", " +
-                _(
-                    "http://www.gnu.org/licenses/gpl-3.0.en.html") + "\n\xF0\x9F\x92\xAC " +
-                _(
-                    "Localization:") + " https://www.transifex.com/osm-catala/osmbot/" + "\n\n" +
-                _(
-                    "NEWS") + "\n\xF0\x9F\x90\xA4 Twitter: https://twitter.com/osmbot_telegram\n\xF0\x9F\x93\xA2 " + _(
-                    "Telegram channel:") + " https://telegram.me/OSMbot_channel\n\n" +
-                _("RATING") + "\n\xE2\xAD\x90 " + _("Rating&reviews") +
-                ": http://storebot.me/bot/osmbot\n\xF0\x9F\x91\x8D " + _(
-                    'Please rate me at') +
-                ': https://telegram.me/storebot?start=osmbot\n\n' + _(
-                    'Thanks for use @OSMbot!!')]
-        elif message.lower().startswith("/help"):
+                _('OpenStreetMap bot info:') + '\n\n' +
+                _('CREDITS&CODE') + '\n\xF0\x9F\x91\xA5 ' +
+                _('Author:') + ' ' + 'OSM català' + ' ' +
+                _('(Catalan OpenStreetMap community)') + '\n\xF0\x9F\x94\xA7 ' +
+                '[' + _("Code") + ']' + "(https://github.com/Xevib/osmbot)\n\xE2\x99\xBB " +
+                '[' + _("License: GPLv3") + ']('+_("http://www.gnu.org/licenses/gpl-3.0.en.html") + ')\n\xF0\x9F\x92\xAC ' +
+                '[' + _("Localization") + '](https://www.transifex.com/osm-catala/osmbot/)' + "\n\n" +
+                _("NEWS") + "\n\xF0\x9F\x90\xA4 [Twitter](https://twitter.com/osmbot_telegram)\n\xF0\x9F\x93\xA2 " +
+                '[' + _("Telegram channel") + '](https://telegram.me/OSMbot_channel)\n\n' +
+                _("RATING") + "\n\xE2\xAD\x90 [" + _("Rating&reviews") +'](http://storebot.me/bot/osmbot)\n\xF0\x9F\x91\x8D ' +
+                '[' + _('Please rate me') +'](https://telegram.me/storebot?start=osmbot)\n\n' +
+                _('Thanks for use @OSMbot!!')]
+        elif message.lower().startswith('/help'):
             response = [
                 _('OpenStreetMap bot help:') + '\n\n' + _(
                     'You can control me by sending these commands:') +
