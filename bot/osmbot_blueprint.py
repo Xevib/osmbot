@@ -668,7 +668,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             response = LegendCommand(message)
         elif message.lower().startswith('/about'):
             response = [
-                _('OpenStreetMap bot info:') + '\n\n' +
+                '**' + _('OpenStreetMap bot info:') + '**\n\n' +
                 _('CREDITS&CODE') + '\n\xF0\x9F\x91\xA5 ' +
                 _('Author:') + ' ' + 'OSM català' + ' ' +
                 _('(Catalan OpenStreetMap community)') + '\n\xF0\x9F\x94\xA7 ' +
