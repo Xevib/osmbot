@@ -66,9 +66,10 @@ def SetOnlyMention(message, user_id, chat_id, user, group):
         user.set_field(user_id, 'onlymentions', onlymentions, group=group)
         user.set_field(user_id, 'mode', 'normal', group=group)
     if not onlymentions:
-        bot.sendMessage(chat_id, _('Now I only will answer when mention'), reply_markup={'hide_keyboard': True})
+        bot.sendMessage(chat_id, _('Now I only will answer when mention') +' \xF0\x9F\xA4\x90', 
+                        reply_markup={'hide_keyboard': True})
     else:
-        bot.sendMessage(chat_id, _('Now I allways will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC',
+        bot.sendMessage(chat_id, _('Now I always will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC',
                         reply_markup={'hide_keyboard': True})
     return []
 
