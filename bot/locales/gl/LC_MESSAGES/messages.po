@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-26 08:42+0100\n"
-"PO-Revision-Date: 2015-10-26 18:02+0000\n"
-"Last-Translator: Rodrigo Rega <rodrigorega@gmail.com>\n"
+"POT-Creation-Date: 2016-05-10 23:31+0200\n"
+"PO-Revision-Date: 2016-05-10 21:32+0000\n"
+"Last-Translator: Xevi <xbarnada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/osm-catala/osmbot/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,387 +20,420 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: bot/osmbot_blueprint.py:63
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "Map too large!"
+msgstr "Mapa demasiado longo!"
+
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "Please, reduce the bounding box"
+msgstr "Por favor, reduza o cadro delimitador"
+
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "or the scale (zoom level)"
+msgstr "ou a escala (nivel de zoom)"
+
+#: bot/maptools.py:47
+msgid "Invalid bounding box!"
+msgstr "Cadro delimintador non válido!"
+
+#: bot/maptools.py:47
+msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
+msgstr "Por favor, proba con /map minlon, minlat,maxlon,maxlat"
+
+#: bot/maptools.py:47
+msgid "Coordinates' decimals need to be marked with a dot."
+msgstr "As coordenadas decimais debense marcar con un punto."
+
+#: bot/maptools.py:47
+msgid "For example:"
+msgstr "Por exemplo:"
+
+#: bot/maptools.py:49
+msgid "Oh,oh... An error occurred"
+msgstr "Oh, oh... Ocorreu un erro"
+
+#: bot/maptools.py:49
+msgid "You can try with another bounding box or scale (zoom level)"
+msgstr "Pode probar con outra escala de cadro delimitador (nivel de zoom)"
+
+#: bot/maptools.py:49
+msgid "Good luck! "
+msgstr "Boa sorte!"
+
+#: bot/osmbot_blueprint.py:69
+msgid "Now I only will answer when mention"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:71
+msgid "Now I allways will answer"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:84
 msgid "Now I will talk you with the new language"
 msgstr "Agora comezarei a falar no novo idioma"
 
-#: bot/osmbot_blueprint.py:70
+#: bot/osmbot_blueprint.py:93
 msgid "Ooops! I can't talk this language"
 msgstr "Ooops! Non sei ese idioma"
 
-#: bot/osmbot_blueprint.py:70
+#: bot/osmbot_blueprint.py:93
 msgid "yet"
 msgstr "Aínda"
 
-#: bot/osmbot_blueprint.py:71
+#: bot/osmbot_blueprint.py:94
 msgid "But you can help me to learn it in Transifex"
 msgstr "Pero poderías axudarme a aprendelo en Transifex"
 
-#: bot/osmbot_blueprint.py:81
+#: bot/osmbot_blueprint.py:101
+msgid "Should I answer without a mention?"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:110
 msgid "Choose the language for talk with you"
 msgstr "Escolle o idioma no que falaremos"
 
-#: bot/osmbot_blueprint.py:88
+#: bot/osmbot_blueprint.py:122
 msgid "What do you want to configure?"
 msgstr "Que é o que queres configurar?"
 
-#: bot/osmbot_blueprint.py:105
+#: bot/osmbot_blueprint.py:142
 msgid "If you see strange emojis it's due a Telegram easter egg"
 msgstr "Se ves emojis raros é culpa dun ovo de pascua do Telegram"
 
-#: bot/osmbot_blueprint.py:107
+#: bot/osmbot_blueprint.py:144
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
 msgstr "Non se atopou o emoji, téntao con /legend <osm_key:value>"
 
-#: bot/osmbot_blueprint.py:117
+#: bot/osmbot_blueprint.py:157
 #, python-brace-format
 msgid "Sorry but I couldn't find any result for \"{0}\""
 msgstr "Síntoo pero non atopei ningún resultado para \"{0}\""
 
-#: bot/osmbot_blueprint.py:118
+#: bot/osmbot_blueprint.py:158
 msgid "But you can try to improve OpenStreetMap"
 msgstr "Pero podes axudar a mellorar OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:120
+#: bot/osmbot_blueprint.py:160
 msgid "Results for"
 msgstr "Resultados para"
 
-#: bot/osmbot_blueprint.py:137 bot/osmbot_blueprint.py:139
-#: bot/osmbot_blueprint.py:141 bot/osmbot_blueprint.py:143
-#: bot/osmbot_blueprint.py:148 bot/osmbot_blueprint.py:150
-#: bot/osmbot_blueprint.py:152 bot/osmbot_blueprint.py:154
+#: bot/osmbot_blueprint.py:174
+msgid "Map"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:177 bot/osmbot_blueprint.py:179
+#: bot/osmbot_blueprint.py:181 bot/osmbot_blueprint.py:183
+#: bot/osmbot_blueprint.py:188 bot/osmbot_blueprint.py:190
+#: bot/osmbot_blueprint.py:192 bot/osmbot_blueprint.py:194
 msgid "More info"
 msgstr "Maís información"
 
-#: bot/osmbot_blueprint.py:144
+#: bot/osmbot_blueprint.py:184
 msgid "Phone"
 msgstr "Teléfono"
 
-#: bot/osmbot_blueprint.py:156 bot/osmbot_blueprint.py:303
-#: bot/osmbot_blueprint.py:513 bot/osmbot_blueprint.py:521
+#: bot/osmbot_blueprint.py:196 bot/osmbot_blueprint.py:349
+#: bot/osmbot_blueprint.py:576 bot/osmbot_blueprint.py:584
 msgid "OpenStreetMap contributors"
 msgstr "Contribuíntes de OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:203 bot/osmbot_blueprint.py:206
-#: bot/osmbot_blueprint.py:208
+#: bot/osmbot_blueprint.py:242
+msgid "No element found"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:249 bot/osmbot_blueprint.py:252
+#: bot/osmbot_blueprint.py:254
 msgid "Tags for"
 msgstr "Etiquetas para"
 
-#: bot/osmbot_blueprint.py:210 bot/osmbot_blueprint.py:212
+#: bot/osmbot_blueprint.py:256 bot/osmbot_blueprint.py:258
 msgid "European country"
 msgstr "País europeo"
 
-#: bot/osmbot_blueprint.py:214
+#: bot/osmbot_blueprint.py:260
 msgid "African country"
 msgstr "País africano"
 
-#: bot/osmbot_blueprint.py:216 bot/osmbot_blueprint.py:218
-#: bot/osmbot_blueprint.py:220
+#: bot/osmbot_blueprint.py:262 bot/osmbot_blueprint.py:264
+#: bot/osmbot_blueprint.py:266
 msgid "South american country"
 msgstr "País de América do sur"
 
-#: bot/osmbot_blueprint.py:222 bot/osmbot_blueprint.py:224
+#: bot/osmbot_blueprint.py:268 bot/osmbot_blueprint.py:270
 msgid "North american country"
 msgstr "País de América do norte"
 
-#: bot/osmbot_blueprint.py:226
+#: bot/osmbot_blueprint.py:272
 msgid "Central american country"
 msgstr "País de América central"
 
-#: bot/osmbot_blueprint.py:228 bot/osmbot_blueprint.py:230
+#: bot/osmbot_blueprint.py:274 bot/osmbot_blueprint.py:276
 msgid "American country"
 msgstr "País americano"
 
-#: bot/osmbot_blueprint.py:232
+#: bot/osmbot_blueprint.py:278
 msgid "Asian country"
 msgstr "País asiático"
 
-#: bot/osmbot_blueprint.py:234 bot/osmbot_blueprint.py:236
+#: bot/osmbot_blueprint.py:280 bot/osmbot_blueprint.py:282
 msgid "Oceanian country"
 msgstr "País de Oceanía"
 
-#: bot/osmbot_blueprint.py:238 bot/osmbot_blueprint.py:240
+#: bot/osmbot_blueprint.py:284 bot/osmbot_blueprint.py:286
 msgid "Eurasian country"
 msgstr "País euroasiático"
 
-#: bot/osmbot_blueprint.py:277 bot/osmbot_blueprint.py:279
+#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
 msgid "inhabitants"
 msgstr "habitantes"
 
-#: bot/osmbot_blueprint.py:277
+#: bot/osmbot_blueprint.py:323
 msgid "at"
 msgstr "en"
 
-#: bot/osmbot_blueprint.py:282
+#: bot/osmbot_blueprint.py:328
 msgid "meters"
 msgstr "metros"
 
-#: bot/osmbot_blueprint.py:295
+#: bot/osmbot_blueprint.py:341
 msgid "Raw data:"
 msgstr "Datos brutos"
 
-#: bot/osmbot_blueprint.py:331 bot/osmbot_blueprint.py:476
+#: bot/osmbot_blueprint.py:368 bot/osmbot_blueprint.py:370
+#: bot/osmbot_blueprint.py:412 bot/osmbot_blueprint.py:415
+#: bot/osmbot_blueprint.py:440 bot/osmbot_blueprint.py:443
+#: bot/osmbot_blueprint.py:457
+msgid "OSM contributors"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:378 bot/osmbot_blueprint.py:539
 msgid "Please send me your location"
 msgstr "Por favor envíame a túa localización"
 
-#: bot/osmbot_blueprint.py:332
+#: bot/osmbot_blueprint.py:379
 msgid "to receive the map."
 msgstr "para recibir o mapa."
 
-#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:478
+#: bot/osmbot_blueprint.py:380 bot/osmbot_blueprint.py:541
 msgid "You can do it with the Telegram paperclip button"
 msgstr "Pódelo facer co botón do clip do Telegram"
 
-#: bot/osmbot_blueprint.py:389 bot/osmbot_blueprint.py:392
+#: bot/osmbot_blueprint.py:445 bot/osmbot_blueprint.py:459
 msgid "Sorry, I can't understand you"
 msgstr "Síntoo, non te entendín"
 
-#: bot/osmbot_blueprint.py:390 bot/osmbot_blueprint.py:393
+#: bot/osmbot_blueprint.py:446 bot/osmbot_blueprint.py:460
 msgid "Perhaps I could help you with the command /help"
 msgstr "Quizais che poda axudar co comando /help"
 
-#: bot/osmbot_blueprint.py:426 bot/osmbot_blueprint.py:493
+#: bot/osmbot_blueprint.py:493 bot/osmbot_blueprint.py:556
 msgid "Sorry but I couldn't find any result, please check the ID"
 msgstr "Síntoo pero non atopei ningún resultado, por favor revisa o ID"
 
-#: bot/osmbot_blueprint.py:429 bot/osmbot_blueprint.py:496
+#: bot/osmbot_blueprint.py:496 bot/osmbot_blueprint.py:559
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "Síntoo, pero non puiden recoñecer etiquetas para ese elemento, quizais máis adiante poda facelo."
 
-#: bot/osmbot_blueprint.py:462
+#: bot/osmbot_blueprint.py:525
 msgid "Sorry but this query it's not implemented yet"
 msgstr "Séntoo, esta consulta aínda non está implementada"
 
-#: bot/osmbot_blueprint.py:477
+#: bot/osmbot_blueprint.py:540
 msgid "and I'll send you the nearest element"
 msgstr "e enviareille o elemento mais próximo"
 
-#: bot/osmbot_blueprint.py:504 bot/osmbot_blueprint.py:518
+#: bot/osmbot_blueprint.py:567 bot/osmbot_blueprint.py:581
 msgid "Raw data for"
 msgstr "Datos brutos para"
 
-#: bot/osmbot_blueprint.py:506 bot/osmbot_blueprint.py:520
+#: bot/osmbot_blueprint.py:569 bot/osmbot_blueprint.py:583
 msgid "Raw data"
 msgstr "Datos brutos"
 
-#: bot/osmbot_blueprint.py:553
+#: bot/osmbot_blueprint.py:625
 msgid "Hi, I'm the robot for OpenStreetMap data"
 msgstr "Ola, son o robot para os datos de OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:553
+#: bot/osmbot_blueprint.py:625
 msgid "How I can help you?"
 msgstr "Como podo axudarche?"
 
-#: bot/osmbot_blueprint.py:570
+#: bot/osmbot_blueprint.py:644
 msgid "Setting not recognized"
 msgstr "Configuración non recoñecida"
 
-#: bot/osmbot_blueprint.py:610
+#: bot/osmbot_blueprint.py:688
 msgid "OpenStreetMap bot info:"
 msgstr "Información do robot de OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:610
+#: bot/osmbot_blueprint.py:688
 msgid "CREDITS&CODE"
 msgstr "CRÉDITOS E CÓDIGO"
 
-#: bot/osmbot_blueprint.py:611
+#: bot/osmbot_blueprint.py:689
 msgid "Author:"
 msgstr "Autor:"
 
-#: bot/osmbot_blueprint.py:611
+#: bot/osmbot_blueprint.py:689
 msgid "(Catalan OpenStreetMap community)"
 msgstr "(comunidade catalana de OpenStreetMap)"
 
-#: bot/osmbot_blueprint.py:612
+#: bot/osmbot_blueprint.py:690
 msgid "Code:"
 msgstr "Código:"
 
-#: bot/osmbot_blueprint.py:613
+#: bot/osmbot_blueprint.py:691
 msgid "License: GPLv3"
 msgstr "Licenza: GPLv3"
 
-#: bot/osmbot_blueprint.py:614
+#: bot/osmbot_blueprint.py:692
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
 
-#: bot/osmbot_blueprint.py:615
+#: bot/osmbot_blueprint.py:693
 msgid "Localization:"
 msgstr "Localización:"
 
-#: bot/osmbot_blueprint.py:616
+#: bot/osmbot_blueprint.py:694
 msgid "NEWS"
 msgstr "NOVAS"
 
-#: bot/osmbot_blueprint.py:616
+#: bot/osmbot_blueprint.py:694
 msgid "Telegram channel:"
 msgstr "Canal de Telegram"
 
-#: bot/osmbot_blueprint.py:617
+#: bot/osmbot_blueprint.py:695
 msgid "RATING"
 msgstr "VALORACIÓN"
 
-#: bot/osmbot_blueprint.py:617
+#: bot/osmbot_blueprint.py:695
 msgid "Rating&reviews"
 msgstr "Valoracións e revisións"
 
-#: bot/osmbot_blueprint.py:618
+#: bot/osmbot_blueprint.py:696
 msgid "Please rate me at"
 msgstr "Valórame en"
 
-#: bot/osmbot_blueprint.py:619
+#: bot/osmbot_blueprint.py:697
 msgid "Thanks for use @OSMbot!!"
 msgstr "Grazas por empregar @OSMbot!!"
 
-#: bot/osmbot_blueprint.py:622
+#: bot/osmbot_blueprint.py:700
 msgid "OpenStreetMap bot help:"
 msgstr "Axuda do robot OpenStreetMap:"
 
-#: bot/osmbot_blueprint.py:622
+#: bot/osmbot_blueprint.py:700
 msgid "You can control me by sending these commands:"
 msgstr "Podes controlarme enviando estes comandos:"
 
-#: bot/osmbot_blueprint.py:623
+#: bot/osmbot_blueprint.py:701
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
 msgstr "/about - Amosa información sobre OSMbot: créditos e código, novas e valoracións e revisións"
 
-#: bot/osmbot_blueprint.py:624
+#: bot/osmbot_blueprint.py:702
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
 msgstr "/details<type><osm_id> - Amosa algunhas etiquetas da base de datos OSM por ID."
 
-#: bot/osmbot_blueprint.py:625
+#: bot/osmbot_blueprint.py:703
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
 msgstr "/raw<type><osm_id> - Amosa tódalas etiquetas da base de datos de OSM por ID en formato sen procesar."
 
-#: bot/osmbot_blueprint.py:626
+#: bot/osmbot_blueprint.py:704
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
 msgstr "O ID xenérase co comando /search, pero se coñeces o ID OSM podes tentalo con el."
 
-#: bot/osmbot_blueprint.py:627
+#: bot/osmbot_blueprint.py:705
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
 msgstr "O tipo é opcional e pode ser nod (nodo), way (vía) ou rel (relación). Se non o especificas, o robot tentará deducilo."
 
-#: bot/osmbot_blueprint.py:628
+#: bot/osmbot_blueprint.py:706
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
 msgstr "/legend <osm_key> - Amosa a lista de parexas clave=valor e o seu emoji en OSMbot. Se non se especifica una <osm_key>, amosa tódolas parexas de clave=valor con emoji en OSMbot."
 
-#: bot/osmbot_blueprint.py:629
+#: bot/osmbot_blueprint.py:707
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
 msgstr "/map <coord> <format> <scale> - Envía un mapa con diferentes opcións:"
 
-#: bot/osmbot_blueprint.py:630
+#: bot/osmbot_blueprint.py:708
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
 msgstr "<coord> Pode ser un punto (lat, lon) ou un recadro (minlon, minlat, maxlon, maxlat). Se non empregas esta opción podes enviar a túa localización"
 
-#: bot/osmbot_blueprint.py:631
+#: bot/osmbot_blueprint.py:709
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
 msgstr "Pode ser un arquivo png, jpeg ou pdf. Se non empregas esta opción, o robot emprega png por defecto"
 
-#: bot/osmbot_blueprint.py:632
+#: bot/osmbot_blueprint.py:710
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
 msgstr "Nivel de zoom (1-19). Se non empregas esta opción, o robot emprega 19 por defecto."
 
-#: bot/osmbot_blueprint.py:633
+#: bot/osmbot_blueprint.py:711
 msgid ""
-"/search <search_term> - search from Nominatim in all OpenStreetMap database."
-msgstr "/search <search_term> - busca dende Nominatim en toda a base de datos de OpenStreetMap."
+"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+msgstr ""
 
-#: bot/osmbot_blueprint.py:637
+#: bot/osmbot_blueprint.py:712
+msgid ""
+"/nearest <type> <optional meters> - Search from Overpass the element in a "
+"certain radius"
+msgstr ""
+
+#: bot/osmbot_blueprint.py:718
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
 msgstr "Indica que estás a buscar co comando /search <search_term>"
 
-#: bot/osmbot_blueprint.py:639
+#: bot/osmbot_blueprint.py:720
 msgid "Use /search <search_term> command to indicate what you are searching"
 msgstr "Emprega o comando /search <search_term> para indicar que estás a buscar"
 
-#: bot/osmbot_blueprint.py:649
+#: bot/osmbot_blueprint.py:731
 msgid "Something failed"
 msgstr "Fallou algo"
 
-#: bot/osmbot_blueprint.py:650
+#: bot/osmbot_blueprint.py:732
 msgid "please try it latter"
 msgstr "Téntao de novo máis tarde"
 
-#: bot/osmbot_blueprint.py:661
+#: bot/osmbot_blueprint.py:743
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
 msgstr "O robot de OpenStreetMap atopa calquera lugar do mundo dende a base de datos Nominatim OSM e pode mandar ligazóns e mapas dende OSM"
 
-#: bot/osmbot_blueprint.py:662
+#: bot/osmbot_blueprint.py:744
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
 msgstr "O robot de OpenStreetMap atopa calquera lugar do mundo dende a base de datos Nominatim OSM"
 
-#: bot/osmbot_blueprint.py:663
+#: bot/osmbot_blueprint.py:745
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
 msgstr "O robot pode mandar ligazóns e mapas (jpg, png ou pdf) dende OSM"
 
-#: bot/osmbot_blueprint.py:664
+#: bot/osmbot_blueprint.py:746
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
 msgstr "Datos para todo o mundo (cidades e pobos, tendas -con número de teléfono, correo electrónico... -, ligazóns a Wikipedia, etc)"
 
-#: bot/osmbot_blueprint.py:665
+#: bot/osmbot_blueprint.py:747
 msgid "OSMbot is multilingual and speaks *your language here*"
 msgstr "OSMbot é multilingüe e fala galego"
-
-#: bot/maptools.py:36
-msgid "Map too large!"
-msgstr "Mapa demasiado longo!"
-
-#: bot/maptools.py:36
-msgid "Please, reduce the bounding box"
-msgstr "Por favor, reduza o cadro delimitador"
-
-#: bot/maptools.py:36
-msgid "or the scale (zoom level)"
-msgstr "ou a escala (nivel de zoom)"
-
-#: bot/maptools.py:38
-msgid "Invalid bounding box!"
-msgstr "Cadro delimintador non válido!"
-
-#: bot/maptools.py:38
-msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
-msgstr "Por favor, proba con /map minlon, minlat,maxlon,maxlat"
-
-#: bot/maptools.py:38
-msgid "Coordinates' decimals need to be marked with a dot."
-msgstr "As coordenadas decimais debense marcar con un punto."
-
-#: bot/maptools.py:38
-msgid "For example:"
-msgstr "Por exemplo:"
-
-#: bot/maptools.py:40
-msgid "Oh,oh... An error occurred"
-msgstr "Oh, oh... Ocorreu un erro"
-
-#: bot/maptools.py:40
-msgid "You can try with another bounding box or scale (zoom level)"
-msgstr "Pode probar con outra escala de cadro delimitador (nivel de zoom)"
-
-#: bot/maptools.py:40
-msgid "Good luck! "
-msgstr "Boa sorte!"
