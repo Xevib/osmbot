@@ -725,7 +725,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
 @osmbot.route("/hook/<string:token>", methods=["POST"])
 def attend_webhook(token):
     user = u.User(config['host'], config['database'], config['user'], config['password'])
-    current_app.logger.debug("token:%s", token)
+    current_app.logger.debug('token:%s', token)
     if token == config['token']:
         try:
             query = request.json
@@ -755,6 +755,9 @@ def attend_webhook(token):
             if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
                 if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in avaible_languages.keys():
                     return 'OK'
+            else:
+                message = message.replace('@osmbot', '')
+                message = message.replace('@OSMbot', '')
             message = CleanMessage(message)
             answer_message(message, query, chat_id, user_id, user_config, is_group, user)
         except Exception as e:
