@@ -682,8 +682,8 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 _('Thanks for use @OSMbot!!')]
         elif message.lower().startswith('/help'):
             response = [
-                _('OpenStreetMap bot help:') + '\n\n' + _(
-                    'You can control me by sending these commands:') +
+                '*' + _('OpenStreetMap bot help:') + '*' + '\n\n' +
+                _('You can control me by sending these commands:') +
                 '\n\n' + _(
                     '/about - Show info about OSMbot: credits&code, news and ratings&reviews') + '\n\n' +
                 _(
