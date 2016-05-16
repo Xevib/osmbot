@@ -682,8 +682,8 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 _('Thanks for use @OSMbot!!')]
         elif message.lower().startswith('/help'):
             response = [
-                '*' + _('OpenStreetMap bot help:') + '*' + '\n\n' +
-                _('You can control me by sending these commands:') +
+                '*' +_('OpenStreetMap bot help:') + '*' + '\n\n' + _(
+                    'You can control me by sending these commands:') +
                 '\n\n' + _(
                     '/about - Show info about OSMbot: credits&code, news and ratings&reviews') + '\n\n' +
                 _(
@@ -710,7 +710,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                     '/nearest <type> <optional meters> - Search from Overpass the element in a certain radius')
             ]
             response[-1] = response[-1].replace('_', '\_')
-        elif re.match('/search.*', message.lower()) is not None and message[                                                  8:] != '':
+        elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
             response += SearchCommand(message, user_config)
         elif re.match('/search', message.lower()) is not None:
             response = [_(
