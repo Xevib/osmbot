@@ -587,158 +587,177 @@ def RawCommand(message):
     return preview, response
 
 
-def answer_message(message, query, chat_id, user_id, user_config, is_group, user):
-    preview = False
-    response = []
-    if message.lower() == "/start":
-        user.set_field(chat_id, 'mode', 'normal')
-        response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _(
-            "How I can help you?")]
-    elif "location" in query["message"]:
-        if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
-            response += MapCommand(
-                message, chat_id, user_id, user, zoom=user_config["zoom"],
-                imgformat=user_config["format"],
-                lat=float(query["message"]["location"]["latitude"]),
-                lon=float(query["message"]["location"]["longitude"]))
-        elif user_config.get('mode', None) == 'nearest':
-            response += NearestCommand(
-                message, chat_id, user_id, user,
-                lat=float(query["message"]["location"]["latitude"]),
-                lon=float(query['message']['location']['longitude']),
-                distance=user_config['distance'], type=user_config['type'],
-                config=user_config
-            )[1]
-    elif user_config['mode'] == 'settings':
-        if message == 'Language':
-            response += LanguageCommand(message, user_id, chat_id, user,
-                                        is_group)
-        elif message == 'Answer only when mention?':
-            response += AnswerCommand(message, user_id, chat_id, user)
-        else:
-            response = [_('Setting not recognized')]
+def answer_inline(message,query,chat_id,user_id,user_config,is_group,user):
+    return ''
+
+
+def answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type):
+    if message_type =='inline':
+        answer_inline(message,query,chat_id,user_id,user_config,is_group,user)
+    else:
+        preview = False
+        response = []
+        if message.lower() == "/start":
             user.set_field(chat_id, 'mode', 'normal')
-    elif user_config['mode'] == 'setlanguage':
-        response += SetLanguageCommand(message, user_id, chat_id, user,
-                                       is_group)
-    elif user_config['mode'] == 'setonlymention':
-        response += SetOnlyMention(message, user_id, chat_id, user, is_group)
-    elif "text" in query["message"]:
-        if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?",
-                    message) is not None and "mode" in user_config and \
-                        user_config["mode"] == "map":
-            m = re.match(
-                ".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",
-                message)
-            lat = m.groupdict()["lat"]
-            lon = m.groupdict()["lon"]
-            response += MapCommand(message, chat_id, user_id, user,
-                                   zoom=user_config["zoom"],
-                                   imgformat=user_config["format"],
-                                   lat=float(lat), lon=float(lon))
-        elif message == "Language":
-            response += LanguageCommand(message, user_id, chat_id, user,
-                                        is_group)
-        elif message == 'Answer only when mention?':
-            response += AnswerCommand(message, user_id, chat_id, user)
-        elif message.lower().startswith("/settings"):
-            response += SettingsCommand(message, user_id, chat_id, user,is_group)
-        elif message.lower().startswith("/nearest"):
-            response += NearestCommand(message, chat_id, user_id, user)
-        elif message.lower().startswith("/map"):
-            response += MapCommand(message, chat_id, user_id, user)
-        elif re.match("/phone.*", message.lower()):
-            response += PhoneCommand(message)
-        elif re.match("/details.*", message.lower()):
-            try:
-                (preview, r) = DetailsCommand(message, user_config)
-                response += r
-            except:
-                pass
-        elif re.match("/raw.*", message.lower()):
-            try:
-                (preview, r) = RawCommand(message)
-                response += r
-            except Exception as e:
-                current_app.logger.debug(e.message)
-                import traceback
-                current_app.logger.debug(traceback.format_exc())
-                pass
-        elif message.lower().startswith('/legend'):
-            response = LegendCommand(message)
-        elif message.lower().startswith('/about'):
-            response = [
-                '*' + _('OpenStreetMap bot info:') + '*\n\n' +
-                _('CREDITS&CODE') + '\n\xF0\x9F\x91\xA5 ' +
-                _('Author:') + ' ' + 'OSM català' + ' ' +
-                _('(Catalan OpenStreetMap community)') + '\n\xF0\x9F\x94\xA7 ' +
-                '[' + _("Code") + ']' + "(https://github.com/Xevib/osmbot)\n\xE2\x99\xBB " +
-                '[' + _("License: GPLv3") + ']('+_("http://www.gnu.org/licenses/gpl-3.0.en.html") + ')\n\xF0\x9F\x92\xAC ' +
-                '[' + _("Localization") + '](https://www.transifex.com/osm-catala/osmbot/)' + "\n\n" +
-                _("NEWS") + "\n\xF0\x9F\x90\xA4 [Twitter](https://twitter.com/osmbot_telegram)\n\xF0\x9F\x93\xA2 " +
-                '[' + _("Telegram channel") + '](https://telegram.me/OSMbot_channel)\n\n' +
-                _("RATING") + "\n\xE2\xAD\x90 [" + _("Rating&reviews") +'](http://storebot.me/bot/osmbot)\n\xF0\x9F\x91\x8D ' +
-                '[' + _('Please rate me') +'](https://telegram.me/storebot?start=osmbot)\n\n' +
-                _('Thanks for use @OSMbot!!')]
-        elif message.lower().startswith('/help'):
-            response = [
-                '*' +_('OpenStreetMap bot help:') + '*' + '\n\n' + _(
-                    'You can control me by sending these commands:') +
-                '\n\n' + _(
-                    '/about - Show info about OSMbot: credits&code, news and ratings&reviews') + '\n\n' +
-                _(
-                    '/details<type><osm_id> - Show some tags from OSM database by ID.') + '\n' +
-                _(
-                    '/raw<type><osm_id> - Show all tags from OSM database by ID in raw format.') + '\n' +
-                _(
-                    'The ID is generated by /search command, but if you know an OSM ID you can try it.') +
-                '\n' + _(
-                    "The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it") +
-                '\n\n' + _(
-                    "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot") +
-                '\n\n' + _(
-                    '/map <coord> <format> <scale> - Send a map with different options:') +
-                '\n  ' + _(
-                    "<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location") +
-                '\n  ' + _(
-                    "<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
-                '\n  ' + _(
-                    "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
-                '\n\n' + _(
-                    "/search <search_term> - Search from Nominatim in all OpenStreetMap database.") +
-                '\n\n' + _(
-                    '/nearest <type> <optional meters> - Search from Overpass the element in a certain radius')
-            ]
-            response[-1] = response[-1].replace('_', '\_')
-        elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
-            response += SearchCommand(message, user_config)
-        elif re.match('/search', message.lower()) is not None:
-            response = [_(
-                'Please indicate what are you searching with command /search <search_term>')]
-        else:
-            response = [_(
-                'Use /search <search_term> command to indicate what you are searching')]
-    bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview),
-                    parse_mode='Markdown')
+            response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _(
+                "How I can help you?")]
+        elif "location" in query["message"]:
+            if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
+                response += MapCommand(
+                    message, chat_id, user_id, user, zoom=user_config["zoom"],
+                    imgformat=user_config["format"],
+                    lat=float(query["message"]["location"]["latitude"]),
+                    lon=float(query["message"]["location"]["longitude"]))
+            elif user_config.get('mode', None) == 'nearest':
+                response += NearestCommand(
+                    message, chat_id, user_id, user,
+                    lat=float(query["message"]["location"]["latitude"]),
+                    lon=float(query['message']['location']['longitude']),
+                    distance=user_config['distance'], type=user_config['type'],
+                    config=user_config
+                )[1]
+        elif user_config['mode'] == 'settings':
+            if message == 'Language':
+                response += LanguageCommand(message, user_id, chat_id, user,
+                                            is_group)
+            elif message == 'Answer only when mention?':
+                response += AnswerCommand(message, user_id, chat_id, user)
+            else:
+                response = [_('Setting not recognized')]
+                user.set_field(chat_id, 'mode', 'normal')
+        elif user_config['mode'] == 'setlanguage':
+            response += SetLanguageCommand(message, user_id, chat_id, user,
+                                           is_group)
+        elif user_config['mode'] == 'setonlymention':
+            response += SetOnlyMention(message, user_id, chat_id, user, is_group)
+        elif "text" in query["message"]:
+            if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?",
+                        message) is not None and "mode" in user_config and \
+                            user_config["mode"] == "map":
+                m = re.match(
+                    ".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",
+                    message)
+                lat = m.groupdict()["lat"]
+                lon = m.groupdict()["lon"]
+                response += MapCommand(message, chat_id, user_id, user,
+                                       zoom=user_config["zoom"],
+                                       imgformat=user_config["format"],
+                                       lat=float(lat), lon=float(lon))
+            elif message == "Language":
+                response += LanguageCommand(message, user_id, chat_id, user,
+                                            is_group)
+            elif message == 'Answer only when mention?':
+                response += AnswerCommand(message, user_id, chat_id, user)
+            elif message.lower().startswith("/settings"):
+                response += SettingsCommand(message, user_id, chat_id, user,is_group)
+            elif message.lower().startswith("/nearest"):
+                response += NearestCommand(message, chat_id, user_id, user)
+            elif message.lower().startswith("/map"):
+                response += MapCommand(message, chat_id, user_id, user)
+            elif re.match("/phone.*", message.lower()):
+                response += PhoneCommand(message)
+            elif re.match("/details.*", message.lower()):
+                try:
+                    (preview, r) = DetailsCommand(message, user_config)
+                    response += r
+                except:
+                    pass
+            elif re.match("/raw.*", message.lower()):
+                try:
+                    (preview, r) = RawCommand(message)
+                    response += r
+                except Exception as e:
+                    current_app.logger.debug(e.message)
+                    import traceback
+                    current_app.logger.debug(traceback.format_exc())
+                    pass
+            elif message.lower().startswith('/legend'):
+                response = LegendCommand(message)
+            elif message.lower().startswith('/about'):
+                response = [
+                    '*' + _('OpenStreetMap bot info:') + '*\n\n' +
+                    _('CREDITS&CODE') + '\n\xF0\x9F\x91\xA5 ' +
+                    _('Author:') + ' ' + 'OSM català' + ' ' +
+                    _('(Catalan OpenStreetMap community)') + '\n\xF0\x9F\x94\xA7 ' +
+                    '[' + _("Code") + ']' + "(https://github.com/Xevib/osmbot)\n\xE2\x99\xBB " +
+                    '[' + _("License: GPLv3") + ']('+_("http://www.gnu.org/licenses/gpl-3.0.en.html") + ')\n\xF0\x9F\x92\xAC ' +
+                    '[' + _("Localization") + '](https://www.transifex.com/osm-catala/osmbot/)' + "\n\n" +
+                    _("NEWS") + "\n\xF0\x9F\x90\xA4 [Twitter](https://twitter.com/osmbot_telegram)\n\xF0\x9F\x93\xA2 " +
+                    '[' + _("Telegram channel") + '](https://telegram.me/OSMbot_channel)\n\n' +
+                    _("RATING") + "\n\xE2\xAD\x90 [" + _("Rating&reviews") +'](http://storebot.me/bot/osmbot)\n\xF0\x9F\x91\x8D ' +
+                    '[' + _('Please rate me') +'](https://telegram.me/storebot?start=osmbot)\n\n' +
+                    _('Thanks for use @OSMbot!!')]
+            elif message.lower().startswith('/help'):
+                response = [
+                    '*' +_('OpenStreetMap bot help:') + '*' + '\n\n' + _(
+                        'You can control me by sending these commands:') +
+                    '\n\n' + _(
+                        '/about - Show info about OSMbot: credits&code, news and ratings&reviews') + '\n\n' +
+                    _(
+                        '/details<type><osm_id> - Show some tags from OSM database by ID.') + '\n' +
+                    _(
+                        '/raw<type><osm_id> - Show all tags from OSM database by ID in raw format.') + '\n' +
+                    _(
+                        'The ID is generated by /search command, but if you know an OSM ID you can try it.') +
+                    '\n' + _(
+                        "The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it") +
+                    '\n\n' + _(
+                        "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot") +
+                    '\n\n' + _(
+                        '/map <coord> <format> <scale> - Send a map with different options:') +
+                    '\n  ' + _(
+                        "<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location") +
+                    '\n  ' + _(
+                        "<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
+                    '\n  ' + _(
+                        "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
+                    '\n\n' + _(
+                        "/search <search_term> - Search from Nominatim in all OpenStreetMap database.") +
+                    '\n\n' + _(
+                        '/nearest <type> <optional meters> - Search from Overpass the element in a certain radius')
+                ]
+                response[-1] = response[-1].replace('_', '\_')
+            elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
+                response += SearchCommand(message, user_config)
+            elif re.match('/search', message.lower()) is not None:
+                response = [_(
+                    'Please indicate what are you searching with command /search <search_term>')]
+            else:
+                response = [_(
+                    'Use /search <search_term> command to indicate what you are searching')]
+        bot.sendMessage(chat_id, response, disable_web_page_preview=(not preview),
+                        parse_mode='Markdown')
 
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
 def attend_webhook(token):
     user = u.User(config['host'], config['database'], config['user'], config['password'])
     current_app.logger.debug('token:%s', token)
+
     if token == config['token']:
+
         try:
             query = request.json
             preview = False
+            is_group = False
             response = []
-            if 'from' in query['message'] and 'id' in query['message']['from']:
-                is_group = query['message']['chat']['type'] == u'group'
-                if is_group:
-                    identifier = query['message']['chat']['id']
-                else:
-                    identifier = query['message']['from']['id']
-                user_config = user.get_user(identifier, group=is_group)
-                user_id = query['message']['from']['id']
+            message_type = ''
+            if 'message' in query:
+                message_type ='query'
+                if 'from' in query['message'] and 'id' in query['message']['from']:
+                    is_group = query['message']['chat']['type'] == u'group'
+                    if is_group:
+                        identifier = query['message']['chat']['id']
+                    else:
+                        identifier = query['message']['from']['id']
+                    user_config = user.get_user(identifier, group=is_group)
+                    user_id = query['message']['from']['id']
+            elif 'inline_query' in query:
+                message_type = 'inline'
+                user_id = query['inline_query']['from']['id']
+                user_config = user.get_defaultconfig()
+                message = query['inline_query']['query']
+                chat_id = 0
             else:
                 user_config = user.get_defaultconfig()
                 user_id = 0
@@ -759,7 +778,7 @@ def attend_webhook(token):
                 message = message.replace('@osmbot', '')
                 message = message.replace('@OSMbot', '')
             message = CleanMessage(message)
-            answer_message(message, query, chat_id, user_id, user_config, is_group, user)
+            answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
         except Exception as e:
             print str(e)
             import traceback
