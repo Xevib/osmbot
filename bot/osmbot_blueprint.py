@@ -733,11 +733,11 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
 def attend_webhook(token):
     user = u.User(config['host'], config['database'], config['user'], config['password'])
     current_app.logger.debug('token:%s', token)
-
     if token == config['token']:
-
         try:
             query = request.json
+            if 'edited_message' in query:
+                return 'OK'
             preview = False
             is_group = False
             response = []
@@ -767,16 +767,17 @@ def attend_webhook(token):
                 else:
                     message = ""
                 chat_id = query["message"]["chat"]["id"]
+
+                if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
+                    if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in avaible_languages.keys():
+                        return 'OK'
+                else:
+                    message = message.replace('@osmbot', '')
+                    message = message.replace('@OSMbot', '')
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
             _ = lang.gettext
-
-            if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
-                if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in avaible_languages.keys():
-                    return 'OK'
-            else:
-                message = message.replace('@osmbot', '')
-                message = message.replace('@OSMbot', '')
+            print query
             message = CleanMessage(message)
             answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
         except Exception as e:
