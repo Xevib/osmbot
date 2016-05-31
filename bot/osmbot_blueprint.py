@@ -5,7 +5,7 @@ from flask import Flask
 from flask import request, current_app, Blueprint
 import pynominatim
 from osmapi import OsmApi
-from bot import OSMbot
+from bot import OSMbot, Message
 import urllib
 from configobj import ConfigObj
 from typeemoji import typeemoji
@@ -66,11 +66,16 @@ def SetOnlyMention(message, user_id, chat_id, user, group):
         user.set_field(user_id, 'onlymentions', onlymentions, group=group)
         user.set_field(user_id, 'mode', 'normal', group=group)
     if not onlymentions:
-        bot.sendMessage(chat_id, _('Now I only will answer when mention') +' \xF0\x9F\xA4\x90',
-                        reply_markup={'hide_keyboard': True})
+        m = Message(
+            chat_id,
+            (_('Now I only will answer when mention') +' \xF0\x9F\xA4\x90')
+        )
+        bot.sendMessage(m)
     else:
-        bot.sendMessage(chat_id, _('Now I always will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC',
-                        reply_markup={'hide_keyboard': True})
+        m = Message(
+            chat_id,
+            _('Now I always will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC' )
+        bot.sendMessage(message)
     return []
 
 
@@ -82,19 +87,25 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
         else:
             u.set_field(user_id, 'lang', avaible_languages[message],group=group)
             u.set_field(user_id, 'mode', 'normal', group=group)
-        bot.sendMessage(chat_id, _('Now I will talk you with the new language') +
-                        ' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC', reply_markup={'hide_keyboard': True})
+        m = Message(
+            chat_id, _('Now I will talk you with the new language') +
+                    ' \xF0\x9F\x98\x99' + '\xF0\x9F\x92\xAC'
+        )
+        bot.sendMessage(m)
         return []
     else:
         if group:
             u.set_field(chat_id, 'mode', 'normal')
         else:
             u.set_field(user_id, 'mode', 'normal')
-        bot.sendMessage(chat_id,
-                        _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' + _('yet') +
-                        ' \xF0\x9F\x98\x89)\n' + _('But you can help me to learn it in Transifex') +
-                        ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/',
-                        reply_markup={'hide_keyboard': True})
+        message = Message(
+            chat_id,
+            _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' +
+            _('yet') + ' \xF0\x9F\x98\x89)\n' +
+            _('But you can help me to learn it in Transifex') +
+            ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/'
+        )
+        bot.sendMessage(message)
         return []
 
 
