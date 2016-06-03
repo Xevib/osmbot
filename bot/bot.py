@@ -28,16 +28,21 @@ class KeyboardButton(object):
 
 class ReplyKeyboardMarkup(object):
     def __init__(self, keyboard, resize_keyboard=None, one_time_keyboard=None, selective=None):
-        self.keyboard = keyboard
+        self.keyboard = [ KeyboardButton(k) for k in keyboard]
         self.resize_keyboard = resize_keyboard
         self.one_time_keyboard = one_time_keyboard
         self.selective = selective
+
+    def addButton(self, text):
+        self.keyboard.append(KeyboardButton(text))
 
     def get_keyboard(self):
         data = {}
         keyboard = []
         for button in self.keyboard:
-            keyboard.append([button.get_button()])
+            keyboard.append([button.text])
+        if keyboard:
+            data['keyboard'] = keyboard
         if self.resize_keyboard is not None:
             if self.resize_keyboard:
                 data['resize_keyboard'] = 'true'
@@ -63,7 +68,7 @@ class ReplyKeyboardHide(object):
         self.hide_keyboard = hide_keyboard
         self.selective = selective
 
-    def get_keyboad(self):
+    def get_keyboard(self):
         data = {}
         if self.hide_keyboard:
             data['hide_keyboard'] = 'true'
@@ -97,7 +102,7 @@ class Message(object):
                 'text': self.text,
                 'disable_web_page_preview': self.disable_web_page_preview,
                 'reply_to_message_id': self.reply_to_message_id,
-                'reply_markup': self.reply_markup.get_keyboad(),
+                'reply_markup': self.reply_markup.get_keyboard(),
                 'parse_mode': self.parse_mode
             })
         else:
@@ -115,6 +120,7 @@ class Message(object):
         if type(self.text) == list:
             for t in self.text:
                 ret['text'] = t
+        return ret
 
 
 class OSMbot(object):
@@ -161,11 +167,17 @@ class OSMbot(object):
         return response.content
 
     def sendMessage(self, messages):
+        if not isinstance(messages, list):
+            messages = [messages]
         method = 'sendMessage'
         resp = False
         for message in messages:
+            print 'enviat'
+            print json.dumps(message.get_message(), sort_keys=True,indent = 4, separators = (',', ': '))
+            #print 'enviat:{}'.format()
             resp = requests.get(
                 self.url.format(self.token, method),
                 params=message.get_message())
+            print resp.content
         return resp
 
