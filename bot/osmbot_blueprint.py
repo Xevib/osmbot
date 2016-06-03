@@ -236,7 +236,6 @@ def SearchCommand(message, user_config, chat_id):
 
 
 def pretty_tags(data, identificador, type, user_config, chat_id, lat=None, lon=None, link=False):
-    response = []
     preview = False
     if 'tag' in data:
         tags = data['tag']
@@ -513,14 +512,15 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
     bot.sendMessage(response)
 
 
-def PhoneCommand(message):
+def PhoneCommand(message, chat_id):
     id = message[6:]
     osm_data = getData(id)
     if 'phone' in osm_data['tag']:
-        return ['\xF0\x9F\x93\x9E {}'.format(osm_data['tag']['phone'])]
+        m = Message(chat_id, '\xF0\x9F\x93\x9E {}'.format(osm_data['tag']['phone']))
+        bot.sendMessage(m)
     if 'contact:phone' in osm_data['tag']:
-        return ['\xF0\x9F\x93\x9E {}'.format(osm_data["tag"]["contact:phone"])]
-    return []
+        m = '\xF0\x9F\x93\x9E {}'.format(osm_data["tag"]["contact:phone"])
+        bot.sendMessage(m)
 
 
 def CleanMessage(message):
@@ -560,9 +560,7 @@ def DetailsCommand(message, user_config, chat_id):
             pretty_tags(osm_data, identifier, element_type, user_config, chat_id)
 
 
-
 def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
-
     if lat is not None and lon is not None:
         api = overpass.API()
         query = type_query[type.encode('unicode_escape')]['query']
@@ -575,8 +573,8 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         data = api.Get(query.format(bbox))
 
         user.set_field(user_id, 'mode', 'normal')
+        pretty_tags(data, chat_id, type, config, lat=lat, lon=lon, link=True)
 
-        return pretty_tags(data, chat_id, type, config, lat=lat, lon=lon, link=True)
     else:
         t = message.replace('/nearest', '').strip().split(' ')[0]
         if t.encode('unicode_escape') not in type_query:
@@ -713,15 +711,14 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             elif message.lower().startswith("/settings"):
                 SettingsCommand(message, user_id, chat_id, user, is_group)
             elif message.lower().startswith("/nearest"):
-                response += NearestCommand(message, chat_id, user_id, user)
+                NearestCommand(message, chat_id, user_id, user)
             elif message.lower().startswith("/map"):
                 response += MapCommand(message, chat_id, user_id, user)
             elif re.match("/phone.*", message.lower()):
-                response += PhoneCommand(message)
+                PhoneCommand(message, chat_id)
             elif re.match("/details.*", message.lower()):
                 try:
                     DetailsCommand(message, user_config, chat_id)
-                    response += r
                 except:
                     pass
             elif re.match("/raw.*", message.lower()):
