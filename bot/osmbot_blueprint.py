@@ -508,7 +508,6 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                     ' \xF0\x9F\x91\x8D'
                 )
                 response.append(m)
-
     bot.sendMessage(response)
 
 
@@ -713,7 +712,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             elif message.lower().startswith("/nearest"):
                 NearestCommand(message, chat_id, user_id, user)
             elif message.lower().startswith("/map"):
-                response += MapCommand(message, chat_id, user_id, user)
+                MapCommand(message, chat_id, user_id, user)
             elif re.match("/phone.*", message.lower()):
                 PhoneCommand(message, chat_id)
             elif re.match("/details.*", message.lower()):
@@ -789,13 +788,14 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                     _('Use /search <search_term> command to indicate what you are searching')
                 )
                 bot.sendMessage(m)
-        m = Message(
-            chat_id,
-            response,
-            disable_web_page_preview=(not preview),
-            parse_mode='Markdown'
-        )
-        bot.sendMessage(m)
+        if response:
+            m = Message(
+                chat_id,
+                response,
+                disable_web_page_preview=(not preview),
+                parse_mode='Markdown'
+            )
+            bot.sendMessage(m)
 
 
 @osmbot.route("/hook/<string:token>", methods=["POST"])
