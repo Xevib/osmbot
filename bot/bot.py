@@ -45,21 +45,21 @@ class ReplyKeyboardMarkup(object):
             data['keyboard'] = keyboard
         if self.resize_keyboard is not None:
             if self.resize_keyboard:
-                data['resize_keyboard'] = 'true'
+                data['resize_keyboard'] = True
             else:
-                data['resize_keyboard'] = 'false'
+                data['resize_keyboard'] = False
 
         if self.one_time_keyboard is not None:
             if self.one_time_keyboard:
-                data['one_time_keyboard'] = 'true'
+                data['one_time_keyboard'] = True
             else:
-                data['one_time_keyboard'] = 'false'
+                data['one_time_keyboard'] = False
 
         if self.selective is not None:
             if self.selective:
-                data['selective'] = 'true'
+                data['selective'] = True
             else:
-                data['selective'] = 'false'
+                data['selective'] = False
         return data
 
 
@@ -71,14 +71,14 @@ class ReplyKeyboardHide(object):
     def get_keyboard(self):
         data = {}
         if self.hide_keyboard:
-            data['hide_keyboard'] = 'true'
+            data['hide_keyboard'] = True
         else:
-            data['hide_keyboard'] = 'false'
+            data['hide_keyboard'] = False
         if self.selective is not None:
             if self.selective:
-                data['selective'] = 'true'
+                data['selective'] = True
             else:
-                data['selective'] = 'false'
+                data['selective'] = False
         return data
 
 
@@ -102,7 +102,7 @@ class Message(object):
                 'text': self.text,
                 'disable_web_page_preview': self.disable_web_page_preview,
                 'reply_to_message_id': self.reply_to_message_id,
-                'reply_markup': self.reply_markup.get_keyboard(),
+                'reply_markup': json.dumps(self.reply_markup.get_keyboard()),
                 'parse_mode': self.parse_mode
             })
         else:
@@ -179,5 +179,9 @@ class OSMbot(object):
                 self.url.format(self.token, method),
                 params=message.get_message())
             print resp.content
+            if resp.status_code !='200':
+                pass
+                #raise Exception(json.loads(resp.content)['description'])
+
         return resp
 
