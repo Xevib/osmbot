@@ -231,12 +231,13 @@ def SearchCommand(message, user_config, chat_id):
                         t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
 
         t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
-    m = Message(chat_id, t)
+    m = Message(chat_id, t, parse_mode='Markdown')
     bot.sendMessage(m)
 
 
 def pretty_tags(data, identificador, type, user_config, chat_id, lat=None, lon=None, link=False):
     preview = False
+    tags = {}
     if 'tag' in data:
         tags = data['tag']
     elif 'elements' in data:
@@ -572,12 +573,16 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         data = api.Get(query.format(bbox))
 
         user.set_field(user_id, 'mode', 'normal')
-        pretty_tags(data, chat_id, type, config, lat=lat, lon=lon, link=True)
+        pretty_tags(data, chat_id, type, config, chat_id, lat=lat, lon=lon, link=True)
 
     else:
         t = message.replace('/nearest', '').strip().split(' ')[0]
         if t.encode('unicode_escape') not in type_query:
-            return ['', _('Sorry but this query it\'s not implemented yet')]
+            m = Message(
+                chat_id,
+                _('Sorry but this query it\'s not implemented yet')
+            )
+            bot.sendMessage(m)
 
         if len(message) == 3:
             if message[2].lower()[-2:] == 'km':
@@ -591,9 +596,14 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
             user.set_field(user_id, 'type', unicode(t))
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
-        return [ _('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
-                        _('and I\'ll send you the nearest element') + '.\n' +
-                        _('You can do it with the Telegram paperclip button') + ' \xF0\x9F\x93\x8E.']
+        m = Message(
+            chat_id,
+            _('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
+            _('and I\'ll send you the nearest element') + '.\n' +
+            _('You can do it with the Telegram paperclip button') +
+            ' \xF0\x9F\x93\x8E.'
+        )
+        bot.sendMessage(m)
 
 
 def RawCommand(message, chat_id):
@@ -668,13 +678,14 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                     lat=float(query["message"]["location"]["latitude"]),
                     lon=float(query["message"]["location"]["longitude"]))
             elif user_config.get('mode', None) == 'nearest':
-                response += NearestCommand(
+                NearestCommand(
                     message, chat_id, user_id, user,
                     lat=float(query["message"]["location"]["latitude"]),
                     lon=float(query['message']['location']['longitude']),
-                    distance=user_config['distance'], type=user_config['type'],
+                    distance=user_config['distance'],
+                    type=user_config['type'],
                     config=user_config
-                )[1]
+                )
         elif user_config['mode'] == 'settings':
             if message == 'Language':
                 response += LanguageCommand(message, user_id, chat_id, user,
