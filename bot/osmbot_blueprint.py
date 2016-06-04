@@ -662,7 +662,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 "How I can help you?")]
         elif "location" in query["message"]:
             if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
-                response += MapCommand(
+                MapCommand(
                     message, chat_id, user_id, user, zoom=user_config["zoom"],
                     imgformat=user_config["format"],
                     lat=float(query["message"]["location"]["latitude"]),
