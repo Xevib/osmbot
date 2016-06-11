@@ -28,6 +28,8 @@ class KeyboardButton(object):
 
 class ReplyKeyboardMarkup(object):
     def __init__(self, keyboard, resize_keyboard=None, one_time_keyboard=None, selective=None):
+        if not isinstance(keyboard, list):
+            keyboard = [keyboard]
         self.keyboard = [ KeyboardButton(k) for k in keyboard]
         self.resize_keyboard = resize_keyboard
         self.one_time_keyboard = one_time_keyboard
