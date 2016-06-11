@@ -5,7 +5,7 @@ from flask import Flask
 from flask import request, current_app, Blueprint
 import pynominatim
 from osmapi import OsmApi
-from bot import OSMbot, Message, ReplyKeyboardHide, ReplyKeyboardMarkup, KeyboardButton
+from bot import OSMbot, Message, ReplyKeyboardHide, ReplyKeyboardMarkup, KeyboardButton, InlineQueryResultArticle, InputTextMessageContent
 import urllib
 from configobj import ConfigObj
 from typeemoji import typeemoji
@@ -14,6 +14,7 @@ import gettext
 import overpass
 from overpass_query import type_query
 import user as u
+from jinja2 import Template
 
 
 avaible_languages = {'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv', 'Asturian': 'ast',
@@ -657,7 +658,21 @@ def RawCommand(message, chat_id):
 
 
 def answer_inline(message, query, chat_id, user_id, user_config, is_group, user):
-    return ''
+    print 'message:{}'.format(message)
+    print 'query:{}'.format(query)
+    nom = pynominatim.Nominatim()
+    search_results = nom.query(message)
+
+    with open('bot/templates/inline_article.md') as f:
+        template = Template(f.read())
+    inline_query_id = query['inline_query']['id']
+    results = []
+    for index, r in enumerate(search_results):
+        text = template.render(data=r)
+        answer = InputTextMessageContent(text, 'Markdown')
+        result = InlineQueryResultArticle('article','{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
+        results.append(result)
+    bot.answerInlineQuery(inline_query_id, results)
 
 
 def answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type):

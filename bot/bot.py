@@ -10,6 +10,16 @@ class InputTextMessageContent(object):
         self.parse_mode = parse_mode
         self.disable_web_page_preview = disable_web_page_preview
 
+    def getContent(self):
+        content = {
+            'message_text': self.message_text,
+        }
+        if self.parse_mode:
+            content['parse_mode'] = self.parse_mode
+        if self.disable_web_page_preview:
+            content['disable_web_page_preview'] = self.disable_web_page_preview
+        return content
+
 
 class InlineQueryResultArticle(object):
     def __init__(self, type, id, title, input_message_content,
@@ -26,6 +36,15 @@ class InlineQueryResultArticle(object):
         self.thumb_url = thumb_url
         self.thumb_width = thumb_width
         self.thumb_height = thumb_height
+
+    def getResults(self):
+        result = {
+            'type': self.type,
+            'id': self.id,
+            'title': self.title,
+            'input_message_content': self.input_message_content.getContent()
+        }
+        return result
 
 
 class KeyboardButton(object):
@@ -201,24 +220,22 @@ class OSMbot(object):
         method = 'sendMessage'
         resp = False
         for message in messages:
-            print 'enviat'
-            print json.dumps(message.get_message(), sort_keys=True,
-                             indent=4, separators=(',', ': '))
             resp = requests.get(
                 self.url.format(self.token, method),
                 params=message.get_message())
             if resp.status_code != 200:
                 raise Exception(json.loads(resp.content)['description'])
-
         return resp
 
     def answerInlineQuery(self, inline_query_id, results, cache_time=None,
                           is_personal=None, next_offset=None, switch_pm_text=None,
                           switch_pm_parameter=None):
+        if not isinstance(results,list):
+            results = [results]
         method = 'answerInlineQuery'
         answer = {
-            'inline_query_id': inline_query_id,
-            'results': [r for r in results]
+            'inline_query_id': int(inline_query_id),
+            'results': json.dumps([r.getResults() for r in results])
         }
         if cache_time:
             answer['cache_time'] = cache_time
@@ -230,8 +247,7 @@ class OSMbot(object):
             answer['switch_pm_text'] = switch_pm_text
         if switch_pm_parameter:
             answer['switch_pm_parameter'] = switch_pm_parameter
-
-        resp = requests.get(self.url.format(self.token, method), params=answer)
-        print resp
+        print json.dumps(answer, sort_keys=True, indent=4, separators=(',', ': '))
+        resp = requests.post(self.url.format(self.token, method), params=answer)
         if resp.status_code != 200:
             raise Exception(json.loads(resp.content)['description'])
