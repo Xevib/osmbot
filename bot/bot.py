@@ -223,7 +223,7 @@ class OSMbot(object):
             resp = requests.get(
                 self.url.format(self.token, method),
                 params=message.get_message())
-            if resp.status_code != 200:
+            if resp.status_code != 200 and resp.status_code != 403:
                 raise Exception(json.loads(resp.content)['description'])
         return resp
 
