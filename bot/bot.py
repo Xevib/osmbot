@@ -3,6 +3,50 @@ import json
 import requests
 
 
+class InputTextMessageContent(object):
+    def __init__(self, message_text, parse_mode,
+                 disable_web_page_preview=False):
+        self.message_text = message_text
+        self.parse_mode = parse_mode
+        self.disable_web_page_preview = disable_web_page_preview
+
+    def getContent(self):
+        content = {
+            'message_text': self.message_text,
+        }
+        if self.parse_mode:
+            content['parse_mode'] = self.parse_mode
+        if self.disable_web_page_preview:
+            content['disable_web_page_preview'] = self.disable_web_page_preview
+        return content
+
+
+class InlineQueryResultArticle(object):
+    def __init__(self, type, id, title, input_message_content,
+                 reply_markup=None, url=None, hide_url=None, description=None,
+                 thumb_url=None, thumb_width=None, thumb_height=None):
+        self.type = 'article'
+        self.id = id
+        self.title = title
+        self.input_message_content = input_message_content
+        self.reply_markup = reply_markup
+        self.url = url
+        self.hide_ur = hide_url
+        self.description = description
+        self.thumb_url = thumb_url
+        self.thumb_width = thumb_width
+        self.thumb_height = thumb_height
+
+    def getResults(self):
+        result = {
+            'type': self.type,
+            'id': self.id,
+            'title': self.title,
+            'input_message_content': self.input_message_content.getContent()
+        }
+        return result
+
+
 class KeyboardButton(object):
     def __init__(self, text, request_contact=None, request_location=None):
         self.text = text
@@ -27,10 +71,11 @@ class KeyboardButton(object):
 
 
 class ReplyKeyboardMarkup(object):
-    def __init__(self, keyboard, resize_keyboard=None, one_time_keyboard=None, selective=None):
+    def __init__(self, keyboard, resize_keyboard=None, one_time_keyboard=None,
+                 selective=None):
         if not isinstance(keyboard, list):
             keyboard = [keyboard]
-        self.keyboard = [ KeyboardButton(k) for k in keyboard]
+        self.keyboard = [KeyboardButton(k) for k in keyboard]
         self.resize_keyboard = resize_keyboard
         self.one_time_keyboard = one_time_keyboard
         self.selective = selective
@@ -146,8 +191,9 @@ class OSMbot(object):
             'certificate': certificate
         }
 
-        response = requests.get(self.url.format(self.token,method), params=params,
-                                files={'certificate': ('osmbot.crt', certificate)})
+        response = requests.get(
+            self.url.format(self.token, method), params=params,
+            files={'certificate': ('osmbot.crt', certificate)})
         return response.content
 
     def sendPhoto(self, chat_id, photo, filename, caption=None, reply_to_message_id=None, reply_markup=None):
@@ -174,16 +220,34 @@ class OSMbot(object):
         method = 'sendMessage'
         resp = False
         for message in messages:
-            print 'enviat'
-            print json.dumps(message.get_message(), sort_keys=True,indent = 4, separators = (',', ': '))
-            #print 'enviat:{}'.format()
             resp = requests.get(
                 self.url.format(self.token, method),
                 params=message.get_message())
-            print resp.content
-            if resp.status_code !='200':
-                pass
-                #raise Exception(json.loads(resp.content)['description'])
-
+            if resp.status_code != 200:
+                raise Exception(json.loads(resp.content)['description'])
         return resp
 
+    def answerInlineQuery(self, inline_query_id, results, cache_time=None,
+                          is_personal=None, next_offset=None, switch_pm_text=None,
+                          switch_pm_parameter=None):
+        if not isinstance(results, list):
+            results = [results]
+        method = 'answerInlineQuery'
+        answer = {
+            'inline_query_id': int(inline_query_id),
+            'results': json.dumps([r.getResults() for r in results])
+        }
+        if cache_time:
+            answer['cache_time'] = cache_time
+        if is_personal:
+            answer['is_personal'] = is_personal
+        if next_offset:
+            answer['next_offset'] = next_offset
+        if switch_pm_text:
+            answer['switch_pm_text'] = switch_pm_text
+        if switch_pm_parameter:
+            answer['switch_pm_parameter'] = switch_pm_parameter
+        print json.dumps(answer, sort_keys=True, indent=4, separators=(',', ': '))
+        resp = requests.post(self.url.format(self.token, method), params=answer)
+        if resp.status_code != 200:
+            raise Exception(json.loads(resp.content)['description'])
