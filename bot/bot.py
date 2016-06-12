@@ -230,7 +230,7 @@ class OSMbot(object):
     def answerInlineQuery(self, inline_query_id, results, cache_time=None,
                           is_personal=None, next_offset=None, switch_pm_text=None,
                           switch_pm_parameter=None):
-        if not isinstance(results,list):
+        if not isinstance(results, list):
             results = [results]
         method = 'answerInlineQuery'
         answer = {
