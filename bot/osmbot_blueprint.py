@@ -658,8 +658,6 @@ def RawCommand(message, chat_id):
 
 
 def answer_inline(message, query, chat_id, user_id, user_config, is_group, user):
-    print 'message:{}'.format(message)
-    print 'query:{}'.format(query)
     nom = pynominatim.Nominatim()
     search_results = nom.query(message)
 
