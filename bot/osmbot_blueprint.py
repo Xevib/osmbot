@@ -125,7 +125,9 @@ def AnswerCommand(message, user_id, chat_id, user):
 
 
 def LanguageCommand(message, user_id, chat_id, user, group=False):
-    k = ReplyKeyboardMarkup(avaible_languages.keys(), one_time_keyboard=True)
+    k = ReplyKeyboardMarkup(
+        sorted(avaible_languages.keys()),
+        one_time_keyboard=True)
     m = Message(
         chat_id,
         _('Choose the language for talk with you') + ' \xF0\x9F\x98\x8F',
