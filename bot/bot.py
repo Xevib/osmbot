@@ -235,7 +235,7 @@ class OSMbot(object):
         method = 'answerInlineQuery'
         answer = {
             'inline_query_id': int(inline_query_id),
-            'results': json.dumps([r.getResults() for r in results])
+            'results': json.dumps([r.getResults() for r in results], ensure_ascii=False).encode('utf-8')
         }
         if cache_time:
             answer['cache_time'] = cache_time
