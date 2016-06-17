@@ -14,7 +14,8 @@ import gettext
 import overpass
 from overpass_query import type_query
 import user as u
-from jinja2 import Template
+from jinja2 import Environment
+import os
 
 
 avaible_languages = {
@@ -38,9 +39,11 @@ osmbot = Blueprint(
     template_folder='templates',
     static_folder='static'
 )
+jinja_env = Environment(extensions=['jinja2.ext.i18n'])
 
 
 def getData(id, geom_type=None):
+    osm_data = None
     if geom_type is None:
         try:
             osm_data = api.NodeGet(int(id))
@@ -69,16 +72,13 @@ def SetOnlyMention(message, user_id, chat_id, user, group):
         user.set_field(user_id, 'onlymentions', onlymentions, group=group)
         user.set_field(user_id, 'mode', 'normal', group=group)
     if not onlymentions:
-        m = Message(
-            chat_id,
-            (_('Now I only will answer when mention') +' \xF0\x9F\xA4\x90')
-        )
+        text = get_template('only_mention.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
     else:
-        m = Message(
-            chat_id,
-            _('Now I always will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC' )
-        bot.sendMessage(message)
+        text = get_template('answer_always.md').render()
+        m = Message(chat_id, text)
+        bot.sendMessage(m)
     return []
 
 
@@ -90,10 +90,8 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
         else:
             u.set_field(user_id, 'lang', avaible_languages[message],group=group)
             u.set_field(user_id, 'mode', 'normal', group=group)
-        m = Message(
-            chat_id, _('Now I will talk you with the new language') +
-                    ' \xF0\x9F\x98\x99' + '\xF0\x9F\x92\xAC'
-        )
+        text = get_template('new_language.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
         return []
     else:
@@ -101,40 +99,28 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
             u.set_field(chat_id, 'mode', 'normal')
         else:
             u.set_field(user_id, 'mode', 'normal')
-        message = Message(
-            chat_id,
-            _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' +
-            _('yet') + ' \xF0\x9F\x98\x89)\n' +
-            _('But you can help me to learn it in Transifex') +
-            ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/'
-        )
+        temp = get_template('cant_talk_message.md')
+        text = temp.render()
+        message = Message(chat_id, text)
         bot.sendMessage(message)
         return []
 
 
 def AnswerCommand(message, user_id, chat_id, user):
-
     k = ReplyKeyboardMarkup(KeyboardButton('Yes'), one_time_keyboard=True)
     k.addButton('No')
-    m = Message(
-        chat_id,
-        _('Should I answer without a mention?') +' \xF0\x9F\x98\x8F',
-        reply_markup=k
-    )
+    text = get_template('question_mention.md').render()
+    m = Message(chat_id, text, reply_markup=k)
     bot.sendMessage(m)
     user.set_field(chat_id, 'mode', 'setonlymention', group=True)
-    return []
 
 
 def LanguageCommand(message, user_id, chat_id, user, group=False):
     k = ReplyKeyboardMarkup(
         sorted(avaible_languages.keys()),
         one_time_keyboard=True)
-    m = Message(
-        chat_id,
-        _('Choose the language for talk with you') + ' \xF0\x9F\x98\x8F',
-        reply_markup=k
-    )
+    text = get_template('language_answer.md').render()
+    m = Message(chat_id, text, reply_markup=k)
     bot.sendMessage(m)
     if group:
         user.set_field(chat_id, 'mode', 'setlanguage', group=group)
@@ -146,7 +132,8 @@ def LanguageCommand(message, user_id, chat_id, user, group=False):
 def SettingsCommand(message, user_id, chat_id, u, group=False):
     k = ReplyKeyboardMarkup(['Language'], one_time_keyboard=True)
     if group:
-        k.addButton('Answer only when mention?')
+        text = get_template('question_only_mention.md').render()
+        k.addButton(text)
     m = Message(
         chat_id,
         _('What do you want to configure?') +' \xF0\x9F\x91\x86',
@@ -172,10 +159,8 @@ def LegendCommand(message, chat_id):
     if len(selected_keys) > 50:
         m = Message(chat_id, t)
         bot.sendMessage(m)
-        m = Message(
-            chat_id,
-            _("If you see strange emojis it's due a Telegram easter egg")
-        )
+        text = get_template('easter_egg.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
 
     elif len(selected_keys) == 0:
@@ -188,8 +173,6 @@ def LegendCommand(message, chat_id):
 
 def SearchCommand(message, user_config, chat_id):
     import pynominatim
-
-    response = []
     t = ''
     search = message[8:].replace('\n', '').replace('\r', '')
     nom = pynominatim.Nominatim()
@@ -537,7 +520,6 @@ def CleanMessage(message):
 
 def DetailsCommand(message, user_config, chat_id):
     preview = False
-    #response = []
     t = ''
     params = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message).groupdict()
     element_type = params['type']
@@ -661,24 +643,29 @@ def RawCommand(message, chat_id):
             bot.sendMessage(response)
 
 
+def get_template(template_name):
+    url = os.path.join('bot/templates', template_name)
+    with open(url) as f:
+        template_text = f.read()
+    return jinja_env.from_string(template_text)
+
+
 def answer_inline(message, query, chat_id, user_id, user_config, is_group, user):
     nom = pynominatim.Nominatim()
     search_results = nom.query(message)
-
-    with open('bot/templates/inline_article.md') as f:
-        template = Template(f.read())
+    temp = get_template('inline_article.md')
     inline_query_id = query['inline_query']['id']
     results = []
     for index, r in enumerate(search_results):
-        text = template.render(data=r)
+        text = temp.render(data=r)
         answer = InputTextMessageContent(text, 'Markdown')
-        result = InlineQueryResultArticle('article','{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
+        result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
         results.append(result)
     bot.answerInlineQuery(inline_query_id, results)
 
 
 def answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type):
-    if message_type =='inline':
+    if message_type == 'inline':
         answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
     else:
         preview = False
@@ -850,7 +837,8 @@ def attend_webhook(token):
             elif 'inline_query' in query:
                 message_type = 'inline'
                 user_id = query['inline_query']['from']['id']
-                user_config = user.get_defaultconfig()
+                identifier = query['inline_query']['from']['id']
+                user_config = user.get_user(identifier, group=False)
                 message = query['inline_query']['query']
                 chat_id = 0
             else:
@@ -871,6 +859,7 @@ def attend_webhook(token):
                     message = message.replace('@OSMbot', '')
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
+            jinja_env.install_gettext_translations(gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en']))
             _ = lang.gettext
             print query
             message = CleanMessage(message)
