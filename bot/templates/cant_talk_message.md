@@ -1,2 +1,2 @@
-{{_("Ooops! I can't talk this language")}} \xF0\x9F\x98\xB7 {{ _('yet') }} \xF0\x9F\x98\x89)
-{{ _('But you can help me to learn it in Transifex') }} \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/
+{{_("Ooops! I can't talk this language")}} \xF0\x9F\x98\xB7 {{ _("yet") }} \xF0\x9F\x98\x89)
+{{ _("But you can help me to learn it in Transifex") }} \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/
