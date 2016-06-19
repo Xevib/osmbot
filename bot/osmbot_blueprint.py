@@ -588,7 +588,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
                 _('Sorry but this query it\'s not implemented yet')
             )
             bot.sendMessage(m)
-
+            return None
         if len(message) == 3:
             if message[2].lower()[-2:] == 'km':
                 distance = int(message[:-1]) * 1000
@@ -678,7 +678,7 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
 
 
 def answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type):
-    if message_type =='inline':
+    if message_type == 'inline':
         answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
     else:
         preview = False
@@ -688,7 +688,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _(
                 "How I can help you?")]
         elif "location" in query["message"]:
-            if user_config is not None and "mode" in user_config and user_config["mode"] == "map":
+            if user_config is not None and 'mode' in user_config and user_config["mode"] == "map":
                 MapCommand(
                     message, chat_id, user_id, user, zoom=user_config["zoom"],
                     imgformat=user_config["format"],
