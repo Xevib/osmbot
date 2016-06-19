@@ -9,7 +9,7 @@
 \xF0\x9F\x93\xA2 [ {{ _("Telegram channel") }}](https://telegram.me/OSMbot_channel)
 
 {{_("RATING") }}
-\xE2\xAD\x90 [{{_("Rating&reviews") }}](http://storebot.me/bot/osmbot)\n\xF0\x9F\x91\x8D 
+\xE2\xAD\x90 [{{_("Rating&reviews") }}](http://storebot.me/bot/osmbot)\n\xF0\x9F\x91\x8D
 [{{ _("Please rate me") }}](https://telegram.me/storebot?start=osmbot)
 
 {{_('Thanks for use @OSMbot!!')}}
