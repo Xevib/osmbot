@@ -1,0 +1,1 @@
+{{ _('What do you want to configure?') }} \xF0\x9F\x91\x86
