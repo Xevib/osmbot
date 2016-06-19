@@ -579,7 +579,7 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         #s = StringIO(xml_data)
         root = etree.fromstring(bytes(xml_data))
         data = []
-        for element in root.xpath('//osm/node|way|relation')[:1]:
+        for element in root.xpath('//osm/node|way|relation')[::-1][:1]:
             d = {}
             d['lat'] = element.get('lat', None)
             d['lon'] = element.get('lon', None)
