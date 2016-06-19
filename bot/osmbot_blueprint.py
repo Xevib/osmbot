@@ -15,7 +15,8 @@ import overpass
 from overpass_query import type_query
 import user as u
 from jinja2 import Template
-
+from lxml import etree
+from StringIO import StringIO
 
 avaible_languages = {
     'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
@@ -234,7 +235,6 @@ def SearchCommand(message, user_config, chat_id):
                         t += _('More info') + ' /detailsrel{0}\n\n'.format(result['osm_id'])
                     else:
                         t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
-
         t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
     m = Message(chat_id, t, parse_mode='Markdown')
     bot.sendMessage(m)
@@ -575,10 +575,23 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         query = query.format(bbox)
         query = '({});out body center;'.format(query)
         current_app.logger.debug('query:{}'.format(query))
-        data = api.Get(query.format(bbox))
-
+        xml_data = api.Get(query.format(bbox), responseformat='xml')
+        #s = StringIO(xml_data)
+        root = etree.fromstring(bytes(xml_data))
+        data = []
+        for element in root.xpath('//osm/node|way|relation')[:1]:
+            d = {}
+            d['lat'] = element.get('lat', None)
+            d['lon'] = element.get('lon', None)
+            d['tag'] = {}
+            type = element.tag[:3]
+            d['type'] = element.tag
+            d['id'] = element.get('id', '0')
+            for tag in element.getchildren():
+                d['tag'][tag.get('k')] = tag.get('v')
+            data.append(d)
         user.set_field(user_id, 'mode', 'normal')
-        pretty_tags(data, chat_id, type, config, chat_id, lat=lat, lon=lon, link=True)
+        pretty_tags(data[0], data[0]['id'], type, config, chat_id, lat=lat, lon=lon, link=True)
 
     else:
         t = message.replace('/nearest', '').strip().split(' ')[0]
