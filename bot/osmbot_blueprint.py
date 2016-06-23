@@ -516,7 +516,17 @@ def CleanMessage(message):
 
 def DetailsCommand(message, user_config, chat_id):
     preview = False
-    params = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message).groupdict()
+    result = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
+    if not result:
+        text = get_template('not_found_id_message.md').render()
+        m = Message(
+            chat_id,
+            text,
+            disable_web_page_preview=(not preview)
+        )
+        bot.sendMessage(m)
+        return None
+    params = result.groupdict()
     element_type = params['type']
     identifier = params['id']
     if element_type in ['nod', 'way', 'rel']:
