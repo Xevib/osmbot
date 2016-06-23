@@ -672,7 +672,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             elif user_config.get('mode', None) == 'nearest':
                 NearestCommand(
                     message, chat_id, user_id, user,
-                    lat=float(query["message"]["location"]["latitude"]),
+                    lat=float(query['message']['location']['latitude']),
                     lon=float(query['message']['location']['longitude']),
                     distance=user_config['distance'],
                     type=user_config['type'],
@@ -685,7 +685,14 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             elif message == 'Answer only when mention?':
                 response += AnswerCommand(message, user_id, chat_id, user)
             else:
-                response = [_('Setting not recognized')]
+                text = get_template('seting_not_recognized_message.md').render()
+                m = Message(
+                    chat_id,
+                    text,
+                    disable_web_page_preview=(not preview),
+                    parse_mode='Markdown'
+                )
+                bot.sendMessage(m)
                 user.set_field(chat_id, 'mode', 'normal')
         elif user_config['mode'] == 'setlanguage':
             response += SetLanguageCommand(message, user_id, chat_id, user,
