@@ -1,0 +1,1 @@
+{{_("Something failed")}} \xF0\x9F\x98\xB5 {{_('please try it latter')}} \xE2\x8F\xB3
