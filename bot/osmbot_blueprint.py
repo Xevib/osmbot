@@ -703,7 +703,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                     parse_mode='Markdown'
                 )
                 bot.sendMessage(m)
-                user.set_field(chat_id, 'mode', 'normal')
+                user.set_field(chat_id, 'mode', 'normal', group=is_group)
         elif user_config['mode'] == 'setlanguage':
             response += SetLanguageCommand(message, user_id, chat_id, user,
                                            is_group)
