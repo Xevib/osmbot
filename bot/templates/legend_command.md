@@ -1,3 +1,2 @@
-{% for key in selected_keys %}
-{{typeemoji['key']}} {{key}}
+{% for key in keys %}{{typeemoji[key]}} {{key}}
 {% endfor %}
