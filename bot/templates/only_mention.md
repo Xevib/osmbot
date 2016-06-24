@@ -1,0 +1,1 @@
+{{ _("Now I only will answer when mention") }} {{'\U0001F910'}}

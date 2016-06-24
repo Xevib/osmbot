@@ -1,0 +1,1 @@
+{{_('Setting not recognized')}}

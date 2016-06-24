@@ -14,7 +14,8 @@ import gettext
 import overpass
 from overpass_query import type_query
 import user as u
-from jinja2 import Template
+from jinja2 import Environment
+import os
 from lxml import etree
 from StringIO import StringIO
 
@@ -39,9 +40,11 @@ osmbot = Blueprint(
     template_folder='templates',
     static_folder='static'
 )
+jinja_env = Environment(extensions=['jinja2.ext.i18n'])
 
 
 def getData(id, geom_type=None):
+    osm_data = None
     if geom_type is None:
         try:
             osm_data = api.NodeGet(int(id))
@@ -70,16 +73,13 @@ def SetOnlyMention(message, user_id, chat_id, user, group):
         user.set_field(user_id, 'onlymentions', onlymentions, group=group)
         user.set_field(user_id, 'mode', 'normal', group=group)
     if not onlymentions:
-        m = Message(
-            chat_id,
-            (_('Now I only will answer when mention') +' \xF0\x9F\xA4\x90')
-        )
+        text = get_template('only_mention.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
     else:
-        m = Message(
-            chat_id,
-            _('Now I always will answer') +' \xF0\x9F\x98\x99'+'\xF0\x9F\x92\xAC' )
-        bot.sendMessage(message)
+        text = get_template('answer_always.md').render()
+        m = Message(chat_id, text)
+        bot.sendMessage(m)
     return []
 
 
@@ -91,51 +91,36 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
         else:
             u.set_field(user_id, 'lang', avaible_languages[message],group=group)
             u.set_field(user_id, 'mode', 'normal', group=group)
-        m = Message(
-            chat_id, _('Now I will talk you with the new language') +
-                    ' \xF0\x9F\x98\x99' + '\xF0\x9F\x92\xAC'
-        )
+        text = get_template('new_language.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
         return []
     else:
         if group:
-            u.set_field(chat_id, 'mode', 'normal')
+            u.set_field(chat_id, 'mode', 'normal', group=True)
         else:
             u.set_field(user_id, 'mode', 'normal')
-        message = Message(
-            chat_id,
-            _("Ooops! I can't talk this language") + ' \xF0\x9F\x98\xB7 (' +
-            _('yet') + ' \xF0\x9F\x98\x89)\n' +
-            _('But you can help me to learn it in Transifex') +
-            ' \xF0\x9F\x8E\x93\nhttps://www.transifex.com/osm-catala/osmbot/'
-        )
+        temp = get_template('cant_talk_message.md')
+        text = temp.render()
+        message = Message(chat_id, text)
         bot.sendMessage(message)
         return []
 
 
 def AnswerCommand(message, user_id, chat_id, user):
-
-    k = ReplyKeyboardMarkup(KeyboardButton('Yes'), one_time_keyboard=True)
-    k.addButton('No')
-    m = Message(
-        chat_id,
-        _('Should I answer without a mention?') +' \xF0\x9F\x98\x8F',
-        reply_markup=k
-    )
+    k = ReplyKeyboardMarkup(['Yes','No'], one_time_keyboard=True)
+    text = get_template('question_mention.md').render()
+    m = Message(chat_id, text, reply_markup=k)
     bot.sendMessage(m)
     user.set_field(chat_id, 'mode', 'setonlymention', group=True)
-    return []
 
 
 def LanguageCommand(message, user_id, chat_id, user, group=False):
     k = ReplyKeyboardMarkup(
         sorted(avaible_languages.keys()),
         one_time_keyboard=True)
-    m = Message(
-        chat_id,
-        _('Choose the language for talk with you') + ' \xF0\x9F\x98\x8F',
-        reply_markup=k
-    )
+    text = get_template('language_answer.md').render()
+    m = Message(chat_id, text, reply_markup=k)
     bot.sendMessage(m)
     if group:
         user.set_field(chat_id, 'mode', 'setlanguage', group=group)
@@ -147,57 +132,50 @@ def LanguageCommand(message, user_id, chat_id, user, group=False):
 def SettingsCommand(message, user_id, chat_id, u, group=False):
     k = ReplyKeyboardMarkup(['Language'], one_time_keyboard=True)
     if group:
-        k.addButton('Answer only when mention?')
-    m = Message(
-        chat_id,
-        _('What do you want to configure?') +' \xF0\x9F\x91\x86',
-        reply_markup=k
-    )
+        text = get_template('question_only_mention.md').render()
+        k.addButton(text)
+    text = get_template('configure_question.md').render()
+    m = Message(chat_id, text, reply_markup=k)
     bot.sendMessage(m)
     if group:
-        u.set_field(chat_id, 'mode', 'settings', group=group)
+        identifier = chat_id
     else:
-        u.set_field(user_id, 'mode', 'settings', group=group)
+        identifier = user_id
+    u.set_field(identifier, 'mode', 'settings', group=group)
 
 
 def LegendCommand(message, chat_id):
-    t = ''
     filt = message[8:]
     selected_keys = []
     for key in typeemoji.keys():
         if filt in key:
             selected_keys.append(key)
     selected_keys = sorted(selected_keys)
-    for key in selected_keys:
-        t += typeemoji[key]+' ' + key+'\n'
+
+    temp = get_template('legend_command.md')
+    text = temp.render(typeemoji=typeemoji, keys=selected_keys)
     if len(selected_keys) > 50:
-        m = Message(chat_id, t)
+        m = Message(chat_id, text)
         bot.sendMessage(m)
-        m = Message(
-            chat_id,
-            _("If you see strange emojis it's due a Telegram easter egg")
-        )
+        text = get_template('easter_egg.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
 
     elif len(selected_keys) == 0:
-        m = Message(
-            chat_id,
-            _('No emoji found, perhaps you should try with /legend <osm_key:value>')
-        )
+        text = get_template('no_emoji.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
 
 
 def SearchCommand(message, user_config, chat_id):
     import pynominatim
-
-    response = []
     t = ''
     search = message[8:].replace('\n', '').replace('\r', '')
     nom = pynominatim.Nominatim()
     results = nom.query(search)
     if not results:
-        response = _('Sorry but I couldn\'t find any result for "{0}"').format(search) + " \xF0\x9F\x98\xA2\n" +_('But you can try to improve OpenStreetMap') + '\xF0\x9F\x94\x8D\nhttp://www.openstreetmap.org'
-        m = Message(chat_id, response)
+        text = get_template('not_found_message.md').render(search=search)
+        m = Message(chat_id, text)
         bot.sendMessage(m)
     else:
         t = _('Results for') + ' "{0}":\n\n'.format(search)
@@ -235,6 +213,7 @@ def SearchCommand(message, user_config, chat_id):
                         t += _('More info') + ' /detailsrel{0}\n\n'.format(result['osm_id'])
                     else:
                         t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
+
         t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
     m = Message(chat_id, t, parse_mode='Markdown')
     bot.sendMessage(m)
@@ -282,9 +261,10 @@ def pretty_tags(data, identificador, type, user_config, chat_id, lat=None, lon=N
         if nearest:
             tags = nearest['tags']
         else:
+            text = get_template('not_found_overpass_message.md')
             m = Message(
                 chat_id,
-                _('No element found'),
+                text,
                 disable_web_page_preview=True
             )
             bot.sendMessage(m)
@@ -491,8 +471,8 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                         bot.sendPhoto(
                             chat_id, data, 'map.png', '©' + _('OSM contributors'))
             else:
-                response.append(_("Sorry, I can't understand you")+" \xF0\x9F\x98\xB5\n" +
-                                _("Perhaps I could help you with the command /help") + " \xF0\x9F\x91\x8D")
+                text = get_template('cant_understand_message.md').render()
+                response.append(text)
         else:
             res = nom.query(message)
             if res:
@@ -506,13 +486,8 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
                 else:
                     bot.sendPhoto(chat_id, data, 'map.png', '©' + _('OSM contributors'))
             else:
-                m = Message(
-                    chat_id,
-                    _("Sorry, I can't understand you") +
-                    ' \xF0\x9F\x98\xB5\n' +
-                    _('Perhaps I could help you with the command /help') +
-                    ' \xF0\x9F\x91\x8D'
-                )
+                text = get_template('cant_understand_message.md').render()
+                m = Message(chat_id,text)
                 response.append(m)
     bot.sendMessage(response)
 
@@ -521,10 +496,14 @@ def PhoneCommand(message, chat_id):
     id = message[6:]
     osm_data = getData(id)
     if 'phone' in osm_data['tag']:
-        m = Message(chat_id, '\xF0\x9F\x93\x9E {}'.format(osm_data['tag']['phone']))
+        template = get_template('phone_message.md')
+        text = template.render(phone=osm_data['tag']['phone'])
+        m = Message(chat_id, text)
         bot.sendMessage(m)
     if 'contact:phone' in osm_data['tag']:
-        m = '\xF0\x9F\x93\x9E {}'.format(osm_data["tag"]["contact:phone"])
+        template = get_template('phone_message.md')
+        text = template.render(phone=osm_data['tag']['contact:phone'])
+        m = Message(chat_id, text)
         bot.sendMessage(m)
 
 
@@ -537,9 +516,17 @@ def CleanMessage(message):
 
 def DetailsCommand(message, user_config, chat_id):
     preview = False
-    #response = []
-    t = ''
-    params = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message).groupdict()
+    result = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
+    if not result:
+        text = get_template('not_found_id_message.md').render()
+        m = Message(
+            chat_id,
+            text,
+            disable_web_page_preview=(not preview)
+        )
+        bot.sendMessage(m)
+        return None
+    params = result.groupdict()
     element_type = params['type']
     identifier = params['id']
     if element_type in ['nod', 'way', 'rel']:
@@ -547,19 +534,17 @@ def DetailsCommand(message, user_config, chat_id):
     else:
         osm_data = getData(identifier)
     if osm_data is None:
+        text = get_template('not_found_id_message.md').render()
         m = Message(
             chat_id,
-            _("Sorry but I couldn't find any result, please check the ID"),
+            text,
             disable_web_page_preview=(not preview)
         )
         bot.sendMessage(m)
     else:
         if osm_data['tag'] == {}:
-            m = Message(
-                chat_id,
-                _("Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it") +
-                ' \xF0\x9F\x98\x8B'
-            )
+            text = get_template('not_recognized_message.md').render()
+            m = Message(chat_id, text)
             bot.sendMessage(m)
         else:
             pretty_tags(osm_data, identifier, element_type, user_config, chat_id)
@@ -575,33 +560,18 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
         query = query.format(bbox)
         query = '({});out body center;'.format(query)
         current_app.logger.debug('query:{}'.format(query))
-        xml_data = api.Get(query.format(bbox), responseformat='xml')
-        #s = StringIO(xml_data)
-        root = etree.fromstring(bytes(xml_data))
-        data = []
-        for element in root.xpath('//osm/node|way|relation')[::-1][:1]:
-            d = {}
-            d['lat'] = element.get('lat', None)
-            d['lon'] = element.get('lon', None)
-            d['tag'] = {}
-            type = element.tag[:3]
-            d['type'] = element.tag
-            d['id'] = element.get('id', '0')
-            for tag in element.getchildren():
-                d['tag'][tag.get('k')] = tag.get('v')
-            data.append(d)
+        data = api.Get(query.format(bbox))
+
         user.set_field(user_id, 'mode', 'normal')
-        pretty_tags(data[0], data[0]['id'], type, config, chat_id, lat=lat, lon=lon, link=True)
+        pretty_tags(data, chat_id, type, config, chat_id, lat=lat, lon=lon, link=True)
 
     else:
         t = message.replace('/nearest', '').strip().split(' ')[0]
         if t.encode('unicode_escape') not in type_query:
-            m = Message(
-                chat_id,
-                _('Sorry but this query it\'s not implemented yet')
-            )
+            text = get_template('not_implemented_message.md').render()
+            m = Message(chat_id, text)
             bot.sendMessage(m)
-            return None
+
         if len(message) == 3:
             if message[2].lower()[-2:] == 'km':
                 distance = int(message[:-1]) * 1000
@@ -614,13 +584,8 @@ def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=N
             user.set_field(user_id, 'type', unicode(t))
             user.set_field(user_id, 'distance', str(distance))
             user.set_field(user_id, 'mode', 'nearest')
-        m = Message(
-            chat_id,
-            _('Please send me your location') + ' \xF0\x9F\x93\x8D ' +
-            _('and I\'ll send you the nearest element') + '.\n' +
-            _('You can do it with the Telegram paperclip button') +
-            ' \xF0\x9F\x93\x8E.'
-        )
+        text = get_template('send_location_message.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
 
 
@@ -633,10 +598,8 @@ def RawCommand(message, chat_id):
         identificador = message[7:].strip()
         osm_data = getData(identificador)
     if osm_data is None:
-        m = Message(
-            chat_id,
-            _("Sorry but I couldn't find any result, please check the ID")
-        )
+        text = get_template('not_found_id_message.md').render()
+        m = Message(chat_id, text)
         bot.sendMessage(m)
     else:
         if osm_data['tag'] == {}:
@@ -674,18 +637,23 @@ def RawCommand(message, chat_id):
             bot.sendMessage(response)
 
 
+def get_template(template_name):
+    url = os.path.join('bot/templates', template_name)
+    with open(url) as f:
+        template_text = f.read()
+    return jinja_env.from_string(template_text)
+
+
 def answer_inline(message, query, chat_id, user_id, user_config, is_group, user):
     nom = pynominatim.Nominatim()
     search_results = nom.query(message)
-
-    with open('bot/templates/inline_article.md') as f:
-        template = Template(f.read())
+    temp = get_template('inline_article.md')
     inline_query_id = query['inline_query']['id']
     results = []
     for index, r in enumerate(search_results):
-        text = template.render(data=r)
+        text = temp.render(data=r)
         answer = InputTextMessageContent(text, 'Markdown')
-        result = InlineQueryResultArticle('article','{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
+        result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
         results.append(result)
     bot.answerInlineQuery(inline_query_id, results)
 
@@ -696,21 +664,25 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
     else:
         preview = False
         response = []
-        if message.lower() == "/start":
+        if message.lower() == '/start':
             user.set_field(chat_id, 'mode', 'normal')
-            response = [_("Hi, I'm the robot for OpenStreetMap data") + ".\n" + _(
-                "How I can help you?")]
-        elif "location" in query["message"]:
-            if user_config is not None and 'mode' in user_config and user_config["mode"] == "map":
+            text = get_template('start_answer.md').render()
+            m = Message(
+                chat_id, text,
+                disable_web_page_preview=(not preview),
+                parse_mode='Markdown')
+            bot.sendMessage(m)
+        elif 'location' in query['message']:
+            if user_config is not None and 'mode' in user_config and user_config['mode'] == 'map':
                 MapCommand(
                     message, chat_id, user_id, user, zoom=user_config["zoom"],
-                    imgformat=user_config["format"],
-                    lat=float(query["message"]["location"]["latitude"]),
-                    lon=float(query["message"]["location"]["longitude"]))
+                    imgformat=user_config['format'],
+                    lat=float(query['message']['location']['latitude']),
+                    lon=float(query['message']['location']['longitude']))
             elif user_config.get('mode', None) == 'nearest':
                 NearestCommand(
                     message, chat_id, user_id, user,
-                    lat=float(query["message"]["location"]["latitude"]),
+                    lat=float(query['message']['location']['latitude']),
                     lon=float(query['message']['location']['longitude']),
                     distance=user_config['distance'],
                     type=user_config['type'],
@@ -721,42 +693,48 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 response += LanguageCommand(message, user_id, chat_id, user,
                                             is_group)
             elif message == 'Answer only when mention?':
-                response += AnswerCommand(message, user_id, chat_id, user)
+                AnswerCommand(message, user_id, chat_id, user)
             else:
-                response = [_('Setting not recognized')]
-                user.set_field(chat_id, 'mode', 'normal')
+                text = get_template('seting_not_recognized_message.md').render()
+                m = Message(
+                    chat_id,
+                    text,
+                    disable_web_page_preview=(not preview),
+                    parse_mode='Markdown'
+                )
+                bot.sendMessage(m)
+                user.set_field(chat_id, 'mode', 'normal', group=is_group)
         elif user_config['mode'] == 'setlanguage':
             response += SetLanguageCommand(message, user_id, chat_id, user,
                                            is_group)
         elif user_config['mode'] == 'setonlymention':
             response += SetOnlyMention(message, user_id, chat_id, user, is_group)
-        elif "text" in query["message"]:
-            if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?",
-                        message) is not None and "mode" in user_config and \
-                            user_config["mode"] == "map":
+        elif 'text' in query['message']:
+            if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and "mode" in user_config and user_config['mode'] == 'map':
                 m = re.match(
                     ".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",
                     message)
-                lat = m.groupdict()["lat"]
-                lon = m.groupdict()["lon"]
-                response += MapCommand(message, chat_id, user_id, user,
-                                       zoom=user_config["zoom"],
-                                       imgformat=user_config["format"],
-                                       lat=float(lat), lon=float(lon))
-            elif message == "Language":
+                lat = m.groupdict()['lat']
+                lon = m.groupdict()['lon']
+                response += MapCommand(
+                    message, chat_id, user_id, user,
+                    zoom=user_config['zoom'],
+                    imgformat=user_config['format'],
+                    lat=float(lat), lon=float(lon))
+            elif message == 'Language':
                 response += LanguageCommand(message, user_id, chat_id, user,
                                             is_group)
             elif message == 'Answer only when mention?':
                 response += AnswerCommand(message, user_id, chat_id, user)
-            elif message.lower().startswith("/settings"):
+            elif message.lower().startswith('/settings'):
                 SettingsCommand(message, user_id, chat_id, user, is_group)
-            elif message.lower().startswith("/nearest"):
+            elif message.lower().startswith('/nearest'):
                 NearestCommand(message, chat_id, user_id, user)
-            elif message.lower().startswith("/map"):
+            elif message.lower().startswith('/map'):
                 MapCommand(message, chat_id, user_id, user)
-            elif re.match("/phone.*", message.lower()):
+            elif re.match('/phone.*', message.lower()):
                 PhoneCommand(message, chat_id)
-            elif re.match("/details.*", message.lower()):
+            elif re.match('/details.*', message.lower()):
                 try:
                     DetailsCommand(message, user_config, chat_id)
                 except:
@@ -772,48 +750,15 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             elif message.lower().startswith('/legend'):
                 LegendCommand(message, chat_id)
             elif message.lower().startswith('/about'):
-                response = [
-                    '*' + _('OpenStreetMap bot info:') + '*\n\n' +
-                    _('CREDITS&CODE') + '\n\xF0\x9F\x91\xA5 ' +
-                    _('Author:') + ' ' + 'OSM català' + ' ' +
-                    _('(Catalan OpenStreetMap community)') + '\n\xF0\x9F\x94\xA7 ' +
-                    '[' + _("Code") + ']' + "(https://github.com/Xevib/osmbot)\n\xE2\x99\xBB " +
-                    '[' + _("License: GPLv3") + ']('+_("http://www.gnu.org/licenses/gpl-3.0.en.html") + ')\n\xF0\x9F\x92\xAC ' +
-                    '[' + _("Localization") + '](https://www.transifex.com/osm-catala/osmbot/)' + "\n\n" +
-                    _("NEWS") + "\n\xF0\x9F\x90\xA4 [Twitter](https://twitter.com/osmbot_telegram)\n\xF0\x9F\x93\xA2 " +
-                    '[' + _("Telegram channel") + '](https://telegram.me/OSMbot_channel)\n\n' +
-                    _("RATING") + "\n\xE2\xAD\x90 [" + _("Rating&reviews") +'](http://storebot.me/bot/osmbot)\n\xF0\x9F\x91\x8D ' +
-                    '[' + _('Please rate me') +'](https://telegram.me/storebot?start=osmbot)\n\n' +
-                    _('Thanks for use @OSMbot!!')]
+                text = get_template('about_answer.md').render()
+                m = Message(
+                    chat_id, text,
+                    disable_web_page_preview=(not preview),
+                    parse_mode='Markdown')
+                bot.sendMessage(m)
             elif message.lower().startswith('/help'):
-                response = [
-                    '*' +_('OpenStreetMap bot help:') + '*' + '\n\n' + _(
-                        'You can control me by sending these commands:') +
-                    '\n\n' + _(
-                        '/about - Show info about OSMbot: credits&code, news and ratings&reviews') + '\n\n' +
-                    _(
-                        '/details<type><osm_id> - Show some tags from OSM database by ID.') + '\n' +
-                    _(
-                        '/raw<type><osm_id> - Show all tags from OSM database by ID in raw format.') + '\n' +
-                    _(
-                        'The ID is generated by /search command, but if you know an OSM ID you can try it.') +
-                    '\n' + _(
-                        "The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it") +
-                    '\n\n' + _(
-                        "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot") +
-                    '\n\n' + _(
-                        '/map <coord> <format> <scale> - Send a map with different options:') +
-                    '\n  ' + _(
-                        "<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location") +
-                    '\n  ' + _(
-                        "<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default") +
-                    '\n  ' + _(
-                        "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default.") +
-                    '\n\n' + _(
-                        "/search <search_term> - Search from Nominatim in all OpenStreetMap database.") +
-                    '\n\n' + _(
-                        '/nearest <type> <optional meters> - Search from Overpass the element in a certain radius')
-                ]
+                text = get_template('help_message.md').render()
+                response = [text]
                 response[-1] = response[-1].replace('_', '\_')
             elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
                 SearchCommand(message, user_config, chat_id)
@@ -830,16 +775,14 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 )
                 bot.sendMessage(m)
         if response:
-            m = Message(
-                chat_id,
-                response,
+            m = Message(chat_id, response,
                 disable_web_page_preview=(not preview),
                 parse_mode='Markdown'
             )
             bot.sendMessage(m)
 
 
-@osmbot.route("/hook/<string:token>", methods=["POST"])
+@osmbot.route('/hook/<string:token>', methods=['POST'])
 def attend_webhook(token):
     user = u.User(config['host'], config['database'], config['user'], config['password'])
     current_app.logger.debug('token:%s', token)
@@ -851,7 +794,7 @@ def attend_webhook(token):
             is_group = False
             message_type = ''
             if 'message' in query:
-                message_type ='query'
+                message_type = 'query'
                 if 'from' in query['message'] and 'id' in query['message']['from']:
                     is_group = query['message']['chat']['type'] == u'group'
                     if is_group:
@@ -863,18 +806,19 @@ def attend_webhook(token):
             elif 'inline_query' in query:
                 message_type = 'inline'
                 user_id = query['inline_query']['from']['id']
-                user_config = user.get_defaultconfig()
+                identifier = query['inline_query']['from']['id']
+                user_config = user.get_user(identifier, group=False)
                 message = query['inline_query']['query']
                 chat_id = 0
             else:
                 user_config = user.get_defaultconfig()
                 user_id = 0
-            if "message" in query:
-                if "text" in query["message"]:
-                    message = query["message"]["text"]
+            if 'message' in query:
+                if 'text' in query['message']:
+                    message = query['message']['text']
                 else:
-                    message = ""
-                chat_id = query["message"]["chat"]["id"]
+                    message = ''
+                chat_id = query['message']['chat']['id']
 
                 if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
                     if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in avaible_languages.keys():
@@ -884,8 +828,9 @@ def attend_webhook(token):
                     message = message.replace('@OSMbot', '')
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
+            jinja_env.install_gettext_translations(gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en']))
             _ = lang.gettext
-            print query
+
             message = CleanMessage(message)
             answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
         except Exception as e:
@@ -897,11 +842,8 @@ def attend_webhook(token):
             lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
             lang.install()
             _ = lang.gettext
-            m = Message(
-                chat_id,
-                _('Something failed') + ' \xF0\x9F\x98\xB5 ' +
-                _('please try it latter') + ' \xE2\x8F\xB3',
-            )
+            text = get_template('error_message.md').render()
+            m = Message(chat_id, text)
             bot.sendMessage(m)
         config['last_id'] = query['update_id']
         config.write()
@@ -909,7 +851,7 @@ def attend_webhook(token):
     else:
         return 'NOT ALLOWED'
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     application.run(host='0.0.0.0')
 
 gettext.gettext('OpenStreetMap bot finds any location in world from the Nominatim OSM database and can send links and maps from OSM')
