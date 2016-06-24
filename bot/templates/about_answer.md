@@ -1,4 +1,5 @@
-* {{_("OpenStreetMap bot info:") }} *
+*{{_("OpenStreetMap bot info:") }} *
+
  {{_("CREDITS&CODE") }}
 
 {{'\U0001f465'}} {{_("Author:")}} OSM català  {{_("(Catalan OpenStreetMap community)") }}
