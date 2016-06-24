@@ -1,1 +1,1 @@
-\xF0\x9F\x93\x9E {{phone}}
+{{'\U0001F4DE'}} {{phone}}
