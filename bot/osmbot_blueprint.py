@@ -107,8 +107,7 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
 
 
 def AnswerCommand(message, user_id, chat_id, user):
-    k = ReplyKeyboardMarkup(KeyboardButton('Yes'), one_time_keyboard=True)
-    k.addButton('No')
+    k = ReplyKeyboardMarkup(['Yes','No'], one_time_keyboard=True)
     text = get_template('question_mention.md').render()
     m = Message(chat_id, text, reply_markup=k)
     bot.sendMessage(m)
@@ -693,7 +692,7 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 response += LanguageCommand(message, user_id, chat_id, user,
                                             is_group)
             elif message == 'Answer only when mention?':
-                response += AnswerCommand(message, user_id, chat_id, user)
+                AnswerCommand(message, user_id, chat_id, user)
             else:
                 text = get_template('seting_not_recognized_message.md').render()
                 m = Message(
@@ -830,7 +829,7 @@ def attend_webhook(token):
             lang.install()
             jinja_env.install_gettext_translations(gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en']))
             _ = lang.gettext
-            print query
+
             message = CleanMessage(message)
             answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
         except Exception as e:
