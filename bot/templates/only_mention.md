@@ -1,1 +1,1 @@
-{{ _("Now I only will answer when mention") }} \xF0\x9F\xA4\x90
+{{ _("Now I only will answer when mention") }} {{'\U0001F910'}}
