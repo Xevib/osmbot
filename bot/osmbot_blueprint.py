@@ -16,7 +16,8 @@ from overpass_query import type_query
 import user as u
 from jinja2 import Environment
 import os
-
+from lxml import etree
+from StringIO import StringIO
 
 avaible_languages = {
     'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
