@@ -96,7 +96,7 @@ def SetLanguageCommand(message, user_id, chat_id, u, group=False):
         return []
     else:
         if group:
-            u.set_field(chat_id, 'mode', 'normal')
+            u.set_field(chat_id, 'mode', 'normal', group=True)
         else:
             u.set_field(user_id, 'mode', 'normal')
         temp = get_template('cant_talk_message.md')
