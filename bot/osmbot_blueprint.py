@@ -547,6 +547,12 @@ def DetailsCommand(message, user_config, chat_id):
             m = Message(chat_id, text)
             bot.sendMessage(m)
         else:
+            preview = False
+            if 'website' in osm_data['tag'] or 'wikidata' in osm_data['tag'] or 'wikipedia' in osm_data['tag']:
+                preview = True
+            text = get_template('details_message.md').render(data=osm_data, type=element_type, identifier=identifier, user_config=user_config)
+            m = Message(chat_id, text, disable_web_page_preview=(not preview))
+            bot.sendMessage(m)
             pretty_tags(osm_data, identifier, element_type, user_config, chat_id)
 
 
@@ -737,8 +743,8 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             elif re.match('/details.*', message.lower()):
                 try:
                     DetailsCommand(message, user_config, chat_id)
-                except:
-                    pass
+                except Exception as e:
+                    print e.message
             elif re.match("/raw.*", message.lower()):
                 try:
                     RawCommand(message, chat_id)
