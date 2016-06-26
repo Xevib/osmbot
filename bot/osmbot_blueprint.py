@@ -151,16 +151,14 @@ def LegendCommand(message, chat_id):
         if filt in key:
             selected_keys.append(key)
     selected_keys = sorted(selected_keys)
-
     temp = get_template('legend_command.md')
     text = temp.render(typeemoji=typeemoji, keys=selected_keys)
+    m = Message(chat_id, text)
+    bot.sendMessage(m)
     if len(selected_keys) > 50:
-        m = Message(chat_id, text)
-        bot.sendMessage(m)
         text = get_template('easter_egg.md').render()
         m = Message(chat_id, text)
         bot.sendMessage(m)
-
     elif len(selected_keys) == 0:
         text = get_template('no_emoji.md').render()
         m = Message(chat_id, text)
