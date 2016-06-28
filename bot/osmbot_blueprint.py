@@ -180,8 +180,17 @@ def SearchCommand(message, user_config, chat_id):
         t = _('Results for') + ' "{0}":\n\n'.format(search)
         for result in results[:10]:
             if 'osm_id' in result:
+                if result['osm_type'] == 'relation':
+                    element_type = 'rel'
+                elif result['osm_type'] == 'way':
+                    element_type = 'way'
+                elif result['osm_type'] == 'node':
+                    element_type = 'nod'
                 try:
-                    osm_data = getData(result['osm_id'])
+                    if result['osm_type'] == 'relation':
+                        osm_data = getData(result['osm_id'], element_type)
+                    else:
+                        osm_data = getData(result['osm_id'])
                 except Exception:
                     osm_data = None
             else:
@@ -201,7 +210,7 @@ def SearchCommand(message, user_config, chat_id):
                     t += _('More info') + ' /detailsrel{0}\n'.format(result['osm_id'])
                 else:
                     t += '\n' + _('More info') + ' /details{0}'.format(result['osm_id'])
-                t += _("Phone") + " /phone{0}".format(result['osm_id']) + "\n\n"
+                t += _("Phone") + " /phone{}{0}".format(element_type, result['osm_id']) + "\n\n"
             else:
                 if 'osm_id' in result:
                     if 'osm_type' in result and result['osm_type'] == 'node':
@@ -492,8 +501,9 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
 
 
 def PhoneCommand(message, chat_id):
-    id = message[6:]
-    osm_data = getData(id)
+    id = message[9:]
+    element_type = message[6: 9]
+    osm_data = getData(id, element_type)
     if 'phone' in osm_data['tag']:
         template = get_template('phone_message.md')
         text = template.render(phone=osm_data['tag']['phone'])
