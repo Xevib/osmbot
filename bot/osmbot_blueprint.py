@@ -378,10 +378,18 @@ def pretty_tags(data, identificador, type, user_config, chat_id, lat=None, lon=N
 
 
 def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
+    zoom_halfside = {
+        12: 4,
+    }
     response = []
     message = message[4:]
     if lat is not None and lon is not None:
-        bbox = genBBOX(lat, lon, 0.1)
+
+        if zoom:
+            halfside = zoom_halfside[zoom]
+        else:
+            halfside = 0.1
+        bbox = genBBOX(lat, lon, halfside)
         try:
             data = download(bbox, _, imageformat=imgformat, zoom=zoom)
         except ValueError as v:
