@@ -210,7 +210,7 @@ def SearchCommand(message, user_config, chat_id):
                     t += _('More info') + ' /detailsrel{0}\n'.format(result['osm_id'])
                 else:
                     t += '\n' + _('More info') + ' /details{0}'.format(result['osm_id'])
-                t += _("Phone") + " /phone{}{0}".format(element_type, result['osm_id']) + "\n\n"
+                t += _("Phone") + " /phone{0}{1}".format(element_type, result['osm_id']) + "\n\n"
             else:
                 if 'osm_id' in result:
                     if 'osm_type' in result and result['osm_type'] == 'node':
