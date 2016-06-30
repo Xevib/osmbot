@@ -23,7 +23,7 @@ avaible_languages = {
     'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
     'Asturian': 'ast', 'Galician': 'gl', 'French': 'fr', 'Italian': 'it',
     'Basque': 'eu', 'Polish': 'pl', 'German': 'de', 'Dutch': 'nl',
-    'Czech': 'cz', 'Slovak': 'sk', 'Vietnamese': 'vi'
+    'Czech': 'cz', 'Slovak': 'sk', 'Vietnamese': 'vi', 'Russian': 'ru'
 }
 
 application = Flask(__name__)
