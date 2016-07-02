@@ -660,11 +660,22 @@ def get_template(template_name):
 def answer_inline(message, query, chat_id, user_id, user_config, is_group, user):
     nom = pynominatim.Nominatim()
     search_results = nom.query(message)
-    temp = get_template('inline_article.md')
+    temp = get_template('details_message.md')
     inline_query_id = query['inline_query']['id']
     results = []
-    for index, r in enumerate(search_results):
-        text = temp.render(data=r)
+    for index, r in enumerate(search_results[:10]):
+        #text = temp.render(data=r)
+        element_type = ''
+        if r['osm_type'] == 'node':
+            element_type = 'nod'
+        elif r['osm_type'] == 'way':
+            element_type = 'way'
+        elif r['osm_type'] == 'relation':
+            element_type = 'rel'
+        osm_data = getData(r['osm_id'], geom_type=element_type)
+        params = {'data': osm_data, 'type': element_type,
+                  'identifier': r['osm_id'], 'user_config': user_config}
+        text = temp.render(**params)
         answer = InputTextMessageContent(text, 'Markdown')
         result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
         results.append(result)
