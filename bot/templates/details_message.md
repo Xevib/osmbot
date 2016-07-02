@@ -79,10 +79,10 @@
 {% if 'ele' in data.tag %}
 {{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
 {% endif -%}{% if 'wikidata' in data.tag -%}
-{{'\U0001F4D7'}} https://www.wikidata.org/wiki/{{data.tag["wikidata"]}}
+{{'\U0001F4D7'}}[{{_("Wikidata")}}](https://www.wikidata.org/wiki/{{data.tag["wikidata"]}})
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}
-{{'\U0001F4D2'}} http://wikipedia.org/wiki/{{data.tag["wikipedia"]}}
+{{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]}})
 {%- endif %}
 
 {{_('Raw data:')}} /raw{{type}}{{identifier}}
