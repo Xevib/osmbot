@@ -1,0 +1,438 @@
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
+# Albert F <lakonfrariadelavila@gmail.com>, 2015
+# Shu Higashi <higa432@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: OSMbot\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-06-12 17:57+0200\n"
+"PO-Revision-Date: 2016-07-02 08:25+0000\n"
+"Last-Translator: Shu Higashi <higa432@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/osm-catala/osmbot/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "Map too large!"
+msgstr "地図が大きすぎます！"
+
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "Please, reduce the bounding box"
+msgstr "囲み範囲かズームレベルを"
+
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "or the scale (zoom level)"
+msgstr "もう少し小さくしてみてください"
+
+#: bot/maptools.py:47
+msgid "Invalid bounding box!"
+msgstr "囲み範囲が適切じゃないようです！"
+
+#: bot/maptools.py:47
+msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
+msgstr "/map minlon,minlat,maxlon,maxlat で試してみて"
+
+#: bot/maptools.py:47
+msgid "Coordinates' decimals need to be marked with a dot."
+msgstr "座標の区切りにはドットを使ってね"
+
+#: bot/maptools.py:47
+msgid "For example:"
+msgstr "例："
+
+#: bot/maptools.py:49
+msgid "Oh,oh... An error occurred"
+msgstr "おっと、エラーが起きたようです"
+
+#: bot/maptools.py:49
+msgid "You can try with another bounding box or scale (zoom level)"
+msgstr "違う囲み範囲やズームレベルを試してみて"
+
+#: bot/maptools.py:49
+msgid "Good luck! "
+msgstr "幸運を！"
+
+#: bot/osmbot_blueprint.py:71
+msgid "Now I only will answer when mention"
+msgstr "メンションがあった時だけお答えモードです"
+
+#: bot/osmbot_blueprint.py:77
+msgid "Now I always will answer"
+msgstr "いつでもお答えモードです"
+
+#: bot/osmbot_blueprint.py:91
+msgid "Now I will talk you with the new language"
+msgstr "新しい言語でお話します"
+
+#: bot/osmbot_blueprint.py:103
+msgid "Ooops! I can't talk this language"
+msgstr "残念！この言語は話せないのです"
+
+#: bot/osmbot_blueprint.py:104
+msgid "yet"
+msgstr "いまのところ"
+
+#: bot/osmbot_blueprint.py:105
+msgid "But you can help me to learn it in Transifex"
+msgstr "よければTransifex で翻訳を手伝ってね"
+
+#: bot/osmbot_blueprint.py:118
+msgid "Should I answer without a mention?"
+msgstr "メンションなしで答えるよ？"
+
+#: bot/osmbot_blueprint.py:130
+msgid "Choose the language for talk with you"
+msgstr "あなたと話す言語を選んでね"
+
+#: bot/osmbot_blueprint.py:147
+msgid "What do you want to configure?"
+msgstr "構成をどうしますか？"
+
+#: bot/osmbot_blueprint.py:172
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "ヘンな絵文字が見えたらそれはきっとTelegram のイースターエッグのせい"
+
+#: bot/osmbot_blueprint.py:179
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "絵文字が何も見えないときは、これを試してみて /legend <osmキー:値>"
+
+#: bot/osmbot_blueprint.py:193
+msgid "Sorry but I couldn't find any result for \"{0}\""
+msgstr "ごめんなさい、\"{0}\"の結果が見つかりません"
+
+#: bot/osmbot_blueprint.py:193
+msgid "But you can try to improve OpenStreetMap"
+msgstr "でもOpenStreetMapはあなたが自分で改善できます"
+
+#: bot/osmbot_blueprint.py:197
+msgid "Results for"
+msgstr "処理結果"
+
+#: bot/osmbot_blueprint.py:211
+msgid "Map"
+msgstr "地図"
+
+#: bot/osmbot_blueprint.py:214 bot/osmbot_blueprint.py:216
+#: bot/osmbot_blueprint.py:218 bot/osmbot_blueprint.py:220
+#: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
+#: bot/osmbot_blueprint.py:229 bot/osmbot_blueprint.py:231
+msgid "More info"
+msgstr "詳細"
+
+#: bot/osmbot_blueprint.py:221
+msgid "Phone"
+msgstr "電話番号"
+
+#: bot/osmbot_blueprint.py:233 bot/osmbot_blueprint.py:390
+#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:653
+msgid "OpenStreetMap contributors"
+msgstr "OpenStreetMap contributors"
+
+#: bot/osmbot_blueprint.py:282
+msgid "No element found"
+msgstr "要素が見つかりません"
+
+#: bot/osmbot_blueprint.py:290 bot/osmbot_blueprint.py:293
+#: bot/osmbot_blueprint.py:295
+msgid "Tags for"
+msgstr "タグ"
+
+#: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:299
+msgid "European country"
+msgstr "ヨーロッパ"
+
+#: bot/osmbot_blueprint.py:301
+msgid "African country"
+msgstr "アフリカ"
+
+#: bot/osmbot_blueprint.py:303 bot/osmbot_blueprint.py:305
+#: bot/osmbot_blueprint.py:307
+msgid "South american country"
+msgstr "南米"
+
+#: bot/osmbot_blueprint.py:309 bot/osmbot_blueprint.py:311
+msgid "North american country"
+msgstr "北米"
+
+#: bot/osmbot_blueprint.py:313
+msgid "Central american country"
+msgstr "中米"
+
+#: bot/osmbot_blueprint.py:315 bot/osmbot_blueprint.py:317
+msgid "American country"
+msgstr "アフリカ"
+
+#: bot/osmbot_blueprint.py:319
+msgid "Asian country"
+msgstr "アジア"
+
+#: bot/osmbot_blueprint.py:321 bot/osmbot_blueprint.py:323
+msgid "Oceanian country"
+msgstr "オセアニア"
+
+#: bot/osmbot_blueprint.py:325 bot/osmbot_blueprint.py:327
+msgid "Eurasian country"
+msgstr "ユーラシア"
+
+#: bot/osmbot_blueprint.py:364 bot/osmbot_blueprint.py:366
+msgid "inhabitants"
+msgstr "住人"
+
+#: bot/osmbot_blueprint.py:364
+msgid "at"
+msgstr "単位:"
+
+#: bot/osmbot_blueprint.py:369
+msgid "meters"
+msgstr "メートル"
+
+#: bot/osmbot_blueprint.py:382
+msgid "Raw data:"
+msgstr "生データ:"
+
+#: bot/osmbot_blueprint.py:409 bot/osmbot_blueprint.py:411
+#: bot/osmbot_blueprint.py:456 bot/osmbot_blueprint.py:459
+#: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
+#: bot/osmbot_blueprint.py:502
+msgid "OSM contributors"
+msgstr "OSM contributors"
+
+#: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
+msgid "Please send me your location"
+msgstr "あなたの位置を送ると"
+
+#: bot/osmbot_blueprint.py:421
+msgid "to receive the map."
+msgstr "地図が見られます。"
+
+#: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
+msgid "You can do it with the Telegram paperclip button"
+msgstr "Telegramの紙クリップボタンで現在地の座標を取れます"
+
+#: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
+msgid "Sorry, I can't understand you"
+msgstr "ごめんなさい、ちょっと分かりません"
+
+#: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
+msgid "Perhaps I could help you with the command /help"
+msgstr "/help コマンドを使ってもらうといいかも"
+
+#: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "ごめんなさい、検索結果が見当たらないみたい。IDを確認してみてもらえますか？"
+
+#: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
+msgid ""
+"Sorry, but now I can't recognize tags for this element, perhaps with my new "
+"features I will do it"
+msgstr "ごめんなさい、今はこの要素のタグを認識できません。いずれ機能拡張したらね。"
+
+#: bot/osmbot_blueprint.py:583
+msgid "Sorry but this query it's not implemented yet"
+msgstr "ごめんなさい、このクエリはまだ実装されていません"
+
+#: bot/osmbot_blueprint.py:602
+msgid "and I'll send you the nearest element"
+msgstr "一番近い要素を送信します"
+
+#: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
+msgid "Raw data for"
+msgstr "次のための生データ"
+
+#: bot/osmbot_blueprint.py:637 bot/osmbot_blueprint.py:652
+msgid "Raw data"
+msgstr "生データ"
+
+#: bot/osmbot_blueprint.py:671
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "やあ、私はOpenStreetMapデータ用のボットです"
+
+#: bot/osmbot_blueprint.py:671
+msgid "How I can help you?"
+msgstr "何かお手伝いしましょうか？"
+
+#: bot/osmbot_blueprint.py:696
+msgid "Setting not recognized"
+msgstr "設定が認識できません"
+
+#: bot/osmbot_blueprint.py:746
+msgid "OpenStreetMap bot info:"
+msgstr "OpenStreetMap ボット情報:"
+
+#: bot/osmbot_blueprint.py:747
+msgid "CREDITS&CODE"
+msgstr "クレジットとコード"
+
+#: bot/osmbot_blueprint.py:748
+msgid "Author:"
+msgstr "作者:"
+
+#: bot/osmbot_blueprint.py:749
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(Catalan OpenStreetMap コミュニティ)"
+
+#: bot/osmbot_blueprint.py:750
+msgid "Code"
+msgstr "コード"
+
+#: bot/osmbot_blueprint.py:751
+msgid "License: GPLv3"
+msgstr "ライセンス: GPLv3"
+
+#: bot/osmbot_blueprint.py:751
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.ja.html"
+
+#: bot/osmbot_blueprint.py:752
+msgid "Localization"
+msgstr "各国語化"
+
+#: bot/osmbot_blueprint.py:753
+msgid "NEWS"
+msgstr "ニュース"
+
+#: bot/osmbot_blueprint.py:754
+msgid "Telegram channel"
+msgstr "Telegramチャンネル"
+
+#: bot/osmbot_blueprint.py:755
+msgid "RATING"
+msgstr "評価"
+
+#: bot/osmbot_blueprint.py:755
+msgid "Rating&reviews"
+msgstr "評価とレビュー"
+
+#: bot/osmbot_blueprint.py:756
+msgid "Please rate me"
+msgstr "僕を評価してください"
+
+#: bot/osmbot_blueprint.py:757
+msgid "Thanks for use @OSMbot!!"
+msgstr "@OSMbot ご利用ありがとう!!"
+
+#: bot/osmbot_blueprint.py:760
+msgid "OpenStreetMap bot help:"
+msgstr "OpenStreetMapボットのヘルプ:"
+
+#: bot/osmbot_blueprint.py:760
+msgid "You can control me by sending these commands:"
+msgstr "これらのコマンドを送ると私をコントロールできます"
+
+#: bot/osmbot_blueprint.py:762
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - OSMbotについてクレジットとコード、ニュース、評価とレビューといった情報を表示"
+
+#: bot/osmbot_blueprint.py:764
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details<種別(nod/way/rel)><osm_id> - IDを元にOSMデータベースから取得したタグを一部表示。"
+
+#: bot/osmbot_blueprint.py:766
+msgid ""
+"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+msgstr "/raw<種別(nod/way/rel)><osm_id> - IDを元にOSMデータベースから取得したタグを生の形式で全て表示。"
+
+#: bot/osmbot_blueprint.py:768
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "IDは /search コマンドが生成しますが、自分でOSM IDを知っている場合はそれを試してください。"
+
+#: bot/osmbot_blueprint.py:770
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "種別はオプションで、nod(node)、way(way) あるいはrel(relation)のいずれかです。指定されていない場合、ボットはそれを推論しようとします。"
+
+#: bot/osmbot_blueprint.py:772
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <osmキー> - key=value のペアのリストとOSMボット内の絵文字を表示します。<osmキー>を指定しない場合は、全てのkey=valueのペアとOsmボット内の絵文字を表示します。"
+
+#: bot/osmbot_blueprint.py:774
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <座標> <画像形式> <ズームレベル> - 様々なオープション付きの地図を送る:"
+
+#: bot/osmbot_blueprint.py:776
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<座標> ポイント (lat,lon)もしくは囲み範囲(minlon,minlat,maxlon,maxlat)。このオプションを使わなくても自分の位置を送信できます"
+
+#: bot/osmbot_blueprint.py:778
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<画像形式> png、jpeg およびpdfに対応しています。このオプションを使わない場合、ボットは既定値としてpngを使います"
+
+#: bot/osmbot_blueprint.py:780
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<ズームレベル> ズーム(1-19)のレベル。このオプションを使わない場合、ボットは既定値として19を使います。"
+
+#: bot/osmbot_blueprint.py:782
+msgid ""
+"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+msgstr "/search <検索語> - 全てのOpenStreetMapデータベース内のNominatimから検索。"
+
+#: bot/osmbot_blueprint.py:784
+msgid ""
+"/nearest <type> <optional meters> - Search from Overpass the element in a "
+"certain radius"
+msgstr "/nearest <種別(nod/way/rel)> <メートル数(オプション)> - Overpass で所定の半径内にある要素を検索"
+
+#: bot/osmbot_blueprint.py:793
+msgid ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "探しものは次のコマンドでどうぞ /search <検索語>"
+
+#: bot/osmbot_blueprint.py:799
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "/search <検索語> コマンドを使うと自分が探しているものを表示できます"
+
+#: bot/osmbot_blueprint.py:872
+msgid "Something failed"
+msgstr "何か失敗したようです"
+
+#: bot/osmbot_blueprint.py:873
+msgid "please try it latter"
+msgstr "しばらくしてからやり直してみてください"
+
+#: bot/osmbot_blueprint.py:885
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "OpenStreetMapボットは世界中のあらゆる場所をNominatim OSMデータベースから探してOSMからのリンクと地図を送信できます"
+
+#: bot/osmbot_blueprint.py:886
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "OpenStreetMapボットは世界中のあらゆる場所をNominatim OSMデータベースから探します"
+
+#: bot/osmbot_blueprint.py:887
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "ボットはリンクとOSMからの地図(jpg, png or pdf) を送れます"
+
+#: bot/osmbot_blueprint.py:888
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "全世界向けのデータ(都市、電話番号、email等のあるお店、Wikipediaへのリンク等)"
+
+#: bot/osmbot_blueprint.py:889
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot は多言語対応しており、「こちらにあるあなたの言語」を話します"
