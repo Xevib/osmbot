@@ -23,7 +23,7 @@ avaible_languages = {
     'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
     'Asturian': 'ast', 'Galician': 'gl', 'French': 'fr', 'Italian': 'it',
     'Basque': 'eu', 'Polish': 'pl', 'German': 'de', 'Dutch': 'nl',
-    'Czech': 'cz', 'Persian': 'fa'
+    'Czech': 'cz','Persian': 'fa'
 }
 
 application = Flask(__name__)
@@ -180,8 +180,17 @@ def SearchCommand(message, user_config, chat_id):
         t = _('Results for') + ' "{0}":\n\n'.format(search)
         for result in results[:10]:
             if 'osm_id' in result:
+                if result['osm_type'] == 'relation':
+                    element_type = 'rel'
+                elif result['osm_type'] == 'way':
+                    element_type = 'way'
+                elif result['osm_type'] == 'node':
+                    element_type = 'nod'
                 try:
-                    osm_data = getData(result['osm_id'])
+                    if result['osm_type'] == 'relation':
+                        osm_data = getData(result['osm_id'], element_type)
+                    else:
+                        osm_data = getData(result['osm_id'])
                 except Exception:
                     osm_data = None
             else:
@@ -201,7 +210,7 @@ def SearchCommand(message, user_config, chat_id):
                     t += _('More info') + ' /detailsrel{0}\n'.format(result['osm_id'])
                 else:
                     t += '\n' + _('More info') + ' /details{0}'.format(result['osm_id'])
-                t += _("Phone") + " /phone{0}".format(result['osm_id']) + "\n\n"
+                t += _("Phone") + " /phone{0}{1}".format(element_type, result['osm_id']) + "\n\n"
             else:
                 if 'osm_id' in result:
                     if 'osm_type' in result and result['osm_type'] == 'node':
@@ -492,8 +501,9 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
 
 
 def PhoneCommand(message, chat_id):
-    id = message[6:]
-    osm_data = getData(id)
+    id = message[9:]
+    element_type = message[6: 9]
+    osm_data = getData(id, element_type)
     if 'phone' in osm_data['tag']:
         template = get_template('phone_message.md')
         text = template.render(phone=osm_data['tag']['phone'])
@@ -546,8 +556,12 @@ def DetailsCommand(message, user_config, chat_id):
             m = Message(chat_id, text)
             bot.sendMessage(m)
         else:
-            pretty_tags(osm_data, identifier, element_type, user_config, chat_id)
-
+            preview = False
+            if 'website' in osm_data['tag'] or 'wikidata' in osm_data['tag'] or 'wikipedia' in osm_data['tag']:
+                preview = True
+            text = get_template('details_message.md').render(data=osm_data, type=element_type, identifier=identifier, user_config=user_config)
+            m = Message(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
+            bot.sendMessage(m)
 
 def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
     if lat is not None and lon is not None:
@@ -649,8 +663,19 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
     temp = get_template('inline_article.md')
     inline_query_id = query['inline_query']['id']
     results = []
-    for index, r in enumerate(search_results):
-        text = temp.render(data=r)
+    for index, r in enumerate(search_results[:10]):
+        #text = temp.render(data=r)
+        element_type = ''
+        if r['osm_type'] == 'node':
+            element_type = 'nod'
+        elif r['osm_type'] == 'way':
+            element_type = 'way'
+        elif r['osm_type'] == 'relation':
+            element_type = 'rel'
+        osm_data = getData(r['osm_id'], geom_type=element_type)
+        params = {'data': osm_data, 'type': element_type,
+                  'identifier': r['osm_id'], 'user_config': user_config}
+        text = temp.render(**params)
         answer = InputTextMessageContent(text, 'Markdown')
         result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
         results.append(result)
@@ -736,8 +761,8 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
             elif re.match('/details.*', message.lower()):
                 try:
                     DetailsCommand(message, user_config, chat_id)
-                except:
-                    pass
+                except Exception as e:
+                    print e.message
             elif re.match("/raw.*", message.lower()):
                 try:
                     RawCommand(message, chat_id)
