@@ -44,17 +44,7 @@
 {{'\U0001F4B5'}} {{data.tag['currency']}}
 {% endif %}{% if 'timezone' in data.tag -%}
 {{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']}}
-{% endif %}{% if 'addr:housenumber' and 'addr:street' in data.tag -%}
-{{'\U0001F4EE'}} {{data.tag['addr:street']}},{{data.tag['addr:housenumber']}}
-{% endif %}{% if 'addr:housenumber' in data.tag -%}
-{{'\U0001F4EE'}}  {{data.tag['addr:housenumber']}}
-{% endif %}{% if 'addr:street' in tag -%}
-{{'\U0001F4EE'}} {{data.tag['addr:street']}}
-{% endif %}{% if 'addr:city' in data.tag -%}
-{{ data.tag['addr:city']}}
-{% endif -%}
-{% if 'addr:country' in data.tag -%}
-{{data.tag['addr:country']}}
+{% endif %}{% if 'addr:housenumber' and 'addr:street' in data.tag %}{{'\U0001F4EE'}} {{data.tag['addr:street']}},{{data.tag['addr:housenumber']}}{% endif %}{% if 'addr:housenumber' in data.tag %}{{'\U0001F4EE'}}  {{data.tag['addr:housenumber']}}{% endif %}{% if 'addr:street' in tag %}{{'\U0001F4EE'}} {{data.tag['addr:street']}}{% endif %}{% if 'addr:city' in data.tag -%}{{ data.tag['addr:city']}}{% endif -%}{% if 'addr:country' in data.tag -%} {{data.tag['addr:country']}}
 {% endif %}{% if 'phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
 {% endif %}{% if 'contact:phone' in data.tag -%}
