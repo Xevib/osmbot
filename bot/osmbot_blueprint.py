@@ -660,7 +660,7 @@ def get_template(template_name):
 def answer_inline(message, query, chat_id, user_id, user_config, is_group, user):
     nom = pynominatim.Nominatim()
     search_results = nom.query(message)
-    temp = get_template('details_message.md')
+    temp = get_template('inline_article.md')
     inline_query_id = query['inline_query']['id']
     results = []
     for index, r in enumerate(search_results[:10]):
