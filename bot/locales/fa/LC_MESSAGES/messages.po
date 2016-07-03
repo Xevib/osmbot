@@ -4,12 +4,14 @@
 # 
 # Translators:
 # Adib Yaghoubzadeh <adib.yz@gmail.com>, 2016
+# Adib Yaghoubzadeh <adib.yz@gmail.com>, 2016
+# Albert F <lakonfrariadelavila@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-25 07:48+0000\n"
+"PO-Revision-Date: 2016-06-27 05:35+0000\n"
 "Last-Translator: Adib Yaghoubzadeh <adib.yz@gmail.com>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/osm-catala/osmbot/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +83,7 @@ msgstr "هنوز"
 
 #: bot/osmbot_blueprint.py:105
 msgid "But you can help me to learn it in Transifex"
-msgstr "اما شما می توانید به من در یاد گیری کمک کنید در سایت Transifex"
+msgstr "اما شما می توانید به من در یاد گیری آن کمک کنید در سایت Transifex"
 
 #: bot/osmbot_blueprint.py:118
 msgid "Should I answer without a mention?"
@@ -105,11 +107,11 @@ msgstr "<osm_کلید:مقدار> شکلکی یافت نشد، شاید بهتر
 
 #: bot/osmbot_blueprint.py:193
 msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "\"{0}\" متاسفم، هیچ نتیجه ای پیدا نکردم برای"
+msgstr "متاسفم، هیچ نتیجه ای پیدا نکردم برای \"{0}\""
 
 #: bot/osmbot_blueprint.py:193
 msgid "But you can try to improve OpenStreetMap"
-msgstr "اما شما می توانید سعی کنید نقشه های ا اس ام را بهبود بدهید."
+msgstr "اما شما می توانید سعی کنید نقشه های OSM را بهبود بدهید."
 
 #: bot/osmbot_blueprint.py:197
 msgid "Results for"
@@ -133,16 +135,16 @@ msgstr "تلفن"
 #: bot/osmbot_blueprint.py:233 bot/osmbot_blueprint.py:390
 #: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:653
 msgid "OpenStreetMap contributors"
-msgstr "همکاران OpenStreetMap"
+msgstr "کمک دهنده های OpenStreetMap"
 
 #: bot/osmbot_blueprint.py:282
 msgid "No element found"
-msgstr "هیچ المانی پیدا نشد"
+msgstr "هیچ مکانی پیدا نشد"
 
 #: bot/osmbot_blueprint.py:290 bot/osmbot_blueprint.py:293
 #: bot/osmbot_blueprint.py:295
 msgid "Tags for"
-msgstr "برچست برای"
+msgstr "برچسب ها برای"
 
 #: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:299
 msgid "European country"
@@ -202,7 +204,7 @@ msgstr "اطلاعات پردانش نشده:"
 #: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
 #: bot/osmbot_blueprint.py:502
 msgid "OSM contributors"
-msgstr "همکاران OSM"
+msgstr "کمک دهنده های OpenStreetMap"
 
 #: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
 msgid "Please send me your location"
@@ -218,21 +220,21 @@ msgstr "شما می توانید این کار را با فشردن دکمه گ�
 
 #: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
 msgid "Sorry, I can't understand you"
-msgstr "متاسفم، نمیتوانم شما را درک کنم"
+msgstr "متاسفم، نمیتوانم متوجه منظور شما شوم"
 
 #: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
 msgid "Perhaps I could help you with the command /help"
-msgstr "شاید من بتوانم با دستور /کمک شما را راهنمایی کنم"
+msgstr "شاید من بتوانم با دستور /help شما را راهنمایی کنم"
 
 #: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
 msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "با عرض پوزش، من نتوانستم هیچ نتیچه ای پیدا کنم، لطفا با ID بررسی کنید"
+msgstr "با عرض پوزش، من نتوانستم هیچ نتیچه ای پیدا کنم، لطفا ID را بررسی کنید"
 
 #: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr "با عرض پوزش، در حال حاضر من نمیتوانم برچسب ها برای این المان را شناسایی کنم، شاید با ویژگی های جدید آن را به رسمیت بشناسم."
+msgstr "با عرض پوزش، در حال حاضر من نمیتوانم برچسب ها برای این مکان را شناسایی کنم، شاید با ویژگی های جدید آن را به رسمیت بشناسم."
 
 #: bot/osmbot_blueprint.py:583
 msgid "Sorry but this query it's not implemented yet"
@@ -240,7 +242,7 @@ msgstr "با عرض پوزش، این پرسمان هنوز پیاده سازی 
 
 #: bot/osmbot_blueprint.py:602
 msgid "and I'll send you the nearest element"
-msgstr "و من برای شما نزدیکترین عنصر با ارسال می کنم"
+msgstr "و من برای شما نزدیکترین مکان را ارسال می کنم"
 
 #: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
 msgid "Raw data for"
@@ -316,7 +318,7 @@ msgstr "لطفاً به من امتیاز دهید"
 
 #: bot/osmbot_blueprint.py:757
 msgid "Thanks for use @OSMbot!!"
-msgstr "برای استفاده از @OSMbot!! سپاسگزاریم"
+msgstr "با سپاس برای استفاده از OSMbot!!"
 
 #: bot/osmbot_blueprint.py:760
 msgid "OpenStreetMap bot help:"
@@ -329,22 +331,22 @@ msgstr "شما می توانید با استفاده از این دستورات 
 #: bot/osmbot_blueprint.py:762
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
-msgstr "/درباره - نمایش اطلاعات در مورد ربات OSM: اعتبار و کد، اخبار و امتیاز دهی و نظرات"
+msgstr "/about - نمایش اطلاعات در مورد ربات OSM: اعتبار و کد، اخبار و امتیاز دهی و نظرات"
 
 #: bot/osmbot_blueprint.py:764
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/جزئیات<نوع><osm_id>- نمایش برچسب ها از پایگاه داده OSM مربوط به ID"
+msgstr "/details<نوع><osm_id>- نمایش برچسب ها از پایگاه داده OSM مربوط به ID"
 
 #: bot/osmbot_blueprint.py:766
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "/داده خام<نوع><osm_id>-تمامی برچسب ها از پایگاه داده OSM مربوط به ID را با فرمت خام نمایش بده."
+msgstr "/raw<نوع><osm_id>-تمامی برچسب ها از پایگاه داده OSM مربوط به ID را با فرمت خام نمایش بده."
 
 #: bot/osmbot_blueprint.py:768
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
-msgstr "ID با دستور /جستجو ایجاد می شود، اما اگر شما یک OSM ID می شناسید می توانید امتحانش کنید."
+msgstr "ID با دستور /search ایجاد می شود، اما اگر شما یک OSM ID می شناسید می توانید امتحانش کنید."
 
 #: bot/osmbot_blueprint.py:770
 msgid ""
@@ -357,11 +359,11 @@ msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
-msgstr "/شرع علایم <کلید_OSM> - نمایش لیستی از جفت های کلید=مقدار و شکلک مربوطه در ربات OSM. اگر شما یک مشخص نکنید <کلید OSM>، تمامی جفت های کلید=مقدار با شکلک موجود در ربات OSM نمایش داده می شود."
+msgstr "/legend <کلید_OSM> - نمایش لیستی از جفت های کلید=مقدار و شکلک مربوطه در ربات OSM. اگر شما یک مشخص نکنید <کلید OSM>، تمامی جفت های کلید=مقدار با شکلک موجود در ربات OSM نمایش داده می شود."
 
 #: bot/osmbot_blueprint.py:774
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "/نقشه <مختصات> <فرمت فایل> <مقیاس> - ارسال نقشه با انتخاب های دگیر:"
+msgstr "/map <مختصات> <فرمت فایل> <مقیاس> - ارسال نقشه با انتخاب های دگیر:"
 
 #: bot/osmbot_blueprint.py:776
 msgid ""
@@ -385,13 +387,13 @@ msgstr "<مقیاس> مقدار بزرگ نمایی (1-19) اگر گزینه ا�
 #: bot/osmbot_blueprint.py:782
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr "/جستجو <عبارت_جستجو> - جستجو با نام و آدرس در تمامی پایگاه داده OSM."
+msgstr "/search <عبارت_جستجو> - جستجو با نام و آدرس در تمامی پایگاه داده OSM Nominatim."
 
 #: bot/osmbot_blueprint.py:784
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr "/نزدیک ترین <نوع><متراژ اختیاری> - جستجو خارج از محدوده یک عنصر خاص با شعاع مشخص"
+msgstr "/nearest <نوع><متراژ اختیاری> - جستجو خارج از محدوده یک مکان با یک شعاع مشخص"
 
 #: bot/osmbot_blueprint.py:793
 msgid ""
@@ -400,7 +402,7 @@ msgstr "لطفاً برای جستجو از این دستور استفاده ک�
 
 #: bot/osmbot_blueprint.py:799
 msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "از دستور /جستجو <عبارت_جستجو> برای جستجو استفاده کنید"
+msgstr "از دستور /search <عبارت_جستجو> برای جستجو استفاده کنید"
 
 #: bot/osmbot_blueprint.py:872
 msgid "Something failed"
@@ -414,13 +416,13 @@ msgstr "لطفاً بعداً دوباره سعی کنید"
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
-msgstr "ربات OSM هر نقطه ای را در دنیا به کمک اطلاعات موجود در پایگاه داده OSM پیدا می کند و می تواند پیوند ها و نقشه های آن را ارسال کند."
+msgstr "ربات OSM هر نقطه ای را در دنیا به کمک اطلاعات موجود در پایگاه داده OSM Nominatim پیدا می کند و می تواند پیوند ها و نقشه های آن را ارسال کند."
 
 #: bot/osmbot_blueprint.py:886
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
-msgstr "ربات OSM هر نقطه ای را در دنیا با نام و آدرس موجود در پایگاه داده OSM پیدا می کند."
+msgstr "ربات OSM هر نقطه ای را در دنیا با نام و آدرس موجود در پایگاه داده  OSM Nominatim پیدا می کند."
 
 #: bot/osmbot_blueprint.py:887
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
@@ -430,7 +432,7 @@ msgstr "ربات می تواند پیوند ها و نقشه ها با فرمت 
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
-msgstr "داده برای تمام دنیا (شهرها و شهرستان ها، مغازه ها - همراه با شماره تلفن، ایمیل و...، پیوند های ویکی پدیا و غیره)"
+msgstr "داده ها برای تمام دنیا (شهرها و شهرستان ها، مغازه ها - همراه با شماره تلفن، ایمیل و...، پیوند های ویکی پدیا و غیره)"
 
 #: bot/osmbot_blueprint.py:889
 msgid "OSMbot is multilingual and speaks *your language here*"
