@@ -75,6 +75,4 @@
 {{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]}})
 {%- endif %}
 
-{{_('Raw data:')}} /raw{{type}}{{identifier}}
-
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
