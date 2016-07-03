@@ -560,7 +560,7 @@ def DetailsCommand(message, user_config, chat_id):
             if 'website' in osm_data['tag'] or 'wikidata' in osm_data['tag'] or 'wikipedia' in osm_data['tag']:
                 preview = True
             text = get_template('details_message.md').render(data=osm_data, type=element_type, identifier=identifier, user_config=user_config)
-            m = Message(chat_id, text, disable_web_page_preview=(not preview))
+            m = Message(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
             bot.sendMessage(m)
 
 def NearestCommand(message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
