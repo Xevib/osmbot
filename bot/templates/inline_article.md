@@ -39,7 +39,7 @@
 {% elif "Europe; Asia" in data.tag["is_in:continent"] -%}
 {{'\U0001F30D'}} {{'\U0001F30F'}} {{_("Eurasian country") }}
 {% endif %}{% endif %}{% if 'flag' in data.tag -%}
-{{'\U0001F6A9'}} {{data.tag['flag']}}
+{{'\U0001F6A9'}} [{{_("Flag")}}]({{data.tag['flag']}})
 {% endif %}{% if 'currency' in data.tag -%}
 {{'\U0001F4B5'}} {{data.tag['currency']}}
 {% endif %}{% if 'timezone' in data.tag -%}
