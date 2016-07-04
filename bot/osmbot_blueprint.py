@@ -679,7 +679,7 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
         answer = InputTextMessageContent(text, 'Markdown')
         result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
         results.append(result)
-    bot.answerInlineQuery(inline_query_id, results, is_personal=True)
+    bot.answerInlineQuery(inline_query_id, results, is_personal=False, cache_time=86400)
 
 
 def answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type):
