@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-26 09:35+0000\n"
+"PO-Revision-Date: 2016-06-28 08:53+0000\n"
 "Last-Translator: Roman Horník <roman.hornik@debian-linux.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/osm-catala/osmbot/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -81,11 +81,11 @@ msgstr "- zatím"
 
 #: bot/osmbot_blueprint.py:105
 msgid "But you can help me to learn it in Transifex"
-msgstr "Ale můžete mne to naučit v Transifexu"
+msgstr "Ale můžete mne to naučit na Transifexu"
 
 #: bot/osmbot_blueprint.py:118
 msgid "Should I answer without a mention?"
-msgstr "Mohu odpovídat při zmínce?"
+msgstr "Mohu odpovídat bez zmínky?"
 
 #: bot/osmbot_blueprint.py:130
 msgid "Choose the language for talk with you"
@@ -97,11 +97,11 @@ msgstr "Co si přejete nastavit?"
 
 #: bot/osmbot_blueprint.py:172
 msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "Pokud vidíte hrozné emoji, je to kvůli tzv. velikonočnímu vajíčku Telegramu"
+msgstr "Pokud vidíte podivné smajlíky emodži, je to kvůli tzv. velikonočnímu vajíčku Telegramu"
 
 #: bot/osmbot_blueprint.py:179
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "Žádná emoji nebyla nalezena, možná to zkuste s /legend <osm_key:value>"
+msgstr "Žádná emodži nebyla nalezena, možná to zkuste s /legend <osm_klíč:hodnota>"
 
 #: bot/osmbot_blueprint.py:193
 msgid "Sorry but I couldn't find any result for \"{0}\""
@@ -210,11 +210,11 @@ msgstr "Prosím, sdělte mi svou pozici"
 
 #: bot/osmbot_blueprint.py:421
 msgid "to receive the map."
-msgstr "k přijetí mapy."
+msgstr "pro přijetí mapy."
 
 #: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
 msgid "You can do it with the Telegram paperclip button"
-msgstr "Můžete tak učinit s tlačítkem sponky Telegramu"
+msgstr "Můžete tak učunit tlačítkem sponky Telegramu"
 
 #: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
 msgid "Sorry, I can't understand you"
@@ -226,13 +226,13 @@ msgstr "Možná vám pomohu příkazem /help"
 
 #: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
 msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "Je mi líto, ale nemohu najít žádný výsledek, ověřte, prosím, ID"
+msgstr "Je mi líto, ale nemohu najít žádný výsledek, ověřte ID, prosím"
 
 #: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr "Omlouvám se, ale v současnosti se mi nedaří rozpoznat značku tohoto elementu, možná tak budu moci udělat s mými novými vlastnostmi"
+msgstr "Omlouvám se, ale zrovna se mi nedaří rozpoznat značku tohoto elementu, možná tak budu moci udělat s mými novými vlastnostmi"
 
 #: bot/osmbot_blueprint.py:583
 msgid "Sorry but this query it's not implemented yet"
@@ -260,7 +260,7 @@ msgstr "Jak vám mohu pomoci?"
 
 #: bot/osmbot_blueprint.py:696
 msgid "Setting not recognized"
-msgstr "Nastavení nerozpoznáno"
+msgstr "Nastavení nebylo rozpoznáno"
 
 #: bot/osmbot_blueprint.py:746
 msgid "OpenStreetMap bot info:"
@@ -276,7 +276,7 @@ msgstr "Autor:"
 
 #: bot/osmbot_blueprint.py:749
 msgid "(Catalan OpenStreetMap community)"
-msgstr "(Katalánská komunita OpenStreetMap)"
+msgstr "(katalánská komunita OpenStreetMap)"
 
 #: bot/osmbot_blueprint.py:750
 msgid "Code"
@@ -308,7 +308,7 @@ msgstr "HODNOCENÍ"
 
 #: bot/osmbot_blueprint.py:755
 msgid "Rating&reviews"
-msgstr "Hodnocení&recenze"
+msgstr "Hodnocení & recenze"
 
 #: bot/osmbot_blueprint.py:756
 msgid "Please rate me"
@@ -316,7 +316,7 @@ msgstr "Ohodnoťte mne, prosím"
 
 #: bot/osmbot_blueprint.py:757
 msgid "Thanks for use @OSMbot!!"
-msgstr "Díky za používání @OSMbot!!"
+msgstr "Díky za používání @OSMbot!!!"
 
 #: bot/osmbot_blueprint.py:760
 msgid "OpenStreetMap bot help:"
@@ -329,16 +329,16 @@ msgstr "Můžete mne ovládat těmito příkazy:"
 #: bot/osmbot_blueprint.py:762
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
-msgstr "/about -Zobrazí informace o OSMbot: credits&code, news a ratings&reviews"
+msgstr "/about -Zobrazí informace o OSMbot: autoři&kód, novinky a hodnocení&recenze"
 
 #: bot/osmbot_blueprint.py:764
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/details<type><osm_id> - Zobrazí některé značky z OSM databáze podle ID."
+msgstr "/details <typ><osm_id> - Zobrazí některé značky z OSM databáze podle ID."
 
 #: bot/osmbot_blueprint.py:766
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "/raw<typ><osm_id> - Zobrazit všechny značky z OSM databáze v surovém formátu."
+msgstr "/raw <typ><osm_id> - Zobrazit všechny značky z OSM databáze v surovém formátu."
 
 #: bot/osmbot_blueprint.py:768
 msgid ""
@@ -357,41 +357,41 @@ msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
-msgstr "/legend <osm_klíč> - Zobrazit v OSMbot seznam párů klíč=hodnota a jejich emoji. Pakliže neuvedete <osm_klíč>, zobrazí se v OSMbot všechny páry klíč=hodnota, včetně emoji."
+msgstr "/legend <osm_klíč> - Zobrazit v OSMbot seznam párů klíč=hodnota a jejich emodži. Pakliže neuvedete <osm_klíč>, zobrazí se v OSMbot všechny páry klíč=hodnota, včetně emodži."
 
 #: bot/osmbot_blueprint.py:774
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "/map <coord> <format> <scale> - Odeslat mapu s jinými možnostmi:"
+msgstr "/map <souřadnice> <formát> <měřítko> - Odeslat mapu s jinými parametry:"
 
 #: bot/osmbot_blueprint.py:776
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
-msgstr "<coord> Může být bod (Latituda,longituda), nebo ohraničení (MinLongituda,MinLatituda,MaxLongituda,MaxLatituda). Pakliže tuto volbu nepoužijete, použije se vaše aktuální pozice."
+msgstr "<souřadnice> Může být bod (latituda,longituda), nebo ohraničení (MinLongituda,MinLatituda,MaxLongituda,MaxLatituda). Pakliže tuto volbu nepoužijete, použije se vaše aktuální pozice."
 
 #: bot/osmbot_blueprint.py:778
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
-msgstr "<format> Může být png, jpeg, nebo pdf. Pokud této volby nevyužijete, jako výchozí formát se použije png."
+msgstr "<formát> Může být png, jpeg, nebo pdf. Pokud této volby nevyužijete, jako výchozí formát se použije png."
 
 #: bot/osmbot_blueprint.py:780
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
-msgstr "<scale> úroveň přiblížení (1-19). Pakliže tuto volbu nepoužijete, bot použije výchozí hodnotu přiblížení 19."
+msgstr "<měřítko> úroveň přiblížení (1-19). Pakliže tuto volbu nepoužijete, bot použije výchozí hodnotu přiblížení 19."
 
 #: bot/osmbot_blueprint.py:782
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr "/search <vyhledávaný_termín> - Vyhledat z Nominatimu v celé databázi OpenStreetMap."
+msgstr "/search <vyhledávaný termín> - Vyhledat z Nominatimu v celé databázi OpenStreetMap."
 
 #: bot/osmbot_blueprint.py:784
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr "/nearest <typ> <volitelně metry> - Prohledsat okolí elementu v zadaném okruhu"
+msgstr "/nearest <typ> <volitelně metry> - Prohledat okolí elementu v zadaném okruhu"
 
 #: bot/osmbot_blueprint.py:793
 msgid ""
@@ -430,7 +430,7 @@ msgstr "Bot umí z OSM posílat odkazy a mapy (jpg, png, nebo pdf)"
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
-msgstr "Údaje pro celý svět (města a obce, obchody - s telefonními čísly, emailovou adresou, odkazy z Wikipedia atd.)"
+msgstr "Údaje pro celý svět (města a obce, obchody - s telefonními čísly, emailovou adresou, odkazy z Wikipedie atd.)"
 
 #: bot/osmbot_blueprint.py:889
 msgid "OSMbot is multilingual and speaks *your language here*"
