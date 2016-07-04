@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-07-02 08:25+0000\n"
+"PO-Revision-Date: 2016-07-04 06:33+0000\n"
 "Last-Translator: Shu Higashi <higa432@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/osm-catala/osmbot/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "地図が大きすぎます！"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "Please, reduce the bounding box"
-msgstr "囲み範囲かズームレベルを"
+msgstr "囲み範囲(bbox)かズームレベルを"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "or the scale (zoom level)"
@@ -34,7 +34,7 @@ msgstr "もう少し小さくしてみてください"
 
 #: bot/maptools.py:47
 msgid "Invalid bounding box!"
-msgstr "囲み範囲が適切じゃないようです！"
+msgstr "囲み範囲(bbox)が適切じゃないようです！"
 
 #: bot/maptools.py:47
 msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
@@ -54,7 +54,7 @@ msgstr "おっと、エラーが起きたようです"
 
 #: bot/maptools.py:49
 msgid "You can try with another bounding box or scale (zoom level)"
-msgstr "違う囲み範囲やズームレベルを試してみて"
+msgstr "違う囲み範囲(bbox)やズームレベルを試してみてください"
 
 #: bot/maptools.py:49
 msgid "Good luck! "
@@ -62,11 +62,11 @@ msgstr "幸運を！"
 
 #: bot/osmbot_blueprint.py:71
 msgid "Now I only will answer when mention"
-msgstr "メンションがあった時だけお答えモードです"
+msgstr "メンションがあった時だけお答えします"
 
 #: bot/osmbot_blueprint.py:77
 msgid "Now I always will answer"
-msgstr "いつでもお答えモードです"
+msgstr "いつでもお答えします"
 
 #: bot/osmbot_blueprint.py:91
 msgid "Now I will talk you with the new language"
@@ -78,19 +78,19 @@ msgstr "残念！この言語は話せないのです"
 
 #: bot/osmbot_blueprint.py:104
 msgid "yet"
-msgstr "いまのところ"
+msgstr "いまのところは"
 
 #: bot/osmbot_blueprint.py:105
 msgid "But you can help me to learn it in Transifex"
-msgstr "よければTransifex で翻訳を手伝ってね"
+msgstr "よければTransifexで翻訳を手伝ってください"
 
 #: bot/osmbot_blueprint.py:118
 msgid "Should I answer without a mention?"
-msgstr "メンションなしで答えるよ？"
+msgstr "メンションなしで答えましょうか？"
 
 #: bot/osmbot_blueprint.py:130
 msgid "Choose the language for talk with you"
-msgstr "あなたと話す言語を選んでね"
+msgstr "あなたとお話する言語を選んでください"
 
 #: bot/osmbot_blueprint.py:147
 msgid "What do you want to configure?"
@@ -98,19 +98,19 @@ msgstr "構成をどうしますか？"
 
 #: bot/osmbot_blueprint.py:172
 msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "ヘンな絵文字が見えたらそれはきっとTelegram のイースターエッグのせい"
+msgstr "ヘンな絵文字が見えたらそれはきっとTelegramのイースターエッグのせいです"
 
 #: bot/osmbot_blueprint.py:179
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "絵文字が何も見えないときは、これを試してみて /legend <osmキー:値>"
+msgstr "絵文字が何も見えないときは、これを試してみてね /legend <osmキー:値>"
 
 #: bot/osmbot_blueprint.py:193
 msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "ごめんなさい、\"{0}\"の結果が見つかりません"
+msgstr "ごめんなさい、 \"{0}\" の検索結果が見つかりません"
 
 #: bot/osmbot_blueprint.py:193
 msgid "But you can try to improve OpenStreetMap"
-msgstr "でもOpenStreetMapはあなたが自分で改善できます"
+msgstr "でもOpenStreetMapはあなたが自分で改善することもできますよ！"
 
 #: bot/osmbot_blueprint.py:197
 msgid "Results for"
@@ -219,7 +219,7 @@ msgstr "Telegramの紙クリップボタンで現在地の座標を取れます"
 
 #: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
 msgid "Sorry, I can't understand you"
-msgstr "ごめんなさい、ちょっと分かりません"
+msgstr "ごめんなさい、内容を解釈できません"
 
 #: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
 msgid "Perhaps I could help you with the command /help"
@@ -227,13 +227,13 @@ msgstr "/help コマンドを使ってもらうといいかも"
 
 #: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
 msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "ごめんなさい、検索結果が見当たらないみたい。IDを確認してみてもらえますか？"
+msgstr "ごめんなさい、検索結果が見当たらないようです。OSMのIDを確認してみてもらえますか？"
 
 #: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr "ごめんなさい、今はこの要素のタグを認識できません。いずれ機能拡張したらね。"
+msgstr "ごめんなさい、今はこの要素のタグを認識できません。いずれ機能拡張した際に対応するかもしれません。"
 
 #: bot/osmbot_blueprint.py:583
 msgid "Sorry but this query it's not implemented yet"
@@ -245,7 +245,7 @@ msgstr "一番近い要素を送信します"
 
 #: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
 msgid "Raw data for"
-msgstr "次のための生データ"
+msgstr "生データ："
 
 #: bot/osmbot_blueprint.py:637 bot/osmbot_blueprint.py:652
 msgid "Raw data"
@@ -253,7 +253,7 @@ msgstr "生データ"
 
 #: bot/osmbot_blueprint.py:671
 msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "やあ、私はOpenStreetMapデータ用のボットです"
+msgstr "やあ、こちらはOpenStreetMapデータ用のボットです"
 
 #: bot/osmbot_blueprint.py:671
 msgid "How I can help you?"
@@ -313,11 +313,11 @@ msgstr "評価とレビュー"
 
 #: bot/osmbot_blueprint.py:756
 msgid "Please rate me"
-msgstr "僕を評価してください"
+msgstr "私を評価してください"
 
 #: bot/osmbot_blueprint.py:757
 msgid "Thanks for use @OSMbot!!"
-msgstr "@OSMbot ご利用ありがとう!!"
+msgstr "@OSMbot のご利用ありがとう!!"
 
 #: bot/osmbot_blueprint.py:760
 msgid "OpenStreetMap bot help:"
@@ -325,7 +325,7 @@ msgstr "OpenStreetMapボットのヘルプ:"
 
 #: bot/osmbot_blueprint.py:760
 msgid "You can control me by sending these commands:"
-msgstr "これらのコマンドを送ると私をコントロールできます"
+msgstr "以下のコマンドを送ると私をコントロールできます"
 
 #: bot/osmbot_blueprint.py:762
 msgid ""
@@ -334,18 +334,18 @@ msgstr "/about - OSMbotについてクレジットとコード、ニュース、
 
 #: bot/osmbot_blueprint.py:764
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/details<種別(nod/way/rel)><osm_id> - IDを元にOSMデータベースから取得したタグを一部表示。"
+msgstr "/details<種別(nod/way/rel)><osm_id> - OSMのIDを元にOSMデータベースから取得したタグを一部表示。"
 
 #: bot/osmbot_blueprint.py:766
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "/raw<種別(nod/way/rel)><osm_id> - IDを元にOSMデータベースから取得したタグを生の形式で全て表示。"
+msgstr "/raw<種別(nod/way/rel)><osm_id> - OSMのIDを元にOSMデータベースから取得したタグを生の形式で全て表示。"
 
 #: bot/osmbot_blueprint.py:768
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
-msgstr "IDは /search コマンドが生成しますが、自分でOSM IDを知っている場合はそれを試してください。"
+msgstr "OSMのIDは /search コマンドの検索結果に /detailsコマンド等に続けて自動表示されますが、OSM IDが分かっている場合は/detailsコマンドなどに続けて直接その値を指定してください（例：/details<種別><osm_id>）。"
 
 #: bot/osmbot_blueprint.py:770
 msgid ""
@@ -435,4 +435,4 @@ msgstr "全世界向けのデータ(都市、電話番号、email等のあるお
 
 #: bot/osmbot_blueprint.py:889
 msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "OSMbot は多言語対応しており、「こちらにあるあなたの言語」を話します"
+msgstr "OSMbot は多言語対応しており、日本語を話します"
