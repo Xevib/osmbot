@@ -73,7 +73,7 @@
 
 {% if 'ref' in data.tag %}
 {{'\U0001F6E3'}} {{data.tag['ref']}}
-{% if 'phone' in data.tag %}
+{% endif %}{% if 'phone' in data.tag %}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
 {% endif %}{% if 'contact:phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['contact:phone']}}
