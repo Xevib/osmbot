@@ -91,6 +91,26 @@
 {{'\U0001F55E'}} {{data.tag['opening_hours']}}
 {% endif %}{% if 'internet_access' in data.tag -%}
 {{'\U0001F4F6'}} {{data.tag['internet_access']}}
+{% endif %}{% if '1' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}
+{% elif '1S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002795'}}
+{% elif '2' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '2S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% elif '3' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '3S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% elif '4' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '4S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% elif '5' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '5S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
 {% endif %}{% if 'toilets' in data.tag -%}
 {{'\U0001F6BE'}} {{data.tag['toilets']}}
 {% endif %}{% if 'wheelchair' in data.tag -%}
