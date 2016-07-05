@@ -155,7 +155,7 @@
 {{'\U0001F4D7'}} [{{_("Wikidata")}}](https://www.wikidata.org/wiki/{{data.tag["wikidata"]}})
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}
-{{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]}})
+{{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|replace(' ','%20')}})
 {%- endif %}
 
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
