@@ -1,10 +1,10 @@
-{% if 'name' in data.tag %}{% if not user_config['lang_set'] %}
-{{ _("Tags for")}} {{data.tag['name']}}
-{% else %}{% if 'name:' + user_config['lang'] in data.tag %}
-{{ _('Tags for') }} {{data.tag['name:'+user_config['lang']]}}
-{% else %}
-{{ _("Tags for")}} {{data.tag['name']}}
-{% endif %}{% endif %}{% endif -%}
+{% if 'name' in data.tag %}{% if not user_config['lang_set'] -%}
+*{{ _("Tags for")}} {{data.tag['name']}} *
+{% else %}{% if 'name:' + user_config['lang'] in data.tag -%}
+*{{ _('Tags for') }} {{data.tag['name:'+user_config['lang']]}} *
+{% else -%}
+*{{ _("Tags for")}} {{data.tag['name']}} *
+{% endif %}{% endif %}{% endif %}
 {% if data.tag.admin_level == '2' -%}
 {% if 'Europe' in data.tag['is_in:continent'] -%}
 {{'\U0001F30D'}} {{_("European country")}}
@@ -44,8 +44,19 @@
 {{'\U0001F4B5'}} {{data.tag['currency']}}
 {% endif %}{% if 'timezone' in data.tag -%}
 {{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']}}
-{% endif %}{% if 'addr:housenumber' and 'addr:street' in data.tag %}{{'\U0001F4EE'}} {{data.tag['addr:street']}},{{data.tag['addr:housenumber']}}{% endif %}{% if 'addr:housenumber' in data.tag %}{{'\U0001F4EE'}}  {{data.tag['addr:housenumber']}}{% endif %}{% if 'addr:street' in data.tag -%}{{'\U0001F4EE'}} {{data.tag['addr:street']}}{% endif %}{% if 'addr:city' in data.tag -%}{{ data.tag['addr:city']}}{% endif -%}{% if 'addr:country' in data.tag -%} {{data.tag['addr:country']}}
-{% endif %}{% if 'phone' in data.tag -%}
+{% endif %}{% if 'addr:housenumber' and 'addr:street' in data.tag -%}
+{{'\U0001F4EE'}} {{data.tag['addr:street']}}, {{data.tag['addr:housenumber']}}
+{% else %}{% if 'addr:housenumber' in data.tag -%}
+{{'\U0001F4EE'}} {{data.tag['addr:housenumber']}}
+{% else %}{% if 'addr:street' in data.tag -%}
+{{'\U0001F4EE'}} {{data.tag['addr:street']}}
+{% endif %}{% endif %}{% endif %}{% if 'addr:city' in data.tag -%}
+  {{ data.tag['addr:city']}}
+{% endif -%}{% if 'addr:country' in data.tag -%}
+  {{data.tag['addr:country']}}
+{% endif -%}
+
+{% if 'phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
 {% endif %}{% if 'contact:phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['contact:phone']}}
@@ -68,7 +79,9 @@
 {% endif %}{% endif -%}
 {% if 'ele' in data.tag %}
 {{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
-{% endif -%}{% if 'wikidata' in data.tag -%}
+{% endif -%}
+
+{% if 'wikidata' in data.tag -%}
 {{'\U0001F4D7'}} [{{_("Wikidata")}}](https://www.wikidata.org/wiki/{{data.tag["wikidata"]}})
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}

@@ -3,435 +3,435 @@
 # This file is distributed under the same license as the PROJECT project.
 # 
 # Translators:
-# Roman Horník <roman.hornik@debian-linux.cz>, 2016
+# andygol, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-28 08:53+0000\n"
-"Last-Translator: Roman Horník <roman.hornik@debian-linux.cz>\n"
-"Language-Team: Czech (Czech Republic) (http://www.transifex.com/osm-catala/osmbot/language/cs_CZ/)\n"
+"PO-Revision-Date: 2016-07-03 18:16+0000\n"
+"Last-Translator: andygol\n"
+"Language-Team: Ukrainian (http://www.transifex.com/osm-catala/osmbot/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
-"Language: cs_CZ\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "Map too large!"
-msgstr "Mapa je příliš velká!"
+msgstr "Територія завелика!"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "Please, reduce the bounding box"
-msgstr "Prosím, zmenšete ohraničení"
+msgstr "Будь ласка, зменшіть виділену ділянку"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "or the scale (zoom level)"
-msgstr "nebo měřítko (úroveň přiblížení)"
+msgstr "або масштаб (збільшення)"
 
 #: bot/maptools.py:47
 msgid "Invalid bounding box!"
-msgstr "Neplatné ohraničení!"
+msgstr "Неправильне виділення!"
 
 #: bot/maptools.py:47
 msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
-msgstr "Prosím, zkuste s /map minLongituda,minLatituda,maxLongituda,maxLatituda"
+msgstr "Будь ласка, спробуте /map minlon,minlat,maxlon,maxlat"
 
 #: bot/maptools.py:47
 msgid "Coordinates' decimals need to be marked with a dot."
-msgstr "Použijte desetinnou tečku pro oddělení desetinných míst souřadnic."
+msgstr "Крапка – десятковий розділювач."
 
 #: bot/maptools.py:47
 msgid "For example:"
-msgstr "Například:"
+msgstr "Нприклад:"
 
 #: bot/maptools.py:49
 msgid "Oh,oh... An error occurred"
-msgstr "Ou, ou... došlo k chybě"
+msgstr "Ой, ой… Сталася помилка"
 
 #: bot/maptools.py:49
 msgid "You can try with another bounding box or scale (zoom level)"
-msgstr "Můžete zkusit jiné ohraničení, nebo jiné měřítko (úroveň přiblížení)"
+msgstr "Спробуйте виділити ділянку заново або інший масштаб (наближення)"
 
 #: bot/maptools.py:49
 msgid "Good luck! "
-msgstr "Hodně štěstí!"
+msgstr "Нехай щастить!"
 
 #: bot/osmbot_blueprint.py:71
 msgid "Now I only will answer when mention"
-msgstr "Nyní budu odpovídat při zmínce"
+msgstr "Тепер я буду відповідати тільки, якщо мене згадують"
 
 #: bot/osmbot_blueprint.py:77
 msgid "Now I always will answer"
-msgstr "Nyní budu vždy odpovídat"
+msgstr "Тепер я завжди буду відповідати"
 
 #: bot/osmbot_blueprint.py:91
 msgid "Now I will talk you with the new language"
-msgstr "Nyní s vámi budu komunikovat novým jazykem"
+msgstr "Тепер я буду спілкуватись з вами іншою мовою"
 
 #: bot/osmbot_blueprint.py:103
 msgid "Ooops! I can't talk this language"
-msgstr "Jejda! Ještě neovládám tento jazyk"
+msgstr "От халепа! Я не знаю цієї мови"
 
 #: bot/osmbot_blueprint.py:104
 msgid "yet"
-msgstr "- zatím"
+msgstr "покищо"
 
 #: bot/osmbot_blueprint.py:105
 msgid "But you can help me to learn it in Transifex"
-msgstr "Ale můžete mne to naučit na Transifexu"
+msgstr "Але ви можете допомгти мені її вивчити на Transifex"
 
 #: bot/osmbot_blueprint.py:118
 msgid "Should I answer without a mention?"
-msgstr "Mohu odpovídat bez zmínky?"
+msgstr "Чи треба мені відпівдати без нагадування?"
 
 #: bot/osmbot_blueprint.py:130
 msgid "Choose the language for talk with you"
-msgstr "Zvolte jazyk, se kterým s vámi budu komunikovat"
+msgstr "Оберіть мову для спілкування"
 
 #: bot/osmbot_blueprint.py:147
 msgid "What do you want to configure?"
-msgstr "Co si přejete nastavit?"
+msgstr "Що ви бажаєте налаштувати?"
 
 #: bot/osmbot_blueprint.py:172
 msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "Pokud vidíte podivné smajlíky emodži, je to kvůli tzv. velikonočnímu vajíčku Telegramu"
+msgstr "Якщо вам трапляються якісь дивні емоджи, це через \"крашанки\" в Telegram"
 
 #: bot/osmbot_blueprint.py:179
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "Žádná emodži nebyla nalezena, možná to zkuste s /legend <osm_klíč:hodnota>"
+msgstr "Емоджи відсутній, спробуйте /legend <osm_key:value>"
 
 #: bot/osmbot_blueprint.py:193
 msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "Je mi líto, ale nemohu najít výsledek pro \"{0}\""
+msgstr "На жаль, але я не можу вам нічого відповісти на \"{0}\""
 
 #: bot/osmbot_blueprint.py:193
 msgid "But you can try to improve OpenStreetMap"
-msgstr "Ale můžete se pokusit vylepšit OpenStreetMap"
+msgstr "Але ви можете спробувати покращити OpenStreetMap"
 
 #: bot/osmbot_blueprint.py:197
 msgid "Results for"
-msgstr "Výsledky pro"
+msgstr "Результати для"
 
 #: bot/osmbot_blueprint.py:211
 msgid "Map"
-msgstr "Mapa"
+msgstr "Мапа"
 
 #: bot/osmbot_blueprint.py:214 bot/osmbot_blueprint.py:216
 #: bot/osmbot_blueprint.py:218 bot/osmbot_blueprint.py:220
 #: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
 #: bot/osmbot_blueprint.py:229 bot/osmbot_blueprint.py:231
 msgid "More info"
-msgstr "Více informací"
+msgstr "Більш докладно"
 
 #: bot/osmbot_blueprint.py:221
 msgid "Phone"
-msgstr "Telefon"
+msgstr "Телефон"
 
 #: bot/osmbot_blueprint.py:233 bot/osmbot_blueprint.py:390
 #: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:653
 msgid "OpenStreetMap contributors"
-msgstr "Přispěvatelé OpenStreetMap"
+msgstr "Учасники OpenStreetMap"
 
 #: bot/osmbot_blueprint.py:282
 msgid "No element found"
-msgstr "Žádný element nenalezen"
+msgstr "Елемент не знайдено"
 
 #: bot/osmbot_blueprint.py:290 bot/osmbot_blueprint.py:293
 #: bot/osmbot_blueprint.py:295
 msgid "Tags for"
-msgstr "Značky pro"
+msgstr "Теґи для"
 
 #: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:299
 msgid "European country"
-msgstr "Evropu"
+msgstr "Країна в Європі"
 
 #: bot/osmbot_blueprint.py:301
 msgid "African country"
-msgstr "Afriku"
+msgstr "Країна в Африці"
 
 #: bot/osmbot_blueprint.py:303 bot/osmbot_blueprint.py:305
 #: bot/osmbot_blueprint.py:307
 msgid "South american country"
-msgstr "Jižní Ameriku"
+msgstr "Країна в Південній Америці"
 
 #: bot/osmbot_blueprint.py:309 bot/osmbot_blueprint.py:311
 msgid "North american country"
-msgstr "Severní Ameriku"
+msgstr "Країна в Північній Америці"
 
 #: bot/osmbot_blueprint.py:313
 msgid "Central american country"
-msgstr "Střední Ameriku"
+msgstr "Країна Центральної Америки"
 
 #: bot/osmbot_blueprint.py:315 bot/osmbot_blueprint.py:317
 msgid "American country"
-msgstr "Americký kontinent"
+msgstr "Країна в Америці"
 
 #: bot/osmbot_blueprint.py:319
 msgid "Asian country"
-msgstr "Asii"
+msgstr "Країна в Азії"
 
 #: bot/osmbot_blueprint.py:321 bot/osmbot_blueprint.py:323
 msgid "Oceanian country"
-msgstr "Oceánii"
+msgstr "Країна в Океанії"
 
 #: bot/osmbot_blueprint.py:325 bot/osmbot_blueprint.py:327
 msgid "Eurasian country"
-msgstr "Eurasijský kontinent"
+msgstr "Країна в Євразії"
 
 #: bot/osmbot_blueprint.py:364 bot/osmbot_blueprint.py:366
 msgid "inhabitants"
-msgstr "obyvatel"
+msgstr "мешканців"
 
 #: bot/osmbot_blueprint.py:364
 msgid "at"
-msgstr "na"
+msgstr "у"
 
 #: bot/osmbot_blueprint.py:369
 msgid "meters"
-msgstr "metrech"
+msgstr "метрів"
 
 #: bot/osmbot_blueprint.py:382
 msgid "Raw data:"
-msgstr "Surová data:"
+msgstr "Сирі дані:"
 
 #: bot/osmbot_blueprint.py:409 bot/osmbot_blueprint.py:411
 #: bot/osmbot_blueprint.py:456 bot/osmbot_blueprint.py:459
 #: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
 #: bot/osmbot_blueprint.py:502
 msgid "OSM contributors"
-msgstr "Přispěvatelé OSM"
+msgstr "Учасники OSM"
 
 #: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
 msgid "Please send me your location"
-msgstr "Prosím, sdělte mi svou pozici"
+msgstr "Надайте мені, будь ласка, ваші координати"
 
 #: bot/osmbot_blueprint.py:421
 msgid "to receive the map."
-msgstr "pro přijetí mapy."
+msgstr "для отримання мапи."
 
 #: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
 msgid "You can do it with the Telegram paperclip button"
-msgstr "Můžete tak učunit tlačítkem sponky Telegramu"
+msgstr "Ви можете зробити це за допомогою кнопки зі скрепкою в Telegram"
 
 #: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
 msgid "Sorry, I can't understand you"
-msgstr "Promiňte, ale nerozumím"
+msgstr "Шкода, але я вас не розумію."
 
 #: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
 msgid "Perhaps I could help you with the command /help"
-msgstr "Možná vám pomohu příkazem /help"
+msgstr "Можливо вам допоможе команда /help"
 
 #: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
 msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "Je mi líto, ale nemohu najít žádný výsledek, ověřte ID, prosím"
+msgstr "Вибачте, але я не зміг знайти жодного результату, будь ласка, перевірте ID"
 
 #: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr "Omlouvám se, ale zrovna se mi nedaří rozpoznat značku tohoto elementu, možná tak budu moci udělat s mými novými vlastnostmi"
+msgstr "На жаль, але зараз я не можу розпізнати теґи для цього елемента, але згодом я це зроблю"
 
 #: bot/osmbot_blueprint.py:583
 msgid "Sorry but this query it's not implemented yet"
-msgstr "Promiňte, ale tento dotaz doposud nebyl implementován"
+msgstr "Вибачте, цей тип запитів покищо не підтримується"
 
 #: bot/osmbot_blueprint.py:602
 msgid "and I'll send you the nearest element"
-msgstr "a pošlu vám nejbližší element"
+msgstr "я надішлю вам найближчий елемент"
 
 #: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
 msgid "Raw data for"
-msgstr "Surová data pro"
+msgstr "Необроблені дані для"
 
 #: bot/osmbot_blueprint.py:637 bot/osmbot_blueprint.py:652
 msgid "Raw data"
-msgstr "Surová data"
+msgstr "Необроблені дані"
 
 #: bot/osmbot_blueprint.py:671
 msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "Zdar, jsem robot pro OpenStreetMap data"
+msgstr "Привіт, Я бот для даних OpenStreetMap"
 
 #: bot/osmbot_blueprint.py:671
 msgid "How I can help you?"
-msgstr "Jak vám mohu pomoci?"
+msgstr "Чим можу стати вам в нагоді?"
 
 #: bot/osmbot_blueprint.py:696
 msgid "Setting not recognized"
-msgstr "Nastavení nebylo rozpoznáno"
+msgstr "Параметр не роспізнано"
 
 #: bot/osmbot_blueprint.py:746
 msgid "OpenStreetMap bot info:"
-msgstr "Informace o OpenStreetMap bot:"
+msgstr "Інформація про бота OpenStreetMap:"
 
 #: bot/osmbot_blueprint.py:747
 msgid "CREDITS&CODE"
-msgstr "AUTOŘI&KÓD"
+msgstr "АВТОРИ та КОД"
 
 #: bot/osmbot_blueprint.py:748
 msgid "Author:"
-msgstr "Autor:"
+msgstr "Автор:"
 
 #: bot/osmbot_blueprint.py:749
 msgid "(Catalan OpenStreetMap community)"
-msgstr "(katalánská komunita OpenStreetMap)"
+msgstr "(Каталонське співтовариство OpenStreetMap)"
 
 #: bot/osmbot_blueprint.py:750
 msgid "Code"
-msgstr "Kód"
+msgstr "Код"
 
 #: bot/osmbot_blueprint.py:751
 msgid "License: GPLv3"
-msgstr "Licence: GPLv3"
+msgstr "Ліцензія: GPLv3"
 
 #: bot/osmbot_blueprint.py:751
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
-msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.uk.html"
 
 #: bot/osmbot_blueprint.py:752
 msgid "Localization"
-msgstr "Lokalizace"
+msgstr "Переклад"
 
 #: bot/osmbot_blueprint.py:753
 msgid "NEWS"
-msgstr "NOVINKY"
+msgstr "НОВИНИ"
 
 #: bot/osmbot_blueprint.py:754
 msgid "Telegram channel"
-msgstr "Kanál Telegramu"
+msgstr "Канал Telegram"
 
 #: bot/osmbot_blueprint.py:755
 msgid "RATING"
-msgstr "HODNOCENÍ"
+msgstr "РЕЙТИНГ"
 
 #: bot/osmbot_blueprint.py:755
 msgid "Rating&reviews"
-msgstr "Hodnocení & recenze"
+msgstr "Рейтинги та огляди"
 
 #: bot/osmbot_blueprint.py:756
 msgid "Please rate me"
-msgstr "Ohodnoťte mne, prosím"
+msgstr "Будь ласка, оцініть мене"
 
 #: bot/osmbot_blueprint.py:757
 msgid "Thanks for use @OSMbot!!"
-msgstr "Díky za používání @OSMbot!!!"
+msgstr "Дякую за користування @OSMbot!!"
 
 #: bot/osmbot_blueprint.py:760
 msgid "OpenStreetMap bot help:"
-msgstr "Nápověda OpenStreetMap bot:"
+msgstr "Довідка бота OpenStreetMap:"
 
 #: bot/osmbot_blueprint.py:760
 msgid "You can control me by sending these commands:"
-msgstr "Můžete mne ovládat těmito příkazy:"
+msgstr "Ви можете керувати мною надсилаючи команди:"
 
 #: bot/osmbot_blueprint.py:762
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
-msgstr "/about -Zobrazí informace o OSMbot: autoři&kód, novinky a hodnocení&recenze"
+msgstr "/about – Показує інформацію про OSMbot: авторів та код, новини, а також рейтинги та огляди"
 
 #: bot/osmbot_blueprint.py:764
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/details <typ><osm_id> - Zobrazí některé značky z OSM databáze podle ID."
+msgstr "/details<type><osm_id> – Показує теґи з бази даних OSM по ID об'єкта."
 
 #: bot/osmbot_blueprint.py:766
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "/raw <typ><osm_id> - Zobrazit všechny značky z OSM databáze v surovém formátu."
+msgstr "/raw<type><osm_id> – Показує теґи з бази даних OSM по ID об'єкта в первісному вигляді."
 
 #: bot/osmbot_blueprint.py:768
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
-msgstr "ID je generováno příkazem /search, ale pokud znáte OSM ID, můžete to s ním zkusit."
+msgstr "ID можна дізнатись командою /search, але згодиться й OSM ID, якщо він відомий."
 
 #: bot/osmbot_blueprint.py:770
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
-msgstr "Typ je volitelný a může být nod(uzel), way(cesta) nebo rel(vztah). Pokud je nezadáte, bot se je pokusí odvodit"
+msgstr "Тип є необов'язковим, він моде бути nod(точка), way(лінія) або rel(зв'язок). Якщо ви його не зазначете бот спробує вгадати його"
 
 #: bot/osmbot_blueprint.py:772
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
-msgstr "/legend <osm_klíč> - Zobrazit v OSMbot seznam párů klíč=hodnota a jejich emodži. Pakliže neuvedete <osm_klíč>, zobrazí se v OSMbot všechny páry klíč=hodnota, včetně emodži."
+msgstr "/legend <osm_key>  – Показує перелік пар key=value та їх емоджи в OSMbot. Якщо ви не вкажете <osm_key>, покаже всі пари key=value з їх емоджи Osmbot"
 
 #: bot/osmbot_blueprint.py:774
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "/map <souřadnice> <formát> <měřítko> - Odeslat mapu s jinými parametry:"
+msgstr "/map <координати> <формат> <масштаб> – Показує мапу з різними параметрами:"
 
 #: bot/osmbot_blueprint.py:776
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
-msgstr "<souřadnice> Může být bod (latituda,longituda), nebo ohraničení (MinLongituda,MinLatituda,MaxLongituda,MaxLatituda). Pakliže tuto volbu nepoužijete, použije se vaše aktuální pozice."
+msgstr "<координати> – це може бути точка (шир,дов) або прямокутник (мін_дов,мін_шир,макс_дов,макс_шир). Якщо ви не використовуєте цей параметр може відправити своє місце розташування"
 
 #: bot/osmbot_blueprint.py:778
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
-msgstr "<formát> Může být png, jpeg, nebo pdf. Pokud této volby nevyužijete, jako výchozí formát se použije png."
+msgstr "<формат> – це може бути png, jpeg або pdf. Якщо ви не використовуєте цю опцію, бот буде використовувати, типово, png"
 
 #: bot/osmbot_blueprint.py:780
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
-msgstr "<měřítko> úroveň přiblížení (1-19). Pakliže tuto volbu nepoužijete, bot použije výchozí hodnotu přiblížení 19."
+msgstr "<масштаб> – рівень масштабу (1-19). Якщо ви не використовуєте цю опцію, бот  буде використовувати, типово, 19"
 
 #: bot/osmbot_blueprint.py:782
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr "/search <vyhledávaný termín> - Vyhledat z Nominatimu v celé databázi OpenStreetMap."
+msgstr "/search <що_шукати> – Шукає об'єкти в базі OpenStreetMap за допомогою Nominatim."
 
 #: bot/osmbot_blueprint.py:784
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr "/nearest <typ> <volitelně metry> - Prohledat okolí elementu v zadaném okruhu"
+msgstr "/nearest <тип> <радіус> – Шукає в Overpass елемент в межах вказаного кола"
 
 #: bot/osmbot_blueprint.py:793
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
-msgstr "Prosím, uveďte co hledáte příkazem /search <vyhledávaný_termín>"
+msgstr "Будь ласка, зазначте що вам потрібно знайти командою /search <пошуковий_рядок>"
 
 #: bot/osmbot_blueprint.py:799
 msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "Použijte příkaz /search <vyhledávaný_termín> pro vyhledávání"
+msgstr "Використовуйте команду /search <пошуковий_рядок>, щоб зазначити що ви шукаєте"
 
 #: bot/osmbot_blueprint.py:872
 msgid "Something failed"
-msgstr "Něco se pokazilo"
+msgstr "Щось сталось не те"
 
 #: bot/osmbot_blueprint.py:873
 msgid "please try it latter"
-msgstr "zkuste to později, prosím"
+msgstr "спробуйте іншим разом"
 
 #: bot/osmbot_blueprint.py:885
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
-msgstr "OpenStreetMap bot hledá jakékoliv místo na světě z OSM databáze Nominatim a může odesílat odkazy a mapy z OSM"
+msgstr "OpenStreetMap бот шукає будь-яке місце в світі в базі даних OSM за допомогою Nominatim і може давати вам посилання на нього на мапі OSM"
 
 #: bot/osmbot_blueprint.py:886
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
-msgstr "OpenStreetMap bot vyhledává jakékoliv místo na světě z OSM databáze Nominatim"
+msgstr "Бот OpenStreetMap здійснює пошук місць в світі за допомогою Nominatim в базі  OSM"
 
 #: bot/osmbot_blueprint.py:887
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
-msgstr "Bot umí z OSM posílat odkazy a mapy (jpg, png, nebo pdf)"
+msgstr "Бот може надсилати посилання та мапи (jpg, png або pdf) з OSM "
 
 #: bot/osmbot_blueprint.py:888
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
-msgstr "Údaje pro celý svět (města a obce, obchody - s telefonními čísly, emailovou adresou, odkazy z Wikipedie atd.)"
+msgstr "Дані з усього світу (міста та селища, магазини -з номерами телефонів, є-поштою…-, посиланнями на Вікіпедію й т.д.)"
 
 #: bot/osmbot_blueprint.py:889
 msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "OSMbot je vícejazyčný, umí i česky"
+msgstr "OSMbot знає багато мов, однією з яких є українська"
