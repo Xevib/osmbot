@@ -44,19 +44,36 @@
 {{'\U0001F4B5'}} {{data.tag['currency']}}
 {% endif %}{% if 'timezone' in data.tag -%}
 {{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']}}
+{% endif %}{% if 'addr:full' in data.tag -%}
+{{'\U0001F4EC'}} {{data.tag['addr:full']}}
+
 {% endif %}{% if 'addr:housenumber' and 'addr:street' in data.tag -%}
 {{'\U0001F4EE'}} {{data.tag['addr:street']}}, {{data.tag['addr:housenumber']}}
 {% else %}{% if 'addr:housenumber' in data.tag -%}
 {{'\U0001F4EE'}} {{data.tag['addr:housenumber']}}
 {% else %}{% if 'addr:street' in data.tag -%}
 {{'\U0001F4EE'}} {{data.tag['addr:street']}}
-{% endif %}{% endif %}{% endif %}{% if 'addr:city' in data.tag -%}
+{% endif %}{% endif %}{% endif %}{% if 'addr:housename' in data.tag -%}
+  {{ data.tag['addr:housename']}}
+{% endif %}{% if 'addr:city' in data.tag -%}
   {{ data.tag['addr:city']}}
+{% endif %}{% if 'addr:postcode' in data.tag -%}
+  {{ data.tag['addr:postcode']}}
+{% endif -%}{% if 'addr:district' in data.tag -%}
+  {{data.tag['addr:district']}}
+{% endif -%}{% if 'addr:suburb' in data.tag -%}
+  {{data.tag['addr:suburb']}}
+{% endif -%}{% if 'addr:province' in data.tag -%}
+  {{data.tag['addr:province']}}
+{% endif -%}{% if 'addr:state' in data.tag -%}
+  {{data.tag['addr:state']}}
 {% endif -%}{% if 'addr:country' in data.tag -%}
   {{data.tag['addr:country']}}
 {% endif -%}
 
-{% if 'phone' in data.tag -%}
+{% if 'ref' in data.tag %}
+{{'\U0001F6E3'}} {{data.tag['ref']}}
+{% if 'phone' in data.tag %}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
 {% endif %}{% if 'contact:phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['contact:phone']}}
@@ -64,21 +81,46 @@
 {{'\U0001F4E0'}} {{data.tag['fax']}}
 {% endif %}{% if 'email' in data.tag -%}
 {{'\U00002709'}} {{data.tag['email']}}
+{% endif %}{% if 'contact:email' in data.tag -%}
+{{'\U00002709'}} {{data.tag['contact:email']}}
 {% endif %}{% if 'website' in data.tag -%}
 {{'\U0001F30D'}} {{data.tag['website']}}
+{% endif %}{% if 'contact:website' in data.tag -%}
+{{'\U0001F30D'}} {{data.tag['contact:website']}}
 {% endif %}{% if 'opening_hours' in data.tag -%}
 {{'\U0001F55E'}} {{data.tag['opening_hours']}}
 {% endif %}{% if 'internet_access' in data.tag -%}
 {{'\U0001F4F6'}} {{data.tag['internet_access']}}
+{% endif %}{% if 'toilets' in data.tag -%}
+{{'\U0001F6BE'}} {{data.tag['toilets']}}
 {% endif %}{% if 'wheelchair' in data.tag -%}
 {{'\U0000267F'}} {{data.tag['wheelchair']}}
-{% endif %}{% if 'population' in data.tag %}{% if 'population:date' in data.tag %}
+{% endif %}{% if 'toilets:wheelchair' in data.tag -%}
+{{'\U0001F6BE'}}{{'\U0000267F'}} {{data.tag['toilets:wheelchair']}}
+{% endif %}{% if 'smoking' in data.tag -%}
+{{'\U0001F6AC'}} {{data.tag['smoking']}}
+{% endif %}{% if 'brand' in data.tag -%}
+{{'\U0001F4BC'}}{{'\U0001F3EC'}} {{data.tag['brand']}}
+{% endif %}{% if 'operator' in data.tag -%}
+{{'\U0001F4BC'}} {{data.tag['operator']}}
+{% endif %}{% if 'cuisine' in data.tag -%}
+{{'\U0001F373'}} {{data.tag['cuisine']}}
+{% endif %}{% if 'clothes' in data.tag -%}
+{{'\U0001F454'}}{{'\U0001F45A'}} {{data.tag['clothes']}}
+{% endif %}{% if 'male' in data.tag -%}
+{{'\U0001F6B9'}} {{data.tag['male']}}
+{% endif %}{% if 'female' in data.tag -%}
+{{'\U0001F6BA'}} {{data.tag['female']}}
+{% endif %}{% if 'unisex' in data.tag -%}
+{{'\U0001F6BB'}}{{'\U0001F469'}} {{data.tag['unisex']}}
+{% endif %}{% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
+
 {{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}} {{_("at")}} {{data.tag['population:date']}}
 {% else -%}
 {{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}}
 {% endif %}{% endif -%}
 {% if 'ele' in data.tag %}
-{{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
+{{'\U00002195'}}{{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
 {% endif -%}
 
 {% if 'wikidata' in data.tag -%}
