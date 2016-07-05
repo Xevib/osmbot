@@ -93,6 +93,8 @@
 {{'\U0001F55E'}} {{data.tag['opening_hours']}}
 {% endif %}{% if 'internet_access' in data.tag -%}
 {{'\U0001F4F6'}} {{data.tag['internet_access']}}
+{% endif %}{% if 'internet_access:fee' in data.tag -%}
+{{'\U0001F4F6'}}{{'\U0001F4B8'}} {{data.tag['internet_access:fee']}}
 {% endif %}{% if '1' in data.tag['stars'] -%}
 {{'\U00002733'}} {{'\U00002B50'}}
 {% elif '1S' in data.tag['stars'] -%}
