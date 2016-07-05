@@ -1,8 +1,8 @@
-{% if 'name' in data.tag %}{% if not user_config['lang_set'] %}
+{% if 'name' in data.tag %}{% if not user_config['lang_set'] -%}
 *{{ _("Tags for")}} {{data.tag['name']}} *
-{% else %}{% if 'name:' + user_config['lang'] in data.tag %}
+{% else %}{% if 'name:' + user_config['lang'] in data.tag -%}
 *{{ _('Tags for') }} {{data.tag['name:'+user_config['lang']]}} *
-{% else %}
+{% else -%}
 *{{ _("Tags for")}} {{data.tag['name']}} *
 {% endif %}{% endif %}{% endif %}
 {% if data.tag.admin_level == '2' -%}
