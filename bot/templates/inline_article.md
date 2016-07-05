@@ -79,6 +79,8 @@
 {{'\U0001F4DE'}} {{data.tag['contact:phone']}}
 {% endif %}{% if 'fax' in data.tag -%}
 {{'\U0001F4E0'}} {{data.tag['fax']}}
+{% endif %}{% if 'contact:fax' in data.tag -%}
+{{'\U0001F4E0'}} {{data.tag['contact:fax']}}
 {% endif %}{% if 'email' in data.tag -%}
 {{'\U00002709'}} {{data.tag['email']}}
 {% endif %}{% if 'contact:email' in data.tag -%}
@@ -91,12 +93,38 @@
 {{'\U0001F55E'}} {{data.tag['opening_hours']}}
 {% endif %}{% if 'internet_access' in data.tag -%}
 {{'\U0001F4F6'}} {{data.tag['internet_access']}}
+{% endif %}{% if 'internet_access:fee' in data.tag -%}
+{{'\U0001F4F6'}}{{'\U0001F4B8'}} {{data.tag['internet_access:fee']}}
+{% endif %}{% if '1' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}
+{% elif '1S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002795'}}
+{% elif '2' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '2S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% elif '3' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '3S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% elif '4' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '4S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% elif '5' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
+{% elif '5S' in data.tag['stars'] -%}
+{{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% endif %}{% if 'beds' in data.tag -%}
+{{'\U0001F6CF'}} {{data.tag['beds']}}
 {% endif %}{% if 'toilets' in data.tag -%}
 {{'\U0001F6BE'}} {{data.tag['toilets']}}
 {% endif %}{% if 'wheelchair' in data.tag -%}
 {{'\U0000267F'}} {{data.tag['wheelchair']}}
 {% endif %}{% if 'toilets:wheelchair' in data.tag -%}
 {{'\U0001F6BE'}}{{'\U0000267F'}} {{data.tag['toilets:wheelchair']}}
+{% endif %}{% if 'dogs' in data.tag -%}
+{{'\U0001F415'}} {{data.tag['dogs']}}
 {% endif %}{% if 'smoking' in data.tag -%}
 {{'\U0001F6AC'}} {{data.tag['smoking']}}
 {% endif %}{% if 'brand' in data.tag -%}
