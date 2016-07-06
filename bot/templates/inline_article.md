@@ -158,4 +158,7 @@
 {{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|replace(' ','%20')}})
 {%- endif %}
 
+[{{_("Map")}}](http://www.openstreetmap.org/?minlat={{nominatim_data['boundingbox'][0]}}&maxlat={{nominatim_data['boundingbox'][1]}}&minlon={{nominatim_data['boundingbox'][3]}}&maxlon={{nominatim_data['boundingbox'][3]}}&mlat={{nominatim_data['lat']}}&mlon={{nominatim_data['lon']}})
+
+
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}

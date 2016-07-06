@@ -41,7 +41,7 @@ osmbot = Blueprint(
     template_folder='templates',
     static_folder='static'
 )
-jinja_env = Environment(extensions=['jinja2.ext.i18n'])
+jinja_env = Environment(extensions=['jinja2.ext.i18n'], autoescape=True)
 
 
 def getData(id, geom_type=None):
@@ -673,7 +673,7 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
         elif r['osm_type'] == 'relation':
             element_type = 'rel'
         osm_data = getData(r['osm_id'], geom_type=element_type)
-        params = {'data': osm_data, 'type': element_type,
+        params = {'data': osm_data, 'type': element_type,'nominatim_data': r,
                   'identifier': r['osm_id'], 'user_config': user_config}
         text = temp.render(**params)
         answer = InputTextMessageContent(text, 'Markdown')
