@@ -124,6 +124,8 @@
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
 {% elif '5S' in data.tag['stars'] -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% endif %}{% if 'rooms' in data.tag -%}
+{{'\U0001F511'}} {{data.tag['rooms']}}
 {% endif %}{% if 'beds' in data.tag -%}
 {{'\U0001F6CF'}} {{data.tag['beds']}}
 {% endif %}{% if 'toilets' in data.tag -%}
@@ -150,7 +152,7 @@
 {{'\U0001F6BA'}} {{data.tag['female']}}
 {% endif %}{% if 'unisex' in data.tag -%}
 {{'\U0001F6BB'}}{{'\U0001F469'}} {{data.tag['unisex']}}
-{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag -%}
+{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'rooms' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag -%}
 
 {% endif -%}
 {% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
