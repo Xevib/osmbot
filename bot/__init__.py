@@ -1,4 +1,5 @@
 from .osmbot_blueprint import osmbot
+from .osmbot_blueprint import avaible_languages
 
 
 class Osmbot(object):
