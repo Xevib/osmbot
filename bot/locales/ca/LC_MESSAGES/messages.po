@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Albert F <lakonfrariadelavila@gmail.com>, 2015-2016
-# jmontane <joan@montane.cat>, 2015
+# jmontane <joan@montane.cat>, 2015-2016
 # Xevi <xbarnada@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-12 21:03+0000\n"
-"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
+"PO-Revision-Date: 2016-06-17 07:08+0000\n"
+"Last-Translator: jmontane <joan@montane.cat>\n"
 "Language-Team: Catalan (http://www.transifex.com/osm-catala/osmbot/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,7 +204,7 @@ msgstr "Dades en cru:"
 #: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
 #: bot/osmbot_blueprint.py:502
 msgid "OSM contributors"
-msgstr "Contribuïdors de l'OSM"
+msgstr "Col·laboradors de l'OSM"
 
 #: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
 msgid "Please send me your location"
@@ -242,7 +242,7 @@ msgstr "Aquesta consulta encara no s'ha implementat"
 
 #: bot/osmbot_blueprint.py:602
 msgid "and I'll send you the nearest element"
-msgstr "i t'enviare l'element mes proper"
+msgstr "i us enviaré l'element més proper"
 
 #: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
 msgid "Raw data for"
@@ -387,13 +387,13 @@ msgstr "<escala> Nivell d'apropament (entre 1 i 19). Si no utilitzeu aquesta opc
 #: bot/osmbot_blueprint.py:782
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr ""
+msgstr "/search <terme_cerca> - Cerca a la base de dades de l'OpenStreetMap fent servir el Nominatim."
 
 #: bot/osmbot_blueprint.py:784
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr ""
+msgstr "/nearest <tipus> <metres opcionals> - Cerca l'element en un radi determinat fent servir l'Overpass."
 
 #: bot/osmbot_blueprint.py:793
 msgid ""
