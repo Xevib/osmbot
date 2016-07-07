@@ -152,8 +152,7 @@
 {{'\U0001F6BA'}} {{data.tag['female']}}
 {% endif %}{% if 'unisex' in data.tag -%}
 {{'\U0001F6BB'}}{{'\U0001F469'}} {{data.tag['unisex']}}
-{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'rooms' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag -%}
-
+{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'rooms' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag %}
 {% endif -%}
 {% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
 {{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}} {{_("at")}} {{data.tag['population:date']}}
@@ -162,15 +161,13 @@
 {% endif %}{% endif -%}
 {% if 'ele' in data.tag -%}
 {{'\U00002195'}}{{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
-{% endif -%}{% if 'population' or 'ele' in data.tag -%}
-
+{% endif -%}{% if 'population' or 'ele' in data.tag %}
 {% endif -%}
 {% if 'wikidata' in data.tag -%}
 {{'\U0001F4D7'}} [{{_("Wikidata")}}](https://www.wikidata.org/wiki/{{data.tag["wikidata"]}})
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}
 {{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|replace(' ','%20')}})
-{%- endif %}{% if 'wikidata' or 'wikipedia' in data.tag -%}
-
+{%- endif %}{% if 'wikidata' or 'wikipedia' in data.tag %}
 {% endif -%}
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
