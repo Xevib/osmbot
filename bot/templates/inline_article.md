@@ -44,10 +44,15 @@
 {{'\U0001F4B5'}} {{data.tag['currency']}}
 {% endif %}{% if 'timezone' in data.tag -%}
 {{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']}}
-{% endif %}{% if 'addr:full' in data.tag -%}
-{{'\U0001F4EC'}} {{data.tag['addr:full']}}
+{% endif %}{% if 'is_in:continent' or 'flag' or 'currency' or 'timezone' in data.tag -%}
 
-{% endif %}{% if 'addr:housenumber' and 'addr:street' in data.tag -%}
+{% endif -%}
+{% if 'addr:full' in data.tag -%}
+{{'\U0001F4EC'}} {{data.tag['addr:full']}}
+{% endif -%}{% if 'addr:full' in data.tag -%}
+
+{% endif -%}
+{% if 'addr:housenumber' and 'addr:street' in data.tag -%}
 {{'\U0001F4EE'}} {{data.tag['addr:street']}}, {{data.tag['addr:housenumber']}}
 {% else %}{% if 'addr:housenumber' in data.tag -%}
 {{'\U0001F4EE'}} {{data.tag['addr:housenumber']}}
@@ -69,11 +74,15 @@
   {{data.tag['addr:state']}}
 {% endif -%}{% if 'addr:country' in data.tag -%}
   {{data.tag['addr:country']}}
-{% endif -%}
+{% endif -%}{% if 'addr:housenumber' or 'addr:street' or 'addr:housename' or 'addr:city' or 'addr:postcode' or 'addr:district' or 'addr:suburb' or 'addr:province' or 'addr:state' or 'addr:country' in data.tag -%}
 
-{% if 'ref' in data.tag %}
+{% endif -%}
+{% if 'ref' in data.tag -%}
 {{'\U0001F6E3'}} {{data.tag['ref']}}
-{% endif %}{% if 'phone' in data.tag %}
+{% endif -%}{% if 'ref' in data.tag -%}
+
+{% endif -%}
+{% if 'phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
 {% endif %}{% if 'contact:phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['contact:phone']}}
@@ -115,6 +124,8 @@
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
 {% elif '5S' in data.tag['stars'] -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
+{% endif %}{% if 'rooms' in data.tag -%}
+{{'\U0001F511'}} {{data.tag['rooms']}}
 {% endif %}{% if 'beds' in data.tag -%}
 {{'\U0001F6CF'}} {{data.tag['beds']}}
 {% endif %}{% if 'toilets' in data.tag -%}
@@ -141,21 +152,25 @@
 {{'\U0001F6BA'}} {{data.tag['female']}}
 {% endif %}{% if 'unisex' in data.tag -%}
 {{'\U0001F6BB'}}{{'\U0001F469'}} {{data.tag['unisex']}}
-{% endif %}{% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
+{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'rooms' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag -%}
 
+{% endif -%}
+{% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
 {{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}} {{_("at")}} {{data.tag['population:date']}}
 {% else -%}
 {{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}}
 {% endif %}{% endif -%}
-{% if 'ele' in data.tag %}
+{% if 'ele' in data.tag -%}
 {{'\U00002195'}}{{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
-{% endif -%}
+{% endif -%}{% if 'population' or 'ele' in data.tag -%}
 
+{% endif -%}
 {% if 'wikidata' in data.tag -%}
 {{'\U0001F4D7'}} [{{_("Wikidata")}}](https://www.wikidata.org/wiki/{{data.tag["wikidata"]}})
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}
 {{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|replace(' ','%20')}})
-{%- endif %}
+{%- endif %}{% if 'wikidata' or 'wikipedia' in data.tag -%}
 
+{% endif -%}
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
