@@ -24,7 +24,7 @@ avaible_languages = {
     'Asturian': 'ast', 'Galician': 'gl', 'French': 'fr', 'Italian': 'it',
     'Basque': 'eu', 'Polish': 'pl', 'German': 'de', 'Dutch': 'nl',
     'Czech': 'cz', 'Persian': 'fa', 'Japanese': 'ja', 'Ukrainian': 'uk',
-    'Chinese(Taiwan)':'zh_TW'
+    'Chinese(Taiwan)': 'zh_TW', 'Vietnamese': 'vi'
 }
 
 application = Flask(__name__)
