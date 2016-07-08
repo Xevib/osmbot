@@ -31,10 +31,11 @@ application = Flask(__name__)
 application.debug = True
 config = ConfigObj('bot.conf')
 
+if config:
+    token = config.get('token', '')
+    user = u.User(config.get('host', ''), config.get('database', ''), config.get('user', ''), config.get('password', ''))
+    bot = OSMbot(token)
 
-token = config.get('token', '')
-user = u.User(config.get('host',''), config.get('database', ''), config.get('user',''), config.get('password',''))
-bot = OSMbot(token)
 api = OsmApi()
 nom = pynominatim.Nominatim()
 
