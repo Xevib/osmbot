@@ -5,7 +5,7 @@ import os
 class BotTest(unittest.TestCase):
     def test_languages(self):
         print os.getcwd()
-        from bot import avaible_languages
+        from bot.osmbot_blueprint import avaible_languages
         lang_dirs = os.listdir('bot/locales')
         for lang_dir in lang_dirs:
             if lang_dir not in avaible_languages.values():
