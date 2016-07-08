@@ -3,6 +3,9 @@
 from __future__ import absolute_import
 import unittest
 import os
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 class BotTest(unittest.TestCase):
@@ -19,9 +22,9 @@ class BotTest(unittest.TestCase):
         jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         templates = os.listdir('bot/templates')
         for template in templates:
+            print 'Testing template:{}'.format(template)
             with open(os.path.join('bot/templates', template)) as f:
                 template_text = unicode(f.read())
-            print 'Testing template:{}'.format(template)
             try:
                 jinja_env.from_string(template_text).render()
             except exceptions.UndefinedError:
