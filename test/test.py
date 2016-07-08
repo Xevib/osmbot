@@ -1,10 +1,10 @@
+from __future__ import absolute_import
 import unittest
 import os
 
 
 class BotTest(unittest.TestCase):
     def test_languages(self):
-        print os.getcwd()
         from bot.osmbot_blueprint import avaible_languages
         lang_dirs = os.listdir('bot/locales')
         for lang_dir in lang_dirs:
