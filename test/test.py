@@ -8,7 +8,7 @@ class BotTest(unittest.TestCase):
         from bot.osmbot_blueprint import avaible_languages
         lang_dirs = os.listdir('bot/locales')
         for lang_dir in lang_dirs:
-            if lang_dir not in avaible_languages.values():
+            if os.path.isdir(lang_dir) and lang_dir not in avaible_languages.values():
                 print '{} not found in directory in avaible languages but found in bo/locales'.format(lang_dir)
             self.assertTrue(lang_dir in avaible_languages.values())
 
