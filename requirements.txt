@@ -5,3 +5,5 @@ raven
 flask
 psycopg2
 overpass
+lxml
+osmapi
