@@ -10,7 +10,7 @@ class BotTest(unittest.TestCase):
         for lang_dir in lang_dirs:
             if os.path.isdir(lang_dir) and lang_dir not in avaible_languages.values():
                 print '{} not found in directory in avaible languages but found in bo/locales'.format(lang_dir)
-            self.assertTrue(lang_dir in avaible_languages.values())
+                self.assertTrue(lang_dir in avaible_languages.values())
 
 if __name__ == '__main__':
     unittest.main()
