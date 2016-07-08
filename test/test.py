@@ -20,12 +20,13 @@ class BotTest(unittest.TestCase):
         templates = os.listdir('bot/templates')
         for template in templates:
             with open(os.path.join('bot/templates', template)) as f:
-                template_text = f.read()
+                template_text = unicode(f.read())
             print 'Testing template:{}'.format(template)
             try:
                 jinja_env.from_string(template_text).render()
             except exceptions.UndefinedError:
                 pass
+
 
 if __name__ == '__main__':
     unittest.main()
