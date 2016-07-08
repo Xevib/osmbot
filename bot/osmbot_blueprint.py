@@ -23,7 +23,7 @@ avaible_languages = {
     'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
     'Asturian': 'ast', 'Galician': 'gl', 'French': 'fr', 'Italian': 'it',
     'Basque': 'eu', 'Polish': 'pl', 'German': 'de', 'Dutch': 'nl',
-    'Czech': 'cz', 'Persian': 'fa', 'Japanese': 'ja', 'Ukrainian': 'uk',
+    'Czech': 'cs', 'Persian': 'fa', 'Japanese': 'ja', 'Ukrainian': 'uk',
     'Chinese(Taiwan)': 'zh_TW', 'Vietnamese': 'vi'
 }
 
