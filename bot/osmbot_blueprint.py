@@ -31,7 +31,8 @@ application = Flask(__name__)
 application.debug = True
 config = ConfigObj('bot.conf')
 
-token = config['token']
+if 'token' in config:
+    token = config['token']
 user = u.User(config['host'], config['database'], config['user'], config['password'])
 bot = OSMbot(token)
 api = OsmApi()
