@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-07-04 06:33+0000\n"
+"PO-Revision-Date: 2016-07-07 04:27+0000\n"
 "Last-Translator: Shu Higashi <higa432@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/osm-catala/osmbot/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -211,7 +211,7 @@ msgstr "あなたの位置を送ると"
 
 #: bot/osmbot_blueprint.py:421
 msgid "to receive the map."
-msgstr "地図が見られます。"
+msgstr "地図が見られます"
 
 #: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
 msgid "You can do it with the Telegram paperclip button"
@@ -277,7 +277,7 @@ msgstr "作者:"
 
 #: bot/osmbot_blueprint.py:749
 msgid "(Catalan OpenStreetMap community)"
-msgstr "(Catalan OpenStreetMap コミュニティ)"
+msgstr "(カタロニアOpenStreetMap コミュニティ)"
 
 #: bot/osmbot_blueprint.py:750
 msgid "Code"
@@ -435,4 +435,4 @@ msgstr "全世界向けのデータ(都市、電話番号、email等のあるお
 
 #: bot/osmbot_blueprint.py:889
 msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "OSMbot は多言語対応しており、日本語を話します"
+msgstr "OSMbot は多言語対応しており、日本語も話します"
