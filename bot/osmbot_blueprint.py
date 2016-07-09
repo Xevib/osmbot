@@ -663,7 +663,7 @@ def get_template(template_name):
 
 def answer_inline(message, query, chat_id, user_id, user_config, is_group, user):
     nom = pynominatim.Nominatim()
-    search_results = nom.query(message)
+    search_results = nom.query(message, acceptlanguage=user_config['lang'])
     temp = get_template('inline_article.md')
     inline_query_id = query['inline_query']['id']
     results = []
