@@ -175,7 +175,7 @@ def SearchCommand(message, user_config, chat_id):
     t = ''
     search = message[8:].replace('\n', '').replace('\r', '')
     nom = pynominatim.Nominatim()
-    results = nom.query(search)
+    results = nom.query(search,acceptlanguage=user_config['lang'])
     if not results:
         text = get_template('not_found_message.md').render(search=search)
         m = Message(chat_id, text)
