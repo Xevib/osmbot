@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-07-08 10:08+0000\n"
+"PO-Revision-Date: 2016-07-09 10:02+0000\n"
 "Last-Translator: Adam Bartnik <wh4tever@outlook.com>\n"
 "Language-Team: Polish (http://www.transifex.com/osm-catala/osmbot/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -336,12 +336,12 @@ msgstr "/about - Pokaż informacje o OSMbot: twórcy, kod źródłowy, wiadomoś
 
 #: bot/osmbot_blueprint.py:764
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/details<typ><osm_id> - Pokaż część tagów z bazy OSM"
+msgstr "/details <typ><osm_id> - Pokaż część tagów z bazy OSM"
 
 #: bot/osmbot_blueprint.py:766
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "/raw<typ><osm_id> - Pokaż wszystkie tagi z bazy OSM w surowym formacie"
+msgstr "/raw <typ><osm_id> - Pokaż wszystkie tagi z bazy OSM w surowym formacie"
 
 #: bot/osmbot_blueprint.py:768
 msgid ""
@@ -394,7 +394,7 @@ msgstr "/search <wyrażenie> - Przeszukaj całą bazę OpenStreetMap przez Nomin
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr "/nerest <typ> <opcjonalnie metry> - Szukaj elementu w określonym promieniu za pomocą Overpass"
+msgstr "/nearest <typ> <opcjonalnie metry> - Szukaj elementu w określonym promieniu za pomocą Overpass"
 
 #: bot/osmbot_blueprint.py:793
 msgid ""
