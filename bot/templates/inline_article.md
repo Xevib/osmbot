@@ -45,12 +45,12 @@
 {% endif %}{% if 'timezone' in data.tag -%}
 {{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']}}
 {% endif %}{% if 'is_in:continent' or 'flag' or 'currency' or 'timezone' in data.tag -%}
-
+\n
 {% endif -%}
 {% if 'addr:full' in data.tag -%}
 {{'\U0001F4EC'}} {{data.tag['addr:full']}}
 {% endif -%}{% if 'addr:full' in data.tag -%}
-
+\n
 {% endif -%}
 {% if 'addr:housenumber' and 'addr:street' in data.tag -%}
 {{'\U0001F4EE'}} {{data.tag['addr:street']}}, {{data.tag['addr:housenumber']}}
@@ -75,12 +75,12 @@
 {% endif -%}{% if 'addr:country' in data.tag -%}
   {{data.tag['addr:country']}}
 {% endif -%}{% if 'addr:housenumber' or 'addr:street' or 'addr:housename' or 'addr:city' or 'addr:postcode' or 'addr:district' or 'addr:suburb' or 'addr:province' or 'addr:state' or 'addr:country' in data.tag -%}
-
+\n
 {% endif -%}
 {% if 'ref' in data.tag -%}
 {{'\U0001F6E3'}} {{data.tag['ref']}}
 {% endif -%}{% if 'ref' in data.tag -%}
-
+\n
 {% endif -%}
 {% if 'phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
@@ -143,7 +143,7 @@
 {% endif %}{% if 'operator' in data.tag -%}
 {{'\U0001F4BC'}} {{data.tag['operator']}}
 {% endif %}{% if 'cuisine' in data.tag -%}
-{{'\U0001F373'}} {{data.tag['cuisine']}}
+{{'\U0001F373'}} {{data.tag['cuisine']}} {% if 'barbecue' in data.tag['cuisine'] -%}{{'\U0001F525'}}{% elif 'burger' in data.tag['cuisine'] -%}{{'\U0001F354'}}{{% elif 'cake' in data.tag['cuisine'] -%}{{'\U0001F370'}}{{% elif 'chicken' in data.tag['cuisine'] -%}{{'\U0001F357'}}{{% elif 'coffee_shop' in data.tag['cuisine'] -%}{{'\U00002615'}}{{% elif 'curry' in data.tag['cuisine'] -%}{{'\U0001F35B'}}{{% elif 'donut' in data.tag['cuisine'] -%}{{'\U0001F369'}}{{% elif 'fish_and_chips' in data.tag['cuisine'] -%}{{'\U0001F41F'}}{{'\U0001F35F'}}{{% elif 'ice_cream' in data.tag['cuisine'] -%}{{'\U000FE977'}}{{% elif 'gyros' in data.tag['cuisine'] -%}{{'\U0001F32E'}}{{% elif 'kebab' in data.tag['cuisine'] -%}{{'\U0001F32E'}}{{% elif 'pasta' in data.tag['cuisine'] -%}{{'\U0001F35D'}}{{% elif 'pizza' in data.tag['cuisine'] -%}{{'\U000FE975'}}{{% elif 'sandwich' in data.tag['cuisine'] -%}{{'\U0001F32D'}}{{% elif 'sausage' in data.tag['cuisine'] -%}{{'\U0001F32D'}}{{% elif 'seafood' in data.tag['cuisine'] -%}{{'\U0001F41F'}}{{'\U0001F980'}}{{% elif 'soup' in data.tag['cuisine'] -%}{{'\U0001F372'}}{{% elif 'steak_house' in data.tag['cuisine'] -%}{{'\U0001F356'}}{{% elif 'sushi' in data.tag['cuisine'] -%}{{'\U0001F363'}}{{% elif 'tapas' in data.tag['cuisine'] -%}{{'\U0001F364'}}{{'\U0001F37A'}}{{% elif '' in data.tag['cuisine'] -%}{% endif -%}
 {% endif %}{% if 'clothes' in data.tag -%}
 {{'\U0001F454'}}{{'\U0001F45A'}} {{data.tag['clothes']}}
 {% endif %}{% if 'male' in data.tag -%}
@@ -152,7 +152,8 @@
 {{'\U0001F6BA'}} {{data.tag['female']}}
 {% endif %}{% if 'unisex' in data.tag -%}
 {{'\U0001F6BB'}}{{'\U0001F469'}} {{data.tag['unisex']}}
-{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'rooms' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag %}
+{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'rooms' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag -%}
+\n
 {% endif -%}
 {% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
 {{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}} {{_("at")}} {{data.tag['population:date']}}
@@ -161,13 +162,15 @@
 {% endif %}{% endif -%}
 {% if 'ele' in data.tag -%}
 {{'\U00002195'}}{{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
-{% endif -%}{% if 'population' or 'ele' in data.tag %}
+{% endif -%}{% if 'population' or 'ele' in data.tag -%}
+\n
 {% endif -%}
 {% if 'wikidata' in data.tag -%}
 {{'\U0001F4D7'}} [{{_("Wikidata")}}](https://www.wikidata.org/wiki/{{data.tag["wikidata"]}})
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}
 {{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|replace(' ','%20')}})
-{%- endif %}{% if 'wikidata' or 'wikipedia' in data.tag %}
+{%- endif %}{% if 'wikidata' or 'wikipedia' in data.tag -%}
+\n
 {% endif -%}
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
