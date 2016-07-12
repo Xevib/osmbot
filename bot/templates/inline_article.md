@@ -79,7 +79,35 @@
 {% endif -%}
 {% if 'ref' in data.tag -%}
 {{'\U0001F6E3'}} {{data.tag['ref']}}
-{% endif -%}{% if 'ref' in data.tag -%}
+{% endif -%}{% if 'lanes' in data.tag -%}
+{{'\U0001F68D'}}{{'\U00002797'}}{{'\U0001F698'}} {{data.tag['lanes']}}
+{% endif -%}{% if 'maxspeed' in data.tag -%}
+{{'\U0001F6AB'}} {{data.tag['maxspeed']}}
+{% endif -%}{% if 'access' in data.tag -%}
+{{'\U0001F513'}} {{data.tag['access']}}
+{% endif -%}{% if 'foot' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F6B6'}} {{data.tag['foot']}}
+{% endif -%}{% if 'horse' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F40E'}} {{data.tag['horse']}}
+{% endif -%}{% if 'bicycle' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F6B2'}} {{data.tag['bicycle']}}
+{% endif -%}{% if 'motor_vehicle' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F3CD'}}{{'\U0001F697'}}{{'\U0001F69A'}}{{'\U0001F69C'}} {{data.tag['motor_vehicle']}}
+{% endif -%}{% if 'motorcycle' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F3CD'}} {{data.tag['motorcycle']}}
+{% endif -%}{% if 'motorcar' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F697'}} {{data.tag['motorcar']}}
+{% endif -%}{% if 'hgv' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F69A'}} {{data.tag['hgv']}}
+{% endif -%}{% if 'agricultural' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F69C'}} {{data.tag['agricultural']}}
+{% endif -%}{% if 'bus' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F68C'}} {{data.tag['bus']}}
+{% endif -%}{% if 'taxi' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F695'}} {{data.tag['taxi']}}
+{% endif -%}{% if 'emergency' in data.tag -%}
+{{'\U0001F513'}}{{'\U0001F6A8'}} {{data.tag['emergency']}}
+{% endif -%}{% if 'ref' or 'lanes' or 'maxspeed' or 'access' or 'foot' or 'horse' or 'bicycle' or 'motor_vehicle' or 'motorcycle' or 'motorcar' or 'hgv' or 'agricultural' or 'bus' or 'taxi' or 'emergency' in data.tag -%}
 \n
 {% endif -%}
 {% if 'phone' in data.tag -%}
