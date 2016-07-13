@@ -132,27 +132,27 @@
 {{'\U0001F4F6'}} {{data.tag['internet_access']}}
 {% endif %}{% if 'internet_access:fee' in data.tag -%}
 {{'\U0001F4F6'}}{{'\U0001F4B8'}} {{data.tag['internet_access:fee']}}
-{% endif %}{% if '1' in data.tag['stars'] -%}
+{% endif %}{% if 'stars' in data.tag -%}{% if data.tag['stars'] == '1' -%}
 {{'\U00002733'}} {{'\U00002B50'}}
-{% elif '1S' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '1S' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002795'}}
-{% elif '2' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '2' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}
-{% elif '2S' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '2S'-%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
-{% elif '3' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '3' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
-{% elif '3S' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '3S' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
-{% elif '4' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '4' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
-{% elif '4S' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '4S' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
-{% elif '5' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '5' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}
-{% elif '5S' in data.tag['stars'] -%}
+{% elif data.tag['stars'] == '5S' -%}
 {{'\U00002733'}} {{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002B50'}}{{'\U00002795'}}
-{% endif %}{% if 'rooms' in data.tag -%}
+{% endif %}{% endif %}{% if 'rooms' in data.tag -%}
 {{'\U0001F511'}} {{data.tag['rooms']}}
 {% endif %}{% if 'beds' in data.tag -%}
 {{'\U0001F6CF'}} {{data.tag['beds']}}
