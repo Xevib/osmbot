@@ -6,39 +6,39 @@
 *{{ _("Tags for")}} {{data.tag['name']}} *
 {% endif %}{% endif %}{% endif %}
 {% if data.tag.admin_level == '2' -%}
-{% if 'Europe' in data.tag['is_in:continent'] -%}
+{% if 'is_in:continent' in data.tag %}{% if data.tag['is_in:continent'] == 'Europe' -%}
 {{'\U0001F30D'}} {{_("European country")}}
-{% elif 'Europa' in data.tag['is_in:continent'] -%}
+{% elif  data.tag['is_in:continent'] == 'Europa' -%}
 {{'\U0001F30D'}} {{ _("European country") }}
-{% elif 'Africa' in data.tag['is_in:continent'] -%}
+{% elif data.tag['is_in:continent'] == 'Africa' -%}
 {{'\U0001F30D'}} {{ _("African country") }}
-{% elif 'South America' in data.tag['is_in:continent'] -%}
+{% elif data.tag['is_in:continent']  == 'South America' -%}
 {{'\U0001F30E'}} {{ _("South american country") }}
-{% elif "Latin America" in data.tag['is_in:continent'] -%}
+{% elif data.tag['is_in:continent']  == 'Latin America' -%}
 {{'\U0001F30E'}} {{_("South american country")}}
-{% elif 'America del Sur' in data.tag['is_in:continent'] -%}
+{% elif data.tag['is_in:continent'] == 'America del Sur' -%}
 {{'\U0001F30E'}} {{_("South american country")}}
-{% elif "North America" in data.tag['is_in:continent'] -%}
+{% elif data.tag['is_in:continent']  == 'North America' -%}
 {{'\U0001F30E'}} {{_("North american country")}}
-{% elif 'Amérique du Nord' in data.tag['is_in:continent'] -%}
+{% elif data.tag['is_in:continent'] == 'Amérique du Nord' -%}
 {{'\U0001F30E'}} {{_("North american country")}}
-{% elif "Central America" in data.tag['is_in:continent'] -%}
+{% elif data.tag['is_in:continent'] == 'Central America' -%}
 {{'\U0001F30E'}} {{_("Central american country")}}
-{% elif "América" in data.tag["is_in:continent"] -%}
+{% elif data.tag['is_in:continent'] == 'América' -%}
 {{'\U0001F30E'}} {{_("American country")}}
-{% elif "America" in data.tag["is_in:continent"] -%}
+{% elif data.tag['is_in:continent']  == 'America' -%}
 {{'\U0001F30E'}} {{_("American country")}}
-{% elif "Asia" in data.tag["is_in:continent"] -%}
+{% elif data.tag['is_in:continent'] == 'Asia' -%}
 {{'\U0001F30F'}} {{_("Asian country")}}
-{% elif "Oceania" in data.tag["is_in:continent"] -%}
+{% elif data.tag['is_in:continent'] == 'Oceania' -%}
 {{'\U0001F30F'}} {{_("Oceanian country")}}
-{% elif "Australia" in data.tag["is_in:continent"] -%}
+{% elif data.tag['is_in:continent'] == 'Australia' -%}
 {{'\U0001F30F'}} {{_("Oceanian country")}}
-{% elif "Eurasia" in data.tag["is_in:continent"] -%}
-{{'\U0001F30D'}} {{'\U0001F30F'}} {{_("Eurasian country")}}
-{% elif "Europe; Asia" in data.tag["is_in:continent"] -%}
-{{'\U0001F30D'}} {{'\U0001F30F'}} {{_("Eurasian country") }}
-{% endif %}{% endif %}{% if 'flag' in data.tag -%}
+{% elif data.tag['is_in:continent'] == 'Eurasia' -%}
+{{'\U0001F30D'}} {{'\U0001F30F'}} {{_('Eurasian country')}}
+{% elif data.tag['is_in:continent'] == 'Europe; Asia' -%}
+{{'\U0001F30D'}} {{'\U0001F30F'}} {{_('Eurasian country') }}
+{% endif %}{% endif %}{% endif %}{% if 'flag' in data.tag -%}
 {{'\U0001F6A9'}} [{{_("Flag")}}]({{data.tag['flag']}})
 {% endif %}{% if 'currency' in data.tag -%}
 {{'\U0001F4B5'}} {{data.tag['currency']}}
