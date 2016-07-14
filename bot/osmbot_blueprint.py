@@ -670,11 +670,12 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
     for index, r in enumerate(search_results[:10]):
         #text = temp.render(data=r)
         element_type = ''
-        if r['osm_type'] == 'node':
+        print r
+        if r.get('osm_type', '') == 'node':
             element_type = 'nod'
-        elif r['osm_type'] == 'way':
+        elif r.get('osm_type', '') == 'way':
             element_type = 'way'
-        elif r['osm_type'] == 'relation':
+        elif r.get('osm_type', '') == 'relation':
             element_type = 'rel'
         osm_data = getData(r['osm_id'], geom_type=element_type)
         params = {'data': osm_data, 'type': element_type,
