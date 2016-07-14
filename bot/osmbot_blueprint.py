@@ -9,6 +9,7 @@ from bot import OSMbot, Message, ReplyKeyboardHide, ReplyKeyboardMarkup, Keyboar
 import urllib
 from configobj import ConfigObj
 from typeemoji import typeemoji
+from emojiflag import emojiflag
 from maptools import download, genBBOX, getScale
 import gettext
 import overpass
@@ -200,10 +201,15 @@ def SearchCommand(message, user_config, chat_id):
             else:
                 osm_data = None
             type = result['class'] + ':' + result['type']
-            if type in typeemoji:
+	    country = result['country_code']
+	    if type in typeemoji and country in emojiflag:
+	        t += emojiflag[result['country_code']] + typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
+	    elif country in emojiflag:
+	        t += emojiflag[result['country_code']] + '\xE2\x96\xB6 ' + result['display_name'] + '\n'
+            elif type in typeemoji:
                 t += typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
             else:
-                t += '\xE2\x96\xB6 ' + result['display_name']+'\n'
+                t += '\xE2\x96\xB6 ' + result['display_name']+ '\n'
             t += '\xF0\x9F\x93\x8D [' + _('Map') + '](http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5})\n'.format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
             if osm_data is not None and ('phone' in osm_data['tag'] or 'contact:phone' in osm_data['tag']):
                 if 'osm_type' in result and result['osm_type'] == 'node':
@@ -227,7 +233,7 @@ def SearchCommand(message, user_config, chat_id):
                         t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
 
         t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
-    m = Message(chat_id, t, parse_mode='Markdown')
+    m = Message(chat_id, t, parse_mode='Markdown', disable_web_page_preview=True)
     bot.sendMessage(m)
 
 
