@@ -44,7 +44,7 @@
 {{'\U0001F4B5'}} {{data.tag['currency']}}
 {% endif %}{% if 'timezone' in data.tag -%}
 {{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']}}
-{% endif %}{% if 'is_in:continent' or 'flag' or 'currency' or 'timezone' in data.tag %}
+{% endif %}{% if 'is_in:continent' in data.tag or 'flag' in data.tag or 'currency' in data.tag or 'timezone' in data.tag %}
 {% endif -%}
 {% if 'addr:full' in data.tag -%}
 {{'\U0001F4EC'}} {{data.tag['addr:full']}}
@@ -72,7 +72,7 @@
   {{data.tag['addr:state']}}
 {% endif -%}{% if 'addr:country' in data.tag -%}
   {{data.tag['addr:country']}}
-{% endif -%}{% if 'addr:housenumber' or 'addr:street' or 'addr:housename' or 'addr:city' or 'addr:postcode' or 'addr:district' or 'addr:suburb' or 'addr:province' or 'addr:state' or 'addr:country' in data.tag %}
+{% endif -%}{% if 'addr:housenumber' in data.tag or 'addr:street' in data.tag or 'addr:housename' in data.tag or 'addr:city' in data.tag or 'addr:postcode' in data.tag or 'addr:district' in data.tag or 'addr:suburb' in data.tag or 'addr:province' in data.tag or 'addr:state' in data.tag or 'addr:country' in data.tag %}
 {% endif -%}
 {% if 'ref' in data.tag -%}
 {{'\U0001F6E3'}} {{data.tag['ref']}}
@@ -104,7 +104,7 @@
 {{'\U0001F513'}}{{'\U0001F695'}} {{data.tag['taxi']}}
 {% endif -%}{% if 'emergency' in data.tag -%}
 {{'\U0001F513'}}{{'\U0001F6A8'}} {{data.tag['emergency']}}
-{% endif -%}{% if 'ref' or 'lanes' or 'maxspeed' or 'access' or 'foot' or 'horse' or 'bicycle' or 'motor_vehicle' or 'motorcycle' or 'motorcar' or 'hgv' or 'agricultural' or 'bus' or 'taxi' or 'emergency' in data.tag %}
+{% endif -%}{% if 'ref' in data.tag or 'lanes' in data.tag or 'maxspeed' in data.tag or 'access' in data.tag or 'foot' in data.tag or 'horse' in data.tag or 'bicycle' in data.tag or 'motor_vehicle' in data.tag or 'motorcycle' in data.tag or 'motorcar' in data.tag or 'hgv' in data.tag or 'agricultural' in data.tag or 'bus' in data.tag or 'taxi' in data.tag or 'emergency' in data.tag in data.tag %}
 {% endif -%}
 {% if 'phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
@@ -176,7 +176,7 @@
 {{'\U0001F6BA'}} {{data.tag['female']}}
 {% endif %}{% if 'unisex' in data.tag -%}
 {{'\U0001F6BB'}}{{'\U0001F469'}} {{data.tag['unisex']}}
-{% endif %}{% if 'phone' or 'contact:phone' or 'fax' or 'contact:fax' or 'email' or 'contact:email' or 'website' or 'contact:website' or 'opening_hours' or 'internet_access' or 'internet_access:fee' or 'stars' or 'rooms' or 'beds' or 'toilets' or 'wheelchair' or 'toilets:wheelchair' or 'dogs' or 'smoking' or 'brand' or 'operator' or 'cuisine' or 'clothes' or 'male' or 'female' or 'unisex' in data.tag %}
+{% endif %}{% if 'phone' in data.tag or 'contact:phone' in data.tag or 'fax' in data.tag or 'contact:fax' in data.tag or 'email' in data.tag or 'contact:email' in data.tag or 'website' in data.tag or 'contact:website' in data.tag or 'opening_hours' in data.tag or 'internet_access' in data.tag or 'internet_access:fee' in data.tag or 'stars' in data.tag or 'rooms' in data.tag or 'beds' in data.tag or 'toilets' in data.tag or 'wheelchair' in data.tag or 'toilets:wheelchair' in data.tag or 'dogs' in data.tag or 'smoking' in data.tag or 'brand' in data.tag or 'operator' in data.tag or 'cuisine' in data.tag or 'clothes' in data.tag or 'male' in data.tag or 'female' in data.tag or 'unisex' in data.tag %}
 {% endif -%}
 {% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
 {{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}} {{_("at")}} {{data.tag['population:date']}}
@@ -185,13 +185,13 @@
 {% endif %}{% endif -%}
 {% if 'ele' in data.tag -%}
 {{'\U00002195'}}{{'\U0001F4CF'}} {{data.tag['ele']}} {{_("meters")}}
-{% endif -%}{% if 'population' or 'ele' in data.tag %}
+{% endif -%}{% if 'population' in data.tag or 'ele' in data.tag %}
 {% endif -%}
 {% if 'wikidata' in data.tag -%}
 {{'\U0001F4D7'}} [{{_("Wikidata")}}](https://www.wikidata.org/wiki/{{data.tag["wikidata"]}})
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}
 {{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|replace(' ','%20')}})
-{%- endif %}{% if 'wikidata' or 'wikipedia' in data.tag %}
+{%- endif %}{% if 'wikidata' in data.tag or 'wikipedia' in data.tag %}
 {% endif -%}
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
