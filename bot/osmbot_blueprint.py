@@ -670,7 +670,6 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
     for index, r in enumerate(search_results[:10]):
         #text = temp.render(data=r)
         element_type = ''
-        print r
         if r.get('osm_type', '') == 'node':
             element_type = 'nod'
         elif r.get('osm_type', '') == 'way':
