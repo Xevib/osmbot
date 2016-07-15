@@ -646,7 +646,7 @@ def RawCommand(message, chat_id):
             i = 0
             response = []
             for tag in sorted(osm_data['tag'].keys()):
-                t += "{0} = {1}\n".format(tag,osm_data['tag'][tag])
+                t += "{0} = {1}\n".format(tag, osm_data['tag'][tag])
                 i += 1
                 if i >= 20:
                     t += "\n\xC2\xA9 " + _("OpenStreetMap contributors")
@@ -690,7 +690,8 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
             osm_data = getData(r['osm_id'], geom_type=element_type)
             params = {'data': osm_data, 'type': element_type,
                       'identifier': r['osm_id'], 'user_config': user_config}
-            text = temp.render(**params)
+            if osm_data:
+                text = temp.render(**params)
             answer = InputTextMessageContent(text, 'Markdown')
             result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
             results.append(result)
