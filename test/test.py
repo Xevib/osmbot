@@ -27,6 +27,8 @@ class BotTest(unittest.TestCase):
                 template_text = unicode(f.read())
             try:
                 jinja_env.from_string(template_text).render()
+            except exceptions.TemplateAssertionError:
+                pass
             except exceptions.UndefinedError:
                 pass
 

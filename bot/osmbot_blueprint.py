@@ -18,6 +18,7 @@ from jinja2 import Environment
 import os
 from lxml import etree
 from StringIO import StringIO
+import urllib
 
 avaible_languages = {
     'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
@@ -45,7 +46,16 @@ osmbot = Blueprint(
     template_folder='templates',
     static_folder='static'
 )
+
+
+def url_escape(s):
+    t = urllib.quote(s)
+    return t.replace('_', '\\_')
+
 jinja_env = Environment(extensions=['jinja2.ext.i18n'])
+jinja_env.filters['url_escape'] = url_escape
+
+
 
 
 def getData(id, geom_type=None):
@@ -668,7 +678,7 @@ def answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
     inline_query_id = query['inline_query']['id']
     results = []
     if search_results:
-        for index, r in enumerate(search_results[:10]):
+        for index, r in enumerate(search_results[:7]):
             #text = temp.render(data=r)
             element_type = ''
             if r.get('osm_type', '') == 'node':
