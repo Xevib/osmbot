@@ -21,6 +21,10 @@ type_query = {
     'cafe':
         {'query': 'node["amenity"="cafe"]({0});way["amenity"="cafe"]({0});relation["amenity"="cafe"]({0});',
          'distance': 10000},
+    'coffe':
+        {
+            'query': 'node["amenity"="cafe"]({0});way["amenity"="cafe"]({0});relation["amenity"="cafe"]({0});',
+            'distance': 10000},
     u'\\U00012615':
         {'query': 'node["amenity"="cafe"]({0});way["amenity"="cafe"]({0});relation["amenity"="cafe"]({0});',
          'distance': 10000},
