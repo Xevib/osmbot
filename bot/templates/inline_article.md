@@ -192,6 +192,6 @@
 {% endif -%}
 {% if 'wikipedia' in data.tag -%}
 {{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|url_escape()}})
-{%- endif %}{% if 'wikidata' in data.tag or 'wikipedia' in data.tag %}
+{% endif %}{% if 'wikidata' in data.tag or 'wikipedia' in data.tag %}
 {% endif -%}
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
