@@ -50,7 +50,7 @@ osmbot = Blueprint(
 
 def url_escape(s):
     t = urllib.quote(s)
-    return t.replace('_', '\\_')
+    return t.replace('_', '\\_').replace(')', '\\)')
 
 jinja_env = Environment(extensions=['jinja2.ext.i18n'])
 jinja_env.filters['url_escape'] = url_escape
