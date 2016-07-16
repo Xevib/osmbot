@@ -20,6 +20,7 @@ from lxml import etree
 from StringIO import StringIO
 import urllib
 
+import bot.bot as bot
 from bot.osmbot import OsmBot
 
 avaible_languages = {
@@ -38,6 +39,7 @@ config = ConfigObj('bot.conf')
 if config:
     user = u.User(config.get('host', ''), config.get('database', ''), config.get('user', ''), config.get('password', ''))
     osmbot = OsmBot(config)
+    bot_api = Bot(config)
 
 api = OsmApi()
 nom = pynominatim.Nominatim()
@@ -94,8 +96,7 @@ def attend_webhook(token):
                     message = message.replace('@osmbot', '')
                     message = message.replace('@OSMbot', '')
 
-
-            message = osmbbot.CleanMessage(message)
+            message = osmbot.CleanMessage(message)
             osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
         except Exception as e:
             print str(e)
@@ -108,7 +109,7 @@ def attend_webhook(token):
             _ = lang.gettext
             text = osmbot._get_template('error_message.md').render()
             m = Message(chat_id, text)
-            bot.sendMessage(m)
+            bot_api.sendMessage(m)
         config['last_id'] = query['update_id']
         config.write()
         return 'OK'
