@@ -1,5 +1,5 @@
 import logging
-from bot.bot import OSMbot
+from bot.bot import Bot
 
 from flask import Flask, request, current_app
 from bot import Osmbot
@@ -13,7 +13,7 @@ Osmbot(application, '')
 
 config = ConfigObj('bot.conf')
 token = config['token']
-bot = OSMbot(token)
+bot = Bot(token)
 
 if 'sentry_dsn' in config:
     application.config['sentry_dsn'] = config['sentry_dsn']
