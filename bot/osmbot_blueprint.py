@@ -185,11 +185,11 @@ def SearchCommand(message, user_config, chat_id):
     t = ''
     search = message[8:].replace('\n', '').replace('\r', '')
     nom = pynominatim.Nominatim()
-    results = nom.query(search,acceptlanguage=user_config['lang'])
+    results = nom.query(search, acceptlanguage=user_config['lang'])
     if not results:
         text = get_template('not_found_message.md').render(search=search)
-        m = Message(chat_id, text)
-        bot.sendMessage(m)
+        m = Message(chat_id, text, parse_mode='Markdown')
+        bot.sendMessage(m,)
     else:
         t = _('Results for') + ' "{0}":\n\n'.format(search)
         for result in results[:10]:
@@ -815,7 +815,8 @@ def answer_message(message, query, chat_id, user_id, user_config, is_group, user
                 )
                 bot.sendMessage(m)
         if response:
-            m = Message(chat_id, response,
+            m = Message(
+                chat_id, response,
                 disable_web_page_preview=(not preview),
                 parse_mode='Markdown'
             )
