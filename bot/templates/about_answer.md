@@ -6,7 +6,7 @@
 {{'\U0000267B'}} [{{_("License: GPLv3")}}]({{_("http://www.gnu.org/licenses/gpl-3.0.en.html")}})
 {{'\U0001f4ac'}} [{{_("Localization")}}](https://www.transifex.com/osm-catala/osmbot/)
 
- {{_("TUTORIAL")}}
+ {{_("DOCUMENTATION")}}
 {{'\U0001F4D2'}} [{{_("OSMbot wiki")}}](https://github.com/Xevib/osmbot/wiki)
 
  {{_("NEWS")}}
