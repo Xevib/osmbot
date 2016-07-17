@@ -1,36 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-import re
-import math
 from flask import Flask
 from flask import request, current_app, Blueprint
 import pynominatim
 from osmapi import OsmApi
-from bot.bot import Bot, Message, ReplyKeyboardHide, ReplyKeyboardMarkup, KeyboardButton, InlineQueryResultArticle, InputTextMessageContent
-import urllib
+from bot.bot import Bot, Message
 from configobj import ConfigObj
-
 import gettext
-import overpass
-#from overpass_query import type_query
 import bot.user as u
-from jinja2 import Environment
-import os
-from lxml import etree
-from StringIO import StringIO
-import urllib
-
-import bot.bot as bot
 from bot.osmbot import OsmBot
 
-avaible_languages = {
-    'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
-    'Asturian': 'ast', 'Galician': 'gl', 'French': 'fr', 'Italian': 'it',
-    'Basque': 'eu', 'Polish': 'pl', 'German': 'de', 'Dutch': 'nl',
-    'Czech': 'cs', 'Persian': 'fa', 'Japanese': 'ja', 'Ukrainian': 'uk',
-    'Chinese (Taiwan)': 'zh_TW', 'Vietnamese': 'vi', 'Russian': 'ru',
-    'Slovak': 'sk', 'Chinese (Hong Kong)': 'zh_HK', 'Hungarian': 'hu'
-}
 
 application = Flask(__name__)
 application.debug = True
@@ -62,6 +41,10 @@ def attend_webhook(token):
                 return 'OK'
             is_group = False
             message_type = ''
+            message = ''
+            user_config = {}
+            chat_id = 0
+            user_id = 0
             if 'message' in query:
                 message_type = 'query'
                 if 'from' in query['message'] and 'id' in query['message']['from']:
@@ -97,21 +80,17 @@ def attend_webhook(token):
                     message = message.replace('@OSMbot', '')
 
             message = osmbot.CleanMessage(message)
+            osmbot.load_language(user_config['lang'])
             osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
         except Exception as e:
-            print str(e)
+            print(str(e))
             import traceback
             traceback.print_exc()
             current_app.sentry.captureException()
-
-            lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
-            lang.install()
-            _ = lang.gettext
             text = osmbot._get_template('error_message.md').render()
+            osmbot.load_language(user_config['lang'])
             m = Message(chat_id, text)
             bot_api.sendMessage(m)
-        config['last_id'] = query['update_id']
-        config.write()
         return 'OK'
     else:
         return 'NOT ALLOWED'
