@@ -190,6 +190,7 @@ def SearchCommand(message, user_config, chat_id):
         text = get_template('not_found_message.md').render(search=search)
         m = Message(chat_id, text, parse_mode='Markdown')
         bot.sendMessage(m,)
+        return 
     else:
         t = _('Results for') + ' "{0}":\n\n'.format(search)
         for result in results[:10]:
