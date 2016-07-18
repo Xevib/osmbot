@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PROJECT project.
 # 
 # Translators:
-# Albert F <lakonfrariadelavila@gmail.com>, 2015
+# Albert F <lakonfrariadelavila@gmail.com>, 2015-2016
 # Xuacu Saturio <xuacusk8@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-25 23:06+0000\n"
-"Last-Translator: Xuacu Saturio <xuacusk8@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 08:53+0200\n"
+"PO-Revision-Date: 2016-07-18 08:42+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/osm-catala/osmbot/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,379 +60,435 @@ msgstr "Pues tentar con otru cuadru de llende o escala (nivel d'ampliación)"
 msgid "Good luck! "
 msgstr "¡Bona suerte!"
 
-#: bot/osmbot_blueprint.py:71
-msgid "Now I only will answer when mention"
-msgstr "Agora sólo contestaré cuando me llamen"
-
-#: bot/osmbot_blueprint.py:77
-msgid "Now I always will answer"
-msgstr "Agora contestaré siempres"
-
-#: bot/osmbot_blueprint.py:91
-msgid "Now I will talk you with the new language"
-msgstr "Agora falaréte na nueva llingua"
-
-#: bot/osmbot_blueprint.py:103
-msgid "Ooops! I can't talk this language"
-msgstr "¡Ups! Nun se falar n'esta llingua"
-
-#: bot/osmbot_blueprint.py:104
-msgid "yet"
-msgstr "entá"
-
-#: bot/osmbot_blueprint.py:105
-msgid "But you can help me to learn it in Transifex"
-msgstr "Pero pues ayudame a deprendela en Transifex"
-
-#: bot/osmbot_blueprint.py:118
-msgid "Should I answer without a mention?"
-msgstr "¿Tengo que contestar ensin que me llamen?"
-
-#: bot/osmbot_blueprint.py:130
-msgid "Choose the language for talk with you"
-msgstr "Escueye la llingua pa falar contigo"
-
-#: bot/osmbot_blueprint.py:147
-msgid "What do you want to configure?"
-msgstr "¿Qué quies configurar?"
-
-#: bot/osmbot_blueprint.py:172
-msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "Si ves emojis raros ye por un güevu pintu de Telegram"
-
-#: bot/osmbot_blueprint.py:179
-msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "Nun s'alcontró nengún emoji, seique tengas qu'intentalo con /legend <etiqueta_osm:valor>"
-
-#: bot/osmbot_blueprint.py:193
-msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "Nun pudi alcontrar nengún resultáu pa \"{0}\""
-
-#: bot/osmbot_blueprint.py:193
-msgid "But you can try to improve OpenStreetMap"
-msgstr "Pero pues intentar ameyorar OpenStreetMap"
-
-#: bot/osmbot_blueprint.py:197
+#: bot/osmbot_blueprint.py:195
 msgid "Results for"
 msgstr "Resultaos pa"
 
-#: bot/osmbot_blueprint.py:211
+#: bot/osmbot_blueprint.py:218
 msgid "Map"
 msgstr "Mapa"
 
-#: bot/osmbot_blueprint.py:214 bot/osmbot_blueprint.py:216
-#: bot/osmbot_blueprint.py:218 bot/osmbot_blueprint.py:220
+#: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
 #: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
-#: bot/osmbot_blueprint.py:229 bot/osmbot_blueprint.py:231
+#: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
+#: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
 msgid "More info"
 msgstr "Más info"
 
-#: bot/osmbot_blueprint.py:221
+#: bot/osmbot_blueprint.py:228
 msgid "Phone"
 msgstr "Teléfonu"
 
-#: bot/osmbot_blueprint.py:233 bot/osmbot_blueprint.py:390
-#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:653
+#: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
+#: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
+#: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
 msgid "OpenStreetMap contributors"
 msgstr "Collaboradores d'OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:282
-msgid "No element found"
-msgstr "Nun s'alcontró elementu dalu"
-
-#: bot/osmbot_blueprint.py:290 bot/osmbot_blueprint.py:293
-#: bot/osmbot_blueprint.py:295
+#: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
+#: bot/templates/details_message.md:4 bot/templates/details_message.md:6
+#: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
+#: bot/templates/inline_article.md:6
 msgid "Tags for"
 msgstr "Etiquetes pa"
 
-#: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:299
+#: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
+#: bot/templates/details_message.md:10 bot/templates/details_message.md:12
+#: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
 msgid "European country"
 msgstr "Pais européu"
 
-#: bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:14
 msgid "African country"
 msgstr "Pais africanu"
 
-#: bot/osmbot_blueprint.py:303 bot/osmbot_blueprint.py:305
-#: bot/osmbot_blueprint.py:307
+#: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
+#: bot/templates/details_message.md:18 bot/templates/details_message.md:20
+#: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
+#: bot/templates/inline_article.md:20
 msgid "South american country"
 msgstr "Pais suramericanu"
 
-#: bot/osmbot_blueprint.py:309 bot/osmbot_blueprint.py:311
+#: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
+#: bot/templates/details_message.md:22 bot/templates/details_message.md:24
+#: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
 msgid "North american country"
 msgstr "Pais norteamericanu"
 
-#: bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:26
 msgid "Central american country"
 msgstr "Pais centroamericanu"
 
-#: bot/osmbot_blueprint.py:315 bot/osmbot_blueprint.py:317
+#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
+#: bot/templates/details_message.md:28 bot/templates/details_message.md:30
+#: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
 msgid "American country"
 msgstr "Pais americanu"
 
-#: bot/osmbot_blueprint.py:319
+#: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:32
 msgid "Asian country"
 msgstr "Pais asiáticu"
 
-#: bot/osmbot_blueprint.py:321 bot/osmbot_blueprint.py:323
+#: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
+#: bot/templates/details_message.md:34 bot/templates/details_message.md:36
+#: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
 msgid "Oceanian country"
 msgstr "Pais oceanianu"
 
-#: bot/osmbot_blueprint.py:325 bot/osmbot_blueprint.py:327
+#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
+#: bot/templates/details_message.md:38 bot/templates/details_message.md:40
+#: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
 msgid "Eurasian country"
 msgstr "Pais euroasiáticu"
 
-#: bot/osmbot_blueprint.py:364 bot/osmbot_blueprint.py:366
+#: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
+#: bot/templates/details_message.md:182 bot/templates/details_message.md:184
+#: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
 msgid "inhabitants"
 msgstr "Habitantes"
 
-#: bot/osmbot_blueprint.py:364
+#: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:182
 msgid "at"
 msgstr "en"
 
-#: bot/osmbot_blueprint.py:369
+#: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:187
 msgid "meters"
 msgstr "metros"
 
-#: bot/osmbot_blueprint.py:382
+#: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
 msgid "Raw data:"
 msgstr "Datos en bruto:"
 
-#: bot/osmbot_blueprint.py:409 bot/osmbot_blueprint.py:411
-#: bot/osmbot_blueprint.py:456 bot/osmbot_blueprint.py:459
-#: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
-#: bot/osmbot_blueprint.py:502
+#: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
+#: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
+#: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
+#: bot/osmbot_blueprint.py:510
 msgid "OSM contributors"
 msgstr "Collaboradores d'OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
+#: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
 msgstr "Mándame'l to allugamientu"
 
-#: bot/osmbot_blueprint.py:421
-msgid "to receive the map."
-msgstr "pa recibir el mapa."
+#: bot/osmbot_blueprint.py:429
+msgid "to receive the map"
+msgstr "pa recibir el mapa"
 
-#: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
+#: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
 msgstr "Pues facelo col iconu del clip de Telegram"
 
-#: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
-msgid "Sorry, I can't understand you"
-msgstr "Siéntolo, nun t'entiendo"
-
-#: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
-msgid "Perhaps I could help you with the command /help"
-msgstr "Igual puedo ayudate col comandu /help"
-
-#: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
-msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "Siéntolo pero nun alcontré nengún resultáu, comprueba la ID"
-
-#: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
+#: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "Agora nun puedo reconocer les etiquetes d'esti elementu, seique coles nueves carauterístiques podré"
 
-#: bot/osmbot_blueprint.py:583
-msgid "Sorry but this query it's not implemented yet"
-msgstr "Esta consulta inda nun ta programada"
-
-#: bot/osmbot_blueprint.py:602
-msgid "and I'll send you the nearest element"
-msgstr "y unviaréte l'elementu más averáu"
-
-#: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
+#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
 msgid "Raw data for"
 msgstr "Datos en bruto pa"
 
-#: bot/osmbot_blueprint.py:637 bot/osmbot_blueprint.py:652
+#: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
 msgid "Raw data"
 msgstr "Datos en bruto"
 
-#: bot/osmbot_blueprint.py:671
-msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "Bones, soi el robot de datos d'OpenStreetMap"
+#: bot/osmbot_blueprint.py:809
+msgid ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "Indica qué tas buscando col comandu /search <términu_a_buscar>"
 
-#: bot/osmbot_blueprint.py:671
-msgid "How I can help you?"
-msgstr "¿Cómo puedo ayudate?"
+#: bot/osmbot_blueprint.py:815
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "Usa'l comandu /search <términu_a_buscar> pa indicar qué tas buscando"
 
-#: bot/osmbot_blueprint.py:696
-msgid "Setting not recognized"
-msgstr "Configuración nun reconocida"
+#: bot/osmbot_blueprint.py:899
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "OpenStreetMap bot alcuentra cualquier llugar del mundu na base de datos Nominatim d'OSM y pué unviar enllaces y mapes dende OSM"
 
-#: bot/osmbot_blueprint.py:746
+#: bot/osmbot_blueprint.py:900
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "OpenStreetMap bot alcuentra cualquier llugar del mundu na base de datos Nominatim d'OSM"
+
+#: bot/osmbot_blueprint.py:901
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "El bot pué unviar enllaces y mapes (jpg, png o pdf) dende OSM"
+
+#: bot/osmbot_blueprint.py:902
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "Datos del mundu enteru (ciudaes y villes, tiendes (con númberu de teléfonu, email...), enllaces de Wikipedia, etc)"
+
+#: bot/osmbot_blueprint.py:903
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot ye multillingüe y fala en *la to llingua equí*"
+
+#: bot/templates/about_answer.md:1
 msgid "OpenStreetMap bot info:"
 msgstr "Info del bot d'OpenStreetMap:"
 
-#: bot/osmbot_blueprint.py:747
+#: bot/templates/about_answer.md:3
 msgid "CREDITS&CODE"
 msgstr "CRÉDITOS & CÓDIGU"
 
-#: bot/osmbot_blueprint.py:748
+#: bot/templates/about_answer.md:4
 msgid "Author:"
 msgstr "Autor:"
 
-#: bot/osmbot_blueprint.py:749
+#: bot/templates/about_answer.md:4
 msgid "(Catalan OpenStreetMap community)"
 msgstr "(Comunidá catalana d'OpenStreetMap)"
 
-#: bot/osmbot_blueprint.py:750
+#: bot/templates/about_answer.md:5
 msgid "Code"
 msgstr "Códigu"
 
-#: bot/osmbot_blueprint.py:751
+#: bot/templates/about_answer.md:6
 msgid "License: GPLv3"
 msgstr "Llicencia: GPLv3"
 
-#: bot/osmbot_blueprint.py:751
+#: bot/templates/about_answer.md:6
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
 
-#: bot/osmbot_blueprint.py:752
+#: bot/templates/about_answer.md:7
 msgid "Localization"
 msgstr "Llocalización"
 
-#: bot/osmbot_blueprint.py:753
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr ""
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr ""
+
+#: bot/templates/about_answer.md:12
 msgid "NEWS"
 msgstr "NOTICIES"
 
-#: bot/osmbot_blueprint.py:754
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr ""
+
+#: bot/templates/about_answer.md:14
 msgid "Telegram channel"
 msgstr "Canal de Telegram"
 
-#: bot/osmbot_blueprint.py:755
+#: bot/templates/about_answer.md:16
 msgid "RATING"
 msgstr "PUNTUACIÓN"
 
-#: bot/osmbot_blueprint.py:755
+#: bot/templates/about_answer.md:17
 msgid "Rating&reviews"
 msgstr "Puntuación y revisiones"
 
-#: bot/osmbot_blueprint.py:756
+#: bot/templates/about_answer.md:18
 msgid "Please rate me"
 msgstr "Puntúame, por favor"
 
-#: bot/osmbot_blueprint.py:757
+#: bot/templates/about_answer.md:20
 msgid "Thanks for use @OSMbot!!"
 msgstr "¡¡Gracies por usar @OSMbot!!"
 
-#: bot/osmbot_blueprint.py:760
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "Agora contestaré siempres"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "¡Ups! Nun se falar n'esta llingua"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "entá"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "Pero pues ayudame a deprendela en Transifex"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "Siéntolo, nun t'entiendo"
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "Igual puedo ayudate col comandu /help"
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "¿Qué quies configurar?"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
+msgid "Flag"
+msgstr ""
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
+msgid "Wikidata"
+msgstr ""
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
+msgid "Wikipedia"
+msgstr ""
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "Si ves emojis raros ye por un güevu pintu de Telegram"
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "Daqué falló"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "téntalo sero"
+
+#: bot/templates/help_message.md:1
 msgid "OpenStreetMap bot help:"
 msgstr "Ayuda del bot d'OpenStreetMap:"
 
-#: bot/osmbot_blueprint.py:760
+#: bot/templates/help_message.md:3
 msgid "You can control me by sending these commands:"
 msgstr "Pues controlame unviando estos comandos:"
 
-#: bot/osmbot_blueprint.py:762
+#: bot/templates/help_message.md:5
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
 msgstr "/about - Amuesa info sobro OSMbot: créditos y códigu, noticies y puntuaciones y revisiones"
 
-#: bot/osmbot_blueprint.py:764
+#: bot/templates/help_message.md:7
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
 msgstr "/details<type><osm_id> - Ver delles etiquetes de la base de datos d'OSM por ID."
 
-#: bot/osmbot_blueprint.py:766
+#: bot/templates/help_message.md:9
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
 msgstr "/raw<tipu><id_osm> - Amosar toles etiquetes de la base de datos d'OSM por ID nel formatu en bruto."
 
-#: bot/osmbot_blueprint.py:768
+#: bot/templates/help_message.md:11
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
 msgstr "La ID xenérase col comandu /search, pero si conoces una ID d'OSM pues probala."
 
-#: bot/osmbot_blueprint.py:770
+#: bot/templates/help_message.md:13
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
 msgstr "El tipu ye opcional y pué ser nod(nodu), way(vía) o rel(rellación). Si nun lu especifiques, el bot intentará deducilu"
 
-#: bot/osmbot_blueprint.py:772
+#: bot/templates/help_message.md:15
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
 msgstr "/legend <osm_key> - Amuesa una llista de pares clave=valor ya'l so emoji en OSMbot. Si nun especifiques una clave <osm_key>, amuesa tolos pares de clave=valor con emoji en Osmbot"
 
-#: bot/osmbot_blueprint.py:774
+#: bot/templates/help_message.md:17
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
 msgstr "/map <coord> <formatu> <escala> - Unvia un mapa con distintes opciones:"
 
-#: bot/osmbot_blueprint.py:776
+#: bot/templates/help_message.md:19
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
 msgstr "<coord> Pué ser un puntu (lat,lon) o un cuadru de llende (minlon,minlat,maxlon,maxlat). Si nun uses esta opción pué unviar el to allugamientu"
 
-#: bot/osmbot_blueprint.py:778
+#: bot/templates/help_message.md:21
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
 msgstr "<format> Pué ser png, jpeg o pdf. Si nun uses esta opción, el bot usa png de mou predetermináu"
 
-#: bot/osmbot_blueprint.py:780
+#: bot/templates/help_message.md:23
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
 msgstr "<scale> Nivel de zoom (1-19). Si nun uses esta opción, el bot usa 19 de mou predetermináu."
 
-#: bot/osmbot_blueprint.py:782
+#: bot/templates/help_message.md:25
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
 msgstr "/search <términu_gueta> - Guetar dende Nominatim en tola base de datos d'OpenStreetMap."
 
-#: bot/osmbot_blueprint.py:784
+#: bot/templates/help_message.md:27
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
 msgstr "/nearest <tipu> <opcional metros> - Guetar l'elementu dende Overpass dientro d'un radiu determináu"
 
-#: bot/osmbot_blueprint.py:793
-msgid ""
-"Please indicate what are you searching with command /search <search_term>"
-msgstr "Indica qué tas buscando col comandu /search <términu_a_buscar>"
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "Escueye la llingua pa falar contigo"
 
-#: bot/osmbot_blueprint.py:799
-msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "Usa'l comandu /search <términu_a_buscar> pa indicar qué tas buscando"
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "Agora falaréte na nueva llingua"
 
-#: bot/osmbot_blueprint.py:872
-msgid "Something failed"
-msgstr "Daqué falló"
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "Nun s'alcontró nengún emoji, seique tengas qu'intentalo con /legend <etiqueta_osm:valor>"
 
-#: bot/osmbot_blueprint.py:873
-msgid "please try it latter"
-msgstr "téntalo sero"
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "Siéntolo pero nun alcontré nengún resultáu, comprueba la ID"
 
-#: bot/osmbot_blueprint.py:885
-msgid ""
-"OpenStreetMap bot finds any location in world from the Nominatim OSM "
-"database and can send links and maps from OSM"
-msgstr "OpenStreetMap bot alcuentra cualquier llugar del mundu na base de datos Nominatim d'OSM y pué unviar enllaces y mapes dende OSM"
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "Nun pudi alcontrar nengún resultáu pa"
 
-#: bot/osmbot_blueprint.py:886
-msgid ""
-"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
-"database"
-msgstr "OpenStreetMap bot alcuentra cualquier llugar del mundu na base de datos Nominatim d'OSM"
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "Pero pues intentar ameyorar OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:887
-msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
-msgstr "El bot pué unviar enllaces y mapes (jpg, png o pdf) dende OSM"
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/en/"
 
-#: bot/osmbot_blueprint.py:888
-msgid ""
-"Data for all the world (cities and towns, shops -with phone number, "
-"email...-, Wikipedia links, etc)"
-msgstr "Datos del mundu enteru (ciudaes y villes, tiendes (con númberu de teléfonu, email...), enllaces de Wikipedia, etc)"
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "Nun s'alcontró elementu dalu"
 
-#: bot/osmbot_blueprint.py:889
-msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "OSMbot ye multillingüe y fala en *la to llingua equí*"
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "Esta consulta inda nun ta programada"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "Agora sólo contestaré cuando me llamen"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "¿Tengo que contestar ensin que me llamen?"
+
+#: bot/templates/question_only_mention.md:1
+msgid "Answer only when mention?"
+msgstr ""
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "y unviaréte l'elementu más averáu"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "Configuración nun reconocida"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Bones, soi el robot de datos d'OpenStreetMap"
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "¿Cómo puedo ayudate?"
