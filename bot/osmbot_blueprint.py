@@ -426,7 +426,7 @@ def MapCommand(message, chat_id, user_id, user, zoom=None, imgformat='png', lat=
             m = Message(
                 chat_id,
                 _('Please send me your location') + " \xF0\x9F\x93\x8D " +
-                _("to receive the map.") + '.\n' +
+                _("to receive the map") + '.\n' +
                 _("You can do it with the Telegram paperclip button") +
                 " \xF0\x9F\x93\x8E."
                         )
