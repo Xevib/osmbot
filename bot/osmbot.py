@@ -31,8 +31,9 @@ class OsmBot(object):
         }
 
         token = config.get('token', '')
-        user = u.User(config.get('host', ''), config.get('database', ''),
-                      config.get('user', ''), config.get('password', ''))
+        if config:
+            self.user = u.User(config.get('host', ''), config.get('database', ''),
+                          config.get('user', ''), config.get('password', ''))
         self.bot = Bot(token)
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
