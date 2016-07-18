@@ -506,7 +506,6 @@ class OsmBot(object):
         message = message.replace('\n', '').replace('\r', '')
         return message
 
-
     def DetailsCommand(self, message, user_config, chat_id):
         preview = False
         result = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
@@ -533,19 +532,19 @@ class OsmBot(object):
                 text,
                 disable_web_page_preview=(not preview)
             )
-            bot.sendMessage(m)
+            self.bot.sendMessage(m)
         else:
             if osm_data['tag'] == {}:
-                text = get_template('not_recognized_message.md').render()
+                text = self._get_template('not_recognized_message.md').render()
                 m = Message(chat_id, text)
-                bot.sendMessage(m)
+                self.bot.sendMessage(m)
             else:
                 preview = False
                 if 'website' in osm_data['tag'] or 'wikidata' in osm_data['tag'] or 'wikipedia' in osm_data['tag']:
                     preview = True
-                text = get_template('details_message.md').render(data=osm_data, type=element_type, identifier=identifier, user_config=user_config)
+                text = self._get_template('details_message.md').render(data=osm_data, type=element_type, identifier=identifier, user_config=user_config)
                 m = Message(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
-                bot.sendMessage(m)
+                self.bot.sendMessage(m)
 
     def NearestCommand(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
         if lat is not None and lon is not None:
