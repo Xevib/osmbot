@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-12 21:04+0000\n"
+"PO-Revision-Date: 2016-07-17 22:13+0000\n"
 "Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/osm-catala/osmbot/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -239,11 +239,11 @@ msgstr "Ahora no puedo reconocer etiquetas de este elemento, en un futuro puede 
 
 #: bot/osmbot_blueprint.py:583
 msgid "Sorry but this query it's not implemented yet"
-msgstr "Aquesta petició no està implementada encara"
+msgstr "Lo siento, esta consulta todavía no se ha implementado"
 
 #: bot/osmbot_blueprint.py:602
 msgid "and I'll send you the nearest element"
-msgstr "i t'enviaré l'element més proper"
+msgstr "y te enviaré el elemento más cercano"
 
 #: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
 msgid "Raw data for"
