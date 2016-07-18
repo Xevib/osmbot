@@ -1,6 +1,5 @@
 from __future__ import absolute_import
 from bot.osmbot_blueprint import osmbot_blueprint
-from bot.osmbot_blueprint import avaible_languages
 
 
 class Osmbot(object):
