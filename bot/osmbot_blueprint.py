@@ -18,7 +18,7 @@ config = ConfigObj('bot.conf')
 if config:
     user = u.User(config.get('host', ''), config.get('database', ''), config.get('user', ''), config.get('password', ''))
     osmbot = OsmBot(config)
-    bot_api = Bot(config)
+    bot_api = Bot(config['token'])
 
 api = OsmApi()
 nom = pynominatim.Nominatim()
@@ -87,8 +87,8 @@ def attend_webhook(token):
             import traceback
             traceback.print_exc()
             current_app.sentry.captureException()
-            text = osmbot._get_template('error_message.md').render()
             osmbot.load_language(user_config['lang'])
+            text = osmbot._get_template('error_message.md').render()
             m = Message(chat_id, text)
             bot_api.sendMessage(m)
         return 'OK'
