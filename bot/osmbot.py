@@ -14,6 +14,7 @@ import pynominatim
 from bot.maptools import download, genBBOX, getScale
 from bot.utils import getData
 from bot.overpass_query import type_query
+import overpass
 
 
 def url_escape(s):
