@@ -1,5 +1,9 @@
+from osmapi import OsmApi
+
+
 def getData(id, geom_type=None):
     osm_data = None
+    api = OsmApi()
     if geom_type is None:
         try:
             osm_data = api.NodeGet(int(id))
