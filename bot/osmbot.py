@@ -11,7 +11,7 @@ from bot.typeemoji import typeemoji
 import bot.user as u
 import gettext
 import pynominatim
-from maptools import download, genBBOX, getScale
+from bot.maptools import download, genBBOX, getScale
 from bot.utils import getData
 
 
