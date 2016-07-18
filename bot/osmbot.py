@@ -370,8 +370,8 @@ class OsmBot(object):
         m = Message(chat_id, t, disable_web_page_preview=(not preview))
         self.bot.sendMessage(m)
 
-
     def MapCommand(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
+        nom = pynominatim.Nominatim()
         response = []
         message = message[4:]
         if lat is not None and lon is not None:
@@ -428,12 +428,12 @@ class OsmBot(object):
                     response.append(v.message)
                 else:
                     if imgformat == 'pdf':
-                        bot.sendDocument(chat_id, data, 'map.pdf')
+                        self.bot.sendDocument(chat_id, data, 'map.pdf')
                     elif imgformat == 'jpeg':
-                        bot.sendPhoto(
+                        self.bot.sendPhoto(
                             chat_id, data, 'map.jpg', '©' + _('OSM contributors'))
                     elif imgformat == 'png':
-                        bot.sendPhoto(
+                        self.bot.sendPhoto(
                             chat_id, data, 'map.png', '©' + _('OSM contributors'))
             elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
                 m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
@@ -483,7 +483,6 @@ class OsmBot(object):
                     m = Message(chat_id,text)
                     response.append(m)
         self.bot.sendMessage(response)
-
 
     def PhoneCommand(self, message, chat_id):
         id = message[9:]
@@ -653,7 +652,6 @@ class OsmBot(object):
                 result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
                 results.append(result)
         self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
-
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user,message_type):
         if message_type == 'inline':
