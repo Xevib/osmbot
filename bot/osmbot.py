@@ -13,6 +13,7 @@ import gettext
 import pynominatim
 from bot.maptools import download, genBBOX, getScale
 from bot.utils import getData
+from bot.overpass_query import type_query
 
 
 def url_escape(s):
@@ -555,7 +556,7 @@ class OsmBot(object):
             data = api.Get(query.format(bbox))
 
             user.set_field(user_id, 'mode', 'normal')
-            pretty_tags(data, chat_id, type, config, chat_id, lat=lat, lon=lon, link=True)
+            self.pretty_tags(data, chat_id, type, config, chat_id, lat=lat, lon=lon, link=True)
 
         else:
             t = message.replace('/nearest', '').strip().split(' ')[0]
