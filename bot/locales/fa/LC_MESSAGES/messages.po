@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-27 05:35+0000\n"
-"Last-Translator: Adib Yaghoubzadeh <adib.yz@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 08:53+0200\n"
+"PO-Revision-Date: 2016-07-18 08:42+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/osm-catala/osmbot/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,379 +61,435 @@ msgstr "شما می توانید یک محدوده دیگر یا مقیاس دی
 msgid "Good luck! "
 msgstr "موفق باشید!"
 
-#: bot/osmbot_blueprint.py:71
-msgid "Now I only will answer when mention"
-msgstr "اکنون من تنها زمانی که اشاره ای شود پاسخ می دهم"
-
-#: bot/osmbot_blueprint.py:77
-msgid "Now I always will answer"
-msgstr "اکنون من همیشه پاسخ خواهم داد"
-
-#: bot/osmbot_blueprint.py:91
-msgid "Now I will talk you with the new language"
-msgstr "اکنون من با زبان دیگری صحبت خواهم کرد"
-
-#: bot/osmbot_blueprint.py:103
-msgid "Ooops! I can't talk this language"
-msgstr "وای! من نمیتوانم با این زبان صحبت کنم"
-
-#: bot/osmbot_blueprint.py:104
-msgid "yet"
-msgstr "هنوز"
-
-#: bot/osmbot_blueprint.py:105
-msgid "But you can help me to learn it in Transifex"
-msgstr "اما شما می توانید به من در یاد گیری آن کمک کنید در سایت Transifex"
-
-#: bot/osmbot_blueprint.py:118
-msgid "Should I answer without a mention?"
-msgstr "آیا باید بدون اشاره پاسخ دهم؟"
-
-#: bot/osmbot_blueprint.py:130
-msgid "Choose the language for talk with you"
-msgstr "زبانی که می خواهید با شما صحبت کنم را انتخاب کنید"
-
-#: bot/osmbot_blueprint.py:147
-msgid "What do you want to configure?"
-msgstr "چی چیزی میخواهید پیکر بندی کنید؟"
-
-#: bot/osmbot_blueprint.py:172
-msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "اگر شما شکلک عجیب و غریبی میبینید، این به دلیل اشکال در تلگرام است"
-
-#: bot/osmbot_blueprint.py:179
-msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "<osm_کلید:مقدار> شکلکی یافت نشد، شاید بهترباشد شرح علایم/ را امتحان کنید"
-
-#: bot/osmbot_blueprint.py:193
-msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "متاسفم، هیچ نتیجه ای پیدا نکردم برای \"{0}\""
-
-#: bot/osmbot_blueprint.py:193
-msgid "But you can try to improve OpenStreetMap"
-msgstr "اما شما می توانید سعی کنید نقشه های OSM را بهبود بدهید."
-
-#: bot/osmbot_blueprint.py:197
+#: bot/osmbot_blueprint.py:195
 msgid "Results for"
 msgstr "نتایج برای"
 
-#: bot/osmbot_blueprint.py:211
+#: bot/osmbot_blueprint.py:218
 msgid "Map"
 msgstr "نقشه"
 
-#: bot/osmbot_blueprint.py:214 bot/osmbot_blueprint.py:216
-#: bot/osmbot_blueprint.py:218 bot/osmbot_blueprint.py:220
+#: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
 #: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
-#: bot/osmbot_blueprint.py:229 bot/osmbot_blueprint.py:231
+#: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
+#: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
 msgid "More info"
 msgstr "اطلاعات بیشتر"
 
-#: bot/osmbot_blueprint.py:221
+#: bot/osmbot_blueprint.py:228
 msgid "Phone"
 msgstr "تلفن"
 
-#: bot/osmbot_blueprint.py:233 bot/osmbot_blueprint.py:390
-#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:653
+#: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
+#: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
+#: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
 msgid "OpenStreetMap contributors"
 msgstr "کمک دهنده های OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:282
-msgid "No element found"
-msgstr "هیچ مکانی پیدا نشد"
-
-#: bot/osmbot_blueprint.py:290 bot/osmbot_blueprint.py:293
-#: bot/osmbot_blueprint.py:295
+#: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
+#: bot/templates/details_message.md:4 bot/templates/details_message.md:6
+#: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
+#: bot/templates/inline_article.md:6
 msgid "Tags for"
 msgstr "برچسب ها برای"
 
-#: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:299
+#: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
+#: bot/templates/details_message.md:10 bot/templates/details_message.md:12
+#: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
 msgid "European country"
 msgstr "کشور اروپایی"
 
-#: bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:14
 msgid "African country"
 msgstr "کشور افریقایی"
 
-#: bot/osmbot_blueprint.py:303 bot/osmbot_blueprint.py:305
-#: bot/osmbot_blueprint.py:307
+#: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
+#: bot/templates/details_message.md:18 bot/templates/details_message.md:20
+#: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
+#: bot/templates/inline_article.md:20
 msgid "South american country"
 msgstr "کشور امریکای جنوبی"
 
-#: bot/osmbot_blueprint.py:309 bot/osmbot_blueprint.py:311
+#: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
+#: bot/templates/details_message.md:22 bot/templates/details_message.md:24
+#: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
 msgid "North american country"
 msgstr "کشور امریکای شمالی"
 
-#: bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:26
 msgid "Central american country"
 msgstr "کشور امریکای مرکزی"
 
-#: bot/osmbot_blueprint.py:315 bot/osmbot_blueprint.py:317
+#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
+#: bot/templates/details_message.md:28 bot/templates/details_message.md:30
+#: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
 msgid "American country"
 msgstr "کشور امریکایی"
 
-#: bot/osmbot_blueprint.py:319
+#: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:32
 msgid "Asian country"
 msgstr "کشور آسیایی"
 
-#: bot/osmbot_blueprint.py:321 bot/osmbot_blueprint.py:323
+#: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
+#: bot/templates/details_message.md:34 bot/templates/details_message.md:36
+#: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
 msgid "Oceanian country"
 msgstr "کشور اقیانوسه ای"
 
-#: bot/osmbot_blueprint.py:325 bot/osmbot_blueprint.py:327
+#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
+#: bot/templates/details_message.md:38 bot/templates/details_message.md:40
+#: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
 msgid "Eurasian country"
 msgstr "کشور اوراسیایی"
 
-#: bot/osmbot_blueprint.py:364 bot/osmbot_blueprint.py:366
+#: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
+#: bot/templates/details_message.md:182 bot/templates/details_message.md:184
+#: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
 msgid "inhabitants"
 msgstr "ساکنان"
 
-#: bot/osmbot_blueprint.py:364
+#: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:182
 msgid "at"
 msgstr "در"
 
-#: bot/osmbot_blueprint.py:369
+#: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:187
 msgid "meters"
 msgstr "متر"
 
-#: bot/osmbot_blueprint.py:382
+#: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
 msgid "Raw data:"
 msgstr "اطلاعات پردانش نشده:"
 
-#: bot/osmbot_blueprint.py:409 bot/osmbot_blueprint.py:411
-#: bot/osmbot_blueprint.py:456 bot/osmbot_blueprint.py:459
-#: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
-#: bot/osmbot_blueprint.py:502
+#: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
+#: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
+#: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
+#: bot/osmbot_blueprint.py:510
 msgid "OSM contributors"
 msgstr "کمک دهنده های OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
+#: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
-msgstr "لطفاً موقعیت خود را برای من بفرست"
+msgstr "لطفاً موقعیت خودت را برای من بفرست"
 
-#: bot/osmbot_blueprint.py:421
-msgid "to receive the map."
-msgstr "برای دریافت نقشه."
+#: bot/osmbot_blueprint.py:429
+msgid "to receive the map"
+msgstr "برای دریافت نقشه"
 
-#: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
+#: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
 msgstr "شما می توانید این کار را با فشردن دکمه گیره کاغذ موجود در تلگرام انجام دهید"
 
-#: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
-msgid "Sorry, I can't understand you"
-msgstr "متاسفم، نمیتوانم متوجه منظور شما شوم"
-
-#: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
-msgid "Perhaps I could help you with the command /help"
-msgstr "شاید من بتوانم با دستور /help شما را راهنمایی کنم"
-
-#: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
-msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "با عرض پوزش، من نتوانستم هیچ نتیچه ای پیدا کنم، لطفا ID را بررسی کنید"
-
-#: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
+#: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "با عرض پوزش، در حال حاضر من نمیتوانم برچسب ها برای این مکان را شناسایی کنم، شاید با ویژگی های جدید آن را به رسمیت بشناسم."
 
-#: bot/osmbot_blueprint.py:583
-msgid "Sorry but this query it's not implemented yet"
-msgstr "با عرض پوزش، این پرسمان هنوز پیاده سازی نشده است"
-
-#: bot/osmbot_blueprint.py:602
-msgid "and I'll send you the nearest element"
-msgstr "و من برای شما نزدیکترین مکان را ارسال می کنم"
-
-#: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
+#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
 msgid "Raw data for"
 msgstr "داده های پردازش نشده برای"
 
-#: bot/osmbot_blueprint.py:637 bot/osmbot_blueprint.py:652
+#: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
 msgid "Raw data"
 msgstr "داده های پردازش نشده"
 
-#: bot/osmbot_blueprint.py:671
-msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "سلام، من رباتی برای داده های OpenStreetMap هستم "
-
-#: bot/osmbot_blueprint.py:671
-msgid "How I can help you?"
-msgstr "چطور می توانم به شما کمک کنم؟"
-
-#: bot/osmbot_blueprint.py:696
-msgid "Setting not recognized"
-msgstr "تنظیمات شناسایی نشد"
-
-#: bot/osmbot_blueprint.py:746
-msgid "OpenStreetMap bot info:"
-msgstr "اطلاعات درباره ربات OpenStreetMap"
-
-#: bot/osmbot_blueprint.py:747
-msgid "CREDITS&CODE"
-msgstr "اعتبار و کد"
-
-#: bot/osmbot_blueprint.py:748
-msgid "Author:"
-msgstr "نویسنده"
-
-#: bot/osmbot_blueprint.py:749
-msgid "(Catalan OpenStreetMap community)"
-msgstr "(جامعه کاتالان OpenStreetMap)"
-
-#: bot/osmbot_blueprint.py:750
-msgid "Code"
-msgstr "کد"
-
-#: bot/osmbot_blueprint.py:751
-msgid "License: GPLv3"
-msgstr "مجوز: GPLv3"
-
-#: bot/osmbot_blueprint.py:751
-msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
-msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
-
-#: bot/osmbot_blueprint.py:752
-msgid "Localization"
-msgstr "بومی سازی"
-
-#: bot/osmbot_blueprint.py:753
-msgid "NEWS"
-msgstr "اخبار"
-
-#: bot/osmbot_blueprint.py:754
-msgid "Telegram channel"
-msgstr "کانال تلگرام"
-
-#: bot/osmbot_blueprint.py:755
-msgid "RATING"
-msgstr "امتیاز دهی"
-
-#: bot/osmbot_blueprint.py:755
-msgid "Rating&reviews"
-msgstr "بررسی و امتیاز دهی"
-
-#: bot/osmbot_blueprint.py:756
-msgid "Please rate me"
-msgstr "لطفاً به من امتیاز دهید"
-
-#: bot/osmbot_blueprint.py:757
-msgid "Thanks for use @OSMbot!!"
-msgstr "با سپاس برای استفاده از OSMbot!!"
-
-#: bot/osmbot_blueprint.py:760
-msgid "OpenStreetMap bot help:"
-msgstr "راهنمای ربات OpenStreetMap:"
-
-#: bot/osmbot_blueprint.py:760
-msgid "You can control me by sending these commands:"
-msgstr "شما می توانید با استفاده از این دستورات من را کنترل کنید:"
-
-#: bot/osmbot_blueprint.py:762
-msgid ""
-"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
-msgstr "/about - نمایش اطلاعات در مورد ربات OSM: اعتبار و کد، اخبار و امتیاز دهی و نظرات"
-
-#: bot/osmbot_blueprint.py:764
-msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/details<نوع><osm_id>- نمایش برچسب ها از پایگاه داده OSM مربوط به ID"
-
-#: bot/osmbot_blueprint.py:766
-msgid ""
-"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "/raw<نوع><osm_id>-تمامی برچسب ها از پایگاه داده OSM مربوط به ID را با فرمت خام نمایش بده."
-
-#: bot/osmbot_blueprint.py:768
-msgid ""
-"The ID is generated by /search command, but if you know an OSM ID you can "
-"try it."
-msgstr "ID با دستور /search ایجاد می شود، اما اگر شما یک OSM ID می شناسید می توانید امتحانش کنید."
-
-#: bot/osmbot_blueprint.py:770
-msgid ""
-"The type it's optional and it can be nod(node), way(way) or rel(relation). "
-"If you don't specify it, the bot will try to deduce it"
-msgstr "انتخاب نوع اختیاری است و می تواند گره(node)، راه (way)و یا نسبت(relation) باشد. اگر مشخص نشود، ربات سعی می کند آن را حدس بزند."
-
-#: bot/osmbot_blueprint.py:772
-msgid ""
-"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
-" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
-"Osmbot"
-msgstr "/legend <کلید_OSM> - نمایش لیستی از جفت های کلید=مقدار و شکلک مربوطه در ربات OSM. اگر شما یک مشخص نکنید <کلید OSM>، تمامی جفت های کلید=مقدار با شکلک موجود در ربات OSM نمایش داده می شود."
-
-#: bot/osmbot_blueprint.py:774
-msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "/map <مختصات> <فرمت فایل> <مقیاس> - ارسال نقشه با انتخاب های دگیر:"
-
-#: bot/osmbot_blueprint.py:776
-msgid ""
-"<coord> Could be a point (lat,lon) or a bounding box "
-"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
-"location"
-msgstr "<مختصات> می تواند یک نقطه (طول و عرض) یا یک ناحیه (حداقل و حد اکثر طول و عرض جغرافیایی). اگر شما از این امکان استفاده نکنید می توان موقعیت شما را ارسال کرد."
-
-#: bot/osmbot_blueprint.py:778
-msgid ""
-"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
-"use png by default"
-msgstr "<فرمت فایل>می تواند png, jpeg و یا pdf باشد. اگر گزینه ای انتخاب نشود ربات به صورت پیش فرض png را انتخاب می کند."
-
-#: bot/osmbot_blueprint.py:780
-msgid ""
-"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
-"by default."
-msgstr "<مقیاس> مقدار بزرگ نمایی (1-19) اگر گزینه ای وارد نشود، ربات مقدار 19 را به صورت پیش فرض استفاده می کند."
-
-#: bot/osmbot_blueprint.py:782
-msgid ""
-"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr "/search <عبارت_جستجو> - جستجو با نام و آدرس در تمامی پایگاه داده OSM Nominatim."
-
-#: bot/osmbot_blueprint.py:784
-msgid ""
-"/nearest <type> <optional meters> - Search from Overpass the element in a "
-"certain radius"
-msgstr "/nearest <نوع><متراژ اختیاری> - جستجو خارج از محدوده یک مکان با یک شعاع مشخص"
-
-#: bot/osmbot_blueprint.py:793
+#: bot/osmbot_blueprint.py:809
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
-msgstr "لطفاً برای جستجو از این دستور استفاده کنید /جستجو <عبارت_جستجو>"
+msgstr "لطفاً برای جستجو از این دستور استفاده کنید <عبارت_جستجو> search/"
 
-#: bot/osmbot_blueprint.py:799
+#: bot/osmbot_blueprint.py:815
 msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "از دستور /search <عبارت_جستجو> برای جستجو استفاده کنید"
+msgstr "از دستور <عبارت_جستجو> search/ برای جستجو استفاده کنید"
 
-#: bot/osmbot_blueprint.py:872
-msgid "Something failed"
-msgstr "یک چیز با اشکال مواجه شد"
-
-#: bot/osmbot_blueprint.py:873
-msgid "please try it latter"
-msgstr "لطفاً بعداً دوباره سعی کنید"
-
-#: bot/osmbot_blueprint.py:885
+#: bot/osmbot_blueprint.py:899
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
 msgstr "ربات OSM هر نقطه ای را در دنیا به کمک اطلاعات موجود در پایگاه داده OSM Nominatim پیدا می کند و می تواند پیوند ها و نقشه های آن را ارسال کند."
 
-#: bot/osmbot_blueprint.py:886
+#: bot/osmbot_blueprint.py:900
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
 msgstr "ربات OSM هر نقطه ای را در دنیا با نام و آدرس موجود در پایگاه داده  OSM Nominatim پیدا می کند."
 
-#: bot/osmbot_blueprint.py:887
+#: bot/osmbot_blueprint.py:901
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
 msgstr "ربات می تواند پیوند ها و نقشه ها با فرمت (jpg,png,pdf) از OSM ارسال کند."
 
-#: bot/osmbot_blueprint.py:888
+#: bot/osmbot_blueprint.py:902
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
 msgstr "داده ها برای تمام دنیا (شهرها و شهرستان ها، مغازه ها - همراه با شماره تلفن، ایمیل و...، پیوند های ویکی پدیا و غیره)"
 
-#: bot/osmbot_blueprint.py:889
+#: bot/osmbot_blueprint.py:903
 msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "ربات OSM چند زبانه است و \"با زبان شما اینجا\" سخن می گوید."
+msgstr "ربات OSM چند زبانه است و فارسی سخن می گوید."
+
+#: bot/templates/about_answer.md:1
+msgid "OpenStreetMap bot info:"
+msgstr "اطلاعات درباره ربات OpenStreetMap"
+
+#: bot/templates/about_answer.md:3
+msgid "CREDITS&CODE"
+msgstr "اعتبار و کد"
+
+#: bot/templates/about_answer.md:4
+msgid "Author:"
+msgstr "نویسنده"
+
+#: bot/templates/about_answer.md:4
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(جامعه کاتالان OpenStreetMap)"
+
+#: bot/templates/about_answer.md:5
+msgid "Code"
+msgstr "کد"
+
+#: bot/templates/about_answer.md:6
+msgid "License: GPLv3"
+msgstr "مجوز: GPLv3"
+
+#: bot/templates/about_answer.md:6
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
+
+#: bot/templates/about_answer.md:7
+msgid "Localization"
+msgstr "بومی سازی"
+
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr ""
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr ""
+
+#: bot/templates/about_answer.md:12
+msgid "NEWS"
+msgstr "اخبار"
+
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr ""
+
+#: bot/templates/about_answer.md:14
+msgid "Telegram channel"
+msgstr "کانال تلگرام"
+
+#: bot/templates/about_answer.md:16
+msgid "RATING"
+msgstr "امتیاز دهی"
+
+#: bot/templates/about_answer.md:17
+msgid "Rating&reviews"
+msgstr "بررسی و امتیاز دهی"
+
+#: bot/templates/about_answer.md:18
+msgid "Please rate me"
+msgstr "لطفاً به من امتیاز دهید"
+
+#: bot/templates/about_answer.md:20
+msgid "Thanks for use @OSMbot!!"
+msgstr "با سپاس برای استفاده از OSMbot!!"
+
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "اکنون من همیشه پاسخ خواهم داد"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "وای! من نمیتوانم با این زبان صحبت کنم"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "هنوز"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "اما شما می توانید به من در یاد گیری آن کمک کنید در سایت Transifex"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "متاسفم، نمیتوانم متوجه منظور شما شوم"
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "لطفاً از برای مشاهده راهنما از این دستور استفاده کنید: help/"
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "چی چیزی میخواهید تغییر دهید؟"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
+msgid "Flag"
+msgstr "پرچم"
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
+msgid "Wikidata"
+msgstr "ویکی‌داده"
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
+msgid "Wikipedia"
+msgstr "ویکی‌پدیا"
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "اگر شما شکلک عجیب و غریبی می بینید، طراح آن تلگرام است!"
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "یک چیز با اشکال مواجه شد"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "لطفاً بعداً دوباره سعی کنید"
+
+#: bot/templates/help_message.md:1
+msgid "OpenStreetMap bot help:"
+msgstr "راهنمای ربات OpenStreetMap:"
+
+#: bot/templates/help_message.md:3
+msgid "You can control me by sending these commands:"
+msgstr "شما می توانید با استفاده از این دستورات من را کنترل کنید:"
+
+#: bot/templates/help_message.md:5
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "about/ - نمایش اطلاعات درباره ربات OSM: اعتبار و کد، اخبار و امتیاز دهی و نظرات"
+
+#: bot/templates/help_message.md:7
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "osm_id><type> /details> - نمایش تگ های یک ID از پایگاه داده OSM."
+
+#: bot/templates/help_message.md:9
+msgid ""
+"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+msgstr "osm_id><type> /raw> تمامی برچسب ها از پایگاه داده OSM مربوط به ID را با فرمت خام نمایش بده."
+
+#: bot/templates/help_message.md:11
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "ID با دستور search/ ایجاد می شود، اما اگر شما یک OSM ID می شناسید می توانید امتحانش کنید."
+
+#: bot/templates/help_message.md:13
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "انتخاب type اختیاری است و می تواند نقطه (node)، راه (way) و یا رابطه (relation) باشد. اگر چیزی وارد نشود، من سعی می کنم آن را حدس بزنم."
+
+#: bot/templates/help_message.md:15
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "osm_key> /legend> - نمایش لیستی از جفت های کلید=مقدار و شکلک های مربوطه در ربات OSM. اگر شما یک <osm_key> مشخص نکنید ، تمامی جفت های کلید=مقدار با شکلک موجود در ربات OSM نمایش داده می شود."
+
+#: bot/templates/help_message.md:17
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "map/ <مختصات> <فرمت فایل> <مقیاس> - ارسال نقشه با انتخاب های دیگر:"
+
+#: bot/templates/help_message.md:19
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<مختصات> می تواند یک نقطه (طول و عرض) یا یک ناحیه (حداقل و حد اکثر طول و عرض جغرافیایی). اگر شما از این امکان استفاده نکنید، می توانید موقعیت خود را ارسال کنید."
+
+#: bot/templates/help_message.md:21
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<فرمت فایل>می تواند png, jpeg و یا pdf باشد. اگر گزینه ای انتخاب نشود ربات به صورت پیش فرض png را انتخاب می کند."
+
+#: bot/templates/help_message.md:23
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<مقیاس> مقدار بزرگ نمایی (1-19) اگر گزینه ای وارد نشود، ربات مقدار 19 را به صورت پیش فرض استفاده می کند."
+
+#: bot/templates/help_message.md:25
+msgid ""
+"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+msgstr "search/ <عبارت_جستجو> - جستجو با نام و آدرس در تمامی پایگاه داده OSM Nominatim."
+
+#: bot/templates/help_message.md:27
+msgid ""
+"/nearest <type> <optional meters> - Search from Overpass the element in a "
+"certain radius"
+msgstr "type> /nearest><متراژ اختیاری> - جستجو خارج از محدوده یک مکان با یک شعاع مشخص"
+
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "زبان دلخواه خود را انتخاب کنید"
+
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "اکنون من با زبان دیگری صحبت خواهم کرد"
+
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "<osm_کلید:مقدار> شکلکی یافت نشد، شاید بهترباشد شرح علایم/ را امتحان کنید"
+
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "با عرض پوزش، من نتوانستم هیچ نتیچه ای پیدا کنم، لطفا ID را بررسی کنید"
+
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "متاسفم، هیچ نتیجه ای پیدا نکردم برای"
+
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "اما شما می توانید سعی کنید نقشه های OSM را بهبود بدهید."
+
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/fa/"
+
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "هیچ مکانی پیدا نشد"
+
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "با عرض پوزش، این پرسمان هنوز پیاده سازی نشده است"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "اکنون من تنها زمانی که اشاره ای شود پاسخ می دهم"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "آیا باید بدون اشاره پاسخ دهم؟"
+
+#: bot/templates/question_only_mention.md:1
+msgid "Answer only when mention?"
+msgstr ""
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "و من برای شما نزدیکترین مکان را ارسال می کنم"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "تنظیمات شناسایی نشد"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "سلام، من رباتی برای داده های OpenStreetMap هستم "
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "چطور می توانم به شما کمک کنم؟"

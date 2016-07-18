@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PROJECT project.
 # 
 # Translators:
+# Albert F <lakonfrariadelavila@gmail.com>, 2016
 # Minh Nguyễn <minh@nguyen.cincinnati.oh.us>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-06-28 15:37+0000\n"
-"Last-Translator: Minh Nguyễn <minh@nguyen.cincinnati.oh.us>\n"
+"POT-Creation-Date: 2016-07-18 08:53+0200\n"
+"PO-Revision-Date: 2016-07-18 08:42+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/osm-catala/osmbot/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,379 +60,435 @@ msgstr "Hãy thử với hộp bao hoặc tỷ lệ (mức thu phóng) khác"
 msgid "Good luck! "
 msgstr "Chúc may mắn!"
 
-#: bot/osmbot_blueprint.py:71
-msgid "Now I only will answer when mention"
-msgstr "Bây giờ tôi chỉ trả lời khi được nhắc đến"
-
-#: bot/osmbot_blueprint.py:77
-msgid "Now I always will answer"
-msgstr "Bây giờ tôi sẽ trả lời luôn luôn"
-
-#: bot/osmbot_blueprint.py:91
-msgid "Now I will talk you with the new language"
-msgstr "Bây giờ tôi nói chuyện với bạn trong ngôn ngữ mới"
-
-#: bot/osmbot_blueprint.py:103
-msgid "Ooops! I can't talk this language"
-msgstr "Rất tiếc, tôi chưa biết nói ngôn ngữ"
-
-#: bot/osmbot_blueprint.py:104
-msgid "yet"
-msgstr "này"
-
-#: bot/osmbot_blueprint.py:105
-msgid "But you can help me to learn it in Transifex"
-msgstr "Nhưng bạn có thể dạy tôi nói ngôn ngữ này tại Transifex"
-
-#: bot/osmbot_blueprint.py:118
-msgid "Should I answer without a mention?"
-msgstr "Tôi có nên trả lời ngay cả khi không được nhắc đến?"
-
-#: bot/osmbot_blueprint.py:130
-msgid "Choose the language for talk with you"
-msgstr "Chọn ngôn ngữ để nói chuyện với bạn"
-
-#: bot/osmbot_blueprint.py:147
-msgid "What do you want to configure?"
-msgstr "Bạn muốn cấu hình gì?"
-
-#: bot/osmbot_blueprint.py:172
-msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "Nếu bạn thấy biểu tượng emoji lạ lạ, điều này do quả trứng Phục Sinh"
-
-#: bot/osmbot_blueprint.py:179
-msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "Không tìm thấy biểu tượng emoji; có lẽ bạn muốn sử dụng /legend <chìa_khóa_osm:giá_trị>"
-
-#: bot/osmbot_blueprint.py:193
-msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "Rất tiếc, tôi không tìm thấy kết quả nào cho “{0}”"
-
-#: bot/osmbot_blueprint.py:193
-msgid "But you can try to improve OpenStreetMap"
-msgstr "Gợi ý bạn đóng góp vào OpenStreetMap"
-
-#: bot/osmbot_blueprint.py:197
+#: bot/osmbot_blueprint.py:195
 msgid "Results for"
 msgstr "Kết quả cho"
 
-#: bot/osmbot_blueprint.py:211
+#: bot/osmbot_blueprint.py:218
 msgid "Map"
 msgstr "Bản đồ"
 
-#: bot/osmbot_blueprint.py:214 bot/osmbot_blueprint.py:216
-#: bot/osmbot_blueprint.py:218 bot/osmbot_blueprint.py:220
+#: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
 #: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
-#: bot/osmbot_blueprint.py:229 bot/osmbot_blueprint.py:231
+#: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
+#: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
 msgid "More info"
 msgstr "Thông tin thêm"
 
-#: bot/osmbot_blueprint.py:221
+#: bot/osmbot_blueprint.py:228
 msgid "Phone"
 msgstr "Số điện thoại"
 
-#: bot/osmbot_blueprint.py:233 bot/osmbot_blueprint.py:390
-#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:653
+#: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
+#: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
+#: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
 msgid "OpenStreetMap contributors"
 msgstr "những người đóng góp vào OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:282
-msgid "No element found"
-msgstr "Không tìm thấy phần tử"
-
-#: bot/osmbot_blueprint.py:290 bot/osmbot_blueprint.py:293
-#: bot/osmbot_blueprint.py:295
+#: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
+#: bot/templates/details_message.md:4 bot/templates/details_message.md:6
+#: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
+#: bot/templates/inline_article.md:6
 msgid "Tags for"
 msgstr "Thẻ cho"
 
-#: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:299
+#: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
+#: bot/templates/details_message.md:10 bot/templates/details_message.md:12
+#: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
 msgid "European country"
 msgstr "nước châu Âu"
 
-#: bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:14
 msgid "African country"
 msgstr "nước châu Phi"
 
-#: bot/osmbot_blueprint.py:303 bot/osmbot_blueprint.py:305
-#: bot/osmbot_blueprint.py:307
+#: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
+#: bot/templates/details_message.md:18 bot/templates/details_message.md:20
+#: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
+#: bot/templates/inline_article.md:20
 msgid "South american country"
 msgstr "nước Nam Mỹ"
 
-#: bot/osmbot_blueprint.py:309 bot/osmbot_blueprint.py:311
+#: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
+#: bot/templates/details_message.md:22 bot/templates/details_message.md:24
+#: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
 msgid "North american country"
 msgstr "nước Bắc Mỹ"
 
-#: bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:26
 msgid "Central american country"
 msgstr "nước Trung Mỹ"
 
-#: bot/osmbot_blueprint.py:315 bot/osmbot_blueprint.py:317
+#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
+#: bot/templates/details_message.md:28 bot/templates/details_message.md:30
+#: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
 msgid "American country"
 msgstr "nước châu Mỹ"
 
-#: bot/osmbot_blueprint.py:319
+#: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:32
 msgid "Asian country"
 msgstr "nước châu Á"
 
-#: bot/osmbot_blueprint.py:321 bot/osmbot_blueprint.py:323
+#: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
+#: bot/templates/details_message.md:34 bot/templates/details_message.md:36
+#: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
 msgid "Oceanian country"
 msgstr "nước châu Đại Dương"
 
-#: bot/osmbot_blueprint.py:325 bot/osmbot_blueprint.py:327
+#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
+#: bot/templates/details_message.md:38 bot/templates/details_message.md:40
+#: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
 msgid "Eurasian country"
 msgstr "nước Á-Âu"
 
-#: bot/osmbot_blueprint.py:364 bot/osmbot_blueprint.py:366
+#: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
+#: bot/templates/details_message.md:182 bot/templates/details_message.md:184
+#: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
 msgid "inhabitants"
 msgstr "dân cư"
 
-#: bot/osmbot_blueprint.py:364
+#: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:182
 msgid "at"
 msgstr "tại"
 
-#: bot/osmbot_blueprint.py:369
+#: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:187
 msgid "meters"
 msgstr "mét"
 
-#: bot/osmbot_blueprint.py:382
+#: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
 msgid "Raw data:"
 msgstr "Dữ liệu thô:"
 
-#: bot/osmbot_blueprint.py:409 bot/osmbot_blueprint.py:411
-#: bot/osmbot_blueprint.py:456 bot/osmbot_blueprint.py:459
-#: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
-#: bot/osmbot_blueprint.py:502
+#: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
+#: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
+#: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
+#: bot/osmbot_blueprint.py:510
 msgid "OSM contributors"
 msgstr "những người đóng góp vào OSM"
 
-#: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
+#: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
 msgstr "Hãy gửi tôi vị trí của bạn"
 
-#: bot/osmbot_blueprint.py:421
-msgid "to receive the map."
-msgstr "để nhận bản đồ."
+#: bot/osmbot_blueprint.py:429
+msgid "to receive the map"
+msgstr "để nhận bản đồ"
 
-#: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
+#: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
 msgstr "Bạn có thể sử dụng nút kẹp giấy Telegram"
 
-#: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
-msgid "Sorry, I can't understand you"
-msgstr "Rất tiếc, tôi không hiểu bạn"
-
-#: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
-msgid "Perhaps I could help you with the command /help"
-msgstr "Có lẽ tôi có thể giúp bạn với lệnh /help"
-
-#: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
-msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "Rất tiếc, tôi không tìm thấy kết quả, xin vui lòng kiểm tra ID"
-
-#: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
+#: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "Rất tiếc, tôi chưa hiểu các thẻ cho phần tử này, có lẽ mai mốt sẽ hiểu"
 
-#: bot/osmbot_blueprint.py:583
-msgid "Sorry but this query it's not implemented yet"
-msgstr "Rất tiếc, truy vấn này chưa được xây dựng"
-
-#: bot/osmbot_blueprint.py:602
-msgid "and I'll send you the nearest element"
-msgstr "và tôi sẽ gửi phần tử gần nhất cho bạn"
-
-#: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
+#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
 msgid "Raw data for"
 msgstr "Dữ liệu thô cho"
 
-#: bot/osmbot_blueprint.py:637 bot/osmbot_blueprint.py:652
+#: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
 msgid "Raw data"
 msgstr "Dữ liệu thô"
 
-#: bot/osmbot_blueprint.py:671
-msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "Chào bạn, tôi là bot cho dữ liệu OpenStreetMap"
+#: bot/osmbot_blueprint.py:809
+msgid ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "Xin vui lòng định rõ truy vấn với lệnh /search <truy vấn>"
 
-#: bot/osmbot_blueprint.py:671
-msgid "How I can help you?"
-msgstr "Tôi có thể giúp gì cho bạn?"
+#: bot/osmbot_blueprint.py:815
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "Sử dụng lệnh /search <truy vấn> để định rõ truy vấn"
 
-#: bot/osmbot_blueprint.py:696
-msgid "Setting not recognized"
-msgstr "Không hiểu tùy chọn"
+#: bot/osmbot_blueprint.py:899
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "Bot OpenStreetMap tìm kiếm địa điểm nào trên khắp thế giới trong cơ sở dữ liệu OSM Nominatim và có thể gửi liên kết và bản đồ OSM"
 
-#: bot/osmbot_blueprint.py:746
+#: bot/osmbot_blueprint.py:900
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "Bot OpenStreetMap tìm kiếm địa điểm nào trên khắp thế giới trong cơ sở dữ liệu OSM Nominatim"
+
+#: bot/osmbot_blueprint.py:901
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "Bot có thể gửi liên kết và bản đồ (JPEG, PNG, hoặc PDF) từ OSM"
+
+#: bot/osmbot_blueprint.py:902
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "Dữ liệu cho toàn thế giới (thành phố; thị xã; tiệm có số điện thoại, địa chỉ thư điện tử, …; liên kết Wikipedia; v.v.)"
+
+#: bot/osmbot_blueprint.py:903
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot nói nhiều ngôn ngữ, kể cả tiếng Việt"
+
+#: bot/templates/about_answer.md:1
 msgid "OpenStreetMap bot info:"
 msgstr "Thông tin bot OpenStreetMap:"
 
-#: bot/osmbot_blueprint.py:747
+#: bot/templates/about_answer.md:3
 msgid "CREDITS&CODE"
 msgstr "GHI CÔNG & MÃ NGUỒN"
 
-#: bot/osmbot_blueprint.py:748
+#: bot/templates/about_answer.md:4
 msgid "Author:"
 msgstr "Tác giả:"
 
-#: bot/osmbot_blueprint.py:749
+#: bot/templates/about_answer.md:4
 msgid "(Catalan OpenStreetMap community)"
 msgstr "(Cộng đồng OpenStreetMap Catalunya)"
 
-#: bot/osmbot_blueprint.py:750
+#: bot/templates/about_answer.md:5
 msgid "Code"
 msgstr "Mã nguồn"
 
-#: bot/osmbot_blueprint.py:751
+#: bot/templates/about_answer.md:6
 msgid "License: GPLv3"
 msgstr "Giấy phép: GPLv3"
 
-#: bot/osmbot_blueprint.py:751
+#: bot/templates/about_answer.md:6
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
 
-#: bot/osmbot_blueprint.py:752
+#: bot/templates/about_answer.md:7
 msgid "Localization"
 msgstr "Biên dịch"
 
-#: bot/osmbot_blueprint.py:753
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr ""
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr ""
+
+#: bot/templates/about_answer.md:12
 msgid "NEWS"
 msgstr "TIN TỨC"
 
-#: bot/osmbot_blueprint.py:754
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr ""
+
+#: bot/templates/about_answer.md:14
 msgid "Telegram channel"
 msgstr "Đài Telegram"
 
-#: bot/osmbot_blueprint.py:755
+#: bot/templates/about_answer.md:16
 msgid "RATING"
 msgstr "ĐÁNH GIÁ"
 
-#: bot/osmbot_blueprint.py:755
+#: bot/templates/about_answer.md:17
 msgid "Rating&reviews"
 msgstr "Đánh giá & nhận xét"
 
-#: bot/osmbot_blueprint.py:756
+#: bot/templates/about_answer.md:18
 msgid "Please rate me"
 msgstr "Xin vui lòng đánh giá tôi"
 
-#: bot/osmbot_blueprint.py:757
+#: bot/templates/about_answer.md:20
 msgid "Thanks for use @OSMbot!!"
 msgstr "Cám ơn bạn vì sử dụng @OSMbot!"
 
-#: bot/osmbot_blueprint.py:760
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "Bây giờ tôi sẽ trả lời luôn luôn"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "Rất tiếc, tôi chưa biết nói ngôn ngữ"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "này"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "Nhưng bạn có thể dạy tôi nói ngôn ngữ này tại Transifex"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "Rất tiếc, tôi không hiểu bạn"
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "Có lẽ tôi có thể giúp bạn với lệnh /help"
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "Bạn muốn cấu hình gì?"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
+msgid "Flag"
+msgstr ""
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
+msgid "Wikidata"
+msgstr ""
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
+msgid "Wikipedia"
+msgstr ""
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "Nếu bạn thấy biểu tượng emoji lạ lạ, điều này do quả trứng Phục Sinh"
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "Có sự cố"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "xin vui lòng thử lại sau"
+
+#: bot/templates/help_message.md:1
 msgid "OpenStreetMap bot help:"
 msgstr "Trợ giúp bot OpenStreetMap:"
 
-#: bot/osmbot_blueprint.py:760
+#: bot/templates/help_message.md:3
 msgid "You can control me by sending these commands:"
 msgstr "Bạn có thể điều khiển tôi dùng các lệnh này:"
 
-#: bot/osmbot_blueprint.py:762
+#: bot/templates/help_message.md:5
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
 msgstr "/about – Hiển thị thông tin về OSMbot: ghi công & mã nguồn, tin tức, và đánh giá & nhận xét."
 
-#: bot/osmbot_blueprint.py:764
+#: bot/templates/help_message.md:7
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
 msgstr "/details <kiểu> <ID OSM> – Hiển thị thẻ từ cơ sở dữ liệu OSM theo ID."
 
-#: bot/osmbot_blueprint.py:766
+#: bot/templates/help_message.md:9
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
 msgstr "/raw<kiểu><ID OSM> – Hiển thị các thẻ từ cơ sở dữ liệu OSM theo ID dưới dạng thô."
 
-#: bot/osmbot_blueprint.py:768
+#: bot/templates/help_message.md:11
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
 msgstr "ID phát sinh từ lệnh /search, nhưng nếu bạn biết một ID OSM thì có thể thử nó."
 
-#: bot/osmbot_blueprint.py:770
+#: bot/templates/help_message.md:13
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
 msgstr "Kiểu là tùy chọn, nó có thể là nod(node), way(way), hoặc rel(relation). Nếu bạn không định rõ, bot sẽ cố gắng đoán ra."
 
-#: bot/osmbot_blueprint.py:772
+#: bot/templates/help_message.md:15
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
 msgstr "/legend <chìa khóa OSM> – Hiển thị danh sách đôi chìa khóa=giá trị và biểu tượng emoji trong OSMbot. Nếu bạn không định rõ một <chìa khóa OSM>, hiển thị tất cả các đôi chìa khóa=giá trị có biểu tượng emoji trong OSMbot."
 
-#: bot/osmbot_blueprint.py:774
+#: bot/templates/help_message.md:17
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
 msgstr "/map <tọa độ> <định dạng> <tỷ lệ> – Hiển thị bản đồ theo các tùy chọn:"
 
-#: bot/osmbot_blueprint.py:776
+#: bot/templates/help_message.md:19
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
 msgstr "<tọa độ> Có thể là tọa độ (vĩ_độ,kinh_độ) hoặc một hộp bao (kđ_tối_thiểu,vđ_tối_thiểu,kđ_tối_đa,vđ_tối_đa). Nếu bạn không định rõ, bot có thể gửi vị trí của bạn."
 
-#: bot/osmbot_blueprint.py:778
+#: bot/templates/help_message.md:21
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
 msgstr "<định dạng> Có thể là png, jpeg, hoặc pdf. Nếu bạn không định rõ, bot sử dụng png theo mặc định."
 
-#: bot/osmbot_blueprint.py:780
+#: bot/templates/help_message.md:23
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
 msgstr "<tỷ lệ> Mức thu phóng (1–19). Nếu bạn không định rõ, bot sử dụng 19 theo mặc định."
 
-#: bot/osmbot_blueprint.py:782
+#: bot/templates/help_message.md:25
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
 msgstr "/search <truy vấn> – Tìm kiếm trong toàn bộ cơ cở dữ liệu OpenStreetMap qua Nominatim."
 
-#: bot/osmbot_blueprint.py:784
+#: bot/templates/help_message.md:27
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
 msgstr "/nearest <kiểu> <mét tùy chọn> – Tìm phần tử trong phạm vi cách một bán kính cụ thể qua Overpass"
 
-#: bot/osmbot_blueprint.py:793
-msgid ""
-"Please indicate what are you searching with command /search <search_term>"
-msgstr "Xin vui lòng định rõ truy vấn với lệnh /search <truy vấn>"
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "Chọn ngôn ngữ để nói chuyện với bạn"
 
-#: bot/osmbot_blueprint.py:799
-msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "Sử dụng lệnh /search <truy vấn> để định rõ truy vấn"
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "Bây giờ tôi nói chuyện với bạn trong ngôn ngữ mới"
 
-#: bot/osmbot_blueprint.py:872
-msgid "Something failed"
-msgstr "Có sự cố"
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "Không tìm thấy biểu tượng emoji; có lẽ bạn muốn sử dụng /legend <chìa_khóa_osm:giá_trị>"
 
-#: bot/osmbot_blueprint.py:873
-msgid "please try it latter"
-msgstr "xin vui lòng thử lại sau"
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "Rất tiếc, tôi không tìm thấy kết quả, xin vui lòng kiểm tra ID"
 
-#: bot/osmbot_blueprint.py:885
-msgid ""
-"OpenStreetMap bot finds any location in world from the Nominatim OSM "
-"database and can send links and maps from OSM"
-msgstr "Bot OpenStreetMap tìm kiếm địa điểm nào trên khắp thế giới trong cơ sở dữ liệu OSM Nominatim và có thể gửi liên kết và bản đồ OSM"
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "Rất tiếc, tôi không tìm thấy kết quả nào cho"
 
-#: bot/osmbot_blueprint.py:886
-msgid ""
-"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
-"database"
-msgstr "Bot OpenStreetMap tìm kiếm địa điểm nào trên khắp thế giới trong cơ sở dữ liệu OSM Nominatim"
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "Gợi ý bạn đóng góp vào OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:887
-msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
-msgstr "Bot có thể gửi liên kết và bản đồ (JPEG, PNG, hoặc PDF) từ OSM"
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/en/"
 
-#: bot/osmbot_blueprint.py:888
-msgid ""
-"Data for all the world (cities and towns, shops -with phone number, "
-"email...-, Wikipedia links, etc)"
-msgstr "Dữ liệu cho toàn thế giới (thành phố; thị xã; tiệm có số điện thoại, địa chỉ thư điện tử, …; liên kết Wikipedia; v.v.)"
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "Không tìm thấy phần tử"
 
-#: bot/osmbot_blueprint.py:889
-msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "OSMbot nói nhiều ngôn ngữ bao gồm *ngôn ngữ của bạn*"
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "Rất tiếc, truy vấn này chưa được xây dựng"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "Bây giờ tôi chỉ trả lời khi được nhắc đến"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "Tôi có nên trả lời ngay cả khi không được nhắc đến?"
+
+#: bot/templates/question_only_mention.md:1
+msgid "Answer only when mention?"
+msgstr ""
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "và tôi sẽ gửi phần tử gần nhất cho bạn"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "Không hiểu tùy chọn"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Chào bạn, tôi là bot cho dữ liệu OpenStreetMap"
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "Tôi có thể giúp gì cho bạn?"
