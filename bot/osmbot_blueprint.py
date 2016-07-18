@@ -73,7 +73,7 @@ def attend_webhook(token):
                 chat_id = query['message']['chat']['id']
 
                 if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
-                    if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in avaible_languages.keys():
+                    if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in osmbot.get_languages().keys():
                         return 'OK'
                 else:
                     message = message.replace('@osmbot', '')
