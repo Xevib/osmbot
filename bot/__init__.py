@@ -1,6 +1,5 @@
 from __future__ import absolute_import
-from bot.osmbot_blueprint import osmbot
-from bot.osmbot_blueprint import avaible_languages
+from bot.osmbot_blueprint import osmbot_blueprint
 
 
 class Osmbot(object):
@@ -13,5 +12,5 @@ class Osmbot(object):
             self.app = None
 
     def init_app(self, app):
-        app.register_blueprint(osmbot, url_prefix=self.url_prefix)
+        app.register_blueprint(osmbot_blueprint, url_prefix=self.url_prefix)
         app.extensions['osmbot'] = self
