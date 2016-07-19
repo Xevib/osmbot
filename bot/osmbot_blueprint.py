@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
+from __future__ import  absolute_import
 from flask import Flask
 from flask import request, current_app, Blueprint
 import pynominatim
 from osmapi import OsmApi
 from configobj import ConfigObj
 import gettext
+import bot.user as u
+from bot.osmbot import OsmBot
+from bot.bot import Bot, Message
 
 
 application = Flask(__name__)
