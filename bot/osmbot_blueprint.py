@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
 from flask import Flask
 from flask import request, current_app, Blueprint
 import pynominatim
 from osmapi import OsmApi
-from bot.bot import Bot, Message
 from configobj import ConfigObj
 import gettext
-import bot.user as u
-from bot.osmbot import OsmBot
 
 
 application = Flask(__name__)
@@ -41,10 +37,6 @@ def attend_webhook(token):
                 return 'OK'
             is_group = False
             message_type = ''
-            message = ''
-            user_config = {}
-            chat_id = 0
-            user_id = 0
             if 'message' in query:
                 message_type = 'query'
                 if 'from' in query['message'] and 'id' in query['message']['from']:

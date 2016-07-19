@@ -1,152 +1,492 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-15 18:59+0200\n"
-"PO-Revision-Date: 2015-08-15 19:22+0100\n"
+"Project-Id-Version: OSMbot\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-07-18 08:53+0200\n"
+"PO-Revision-Date: 2016-07-18 08:42+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
+"Language-Team: English (http://www.transifex.com/osm-catala/osmbot/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"X-Generator: Poedit 1.7.5\n"
+"Generated-By: Babel 1.3\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main.py:47
-msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr ""
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "Map too large!"
+msgstr "Map too large!"
 
-#: main.py:49
-msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr ""
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "Please, reduce the bounding box"
+msgstr "Please, reduce the bounding box"
 
-#: main.py:57
-#, python-brace-format
-msgid ""
-"Sorry but I couldn't find any result for \"{0}\" 😢\n"
-"But you can try to improve OpenStreetMap🔍\n"
-"http://www.openstreetmap.org"
-msgstr ""
+#: bot/maptools.py:43 bot/maptools.py:45
+msgid "or the scale (zoom level)"
+msgstr "or the scale (zoom level)"
 
-#: main.py:79 main.py:81 main.py:83 main.py:85
+#: bot/maptools.py:47
+msgid "Invalid bounding box!"
+msgstr "Invalid bounding box!"
+
+#: bot/maptools.py:47
+msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
+msgstr "Please, try with /map minlon,minlat,maxlon,maxlat"
+
+#: bot/maptools.py:47
+msgid "Coordinates' decimals need to be marked with a dot."
+msgstr "Coordinates' decimals need to be marked with a dot."
+
+#: bot/maptools.py:47
+msgid "For example:"
+msgstr "For example:"
+
+#: bot/maptools.py:49
+msgid "Oh,oh... An error occurred"
+msgstr "Oh,oh... An error occurred"
+
+#: bot/maptools.py:49
+msgid "You can try with another bounding box or scale (zoom level)"
+msgstr "You can try with another bounding box or scale (zoom level)"
+
+#: bot/maptools.py:49
+msgid "Good luck! "
+msgstr "Good luck! "
+
+#: bot/osmbot_blueprint.py:195
+msgid "Results for"
+msgstr "Results for"
+
+#: bot/osmbot_blueprint.py:218
+msgid "Map"
+msgstr "Map"
+
+#: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
+#: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
+#: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
+#: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
 msgid "More info"
-msgstr ""
+msgstr "More info"
 
-#: main.py:87 main.py:142
+#: bot/osmbot_blueprint.py:228
+msgid "Phone"
+msgstr "Phone"
+
+#: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
+#: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
+#: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
 msgid "OpenStreetMap contributors"
-msgstr ""
+msgstr "OpenStreetMap contributors"
 
-#: main.py:169
+#: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
+#: bot/templates/details_message.md:4 bot/templates/details_message.md:6
+#: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
+#: bot/templates/inline_article.md:6
+msgid "Tags for"
+msgstr "Tags for"
+
+#: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
+#: bot/templates/details_message.md:10 bot/templates/details_message.md:12
+#: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
+msgid "European country"
+msgstr "European country"
+
+#: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:14
+msgid "African country"
+msgstr "African country"
+
+#: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
+#: bot/templates/details_message.md:18 bot/templates/details_message.md:20
+#: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
+#: bot/templates/inline_article.md:20
+msgid "South american country"
+msgstr "South american country"
+
+#: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
+#: bot/templates/details_message.md:22 bot/templates/details_message.md:24
+#: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
+msgid "North american country"
+msgstr "North american country"
+
+#: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:26
+msgid "Central american country"
+msgstr "Central american country"
+
+#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
+#: bot/templates/details_message.md:28 bot/templates/details_message.md:30
+#: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
+msgid "American country"
+msgstr "American country"
+
+#: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:32
+msgid "Asian country"
+msgstr "Asian country"
+
+#: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
+#: bot/templates/details_message.md:34 bot/templates/details_message.md:36
+#: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
+msgid "Oceanian country"
+msgstr "Oceanian country"
+
+#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
+#: bot/templates/details_message.md:38 bot/templates/details_message.md:40
+#: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
+msgid "Eurasian country"
+msgstr "Eurasian country"
+
+#: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
+#: bot/templates/details_message.md:182 bot/templates/details_message.md:184
+#: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
+msgid "inhabitants"
+msgstr "inhabitants"
+
+#: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:182
+msgid "at"
+msgstr "at"
+
+#: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:187
+msgid "meters"
+msgstr "meters"
+
+#: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
+msgid "Raw data:"
+msgstr "Raw data:"
+
+#: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
+#: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
+#: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
+#: bot/osmbot_blueprint.py:510
+msgid "OSM contributors"
+msgstr "OSM contributors"
+
+#: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
-msgstr ""
+msgstr "Please send me your location"
 
-#: main.py:169
-msgid ""
-"to receive the map.\n"
-"You can do it with the Telegram paperclip button"
-msgstr ""
+#: bot/osmbot_blueprint.py:429
+msgid "to receive the map"
+msgstr "to receive the map"
 
-#: main.py:225 main.py:227
-msgid "Sorry, I can't understand you"
-msgstr ""
+#: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
+msgid "You can do it with the Telegram paperclip button"
+msgstr "You can do it with the Telegram paperclip button"
 
-#: main.py:225 main.py:227
-msgid "Perhaps I could help you with the command /help"
-msgstr ""
-
-#: main.py:257
-msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr ""
-
-#: main.py:260
+#: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr ""
+msgstr "Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it"
 
-#: main.py:299
+#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
+msgid "Raw data for"
+msgstr "Raw data for"
+
+#: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
+msgid "Raw data"
+msgstr "Raw data"
+
+#: bot/osmbot_blueprint.py:809
 msgid ""
-"Hi, I'm the robot for OpenStreetMap data.\n"
-"How I can help you?"
-msgstr ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "Please indicate what are you searching with command /search <search_term>"
 
-#: main.py:318
+#: bot/osmbot_blueprint.py:815
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "Use /search <search_term> command to indicate what you are searching"
+
+#: bot/osmbot_blueprint.py:899
 msgid ""
-"OpenStreetMap bot info:\n"
-"\n"
-"CREDITS&CODE"
-msgstr ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "OpenStreetMap bot finds any location in world from the Nominatim OSM database and can send links and maps from OSM"
 
-#: main.py:319
-msgid " Author: OSM català (Catalan OpenStreetMap community)"
-msgstr ""
+#: bot/osmbot_blueprint.py:900
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "OpenStreetMap bot finds any location in the world from the Nominatim OSM database"
 
-#: main.py:320
-msgid "Code:"
-msgstr ""
+#: bot/osmbot_blueprint.py:901
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "The bot can send links and maps (jpg, png or pdf) from OSM"
 
-#: main.py:320
+#: bot/osmbot_blueprint.py:902
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "Data for all the world (cities and towns, shops -with phone number, email...-, Wikipedia links, etc)"
+
+#: bot/osmbot_blueprint.py:903
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot is multilingual and speaks *your language here*"
+
+#: bot/templates/about_answer.md:1
+msgid "OpenStreetMap bot info:"
+msgstr "OpenStreetMap bot info:"
+
+#: bot/templates/about_answer.md:3
+msgid "CREDITS&CODE"
+msgstr "CREDITS&CODE"
+
+#: bot/templates/about_answer.md:4
+msgid "Author:"
+msgstr "Author:"
+
+#: bot/templates/about_answer.md:4
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(Catalan OpenStreetMap community)"
+
+#: bot/templates/about_answer.md:5
+msgid "Code"
+msgstr "Code"
+
+#: bot/templates/about_answer.md:6
 msgid "License: GPLv3"
-msgstr ""
+msgstr "License: GPLv3"
 
-#: main.py:322
+#: bot/templates/about_answer.md:6
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
+
+#: bot/templates/about_answer.md:7
+msgid "Localization"
+msgstr "Localization"
+
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr "DOCUMENTATION"
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr "OSMbot wiki"
+
+#: bot/templates/about_answer.md:12
+msgid "NEWS"
+msgstr "NEWS"
+
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr "Twitter account"
+
+#: bot/templates/about_answer.md:14
+msgid "Telegram channel"
+msgstr "Telegram channel"
+
+#: bot/templates/about_answer.md:16
 msgid "RATING"
-msgstr ""
+msgstr "RATING"
 
-#: main.py:322
+#: bot/templates/about_answer.md:17
 msgid "Rating&reviews"
-msgstr ""
+msgstr "Rating&reviews"
 
-#: main.py:323
-msgid "Please rate me at"
-msgstr ""
+#: bot/templates/about_answer.md:18
+msgid "Please rate me"
+msgstr "Please rate me"
 
-#: main.py:324
+#: bot/templates/about_answer.md:20
 msgid "Thanks for use @OSMbot!!"
-msgstr ""
+msgstr "Thanks for use @OSMbot!!"
 
-#: main.py:326
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "Now I always will answer"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "Ooops! I can't talk this language"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "yet"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "But you can help me to learn it in Transifex"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "Sorry, I can't understand you"
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "Perhaps I could help you with the command /help"
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "What do you want to configure?"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
+msgid "Flag"
+msgstr "Flag"
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
+msgid "Wikidata"
+msgstr "Wikidata"
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
+msgid "Wikipedia"
+msgstr "Wikipedia"
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "If you see strange emojis it's due a Telegram easter egg"
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "Something failed"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "please try it later"
+
+#: bot/templates/help_message.md:1
+msgid "OpenStreetMap bot help:"
+msgstr "OpenStreetMap bot help:"
+
+#: bot/templates/help_message.md:3
+msgid "You can control me by sending these commands:"
+msgstr "You can control me by sending these commands:"
+
+#: bot/templates/help_message.md:5
 msgid ""
-"OpenStreetMap bot help:\n"
-"\n"
-"You can control me by sending these commands:\n"
-"\n"
-"/about - Show info about OSMbot: credits&code, news and ratings&reviews\n"
-"\n"
-"/details<type><osm_id> - Show some tags from OSM database by ID.\n"
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+
+#: bot/templates/help_message.md:7
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details<type><osm_id> - Show some tags from OSM database by ID."
+
+#: bot/templates/help_message.md:9
+msgid ""
+"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+msgstr "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+
+#: bot/templates/help_message.md:11
+msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
-"try it.\n"
-"The type it's optional and it can be nod, way or rel. If you don't specify "
-"it, the bot will try to deduce it\n"
-"\n"
-"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If "
-"you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
-"Osmbot\n"
-"\n"
-"/map <coord> <format> <scale> - Send a map with different options:\n"
-"  <coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,"
-"maxlat). If you don't use this option can send your location\n"
-"  <format> Could be png, jpeg or pdf. If you don't use this option, the bot "
-"use png by default\n"
-"  <scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
-"by default.\n"
-"\n"
-"/search <search_term> - search from Nominatim in all OpenStreetMap database."
-msgstr ""
+"try it."
+msgstr "The ID is generated by /search command, but if you know an OSM ID you can try it."
 
-#: main.py:330
+#: bot/templates/help_message.md:13
 msgid ""
-"Please indicate what are you searching with command /search <search term>"
-msgstr ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "The type it's optional and it can be nod(node), way(way) or rel(relation). If you don't specify it, the bot will try to deduce it"
 
-#: main.py:332
-msgid "Use /search <search term> command to indicate what you are searching"
-msgstr ""
+#: bot/templates/help_message.md:15
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If you don't specify an <osm_key>, shows all pairs of key=value with emoji in Osmbot"
 
-#: main.py:336
-msgid "Somthing failed please try it latter"
-msgstr ""
+#: bot/templates/help_message.md:17
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <coord> <format> <scale> - Send a map with different options:"
+
+#: bot/templates/help_message.md:19
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<coord> Could be a point (lat,lon) or a bounding box (minlon,minlat,maxlon,maxlat). If you don't use this option can send your location"
+
+#: bot/templates/help_message.md:21
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<format> Could be png, jpeg or pdf. If you don't use this option, the bot use png by default"
+
+#: bot/templates/help_message.md:23
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 by default."
+
+#: bot/templates/help_message.md:25
+msgid ""
+"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+msgstr "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+
+#: bot/templates/help_message.md:27
+msgid ""
+"/nearest <type> <optional meters> - Search from Overpass the element in a "
+"certain radius"
+msgstr "/nearest <type> <optional meters> - Search from Overpass the element in a certain radius"
+
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "Choose the language for talk with you"
+
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "Now I will talk you with the new language"
+
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "No emoji found, perhaps you should try with /legend <osm_key:value>"
+
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "Sorry but I couldn't find any result, please check the ID"
+
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "Sorry but I couldn't find any result for"
+
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "But you can try to improve OpenStreetMap"
+
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/en/"
+
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "No element found"
+
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "Sorry but this query it's not implemented yet"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "Now I only will answer when mention"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "Should I answer without a mention?"
+
+#: bot/templates/question_only_mention.md:1
+msgid "Answer only when mention?"
+msgstr "Answer only when mention?"
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "and I'll send you the nearest element"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "Setting not recognized"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Hi, I'm the robot for OpenStreetMap data"
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "How I can help you?"
