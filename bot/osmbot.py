@@ -206,7 +206,12 @@ class OsmBot(object):
                 selected_keys.append(key)
         selected_keys = sorted(selected_keys)
         temp = self._get_template('legend_command.md')
-        text = temp.render(typeemoji=typeemoji, keys=selected_keys)
+        template_params = {
+            'typeemoji': typeemoji,
+            'keys': selected_keys,
+            'is_rtl':self.get_is_rtl()
+        }
+        text = temp.render(**template_params)
         m = Message(chat_id, text)
         self.bot.sendMessage(m)
         if len(selected_keys) > 50:
