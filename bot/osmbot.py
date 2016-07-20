@@ -113,6 +113,16 @@ class OsmBot(object):
         return self.jinja_env.from_string(template_text)
 
     def SetOnlyMention(self, message, user_id, chat_id, user, group):
+        """
+        Manages the set only mention requests
+
+        :param message: Str with the message (Yes or No)
+        :param user_id: User id
+        :param chat_id: Chat ud
+        :param user: Dict with user configuration
+        :param group: Boolean to indicate if is a group
+        :return: None
+        """
         onlymentions = message == 'Yes'
         if group:
             user.set_field(chat_id, 'onlymentions', onlymentions, group=group)
