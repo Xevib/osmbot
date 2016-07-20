@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from __future__ import absolute_import
 
-from bot.bot import Bot, Message, ReplyKeyboardHide, ReplyKeyboardMarkup, KeyboardButton, InlineQueryResultArticle, InputTextMessageContent
+from bot.bot import Bot, Message, ReplyKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
 import os
 from jinja2 import Environment
 import urllib
@@ -512,8 +512,9 @@ class OsmBot(object):
                     else:
                         self.bot.sendPhoto(chat_id, data, 'map.png', '©' + _('OSM contributors'))
                 else:
-                    text = self._get_template('cant_understand_message.md').render()
-                    m = Message(chat_id,text)
+                    temp = self._get_template('cant_understand_message.md')
+                    text = temp.render()
+                    m = Message(chat_id, text)
                     response.append(m)
         self.bot.sendMessage(response)
 
@@ -669,7 +670,6 @@ class OsmBot(object):
         results = []
         if search_results:
             for index, r in enumerate(search_results[:7]):
-                #text = temp.render(data=r)
                 element_type = ''
                 if r.get('osm_type', '') == 'node':
                     element_type = 'nod'
@@ -690,7 +690,7 @@ class OsmBot(object):
                 results.append(result)
         self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
 
-    def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user,message_type):
+    def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
         if message_type == 'inline':
             self.answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
         else:
@@ -722,23 +722,23 @@ class OsmBot(object):
                     )
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
-                    response += self.LanguageCommand(message, user_id, chat_id, user,
-                                                is_group)
+                    self.LanguageCommand(
+                        message, user_id, chat_id, user, is_group)
                 elif message == 'Answer only when mention?':
                     self.AnswerCommand(message, user_id, chat_id, user)
                 else:
-                    text = self._get_template('seting_not_recognized_message.md').render()
+                    template_name = 'seting_not_recognized_message.md'
+                    temp = self._get_template(template_name)
+                    text = temp.render()
                     m = Message(
-                        chat_id,
-                        text,
-                        disable_web_page_preview=(not preview),
+                        chat_id, text, disable_web_page_preview=(not preview),
                         parse_mode='Markdown'
                     )
                     self.bot.sendMessage(m)
                     user.set_field(chat_id, 'mode', 'normal', group=is_group)
             elif user_config['mode'] == 'setlanguage':
-                response += self.SetLanguageCommand(message, user_id, chat_id, user,
-                                               is_group)
+                self.SetLanguageCommand(
+                    message, user_id, chat_id, user, is_group)
             elif user_config['mode'] == 'setonlymention':
                 response += self.SetOnlyMention(message, user_id, chat_id, user, is_group)
             elif 'text' in query['message']:
@@ -807,8 +807,8 @@ class OsmBot(object):
                     )
                     self.bot.sendMessage(m)
             if response:
-                m = Message(chat_id, response,
-                    disable_web_page_preview=(not preview),
+                m = Message(
+                    chat_id, response, disable_web_page_preview=(not preview),
                     parse_mode='Markdown'
                 )
                 self.bot.sendMessage(m)
