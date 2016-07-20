@@ -75,7 +75,7 @@
 {% endif -%}{% if 'addr:housenumber' in data.tag or 'addr:street' in data.tag or 'addr:housename' in data.tag or 'addr:city' in data.tag or 'addr:postcode' in data.tag or 'addr:district' in data.tag or 'addr:suburb' in data.tag or 'addr:province' in data.tag or 'addr:state' in data.tag or 'addr:country' in data.tag %}
 {% endif -%}
 {% if 'ref' in data.tag -%}
-{{'\U0001F6E3'}} {{data.tag['ref']}}
+{% if user_config['lang'] == 'fa' -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F6E3'}} {{data.tag['ref']}}
 {% endif -%}{% if 'lanes' in data.tag -%}
 {{'\U0001F68D'}}{{'\U00002797'}}{{'\U0001F698'}} {{data.tag['lanes']}}
 {% endif -%}{% if 'maxspeed' in data.tag -%}
@@ -108,9 +108,9 @@
 {% endif -%}
 {% if 'phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
-{% endif %}{% if 'contact:phone' in data.tag -%}
+{% endif %}{% if 'contact:phone' in data.tag -%}{% if data.tag.phone != data.tag.contact:phone -%}
 {{'\U0001F4DE'}} {{data.tag['contact:phone']}}
-{% endif %}{% if 'fax' in data.tag -%}
+{% endif %}{% endif %}{% if 'fax' in data.tag -%}
 {{'\U0001F4E0'}} {{data.tag['fax']}}
 {% endif %}{% if 'contact:fax' in data.tag -%}
 {{'\U0001F4E0'}} {{data.tag['contact:fax']}}
@@ -167,7 +167,7 @@
 {% endif %}{% if 'operator' in data.tag -%}
 {{'\U0001F4BC'}} {{data.tag['operator']}}
 {% endif %}{% if 'cuisine' in data.tag -%}
-{{'\U0001F373'}} {{data.tag['cuisine']}} {% if data.tag['cuisine'] == 'barbecue' -%}{{'\U0001F525'}}{% elif data.tag['cuisine'] == 'burger' -%}{{'\U0001F354'}}{% elif data.tag['cuisine'] == 'cake' -%}{{'\U0001F370'}}{% elif data.tag['cuisine'] == 'chicken' -%}{{'\U0001F357'}}{% elif  data.tag['cuisine'] == 'coffee_shop' -%}{{'\U00002615'}}{% elif data.tag['cuisine'] == 'curry' -%}{{'\U0001F35B'}}{% elif data.tag['cuisine'] == 'donut' -%}{{'\U0001F369'}}{% elif data.tag['cuisine'] == 'fish_and_chips' -%}{{'\U0001F41F'}}{{'\U0001F35F'}}{% elif  data.tag['cuisine'] == 'ice_cream' -%}{{'\U000FE977'}}{% elif data.tag['cuisine'] == 'gyros' -%}{{'\U0001F32E'}}{% elif data.tag['cuisine'] == 'kebab' -%}{{'\U0001F32E'}}{% elif data.tag['cuisine'] == 'pasta' -%}{{'\U0001F35D'}}{% elif data.tag['cuisine'] == 'pizza' -%}{{'\U000FE975'}}{% elif data.tag['cuisine'] == 'sandwich' -%}{{'\U0001F32D'}}{% elif data.tag['cuisine'] == 'sausage' -%}{{'\U0001F32D'}}{% elif data.tag['cuisine'] == 'seafood' -%}{{'\U0001F41F'}}{{'\U0001F980'}}{% elif data.tag['cuisine'] == 'soup' -%}{{'\U0001F372'}}{% elif data.tag['cuisine'] == 'steak_house' -%}{{'\U0001F356'}}{% elif data.tag['cuisine'] == 'sushi' -%}{{'\U0001F363'}}{% elif data.tag['cuisine'] == 'tapas' -%}{{'\U0001F364'}}{{'\U0001F37A'}}{% endif -%}
+{{'\U0001F373'}} {{data.tag['cuisine']}} {% if data.tag['cuisine'] == 'barbecue' -%}{{'\U0001F525'}}{% elif data.tag['cuisine'] == 'burger' -%}{{'\U0001F354'}}{% elif data.tag['cuisine'] == 'cake' -%}{{'\U0001F370'}}{% elif data.tag['cuisine'] == 'chicken' -%}{{'\U0001F357'}}{% elif  data.tag['cuisine'] == 'coffee_shop' -%}{{'\U00002615'}}{% elif data.tag['cuisine'] == 'curry' -%}{{'\U0001F35B'}}{% elif data.tag['cuisine'] == 'donut' -%}{{'\U0001F369'}}{% elif data.tag['cuisine'] == 'fish_and_chips' -%}{{'\U0001F41F'}}{{'\U0001F35F'}}{% elif  data.tag['cuisine'] == 'ice_cream' -%}{{'\U000FE977'}}{% elif data.tag['cuisine'] == 'gyros' -%}{{'\U0001F32E'}}{% elif data.tag['cuisine'] == 'kebab' -%}{{'\U0001F32E'}}{% elif data.tag['cuisine'] == 'pasta' -%}{{'\U0001F35D'}}{% elif data.tag['cuisine'] == 'pizza' -%}{{'\U0001F355'}}{% elif data.tag['cuisine'] == 'sandwich' -%}{{'\U0001F32D'}}{% elif data.tag['cuisine'] == 'sausage' -%}{{'\U0001F32D'}}{% elif data.tag['cuisine'] == 'seafood' -%}{{'\U0001F41F'}}{{'\U0001F980'}}{% elif data.tag['cuisine'] == 'soup' -%}{{'\U0001F372'}}{% elif data.tag['cuisine'] == 'steak_house' -%}{{'\U0001F356'}}{% elif data.tag['cuisine'] == 'sushi' -%}{{'\U0001F363'}}{% elif data.tag['cuisine'] == 'tapas' -%}{{'\U0001F364'}}{{'\U0001F37A'}}{% elif data.tag['cuisine'] == 'italian' -%}{{'\U0001F1EE\U0001F1F9'}}{% endif -%}
 {% endif %}{% if 'clothes' in data.tag -%}
 {{'\U0001F454'}}{{'\U0001F45A'}} {{data.tag['clothes']}}
 {% endif %}{% if 'male' in data.tag -%}
