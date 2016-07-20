@@ -824,7 +824,8 @@ class OsmBot(object):
                         parse_mode='Markdown')
                     self.bot.sendMessage(m)
                 elif message.lower().startswith('/help'):
-                    text = self._get_template('help_message.md').render()
+                    template = self._get_template('help_message.md')
+                    text = template.render(is_rtl=self.get_is_rtl())
                     response = [text]
                     response[-1] = response[-1].replace('_', '\_')
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
