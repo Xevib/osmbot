@@ -323,8 +323,8 @@ class OsmBot(object):
             if not user_config['lang_set']:
                 t += ' ' + _('Tags for') + ' ' + str(tags['name']) + '\n\n'
             else:
-                if 'name:' + str(user_config['lang']) in tags:
-                    t += ' ' + _('Tags for') + ' ' + str(tags['name:'+str(user_config['lang'])]) + '\n\n'
+                if 'name:' + self.get_language() in tags:
+                    t += ' ' + _('Tags for') + ' ' + str(tags['name:'+ self.get_language()]) + '\n\n'
                 else:
                     t += _('Tags for') + ' ' + str(tags['name']) + '\n\n'
         if tags.get('admin_level') == '2' and "Europe" in tags.get("is_in:continent", ''):
