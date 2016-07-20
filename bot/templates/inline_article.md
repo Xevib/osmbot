@@ -108,7 +108,7 @@
 {% endif -%}
 {% if 'phone' in data.tag -%}
 {{'\U0001F4DE'}} {{data.tag['phone']}}
-{% endif %}{% if 'contact:phone' in data.tag -%}{% if data.tag.phone != data.tag.contact:phone -%}
+{% endif %}{% if 'contact:phone' in data.tag -%}{% if data.tag.phone != data.tag['contact:phone'] -%}
 {{'\U0001F4DE'}} {{data.tag['contact:phone']}}
 {% endif %}{% endif %}{% if 'fax' in data.tag -%}
 {{'\U0001F4E0'}} {{data.tag['fax']}}
