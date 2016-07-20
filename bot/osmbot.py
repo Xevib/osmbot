@@ -633,8 +633,8 @@ class OsmBot(object):
     def answer_inline(self, message, query, chat_id, user_id, user_config, is_group, user):
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
-        search_results = nom.query(message, acceptlanguage=user_config['lang'], is_rtl=is_rtl)
-        temp = self._get_template('inline_article.md')
+        search_results = nom.query(message, acceptlanguage=user_config['lang'])
+        temp = self._get_template('inline_article.md', is_rtl=is_rtl)
         inline_query_id = query['inline_query']['id']
         results = []
         if search_results:
