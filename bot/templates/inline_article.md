@@ -112,17 +112,17 @@
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4DE'}} {{data.tag['contact:phone']}}
 {% endif %}{% endif %}{% if 'fax' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4E0'}} {{data.tag['fax']}}
-{% endif %}{% if 'contact:fax' in data.tag -%}
+{% endif %}{% if 'contact:fax' in data.tag -%}{% if data.tag.fax != data.tag['contact:fax'] -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4E0'}} {{data.tag['contact:fax']}}
-{% endif %}{% if 'email' in data.tag -%}
+{% endif %}{% endif %}{% if 'email' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U00002709'}} {{data.tag['email']}}
-{% endif %}{% if 'contact:email' in data.tag -%}
+{% endif %}{% if 'contact:email' in data.tag -%}{% if data.tag.mail != data.tag['contact:mail'] -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U00002709'}} {{data.tag['contact:email']}}
-{% endif %}{% if 'website' in data.tag -%}
+{% endif %}{% endif %}{% if 'website' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{data.tag['website']}}
-{% endif %}{% if 'contact:website' in data.tag -%}
+{% endif %}{% if 'contact:website' in data.tag -%}{% if data.tag.website != data.tag['contact:website'] -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{data.tag['contact:website']}}
-{% endif %}{% if 'opening_hours' in data.tag -%}
+{% endif %}{% endif %}{% if 'opening_hours' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F55E'}} {{data.tag['opening_hours']}}
 {% endif %}{% if 'internet_access' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4F6'}} {{data.tag['internet_access']}}
