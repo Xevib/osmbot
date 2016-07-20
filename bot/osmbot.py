@@ -54,6 +54,7 @@ class OsmBot(object):
         self.bot = Bot(token)
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
+        self.language = None
 
     def load_language(self, language):
         """
@@ -62,9 +63,26 @@ class OsmBot(object):
         :param language: code of the language
         :return: None
         """
+        self.language = language
         lang = gettext.translation('messages', localedir='./bot/locales/', languages=[language, 'en'])
         lang.install()
         self.jinja_env.install_gettext_translations(gettext.translation('messages', localedir='./bot/locales/',languages=[language, 'en']))
+
+    def get_is_rtl(self):
+        """
+        Returns if the actual language is RTL
+
+        :return: Boolean to indicate if the language is RTL
+        """
+        return  self.language in self.rtl_languages
+
+    def get_language(self):
+        """
+        Retunrs the actual language code
+
+        :return: str Language code
+        """
+        return self.language
 
     def get_languages(self):
         """
@@ -787,7 +805,7 @@ class OsmBot(object):
                 elif message.lower().startswith('/legend'):
                     self.LegendCommand(message, chat_id)
                 elif message.lower().startswith('/about'):
-                    is_rtl = user_config['lang'] in self.get_rtl_languages()
+                    is_rtl = self.get_is_rtl()
                     template = self._get_template('about_answer.md')
                     text = template.render(is_rtl=is_rtl)
                     m = Message(
