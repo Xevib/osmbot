@@ -634,7 +634,7 @@ class OsmBot(object):
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
         search_results = nom.query(message, acceptlanguage=user_config['lang'])
-        temp = self._get_template('inline_article.md', is_rtl=is_rtl)
+        temp = self._get_template('inline_article.md')
         inline_query_id = query['inline_query']['id']
         results = []
         if search_results:
@@ -648,8 +648,11 @@ class OsmBot(object):
                 elif r.get('osm_type', '') == 'relation':
                     element_type = 'rel'
                 osm_data = getData(r['osm_id'], geom_type=element_type)
-                params = {'data': osm_data, 'type': element_type,
-                          'identifier': r['osm_id'], 'user_config': user_config}
+                params = {
+                    'data': osm_data, 'type': element_type,
+                    'identifier': r['osm_id'], 'user_config': user_config,
+                    'is_rtl': is_rtl
+                }
                 if osm_data:
                     text = temp.render(**params)
                 answer = InputTextMessageContent(text, 'Markdown')
