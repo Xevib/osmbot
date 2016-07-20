@@ -34,7 +34,7 @@ class OsmBot(object):
             'Chinese (Taiwan)': 'zh_TW', 'Vietnamese': 'vi', 'Russian': 'ru',
             'Slovak': 'sk', 'Chinese (Hong Kong)': 'zh_HK', 'Hungarian': 'hu'
         }
-
+        self.rtl_languages = ['fa']
         token = config.get('token', '')
         if config:
             self.user = u.User(config.get('host', ''), config.get('database', ''),
@@ -50,6 +50,9 @@ class OsmBot(object):
 
     def get_languages(self):
         return self.avaible_languages
+
+    def get_rtl_languages(self):
+        return self.rtl_languages
 
     def _get_template(self, template_name):
         url = os.path.join('bot/templates', template_name)
@@ -629,7 +632,8 @@ class OsmBot(object):
 
     def answer_inline(self, message, query, chat_id, user_id, user_config, is_group, user):
         nom = pynominatim.Nominatim()
-        search_results = nom.query(message, acceptlanguage=user_config['lang'])
+        is_rtl = user_config['lang'] in self.get_rtl_languages()
+        search_results = nom.query(message, acceptlanguage=user_config['lang'], is_rtl=is_rtl)
         temp = self._get_template('inline_article.md')
         inline_query_id = query['inline_query']['id']
         results = []
