@@ -787,7 +787,9 @@ class OsmBot(object):
                 elif message.lower().startswith('/legend'):
                     self.LegendCommand(message, chat_id)
                 elif message.lower().startswith('/about'):
-                    text = self._get_template('about_answer.md').render()
+                    is_rtl = user_config['lang'] in self.get_rtl_languages()
+                    template = self._get_template('about_answer.md')
+                    text = template.render(is_rtl=is_rtl)
                     m = Message(
                         chat_id, text,
                         disable_web_page_preview=(not preview),
