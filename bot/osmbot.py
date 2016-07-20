@@ -18,8 +18,13 @@ import overpass
 
 
 def url_escape(s):
-    t = urllib.unquote(s.encode('utf-8'))
-    return t.replace('_', '\\_').replace(')', '\\)')
+    """
+    Used to escape URL in template
+
+    :param s: original URL in data
+    :return: Well fomrated URL
+    """
+    return s.replace(' ', '%20').replace(')', '\\)')
 
 
 class OsmBot(object):
