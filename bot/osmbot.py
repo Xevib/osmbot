@@ -70,9 +70,20 @@ class OsmBot(object):
         return self.avaible_languages
 
     def get_rtl_languages(self):
+        """
+        Returns the list of RTL langauges
+
+        :return: list of the code of RTL languages
+        """
         return self.rtl_languages
 
     def _get_template(self, template_name):
+        """
+        Returns the text of a template
+
+        :param template_name: The template name as a str
+        :return: str with the text of the template
+        """
         url = os.path.join('bot/templates', template_name)
         with open(url) as f:
             template_text = f.read()
