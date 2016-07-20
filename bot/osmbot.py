@@ -104,6 +104,7 @@ class OsmBot(object):
             else:
                 u.set_field(user_id, 'lang', self.get_languages()[message], group=group)
                 u.set_field(user_id, 'mode', 'normal', group=group)
+            self.load_language(self.get_languages()[message])
             text = self._get_template('new_language.md').render()
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
