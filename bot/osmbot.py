@@ -23,8 +23,15 @@ def url_escape(s):
 
 
 class OsmBot(object):
-
+    """
+        Class that represents the OsmBot
+    """
     def __init__(self, config):
+        """
+        Class constructor
+
+        :param config: Dictionary with the configuration variables (token,host,database,user,password)
+        """
         self.avaible_languages = {
             'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
             'Asturian': 'ast', 'Galician': 'gl', 'French': 'fr',
@@ -44,11 +51,22 @@ class OsmBot(object):
         self.jinja_env.filters['url_escape'] = url_escape
 
     def load_language(self, language):
+        """
+        Function to load the language of the answer
+
+        :param language: code of the language
+        :return: None
+        """
         lang = gettext.translation('messages', localedir='./bot/locales/', languages=[language, 'en'])
         lang.install()
         self.jinja_env.install_gettext_translations(gettext.translation('messages', localedir='./bot/locales/',languages=[language, 'en']))
 
     def get_languages(self):
+        """
+        Returns the avaible languages
+
+        :return: Dict with the name of the language as a key and code as a value
+        """
         return self.avaible_languages
 
     def get_rtl_languages(self):
