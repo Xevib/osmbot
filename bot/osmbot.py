@@ -605,7 +605,8 @@ class OsmBot(object):
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
 
-    def clean_message(self, message):
+    @staticmethod
+    def clean_message(message):
         if message.startswith('@osmbot'):
             message = message[8:]
         message = message.replace('\n', '').replace('\r', '')
