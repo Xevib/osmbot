@@ -564,16 +564,18 @@ class OsmBot(object):
                     except ValueError as v:
                         response.append(v.message)
                     else:
+                        signature = '©' + _('OSM contributors')
                         if imgformat == 'pdf':
                             self.bot.sendDocument(chat_id, data, 'map.pdf')
                         elif imgformat == 'jpeg':
                             self.bot.sendPhoto(
-                                chat_id, data, 'map.jpg', '©' + _('OSM contributors'))
+                                chat_id, data, 'map.jpg', signature)
                         elif imgformat == 'png':
                             self.bot.sendPhoto(
-                                chat_id, data, 'map.png', '©' + _('OSM contributors'))
+                                chat_id, data, 'map.png',signature)
                 else:
-                    text = self._get_template('cant_understand_message.md').render()
+                    template = self._get_template('cant_understand_message.md')
+                    text = template.render()
                     response.append(text)
             else:
                 res = nom.query(message)
@@ -581,12 +583,13 @@ class OsmBot(object):
                     bbox = res[0]['boundingbox']
                     auto_scale = getScale([bbox[0], bbox[2], bbox[1], bbox[3]])
                     try:
-                        data = download([bbox[2], bbox[0], bbox[3], bbox[1]], _, scale=auto_scale )
+                        data = download([bbox[2], bbox[0], bbox[3], bbox[1]], _, scale=auto_scale)
                     except ValueError as v:
                         m = Message(chat_id, v.message)
                         response.append(m)
                     else:
-                        self.bot.sendPhoto(chat_id, data, 'map.png', '©' + _('OSM contributors'))
+                        signature = '©' + _('OSM contributors')
+                        self.bot.sendPhoto(chat_id, data, 'map.png', signature)
                 else:
                     temp = self._get_template('cant_understand_message.md')
                     text = temp.render()
@@ -776,7 +779,8 @@ class OsmBot(object):
         :param chat_id: Chat id
         :param user_id: User id
         :param user_config: Dict with the user config
-        :param is_group: Boolean that indicates if the message comes from a group
+        :param is_group: Boolean that indicates if the message comes from
+        a group
         :param user: User object
         :param message_type: Type of message
         :return: None
@@ -795,7 +799,7 @@ class OsmBot(object):
                     parse_mode='Markdown')
                 self.bot.sendMessage(m)
             elif 'location' in query['message']:
-                if user_config is not None and 'mode' in user_config and user_config['mode'] == 'map':
+                if user_config is not None and user_config.get('mode','') == 'map':
                     self.map_command(
                         message, chat_id, user_id, user, zoom=user_config["zoom"],
                         imgformat=user_config['format'],
