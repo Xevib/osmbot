@@ -195,6 +195,6 @@
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|url_escape()}})
 {% endif %}{% if 'wikidata' in data.tag or 'wikipedia' in data.tag %}
 {% endif -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\0001F4CD'}}{{'\U0001F5FA'}} [{{_("Map")}}](http://www.openstreetmap.org/?minlat={{nominatim_data['boundingbox'][0]}}&maxlat={{nominatim_data['boundingbox'][1]}}&minlon={{nominatim_data['boundingbox'][3]}}&maxlon={{nominatim_data['boundingbox'][3]}}&mlat={{nominatim_data['lat']}}&mlon={{nominatim_data['lon']}})
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4CD'}}{{'\U0001F5FA'}} [{{_("Map")}}](http://www.openstreetmap.org/?minlat={{nominatim_data['boundingbox'][0]}}&maxlat={{nominatim_data['boundingbox'][1]}}&minlon={{nominatim_data['boundingbox'][3]}}&maxlon={{nominatim_data['boundingbox'][3]}}&mlat={{nominatim_data['lat']}}&mlon={{nominatim_data['lon']}})
 
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
