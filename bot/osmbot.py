@@ -35,7 +35,8 @@ class OsmBot(object):
         """
         Class constructor
 
-        :param config: Dictionary with the configuration variables (token,host,database,user,password)
+        :param config: Dictionary with the configuration variables
+        (token,host,database,user,password)
         """
         self.avaible_languages = {
             'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
@@ -49,8 +50,9 @@ class OsmBot(object):
         self.rtl_languages = ['fa']
         token = config.get('token', '')
         if config:
-            self.user = u.User(config.get('host', ''), config.get('database', ''),
-                          config.get('user', ''), config.get('password', ''))
+            self.user = u.User(
+                config.get('host', ''), config.get('database', ''),
+                config.get('user', ''), config.get('password', ''))
         self.bot = Bot(token)
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
@@ -165,7 +167,7 @@ class OsmBot(object):
             return []
 
     def answer_command(self, message, user_id, chat_id, user):
-        k = ReplyKeyboardMarkup(['Yes','No'], one_time_keyboard=True)
+        k = ReplyKeyboardMarkup(['Yes', 'No'], one_time_keyboard=True)
         text = self._get_template('question_mention.md').render()
         m = Message(chat_id, text, reply_markup=k)
         self.bot.sendMessage(m)
@@ -239,7 +241,8 @@ class OsmBot(object):
         nom = pynominatim.Nominatim()
         results = nom.query(search,acceptlanguage=user_config['lang'])
         if not results:
-            text = self._get_template('not_found_message.md').render(search=search)
+            template = self._get_template('not_found_message.md')
+            text = template.render(search=search)
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
         else:
@@ -399,7 +402,7 @@ class OsmBot(object):
         if 'addr:city' in tags:
             t += tags['addr:city'] + '\n'
         if 'addr:country' in tags:
-           t += tags['addr:country'] + '\n'
+            t += tags['addr:country'] + '\n'
         if 'phone' in tags:
             t += '\xF0\x9F\x93\x9E ' + str(tags['phone']) + '\n'
         if 'contact:phone' in tags:
@@ -486,12 +489,13 @@ class OsmBot(object):
             except ValueError as v:
                 response.append(Message(chat_id, v.message))
             else:
+                signature = '©' + _('OSM contributors')
                 if imgformat == 'pdf':
                     self.bot.sendDocument(chat_id, data, 'map.pdf')
                 elif imgformat == 'jpeg':
-                    self.bot.sendPhoto(chat_id, data, 'map.jpg', '©' + _('OSM contributors'))
+                    self.bot.sendPhoto(chat_id, data, 'map.jpg', signature)
                 elif imgformat == 'png':
-                    self.bot.sendPhoto(chat_id, data, 'map.png', '©' + _('OSM contributors'))
+                    self.bot.sendPhoto(chat_id, data, 'map.png', signature)
             user.set_field(user_id, 'mode', 'normal')
         else:
             if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
