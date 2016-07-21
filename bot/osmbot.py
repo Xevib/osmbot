@@ -733,7 +733,7 @@ class OsmBot(object):
                 response.append(m)
                 self.bot.sendMessage(response)
 
-    def answer_inline(self, message, query, chat_id, user_id, user_config, is_group, user):
+    def answer_inline(self, message, query, chat_id, user_id, user_config):
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
         search_results = nom.query(message, acceptlanguage=user_config['lang'])
@@ -763,8 +763,21 @@ class OsmBot(object):
         self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
+        """
+        Function that handles messages and sends to the concrete functions
+
+        :param message: User message
+        :param query: Dict with the full query
+        :param chat_id: Chat id
+        :param user_id: User id
+        :param user_config: Dict with the user config
+        :param is_group: Boolean that indicates if the message comes from a group
+        :param user: User object
+        :param message_type: Type of message
+        :return: None
+        """
         if message_type == 'inline':
-            self.answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
+            self.answer_inline(message, query, chat_id, user_id, user_config)
         else:
             preview = False
             response = []
