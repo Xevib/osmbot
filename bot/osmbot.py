@@ -172,6 +172,16 @@ class OsmBot(object):
         user.set_field(chat_id, 'mode', 'setonlymention', group=True)
 
     def LanguageCommand(self, message, user_id, chat_id, user, group=False):
+        """
+        Handles the Language command and sends the lis of languages
+
+        :param message: the message sent by the user
+        :param user_id: User id
+        :param chat_id: Chat id
+        :param user: Dict with user configuration
+        :param group: Indicates if the message comes from a group
+        :return: None
+        """
         k = ReplyKeyboardMarkup(
             sorted(self.get_languages().keys()),
             one_time_keyboard=True)
@@ -182,7 +192,6 @@ class OsmBot(object):
             user.set_field(chat_id, 'mode', 'setlanguage', group=group)
         else:
             user.set_field(user_id, 'mode', 'setlanguage', group=group)
-        return []
 
     def SettingsCommand(self, message, user_id, chat_id, u, group=False):
         k = ReplyKeyboardMarkup(['Language'], one_time_keyboard=True)
