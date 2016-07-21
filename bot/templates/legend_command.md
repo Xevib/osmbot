@@ -1,2 +1,2 @@
-{% for key in keys %}{{typeemoji[key]}} {{key}}
+{% for key in keys %}{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{typeemoji[key]}} {{key}}
 {% endfor %}

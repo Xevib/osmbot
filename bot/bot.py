@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import json
 import requests
-
+from utils import getData
+from maptools import download, genBBOX, getScale
 
 class InputTextMessageContent(object):
     def __init__(self, message_text, parse_mode,
@@ -170,7 +171,7 @@ class Message(object):
         return ret
 
 
-class OSMbot(object):
+class Bot(object):
     def __init__(self, token):
         self.token = token
         self.url = 'https://api.telegram.org/bot{0}/{1}'
