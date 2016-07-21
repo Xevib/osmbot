@@ -734,7 +734,7 @@ class OsmBot(object):
                 response.append(m)
                 self.bot.sendMessage(response)
 
-    def answer_inline(self, message, query, chat_id, user_id, user_config):
+    def answer_inline(self, message, query, user_config):
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
         search_results = nom.query(message, acceptlanguage=user_config['lang'])
@@ -778,7 +778,7 @@ class OsmBot(object):
         :return: None
         """
         if message_type == 'inline':
-            self.answer_inline(message, query, chat_id, user_id, user_config)
+            self.answer_inline(message, query, user_config)
         else:
             preview = False
             response = []
