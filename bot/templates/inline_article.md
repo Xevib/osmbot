@@ -107,13 +107,13 @@
 {% endif -%}{% if 'ref' in data.tag or 'lanes' in data.tag or 'maxspeed' in data.tag or 'access' in data.tag or 'foot' in data.tag or 'horse' in data.tag or 'bicycle' in data.tag or 'motor_vehicle' in data.tag or 'motorcycle' in data.tag or 'motorcar' in data.tag or 'hgv' in data.tag or 'agricultural' in data.tag or 'bus' in data.tag or 'taxi' in data.tag or 'emergency' in data.tag in data.tag %}
 {% endif -%}
 {% if 'phone' in data.tag -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4DE'}} {{data.tag['phone']}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4DE'}} {% if is_rtl -%}{{'\U0000200E'}}{% endif -%}{{data.tag['phone']}}
 {% endif %}{% if 'contact:phone' in data.tag -%}{% if data.tag.phone != data.tag['contact:phone'] -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4DE'}} {{data.tag['contact:phone']}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4DE'}} {% if is_rtl -%}{{'\U0000200E'}}{% endif -%}{{data.tag['contact:phone']}}
 {% endif %}{% endif %}{% if 'fax' in data.tag -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4E0'}} {{data.tag['fax']}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4E0'}} {% if is_rtl -%}{{'\U0000200E'}}{% endif -%}{{data.tag['fax']}}
 {% endif %}{% if 'contact:fax' in data.tag -%}{% if data.tag.fax != data.tag['contact:fax'] -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4E0'}} {{data.tag['contact:fax']}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4E0'}} {% if is_rtl -%}{{'\U0000200E'}}{% endif -%}{{data.tag['contact:fax']}}
 {% endif %}{% endif %}{% if 'email' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U00002709'}} {{data.tag['email']}}
 {% endif %}{% if 'contact:email' in data.tag -%}{% if data.tag.mail != data.tag['contact:mail'] -%}

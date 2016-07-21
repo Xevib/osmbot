@@ -571,7 +571,7 @@ class OsmBot(object):
         osm_data = getData(id, element_type)
         if 'phone' in osm_data['tag']:
             template = self._get_template('phone_message.md')
-            text = template.render(phone=osm_data['tag']['phone'])
+            text = template.render(phone=osm_data['tag']['phone'], is_rtl=self.get_is_rtl())
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
         if 'contact:phone' in osm_data['tag']:
