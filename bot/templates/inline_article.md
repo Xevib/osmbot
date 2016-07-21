@@ -4,7 +4,8 @@
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}*{{ _('Tags for') }} {{data.tag['name:'+user_config['lang']]}} *
 {% else -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}*{{ _("Tags for")}} {{data.tag['name']}} *
-{% endif %}{% endif %}{% endif %}
+{% endif -%}{% endif -%}{% endif -%}
+
 {% if data.tag.admin_level == '2' -%}
 {% if 'is_in:continent' in data.tag %}{% if data.tag['is_in:continent'] == 'Europe' -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{_("European country")}}
@@ -177,7 +178,6 @@
 {% endif %}{% if 'unisex' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F6BB'}}{{'\U0001F469'}} {{data.tag['unisex']}}
 {% endif %}{% if 'phone' in data.tag or 'contact:phone' in data.tag or 'fax' in data.tag or 'contact:fax' in data.tag or 'email' in data.tag or 'contact:email' in data.tag or 'website' in data.tag or 'contact:website' in data.tag or 'opening_hours' in data.tag or 'internet_access' in data.tag or 'internet_access:fee' in data.tag or 'stars' in data.tag or 'rooms' in data.tag or 'beds' in data.tag or 'toilets' in data.tag or 'wheelchair' in data.tag or 'toilets:wheelchair' in data.tag or 'dogs' in data.tag or 'smoking' in data.tag or 'brand' in data.tag or 'operator' in data.tag or 'cuisine' in data.tag or 'clothes' in data.tag or 'male' in data.tag or 'female' in data.tag or 'unisex' in data.tag %}
-{{' '}}
 {% endif -%}
 {% if 'population' in data.tag %}{% if 'population:date' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F46A'}} {{data.tag['population']}} {{_("inhabitants")}} {{_("at")}} {{data.tag['population:date']}}
@@ -194,7 +194,7 @@
 {% if 'wikipedia' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|url_escape()}})
 {% endif %}{% if 'wikidata' in data.tag or 'wikipedia' in data.tag %}
-{{' '}}
 {% endif -%}
-[{{_("Map")}}](http://www.openstreetmap.org/?minlat={{nominatim_data['boundingbox'][0]}}&maxlat={{nominatim_data['boundingbox'][1]}}&minlon={{nominatim_data['boundingbox'][3]}}&maxlon={{nominatim_data['boundingbox'][3]}}&mlat={{nominatim_data['lat']}}&mlon={{nominatim_data['lon']}})
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\0001F4CD'}}{{'\U0001F5FA'}} [{{_("Map")}}](http://www.openstreetmap.org/?minlat={{nominatim_data['boundingbox'][0]}}&maxlat={{nominatim_data['boundingbox'][1]}}&minlon={{nominatim_data['boundingbox'][3]}}&maxlon={{nominatim_data['boundingbox'][3]}}&mlat={{nominatim_data['lat']}}&mlon={{nominatim_data['lon']}})
+
 {{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
