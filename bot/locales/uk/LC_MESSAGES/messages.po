@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PROJECT project.
 # 
 # Translators:
+# Albert F <lakonfrariadelavila@gmail.com>, 2016
 # andygol, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-12 17:57+0200\n"
-"PO-Revision-Date: 2016-07-03 18:16+0000\n"
-"Last-Translator: andygol\n"
+"POT-Creation-Date: 2016-07-18 08:53+0200\n"
+"PO-Revision-Date: 2016-07-18 08:42+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/osm-catala/osmbot/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,379 +60,435 @@ msgstr "Спробуйте виділити ділянку заново або �
 msgid "Good luck! "
 msgstr "Нехай щастить!"
 
-#: bot/osmbot_blueprint.py:71
-msgid "Now I only will answer when mention"
-msgstr "Тепер я буду відповідати тільки, якщо мене згадують"
-
-#: bot/osmbot_blueprint.py:77
-msgid "Now I always will answer"
-msgstr "Тепер я завжди буду відповідати"
-
-#: bot/osmbot_blueprint.py:91
-msgid "Now I will talk you with the new language"
-msgstr "Тепер я буду спілкуватись з вами іншою мовою"
-
-#: bot/osmbot_blueprint.py:103
-msgid "Ooops! I can't talk this language"
-msgstr "От халепа! Я не знаю цієї мови"
-
-#: bot/osmbot_blueprint.py:104
-msgid "yet"
-msgstr "покищо"
-
-#: bot/osmbot_blueprint.py:105
-msgid "But you can help me to learn it in Transifex"
-msgstr "Але ви можете допомгти мені її вивчити на Transifex"
-
-#: bot/osmbot_blueprint.py:118
-msgid "Should I answer without a mention?"
-msgstr "Чи треба мені відпівдати без нагадування?"
-
-#: bot/osmbot_blueprint.py:130
-msgid "Choose the language for talk with you"
-msgstr "Оберіть мову для спілкування"
-
-#: bot/osmbot_blueprint.py:147
-msgid "What do you want to configure?"
-msgstr "Що ви бажаєте налаштувати?"
-
-#: bot/osmbot_blueprint.py:172
-msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "Якщо вам трапляються якісь дивні емоджи, це через \"крашанки\" в Telegram"
-
-#: bot/osmbot_blueprint.py:179
-msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "Емоджи відсутній, спробуйте /legend <osm_key:value>"
-
-#: bot/osmbot_blueprint.py:193
-msgid "Sorry but I couldn't find any result for \"{0}\""
-msgstr "На жаль, але я не можу вам нічого відповісти на \"{0}\""
-
-#: bot/osmbot_blueprint.py:193
-msgid "But you can try to improve OpenStreetMap"
-msgstr "Але ви можете спробувати покращити OpenStreetMap"
-
-#: bot/osmbot_blueprint.py:197
+#: bot/osmbot_blueprint.py:195
 msgid "Results for"
 msgstr "Результати для"
 
-#: bot/osmbot_blueprint.py:211
+#: bot/osmbot_blueprint.py:218
 msgid "Map"
 msgstr "Мапа"
 
-#: bot/osmbot_blueprint.py:214 bot/osmbot_blueprint.py:216
-#: bot/osmbot_blueprint.py:218 bot/osmbot_blueprint.py:220
+#: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
 #: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
-#: bot/osmbot_blueprint.py:229 bot/osmbot_blueprint.py:231
+#: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
+#: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
 msgid "More info"
 msgstr "Більш докладно"
 
-#: bot/osmbot_blueprint.py:221
+#: bot/osmbot_blueprint.py:228
 msgid "Phone"
 msgstr "Телефон"
 
-#: bot/osmbot_blueprint.py:233 bot/osmbot_blueprint.py:390
-#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:653
+#: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
+#: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
+#: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
 msgid "OpenStreetMap contributors"
 msgstr "Учасники OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:282
-msgid "No element found"
-msgstr "Елемент не знайдено"
-
-#: bot/osmbot_blueprint.py:290 bot/osmbot_blueprint.py:293
-#: bot/osmbot_blueprint.py:295
+#: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
+#: bot/templates/details_message.md:4 bot/templates/details_message.md:6
+#: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
+#: bot/templates/inline_article.md:6
 msgid "Tags for"
 msgstr "Теґи для"
 
-#: bot/osmbot_blueprint.py:297 bot/osmbot_blueprint.py:299
+#: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
+#: bot/templates/details_message.md:10 bot/templates/details_message.md:12
+#: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
 msgid "European country"
 msgstr "Країна в Європі"
 
-#: bot/osmbot_blueprint.py:301
+#: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:14
 msgid "African country"
 msgstr "Країна в Африці"
 
-#: bot/osmbot_blueprint.py:303 bot/osmbot_blueprint.py:305
-#: bot/osmbot_blueprint.py:307
+#: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
+#: bot/templates/details_message.md:18 bot/templates/details_message.md:20
+#: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
+#: bot/templates/inline_article.md:20
 msgid "South american country"
 msgstr "Країна в Південній Америці"
 
-#: bot/osmbot_blueprint.py:309 bot/osmbot_blueprint.py:311
+#: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
+#: bot/templates/details_message.md:22 bot/templates/details_message.md:24
+#: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
 msgid "North american country"
 msgstr "Країна в Північній Америці"
 
-#: bot/osmbot_blueprint.py:313
+#: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:26
 msgid "Central american country"
 msgstr "Країна Центральної Америки"
 
-#: bot/osmbot_blueprint.py:315 bot/osmbot_blueprint.py:317
+#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
+#: bot/templates/details_message.md:28 bot/templates/details_message.md:30
+#: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
 msgid "American country"
 msgstr "Країна в Америці"
 
-#: bot/osmbot_blueprint.py:319
+#: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:32
 msgid "Asian country"
 msgstr "Країна в Азії"
 
-#: bot/osmbot_blueprint.py:321 bot/osmbot_blueprint.py:323
+#: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
+#: bot/templates/details_message.md:34 bot/templates/details_message.md:36
+#: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
 msgid "Oceanian country"
 msgstr "Країна в Океанії"
 
-#: bot/osmbot_blueprint.py:325 bot/osmbot_blueprint.py:327
+#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
+#: bot/templates/details_message.md:38 bot/templates/details_message.md:40
+#: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
 msgid "Eurasian country"
 msgstr "Країна в Євразії"
 
-#: bot/osmbot_blueprint.py:364 bot/osmbot_blueprint.py:366
+#: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
+#: bot/templates/details_message.md:182 bot/templates/details_message.md:184
+#: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
 msgid "inhabitants"
 msgstr "мешканців"
 
-#: bot/osmbot_blueprint.py:364
+#: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:182
 msgid "at"
 msgstr "у"
 
-#: bot/osmbot_blueprint.py:369
+#: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:187
 msgid "meters"
 msgstr "метрів"
 
-#: bot/osmbot_blueprint.py:382
+#: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
 msgid "Raw data:"
 msgstr "Сирі дані:"
 
-#: bot/osmbot_blueprint.py:409 bot/osmbot_blueprint.py:411
-#: bot/osmbot_blueprint.py:456 bot/osmbot_blueprint.py:459
-#: bot/osmbot_blueprint.py:484 bot/osmbot_blueprint.py:487
-#: bot/osmbot_blueprint.py:502
+#: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
+#: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
+#: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
+#: bot/osmbot_blueprint.py:510
 msgid "OSM contributors"
 msgstr "Учасники OSM"
 
-#: bot/osmbot_blueprint.py:420 bot/osmbot_blueprint.py:601
+#: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
 msgstr "Надайте мені, будь ласка, ваші координати"
 
-#: bot/osmbot_blueprint.py:421
-msgid "to receive the map."
-msgstr "для отримання мапи."
+#: bot/osmbot_blueprint.py:429
+msgid "to receive the map"
+msgstr "для отримання мапи"
 
-#: bot/osmbot_blueprint.py:422 bot/osmbot_blueprint.py:603
+#: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
 msgstr "Ви можете зробити це за допомогою кнопки зі скрепкою в Telegram"
 
-#: bot/osmbot_blueprint.py:489 bot/osmbot_blueprint.py:506
-msgid "Sorry, I can't understand you"
-msgstr "Шкода, але я вас не розумію."
-
-#: bot/osmbot_blueprint.py:490 bot/osmbot_blueprint.py:508
-msgid "Perhaps I could help you with the command /help"
-msgstr "Можливо вам допоможе команда /help"
-
-#: bot/osmbot_blueprint.py:547 bot/osmbot_blueprint.py:620
-msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "Вибачте, але я не зміг знайти жодного результату, будь ласка, перевірте ID"
-
-#: bot/osmbot_blueprint.py:555 bot/osmbot_blueprint.py:627
+#: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "На жаль, але зараз я не можу розпізнати теґи для цього елемента, але згодом я це зроблю"
 
-#: bot/osmbot_blueprint.py:583
-msgid "Sorry but this query it's not implemented yet"
-msgstr "Вибачте, цей тип запитів покищо не підтримується"
-
-#: bot/osmbot_blueprint.py:602
-msgid "and I'll send you the nearest element"
-msgstr "я надішлю вам найближчий елемент"
-
-#: bot/osmbot_blueprint.py:635 bot/osmbot_blueprint.py:650
+#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
 msgid "Raw data for"
 msgstr "Необроблені дані для"
 
-#: bot/osmbot_blueprint.py:637 bot/osmbot_blueprint.py:652
+#: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
 msgid "Raw data"
 msgstr "Необроблені дані"
 
-#: bot/osmbot_blueprint.py:671
-msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "Привіт, Я бот для даних OpenStreetMap"
+#: bot/osmbot_blueprint.py:809
+msgid ""
+"Please indicate what are you searching with command /search <search_term>"
+msgstr "Будь ласка, зазначте що вам потрібно знайти командою /search <пошуковий_рядок>"
 
-#: bot/osmbot_blueprint.py:671
-msgid "How I can help you?"
-msgstr "Чим можу стати вам в нагоді?"
+#: bot/osmbot_blueprint.py:815
+msgid "Use /search <search_term> command to indicate what you are searching"
+msgstr "Використовуйте команду /search <пошуковий_рядок>, щоб зазначити що ви шукаєте"
 
-#: bot/osmbot_blueprint.py:696
-msgid "Setting not recognized"
-msgstr "Параметр не роспізнано"
+#: bot/osmbot_blueprint.py:899
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "OpenStreetMap бот шукає будь-яке місце в світі в базі даних OSM за допомогою Nominatim і може давати вам посилання на нього на мапі OSM"
 
-#: bot/osmbot_blueprint.py:746
+#: bot/osmbot_blueprint.py:900
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "Бот OpenStreetMap здійснює пошук місць в світі за допомогою Nominatim в базі  OSM"
+
+#: bot/osmbot_blueprint.py:901
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "Бот може надсилати посилання та мапи (jpg, png або pdf) з OSM "
+
+#: bot/osmbot_blueprint.py:902
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "Дані з усього світу (міста та селища, магазини -з номерами телефонів, є-поштою…-, посиланнями на Вікіпедію й т.д.)"
+
+#: bot/osmbot_blueprint.py:903
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot знає багато мов, однією з яких є українська"
+
+#: bot/templates/about_answer.md:1
 msgid "OpenStreetMap bot info:"
 msgstr "Інформація про бота OpenStreetMap:"
 
-#: bot/osmbot_blueprint.py:747
+#: bot/templates/about_answer.md:3
 msgid "CREDITS&CODE"
 msgstr "АВТОРИ та КОД"
 
-#: bot/osmbot_blueprint.py:748
+#: bot/templates/about_answer.md:4
 msgid "Author:"
 msgstr "Автор:"
 
-#: bot/osmbot_blueprint.py:749
+#: bot/templates/about_answer.md:4
 msgid "(Catalan OpenStreetMap community)"
 msgstr "(Каталонське співтовариство OpenStreetMap)"
 
-#: bot/osmbot_blueprint.py:750
+#: bot/templates/about_answer.md:5
 msgid "Code"
 msgstr "Код"
 
-#: bot/osmbot_blueprint.py:751
+#: bot/templates/about_answer.md:6
 msgid "License: GPLv3"
 msgstr "Ліцензія: GPLv3"
 
-#: bot/osmbot_blueprint.py:751
+#: bot/templates/about_answer.md:6
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
 msgstr "http://www.gnu.org/licenses/gpl-3.0.uk.html"
 
-#: bot/osmbot_blueprint.py:752
+#: bot/templates/about_answer.md:7
 msgid "Localization"
 msgstr "Переклад"
 
-#: bot/osmbot_blueprint.py:753
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr ""
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr ""
+
+#: bot/templates/about_answer.md:12
 msgid "NEWS"
 msgstr "НОВИНИ"
 
-#: bot/osmbot_blueprint.py:754
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr ""
+
+#: bot/templates/about_answer.md:14
 msgid "Telegram channel"
 msgstr "Канал Telegram"
 
-#: bot/osmbot_blueprint.py:755
+#: bot/templates/about_answer.md:16
 msgid "RATING"
 msgstr "РЕЙТИНГ"
 
-#: bot/osmbot_blueprint.py:755
+#: bot/templates/about_answer.md:17
 msgid "Rating&reviews"
 msgstr "Рейтинги та огляди"
 
-#: bot/osmbot_blueprint.py:756
+#: bot/templates/about_answer.md:18
 msgid "Please rate me"
 msgstr "Будь ласка, оцініть мене"
 
-#: bot/osmbot_blueprint.py:757
+#: bot/templates/about_answer.md:20
 msgid "Thanks for use @OSMbot!!"
 msgstr "Дякую за користування @OSMbot!!"
 
-#: bot/osmbot_blueprint.py:760
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "Тепер я завжди буду відповідати"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "От халепа! Я не знаю цієї мови"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "покищо"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "Але ви можете допомгти мені її вивчити на Transifex"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "Шкода, але я вас не розумію."
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "Можливо вам допоможе команда /help"
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "Що ви бажаєте налаштувати?"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
+msgid "Flag"
+msgstr ""
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
+msgid "Wikidata"
+msgstr "Вікідані"
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
+msgid "Wikipedia"
+msgstr "Вікіпедія"
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "Якщо вам трапляються якісь дивні емоджи, це через \"крашанки\" в Telegram"
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "Щось сталось не те"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "спробуйте іншим разом"
+
+#: bot/templates/help_message.md:1
 msgid "OpenStreetMap bot help:"
 msgstr "Довідка бота OpenStreetMap:"
 
-#: bot/osmbot_blueprint.py:760
+#: bot/templates/help_message.md:3
 msgid "You can control me by sending these commands:"
 msgstr "Ви можете керувати мною надсилаючи команди:"
 
-#: bot/osmbot_blueprint.py:762
+#: bot/templates/help_message.md:5
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
 msgstr "/about – Показує інформацію про OSMbot: авторів та код, новини, а також рейтинги та огляди"
 
-#: bot/osmbot_blueprint.py:764
+#: bot/templates/help_message.md:7
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
 msgstr "/details<type><osm_id> – Показує теґи з бази даних OSM по ID об'єкта."
 
-#: bot/osmbot_blueprint.py:766
+#: bot/templates/help_message.md:9
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
 msgstr "/raw<type><osm_id> – Показує теґи з бази даних OSM по ID об'єкта в первісному вигляді."
 
-#: bot/osmbot_blueprint.py:768
+#: bot/templates/help_message.md:11
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
 msgstr "ID можна дізнатись командою /search, але згодиться й OSM ID, якщо він відомий."
 
-#: bot/osmbot_blueprint.py:770
+#: bot/templates/help_message.md:13
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
 msgstr "Тип є необов'язковим, він моде бути nod(точка), way(лінія) або rel(зв'язок). Якщо ви його не зазначете бот спробує вгадати його"
 
-#: bot/osmbot_blueprint.py:772
+#: bot/templates/help_message.md:15
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
 msgstr "/legend <osm_key>  – Показує перелік пар key=value та їх емоджи в OSMbot. Якщо ви не вкажете <osm_key>, покаже всі пари key=value з їх емоджи Osmbot"
 
-#: bot/osmbot_blueprint.py:774
+#: bot/templates/help_message.md:17
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
 msgstr "/map <координати> <формат> <масштаб> – Показує мапу з різними параметрами:"
 
-#: bot/osmbot_blueprint.py:776
+#: bot/templates/help_message.md:19
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
 msgstr "<координати> – це може бути точка (шир,дов) або прямокутник (мін_дов,мін_шир,макс_дов,макс_шир). Якщо ви не використовуєте цей параметр може відправити своє місце розташування"
 
-#: bot/osmbot_blueprint.py:778
+#: bot/templates/help_message.md:21
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
 msgstr "<формат> – це може бути png, jpeg або pdf. Якщо ви не використовуєте цю опцію, бот буде використовувати, типово, png"
 
-#: bot/osmbot_blueprint.py:780
+#: bot/templates/help_message.md:23
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
 msgstr "<масштаб> – рівень масштабу (1-19). Якщо ви не використовуєте цю опцію, бот  буде використовувати, типово, 19"
 
-#: bot/osmbot_blueprint.py:782
+#: bot/templates/help_message.md:25
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
 msgstr "/search <що_шукати> – Шукає об'єкти в базі OpenStreetMap за допомогою Nominatim."
 
-#: bot/osmbot_blueprint.py:784
+#: bot/templates/help_message.md:27
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
 msgstr "/nearest <тип> <радіус> – Шукає в Overpass елемент в межах вказаного кола"
 
-#: bot/osmbot_blueprint.py:793
-msgid ""
-"Please indicate what are you searching with command /search <search_term>"
-msgstr "Будь ласка, зазначте що вам потрібно знайти командою /search <пошуковий_рядок>"
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "Оберіть мову для спілкування"
 
-#: bot/osmbot_blueprint.py:799
-msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "Використовуйте команду /search <пошуковий_рядок>, щоб зазначити що ви шукаєте"
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "Тепер я буду спілкуватись з вами іншою мовою"
 
-#: bot/osmbot_blueprint.py:872
-msgid "Something failed"
-msgstr "Щось сталось не те"
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "Емоджи відсутній, спробуйте /legend <osm_key:value>"
 
-#: bot/osmbot_blueprint.py:873
-msgid "please try it latter"
-msgstr "спробуйте іншим разом"
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "Вибачте, але я не зміг знайти жодного результату, будь ласка, перевірте ID"
 
-#: bot/osmbot_blueprint.py:885
-msgid ""
-"OpenStreetMap bot finds any location in world from the Nominatim OSM "
-"database and can send links and maps from OSM"
-msgstr "OpenStreetMap бот шукає будь-яке місце в світі в базі даних OSM за допомогою Nominatim і може давати вам посилання на нього на мапі OSM"
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "На жаль, але я не можу вам нічого відповісти на"
 
-#: bot/osmbot_blueprint.py:886
-msgid ""
-"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
-"database"
-msgstr "Бот OpenStreetMap здійснює пошук місць в світі за допомогою Nominatim в базі  OSM"
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "Але ви можете спробувати покращити OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:887
-msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
-msgstr "Бот може надсилати посилання та мапи (jpg, png або pdf) з OSM "
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/uk/"
 
-#: bot/osmbot_blueprint.py:888
-msgid ""
-"Data for all the world (cities and towns, shops -with phone number, "
-"email...-, Wikipedia links, etc)"
-msgstr "Дані з усього світу (міста та селища, магазини -з номерами телефонів, є-поштою…-, посиланнями на Вікіпедію й т.д.)"
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "Елемент не знайдено"
 
-#: bot/osmbot_blueprint.py:889
-msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "OSMbot знає багато мов, однією з яких є українська"
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "Вибачте, цей тип запитів покищо не підтримується"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "Тепер я буду відповідати тільки, якщо мене згадують"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "Чи треба мені відпівдати без нагадування?"
+
+#: bot/templates/question_only_mention.md:1
+msgid "Answer only when mention?"
+msgstr ""
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "я надішлю вам найближчий елемент"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "Параметр не роспізнано"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Привіт, Я бот для даних OpenStreetMap"
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "Чим можу стати вам в нагоді?"

@@ -3,87 +3,88 @@
 # This file is distributed under the same license as the PROJECT project.
 # 
 # Translators:
-# Albert F <lakonfrariadelavila@gmail.com>, 2015-2016
-# Shu Higashi <higa432@gmail.com>, 2016
+# Albert F <lakonfrariadelavila@gmail.com>, 2016
+# Jeff Huang <s8321414@gmail.com>, 2016
+# yaopo wang <blue119@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-18 08:53+0200\n"
-"PO-Revision-Date: 2016-07-18 08:42+0000\n"
-"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/osm-catala/osmbot/language/ja/)\n"
+"PO-Revision-Date: 2016-07-18 09:52+0000\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/osm-catala/osmbot/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
-"Language: ja\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "Map too large!"
-msgstr "地図が大きすぎます！"
+msgstr "地圖過大！"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "Please, reduce the bounding box"
-msgstr "囲み範囲(bbox)かズームレベルを"
+msgstr "請減小邊界"
 
 #: bot/maptools.py:43 bot/maptools.py:45
 msgid "or the scale (zoom level)"
-msgstr "もう少し小さくしてみてください"
+msgstr "或是尺寸（縮放等級）"
 
 #: bot/maptools.py:47
 msgid "Invalid bounding box!"
-msgstr "囲み範囲(bbox)が適切じゃないようです！"
+msgstr "無效的邊界！"
 
 #: bot/maptools.py:47
 msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
-msgstr "/map minlon,minlat,maxlon,maxlat で試してみて"
+msgstr "請嘗試用 /map 最小經度,最小緯度,最大經度,最大緯度"
 
 #: bot/maptools.py:47
 msgid "Coordinates' decimals need to be marked with a dot."
-msgstr "座標の区切りにはドットを使ってね"
+msgstr "座標的小數部份必須以小數點標示。"
 
 #: bot/maptools.py:47
 msgid "For example:"
-msgstr "例："
+msgstr "舉例來說："
 
 #: bot/maptools.py:49
 msgid "Oh,oh... An error occurred"
-msgstr "おっと、エラーが起きたようです"
+msgstr "嗯... 遇到了一個錯誤"
 
 #: bot/maptools.py:49
 msgid "You can try with another bounding box or scale (zoom level)"
-msgstr "違う囲み範囲(bbox)やズームレベルを試してみてください"
+msgstr "您可以任何邊界或尺寸（縮放等級）嘗試"
 
 #: bot/maptools.py:49
 msgid "Good luck! "
-msgstr "幸運を！"
+msgstr "祝您好運！"
 
 #: bot/osmbot_blueprint.py:195
 msgid "Results for"
-msgstr "処理結果"
+msgstr "結果"
 
 #: bot/osmbot_blueprint.py:218
 msgid "Map"
-msgstr "地図"
+msgstr "地圖"
 
 #: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
 #: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
 #: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
 #: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
 msgid "More info"
-msgstr "詳細"
+msgstr "更多資訊"
 
 #: bot/osmbot_blueprint.py:228
 msgid "Phone"
-msgstr "電話番号"
+msgstr "電話"
 
 #: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
 #: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
 #: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
 msgid "OpenStreetMap contributors"
-msgstr "OpenStreetMap contributors"
+msgstr "OpenStreetMap 貢獻者"
 
 #: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
 #: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
@@ -91,18 +92,18 @@ msgstr "OpenStreetMap contributors"
 #: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
 #: bot/templates/inline_article.md:6
 msgid "Tags for"
-msgstr "タグ"
+msgstr "標籤"
 
 #: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
 #: bot/templates/details_message.md:10 bot/templates/details_message.md:12
 #: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
 msgid "European country"
-msgstr "ヨーロッパ"
+msgstr "歐洲國家"
 
 #: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
 #: bot/templates/inline_article.md:14
 msgid "African country"
-msgstr "アフリカ"
+msgstr "非洲國家"
 
 #: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
 #: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
@@ -110,385 +111,385 @@ msgstr "アフリカ"
 #: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
 #: bot/templates/inline_article.md:20
 msgid "South american country"
-msgstr "南米"
+msgstr "南美洲國家"
 
 #: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
 #: bot/templates/details_message.md:22 bot/templates/details_message.md:24
 #: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
 msgid "North american country"
-msgstr "北米"
+msgstr "北美洲國家"
 
 #: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
 #: bot/templates/inline_article.md:26
 msgid "Central american country"
-msgstr "中米"
+msgstr "中美洲國家"
 
 #: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
 #: bot/templates/details_message.md:28 bot/templates/details_message.md:30
 #: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
 msgid "American country"
-msgstr "アフリカ"
+msgstr "美洲國家"
 
 #: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
 #: bot/templates/inline_article.md:32
 msgid "Asian country"
-msgstr "アジア"
+msgstr "亞洲國家"
 
 #: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
 #: bot/templates/details_message.md:34 bot/templates/details_message.md:36
 #: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
 msgid "Oceanian country"
-msgstr "オセアニア"
+msgstr "大洋洲國家"
 
 #: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
 #: bot/templates/details_message.md:38 bot/templates/details_message.md:40
 #: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
 msgid "Eurasian country"
-msgstr "ユーラシア"
+msgstr "歐亞國家"
 
 #: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
 #: bot/templates/details_message.md:182 bot/templates/details_message.md:184
 #: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
 msgid "inhabitants"
-msgstr "住人"
+msgstr "居民"
 
 #: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
 #: bot/templates/inline_article.md:182
 msgid "at"
-msgstr "単位:"
+msgstr "在"
 
 #: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
 #: bot/templates/inline_article.md:187
 msgid "meters"
-msgstr "メートル"
+msgstr "公尺"
 
 #: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
 msgid "Raw data:"
-msgstr "生データ:"
+msgstr "原始資料："
 
 #: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
 #: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
 #: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
 #: bot/osmbot_blueprint.py:510
 msgid "OSM contributors"
-msgstr "OSM contributors"
+msgstr "OSM 貢獻者"
 
 #: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
-msgstr "あなたの位置を送ると"
+msgstr "請傳送您的位置給我"
 
 #: bot/osmbot_blueprint.py:429
 msgid "to receive the map"
-msgstr "地図が見られます"
+msgstr "來接收地圖"
 
 #: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
-msgstr "Telegramの紙クリップボタンで現在地の座標を取れます"
+msgstr "您可以用 Telegram 迴紋針按鈕來做這件事"
 
 #: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr "ごめんなさい、今はこの要素のタグを認識できません。いずれ機能拡張した際に対応するかもしれません。"
+msgstr "抱歉，但現在我無法理解這個元素的標籤，也許我有新功能時會處理它"
 
 #: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
 msgid "Raw data for"
-msgstr "生データ："
+msgstr "原始資料"
 
 #: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
 msgid "Raw data"
-msgstr "生データ"
+msgstr "原始資料"
 
 #: bot/osmbot_blueprint.py:809
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
-msgstr "探しものは次のコマンドでどうぞ /search <検索語>"
+msgstr "請使用指令 /search <關鍵字> 指明您想要搜尋什麼"
 
 #: bot/osmbot_blueprint.py:815
 msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "/search <検索語> コマンドを使うと自分が探しているものを表示できます"
+msgstr "使用 /search <關鍵字> 指令指明您想要搜尋的東西"
 
 #: bot/osmbot_blueprint.py:899
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
-msgstr "OpenStreetMapボットは世界中のあらゆる場所をNominatim OSMデータベースから探してOSMからのリンクと地図を送信できます"
+msgstr "OpenStreetMap 機器人從 Nominatim OSM 資料庫中尋找世界中的任一位置並且可以傳送從 OSM 而來的連結與地圖"
 
 #: bot/osmbot_blueprint.py:900
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
-msgstr "OpenStreetMapボットは世界中のあらゆる場所をNominatim OSMデータベースから探します"
+msgstr "OpenStreetMap 機器人從 Nominatim OSM 資料庫中尋找世界中的任一位置"
 
 #: bot/osmbot_blueprint.py:901
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
-msgstr "ボットはリンクとOSMからの地図(jpg, png or pdf) を送れます"
+msgstr "此機器人能從 OSM 傳送連結和地圖(jpg, png or pdf)"
 
 #: bot/osmbot_blueprint.py:902
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
-msgstr "全世界向けのデータ(都市、電話番号、email等のあるお店、Wikipediaへのリンク等)"
+msgstr "全世界（城市、鄉鎮、包含電話號碼與電子郵件以及維基百科連結等的店家資訊）的資料"
 
 #: bot/osmbot_blueprint.py:903
 msgid "OSMbot is multilingual and speaks *your language here*"
-msgstr "OSMbot は多言語対応しており、日本語も話します"
+msgstr "OSMbot 是國際化的機器人並可以*說您的母語*"
 
 #: bot/templates/about_answer.md:1
 msgid "OpenStreetMap bot info:"
-msgstr "OpenStreetMap ボット情報:"
+msgstr "OpenStreetMap 機器人資訊："
 
 #: bot/templates/about_answer.md:3
 msgid "CREDITS&CODE"
-msgstr "クレジットとコード"
+msgstr "感謝 & 程式碼"
 
 #: bot/templates/about_answer.md:4
 msgid "Author:"
-msgstr "作者:"
+msgstr "作者："
 
 #: bot/templates/about_answer.md:4
 msgid "(Catalan OpenStreetMap community)"
-msgstr "(カタロニアOpenStreetMap コミュニティ)"
+msgstr "（加泰隆尼亞 OpenStreetMap 社群）"
 
 #: bot/templates/about_answer.md:5
 msgid "Code"
-msgstr "コード"
+msgstr "程式碼"
 
 #: bot/templates/about_answer.md:6
 msgid "License: GPLv3"
-msgstr "ライセンス: GPLv3"
+msgstr "授權條款：GPLv3"
 
 #: bot/templates/about_answer.md:6
 msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
-msgstr "http://www.gnu.org/licenses/gpl-3.0.ja.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
 
 #: bot/templates/about_answer.md:7
 msgid "Localization"
-msgstr "各国語化"
+msgstr "在地化"
 
 #: bot/templates/about_answer.md:9
 msgid "DOCUMENTATION"
-msgstr ""
+msgstr "文件"
 
 #: bot/templates/about_answer.md:10
 msgid "OSMbot wiki"
-msgstr ""
+msgstr "OSMbot wiki"
 
 #: bot/templates/about_answer.md:12
 msgid "NEWS"
-msgstr "ニュース"
+msgstr "新聞"
 
 #: bot/templates/about_answer.md:13
 msgid "Twitter account"
-msgstr ""
+msgstr "Twitter 帳號"
 
 #: bot/templates/about_answer.md:14
 msgid "Telegram channel"
-msgstr "Telegramチャンネル"
+msgstr "Telegram 頻道"
 
 #: bot/templates/about_answer.md:16
 msgid "RATING"
-msgstr "評価"
+msgstr "評價"
 
 #: bot/templates/about_answer.md:17
 msgid "Rating&reviews"
-msgstr "評価とレビュー"
+msgstr "評價與審閱"
 
 #: bot/templates/about_answer.md:18
 msgid "Please rate me"
-msgstr "私を評価してください"
+msgstr "請給我評價"
 
 #: bot/templates/about_answer.md:20
 msgid "Thanks for use @OSMbot!!"
-msgstr "@OSMbot のご利用ありがとう!!"
+msgstr "感謝使用 @OSMbot ！！"
 
 #: bot/templates/answer_always.md:1
 msgid "Now I always will answer"
-msgstr "いつでもお答えします"
+msgstr "現在我總是會回答"
 
 #: bot/templates/cant_talk_message.md:1
 msgid "Ooops! I can't talk this language"
-msgstr "残念！この言語は話せないのです"
+msgstr "啊！我不會說這個語言"
 
 #: bot/templates/cant_talk_message.md:1
 msgid "yet"
-msgstr "いまのところは"
+msgstr "尚未"
 
 #: bot/templates/cant_talk_message.md:2
 msgid "But you can help me to learn it in Transifex"
-msgstr "よければTransifexで翻訳を手伝ってください"
+msgstr "但您可以在 Transifex 協助我學這個語言"
 
 #: bot/templates/cant_understand_message.md:1
 msgid "Sorry, I can't understand you"
-msgstr "ごめんなさい、内容を解釈できません"
+msgstr "抱歉，我不了解您的意思"
 
 #: bot/templates/cant_understand_message.md:2
 msgid "Perhaps I could help you with the command /help"
-msgstr "/help コマンドを使ってもらうといいかも"
+msgstr "也許我可以用 /help 指令幫忙您"
 
 #: bot/templates/configure_question.md:1
 msgid "What do you want to configure?"
-msgstr "構成をどうしますか？"
+msgstr "您想要設定什麼？"
 
 #: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
 msgid "Flag"
-msgstr ""
+msgstr "旗幟"
 
 #: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
 msgid "Wikidata"
-msgstr "ウィキデータ"
+msgstr "維基數據"
 
 #: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
 msgid "Wikipedia"
-msgstr "ウィキペディア"
+msgstr "維基百科"
 
 #: bot/templates/easter_egg.md:1
 msgid "If you see strange emojis it's due a Telegram easter egg"
-msgstr "ヘンな絵文字が見えたらそれはきっとTelegramのイースターエッグのせいです"
+msgstr "如果您看到奇怪的顏文字的話，那是 Telegram 的復活節彩蛋"
 
 #: bot/templates/error_message.md:1
 msgid "Something failed"
-msgstr "何か失敗したようです"
+msgstr "似乎有一些東西壞掉了"
 
 #: bot/templates/error_message.md:1
 msgid "please try it later"
-msgstr "しばらくしてからやり直してみてください"
+msgstr "請稍後再試"
 
 #: bot/templates/help_message.md:1
 msgid "OpenStreetMap bot help:"
-msgstr "OpenStreetMapボットのヘルプ:"
+msgstr "OpenStreetMap 機器人說明："
 
 #: bot/templates/help_message.md:3
 msgid "You can control me by sending these commands:"
-msgstr "以下のコマンドを送ると私をコントロールできます"
+msgstr "您可以透過傳送這些指令來控制我："
 
 #: bot/templates/help_message.md:5
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
-msgstr "/about - OSMbotについてクレジットとコード、ニュース、評価とレビューといった情報を表示"
+msgstr "/about - 顯示關於 OSMbot 的資訊：感謝 & 程式碼、新聞、評價與審閱"
 
 #: bot/templates/help_message.md:7
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "/details<種別(nod/way/rel)><osm_id> - OSMのIDを元にOSMデータベースから取得したタグを一部表示。"
+msgstr "/details<類型><osm_id> - 由 ID 顯示一些從 OSM 而來的標籤。"
 
 #: bot/templates/help_message.md:9
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "/raw<種別(nod/way/rel)><osm_id> - OSMのIDを元にOSMデータベースから取得したタグを生の形式で全て表示。"
+msgstr "/raw<類型><osm_id> - 由 ID 以原始格式顯示所有從 OSM 資料庫而來的標籤。"
 
 #: bot/templates/help_message.md:11
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
-msgstr "OSMのIDは /search コマンドの検索結果に /detailsコマンド等に続けて自動表示されますが、OSM IDが分かっている場合は/detailsコマンドなどに続けて直接その値を指定してください（例：/details<種別><osm_id>）。"
+msgstr "ID 是由 /search 指令生成，但若您知道 OSM ID，您也可以用它來試試看。"
 
 #: bot/templates/help_message.md:13
 msgid ""
 "The type it's optional and it can be nod(node), way(way) or rel(relation). "
 "If you don't specify it, the bot will try to deduce it"
-msgstr "種別はオプションで、nod(node)、way(way) あるいはrel(relation)のいずれかです。指定されていない場合、ボットはそれを推論しようとします。"
+msgstr "類型是可選的，而其可以是點、線或是關係。若您無法指定它，機器人將會嘗試推敲它。"
 
 #: bot/templates/help_message.md:15
 msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
-msgstr "/legend <osmキー> - key=value のペアのリストとOSMボット内の絵文字を表示します。<osmキー>を指定しない場合は、全てのkey=valueのペアとOsmボット内の絵文字を表示します。"
+msgstr "/legend <osm_key> - 顯示 key=value 配對與其顏文字在 OSMbot 中。若您未指定 <osm_key>，將會在 OSMbot 顯示所有 key=value 配對與顏文字。"
 
 #: bot/templates/help_message.md:17
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "/map <座標> <画像形式> <ズームレベル> - 様々なオープション付きの地図を送る:"
+msgstr "/map <座標> <格式> <尺寸> - 以不同的選項傳送地圖："
 
 #: bot/templates/help_message.md:19
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
-msgstr "<座標> ポイント (lat,lon)もしくは囲み範囲(minlon,minlat,maxlon,maxlat)。このオプションを使わなくても自分の位置を送信できます"
+msgstr "<座標> 可能是一個點 (緯度,經度) 或是一個邊界 (最小經度,最小緯度,最大經度,最大緯度)。若您不使用此選項，可以傳送您的位置"
 
 #: bot/templates/help_message.md:21
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
-msgstr "<画像形式> png、jpeg およびpdfに対応しています。このオプションを使わない場合、ボットは既定値としてpngを使います"
+msgstr "<格式> 可以是 png、jpeg 或是 pdf。若您不使用此選項，機器人預設會使用 png"
 
 #: bot/templates/help_message.md:23
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
-msgstr "<ズームレベル> ズーム(1-19)のレベル。このオプションを使わない場合、ボットは既定値として19を使います。"
+msgstr "<尺寸> 縮放等級 (1-19)。若您不使用此選項，機器人預設會使用 19。"
 
 #: bot/templates/help_message.md:25
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr "/search <検索語> - 全てのOpenStreetMapデータベース内のNominatimから検索。"
+msgstr "/search <關鍵字> - 在整個 OpenStreetMap 資料庫中搜尋 Nominatim。"
 
 #: bot/templates/help_message.md:27
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr "/nearest <種別(nod/way/rel)> <メートル数(オプション)> - Overpass で所定の半径内にある要素を検索"
+msgstr "/nearest <類型> <選擇性公尺> - 在一定的半徑內的元素中從 Overpass 搜尋"
 
 #: bot/templates/language_answer.md:1
 msgid "Choose the language for talk with you"
-msgstr "あなたとお話する言語を選んでください"
+msgstr "選擇要跟您交談的語言"
 
 #: bot/templates/new_language.md:1
 msgid "Now I will talk you with the new language"
-msgstr "新しい言語でお話します"
+msgstr "現在我會與您說新的語言"
 
 #: bot/templates/no_emoji.md:1
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "絵文字が何も見えないときは、これを試してみてね /legend <osmキー:値>"
+msgstr "找不到顏文字，也許您應該嘗試 /legend <osm_key:value>"
 
 #: bot/templates/not_found_id_message.md:1
 msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "ごめんなさい、検索結果が見当たらないようです。OSMのIDを確認してみてもらえますか？"
+msgstr "抱歉，但我找不到任何結果，請檢查 ID"
 
 #: bot/templates/not_found_message.md:1
 msgid "Sorry but I couldn't find any result for"
-msgstr "ごめんなさい、 \"{0}\" の検索結果が見つかりません"
+msgstr "抱歉，我找不到任何結果"
 
 #: bot/templates/not_found_message.md:2
 msgid "But you can try to improve OpenStreetMap"
-msgstr "でもOpenStreetMapはあなたが自分で改善することもできますよ！"
+msgstr "但您可以嘗試改善 OpenStreetMap"
 
 #: bot/templates/not_found_message.md:3
 msgid "http://learnosm.org/en/"
-msgstr "http://learnosm.org/ja/"
+msgstr "http://learnosm.org/zh/"
 
 #: bot/templates/not_found_overpass_message.md:1
 msgid "No element found"
-msgstr "要素が見つかりません"
+msgstr "找不到元素"
 
 #: bot/templates/not_implemented_message.md:1
 msgid "Sorry but this query it's not implemented yet"
-msgstr "ごめんなさい、このクエリはまだ実装されていません"
+msgstr "抱歉，但這個查詢尚未實作"
 
 #: bot/templates/only_mention.md:1
 msgid "Now I only will answer when mention"
-msgstr "メンションがあった時だけお答えします"
+msgstr "現在我只會在提及時回答"
 
 #: bot/templates/question_mention.md:1
 msgid "Should I answer without a mention?"
-msgstr "メンションなしで答えましょうか？"
+msgstr "我是否在未提及時回答？"
 
 #: bot/templates/question_only_mention.md:1
 msgid "Answer only when mention?"
-msgstr ""
+msgstr "當提及時才回答？"
 
 #: bot/templates/send_location_message.md:1
 msgid "and I'll send you the nearest element"
-msgstr "一番近い要素を送信します"
+msgstr "然後我將會傳送最近的元素給您"
 
 #: bot/templates/seting_not_recognized_message.md:1
 msgid "Setting not recognized"
-msgstr "設定が認識できません"
+msgstr "無法理解的設定"
 
 #: bot/templates/start_answer.md:1
 msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "やあ、こちらはOpenStreetMapデータ用のボットです"
+msgstr "您好，我是 OpenStreetMap 資料機器人"
 
 #: bot/templates/start_answer.md:2
 msgid "How I can help you?"
-msgstr "何かお手伝いしましょうか？"
+msgstr "我要如何協助您？"
