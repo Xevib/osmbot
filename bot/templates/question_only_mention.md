@@ -1,1 +1,1 @@
-{{ _("Answer only when mention?") }}
+Answer only when mention?
