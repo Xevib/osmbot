@@ -783,7 +783,7 @@ class OsmBot(object):
                         imgformat=user_config['format'],
                         lat=float(query['message']['location']['latitude']),
                         lon=float(query['message']['location']['longitude']))
-                elif user_config.get('mode', None) == 'nearest':
+                elif user_config.get('mode', '') == 'nearest':
                     self.nearest_command(
                         message, chat_id, user_id, user,
                         lat=float(query['message']['location']['latitude']),
