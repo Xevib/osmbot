@@ -688,7 +688,7 @@ class OsmBot(object):
 
     def raw_command(self, message, chat_id):
         type = message[4:7]
-        if type == 'nod' or type == 'way' or type == 'rel':
+        if type in ['nod', 'way', 'rel']:
             identificador = message[7:]
             osm_data = getData(identificador, geom_type=type)
         else:
