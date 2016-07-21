@@ -31,7 +31,7 @@ The bot will answer with a list containing a maximum of ten results.<br/>
 Next, you can follow links for `Map` or `/details` command.
 
 ```
-/details rel347950
+/detailsrel347950
 ```
 
 `/details` command shows the information for relevant tags in OpenStreetMap. In this case, will show info (**details**) for a relation (**rel**) with this particular OSM ID (**347950**).<br/>
@@ -40,7 +40,7 @@ You can see the same element in the OpenStreetMap site: http://www.openstreetmap
 In case you want to retrieve more data, you can call the command `/raw`.
 
 ```
-/raw rel347950
+/rawrel347950
 ```
 
 `/raw` command forces the *Bot* to send messages with all the available data in the OpenStreetMap database for the particular element.

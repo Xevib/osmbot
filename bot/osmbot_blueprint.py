@@ -75,7 +75,7 @@ def attend_webhook(token):
                     message = message.replace('@osmbot', '')
                     message = message.replace('@OSMbot', '')
 
-            message = osmbot.CleanMessage(message)
+            message = osmbot.clean_message(message)
             osmbot.load_language(user_config['lang'])
             osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
         except Exception as e:

@@ -35,7 +35,8 @@ class OsmBot(object):
         """
         Class constructor
 
-        :param config: Dictionary with the configuration variables (token,host,database,user,password)
+        :param config: Dictionary with the configuration variables
+        (token,host,database,user,password)
         """
         self.avaible_languages = {
             'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
@@ -49,8 +50,9 @@ class OsmBot(object):
         self.rtl_languages = ['fa']
         token = config.get('token', '')
         if config:
-            self.user = u.User(config.get('host', ''), config.get('database', ''),
-                          config.get('user', ''), config.get('password', ''))
+            self.user = u.User(
+                config.get('host', ''), config.get('database', ''),
+                config.get('user', ''), config.get('password', ''))
         self.bot = Bot(token)
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
@@ -112,7 +114,7 @@ class OsmBot(object):
             template_text = f.read()
         return self.jinja_env.from_string(template_text)
 
-    def SetOnlyMention(self, message, user_id, chat_id, user, group):
+    def set_only_mention(self, message, user_id, chat_id, user, group):
         """
         Manages the set only mention requests
 
@@ -140,7 +142,7 @@ class OsmBot(object):
             self.bot.sendMessage(m)
         return []
 
-    def SetLanguageCommand(self, message, user_id, chat_id, u, group=False):
+    def set_language_command(self, message, user_id, chat_id, u, group=False):
         if message in self.get_languages():
             if group:
                 u.set_field(chat_id, 'lang', self.get_languages()[message], group=group)
@@ -164,14 +166,14 @@ class OsmBot(object):
             self.bot.sendMessage(message)
             return []
 
-    def AnswerCommand(self, message, user_id, chat_id, user):
-        k = ReplyKeyboardMarkup(['Yes','No'], one_time_keyboard=True)
+    def answer_command(self, message, user_id, chat_id, user):
+        k = ReplyKeyboardMarkup(['Yes', 'No'], one_time_keyboard=True)
         text = self._get_template('question_mention.md').render()
         m = Message(chat_id, text, reply_markup=k)
         self.bot.sendMessage(m)
         user.set_field(chat_id, 'mode', 'setonlymention', group=True)
 
-    def LanguageCommand(self, message, user_id, chat_id, user, group=False):
+    def language_command(self, message, user_id, chat_id, user, group=False):
         """
         Handles the Language command and sends the lis of languages
 
@@ -193,7 +195,7 @@ class OsmBot(object):
         else:
             user.set_field(user_id, 'mode', 'setlanguage', group=group)
 
-    def SettingsCommand(self, message, user_id, chat_id, u, group=False):
+    def settings_command(self, message, user_id, chat_id, u, group=False):
         k = ReplyKeyboardMarkup(['Language'], one_time_keyboard=True)
         if group:
             text = self._get_template('question_only_mention.md').render()
@@ -207,7 +209,7 @@ class OsmBot(object):
             identifier = user_id
         u.set_field(identifier, 'mode', 'settings', group=group)
 
-    def LegendCommand(self, message, chat_id):
+    def legend_command(self, message, chat_id):
         filt = message[8:]
         selected_keys = []
         for key in typeemoji.keys():
@@ -218,7 +220,7 @@ class OsmBot(object):
         template_params = {
             'typeemoji': typeemoji,
             'keys': selected_keys,
-            'is_rtl':self.get_is_rtl()
+            'is_rtl': self.get_is_rtl()
         }
         text = temp.render(**template_params)
         m = Message(chat_id, text)
@@ -232,14 +234,15 @@ class OsmBot(object):
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
 
-    def SearchCommand(self, message, user_config, chat_id):
+    def search_command(self, message, user_config, chat_id):
         import pynominatim
         t = ''
         search = message[8:].replace('\n', '').replace('\r', '')
         nom = pynominatim.Nominatim()
         results = nom.query(search,acceptlanguage=user_config['lang'])
         if not results:
-            text = self._get_template('not_found_message.md').render(search=search)
+            template = self._get_template('not_found_message.md')
+            text = template.render(search=search)
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
         else:
@@ -399,7 +402,7 @@ class OsmBot(object):
         if 'addr:city' in tags:
             t += tags['addr:city'] + '\n'
         if 'addr:country' in tags:
-           t += tags['addr:country'] + '\n'
+            t += tags['addr:country'] + '\n'
         if 'phone' in tags:
             t += '\xF0\x9F\x93\x9E ' + str(tags['phone']) + '\n'
         if 'contact:phone' in tags:
@@ -450,7 +453,7 @@ class OsmBot(object):
         m = Message(chat_id, t, disable_web_page_preview=(not preview))
         self.bot.sendMessage(m)
 
-    def MapCommand(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
+    def map_command(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
         zoom_halfside = {
             1: 2000,
             2: 95,
@@ -486,12 +489,13 @@ class OsmBot(object):
             except ValueError as v:
                 response.append(Message(chat_id, v.message))
             else:
+                signature = '©' + _('OSM contributors')
                 if imgformat == 'pdf':
                     self.bot.sendDocument(chat_id, data, 'map.pdf')
                 elif imgformat == 'jpeg':
-                    self.bot.sendPhoto(chat_id, data, 'map.jpg', '©' + _('OSM contributors'))
+                    self.bot.sendPhoto(chat_id, data, 'map.jpg', signature)
                 elif imgformat == 'png':
-                    self.bot.sendPhoto(chat_id, data, 'map.png', '©' + _('OSM contributors'))
+                    self.bot.sendPhoto(chat_id, data, 'map.png', signature)
             user.set_field(user_id, 'mode', 'normal')
         else:
             if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
@@ -560,16 +564,18 @@ class OsmBot(object):
                     except ValueError as v:
                         response.append(v.message)
                     else:
+                        signature = '©' + _('OSM contributors')
                         if imgformat == 'pdf':
                             self.bot.sendDocument(chat_id, data, 'map.pdf')
                         elif imgformat == 'jpeg':
                             self.bot.sendPhoto(
-                                chat_id, data, 'map.jpg', '©' + _('OSM contributors'))
+                                chat_id, data, 'map.jpg', signature)
                         elif imgformat == 'png':
                             self.bot.sendPhoto(
-                                chat_id, data, 'map.png', '©' + _('OSM contributors'))
+                                chat_id, data, 'map.png',signature)
                 else:
-                    text = self._get_template('cant_understand_message.md').render()
+                    template = self._get_template('cant_understand_message.md')
+                    text = template.render()
                     response.append(text)
             else:
                 res = nom.query(message)
@@ -577,12 +583,13 @@ class OsmBot(object):
                     bbox = res[0]['boundingbox']
                     auto_scale = getScale([bbox[0], bbox[2], bbox[1], bbox[3]])
                     try:
-                        data = download([bbox[2], bbox[0], bbox[3], bbox[1]], _, scale=auto_scale )
+                        data = download([bbox[2], bbox[0], bbox[3], bbox[1]], _, scale=auto_scale)
                     except ValueError as v:
                         m = Message(chat_id, v.message)
                         response.append(m)
                     else:
-                        self.bot.sendPhoto(chat_id, data, 'map.png', '©' + _('OSM contributors'))
+                        signature = '©' + _('OSM contributors')
+                        self.bot.sendPhoto(chat_id, data, 'map.png', signature)
                 else:
                     temp = self._get_template('cant_understand_message.md')
                     text = temp.render()
@@ -590,7 +597,7 @@ class OsmBot(object):
                     response.append(m)
         self.bot.sendMessage(response)
 
-    def PhoneCommand(self, message, chat_id):
+    def phone_command(self, message, chat_id):
         id = message[9:]
         element_type = message[6: 9]
         osm_data = getData(id, element_type)
@@ -605,13 +612,14 @@ class OsmBot(object):
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
 
-    def CleanMessage(self, message):
+    @staticmethod
+    def clean_message(message):
         if message.startswith('@osmbot'):
             message = message[8:]
         message = message.replace('\n', '').replace('\r', '')
         return message
 
-    def DetailsCommand(self, message, user_config, chat_id):
+    def details_command(self, message, user_config, chat_id):
         preview = False
         result = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
         if not result:
@@ -651,7 +659,7 @@ class OsmBot(object):
                 m = Message(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
                 self.bot.sendMessage(m)
 
-    def NearestCommand(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
+    def nearest_command(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
         if lat is not None and lon is not None:
             api = overpass.API()
             query = type_query[type.encode('unicode_escape')]['query']
@@ -686,9 +694,9 @@ class OsmBot(object):
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
 
-    def RawCommand(self, message, chat_id):
+    def raw_command(self, message, chat_id):
         type = message[4:7]
-        if type == 'nod' or type == 'way' or type == 'rel':
+        if type in ['nod', 'way', 'rel']:
             identificador = message[7:]
             osm_data = getData(identificador, geom_type=type)
         else:
@@ -733,7 +741,7 @@ class OsmBot(object):
                 response.append(m)
                 self.bot.sendMessage(response)
 
-    def answer_inline(self, message, query, chat_id, user_id, user_config, is_group, user):
+    def answer_inline(self, message, query, user_config):
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
         search_results = nom.query(message, acceptlanguage=user_config['lang'])
@@ -763,8 +771,22 @@ class OsmBot(object):
         self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
+        """
+        Function that handles messages and sends to the concrete functions
+
+        :param message: User message
+        :param query: Dict with the full query
+        :param chat_id: Chat id
+        :param user_id: User id
+        :param user_config: Dict with the user config
+        :param is_group: Boolean that indicates if the message comes from
+        a group
+        :param user: User object
+        :param message_type: Type of message
+        :return: None
+        """
         if message_type == 'inline':
-            self.answer_inline(message, query, chat_id, user_id, user_config, is_group, user)
+            self.answer_inline(message, query, user_config)
         else:
             preview = False
             response = []
@@ -777,14 +799,14 @@ class OsmBot(object):
                     parse_mode='Markdown')
                 self.bot.sendMessage(m)
             elif 'location' in query['message']:
-                if user_config is not None and 'mode' in user_config and user_config['mode'] == 'map':
-                    self.MapCommand(
+                if user_config is not None and user_config.get('mode','') == 'map':
+                    self.map_command(
                         message, chat_id, user_id, user, zoom=user_config["zoom"],
                         imgformat=user_config['format'],
                         lat=float(query['message']['location']['latitude']),
                         lon=float(query['message']['location']['longitude']))
-                elif user_config.get('mode', None) == 'nearest':
-                    self.NearestCommand(
+                elif user_config.get('mode', '') == 'nearest':
+                    self.nearest_command(
                         message, chat_id, user_id, user,
                         lat=float(query['message']['location']['latitude']),
                         lon=float(query['message']['location']['longitude']),
@@ -794,10 +816,10 @@ class OsmBot(object):
                     )
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
-                    self.LanguageCommand(
+                    self.language_command(
                         message, user_id, chat_id, user, is_group)
                 elif message == 'Answer only when mention?':
-                    self.AnswerCommand(message, user_id, chat_id, user)
+                    self.answer_command(message, user_id, chat_id, user)
                 else:
                     template_name = 'seting_not_recognized_message.md'
                     temp = self._get_template(template_name)
@@ -809,10 +831,10 @@ class OsmBot(object):
                     self.bot.sendMessage(m)
                     user.set_field(chat_id, 'mode', 'normal', group=is_group)
             elif user_config['mode'] == 'setlanguage':
-                self.SetLanguageCommand(
+                self.set_language_command(
                     message, user_id, chat_id, user, is_group)
             elif user_config['mode'] == 'setonlymention':
-                response += self.SetOnlyMention(message, user_id, chat_id, user, is_group)
+                response += self.set_only_mention(message, user_id, chat_id, user, is_group)
             elif 'text' in query['message']:
                 if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and user_config.get('mode', '') == 'map':
                     m = re.match(
@@ -820,39 +842,39 @@ class OsmBot(object):
                         message)
                     lat = m.groupdict()['lat']
                     lon = m.groupdict()['lon']
-                    response += self.MapCommand(
+                    response += self.map_command(
                         message, chat_id, user_id, user,
                         zoom=user_config['zoom'],
                         imgformat=user_config['format'],
                         lat=float(lat), lon=float(lon))
                 elif message == 'Language':
-                    response += self.LanguageCommand(message, user_id, chat_id, user,
-                                                is_group)
+                    response += self.language_command(message, user_id, chat_id, user,
+                                                      is_group)
                 elif message == 'Answer only when mention?':
-                    response += self.AnswerCommand(message, user_id, chat_id, user)
+                    response += self.answer_command(message, user_id, chat_id, user)
                 elif message.lower().startswith('/settings'):
-                    self.SettingsCommand(message, user_id, chat_id, user, is_group)
+                    self.settings_command(message, user_id, chat_id, user, is_group)
                 elif message.lower().startswith('/nearest'):
-                    self.NearestCommand(message, chat_id, user_id, user)
+                    self.nearest_command(message, chat_id, user_id, user)
                 elif message.lower().startswith('/map'):
-                    self.MapCommand(message, chat_id, user_id, user)
+                    self.map_command(message, chat_id, user_id, user)
                 elif re.match('/phone.*', message.lower()):
-                    self.PhoneCommand(message, chat_id)
+                    self.phone_command(message, chat_id)
                 elif re.match('/details.*', message.lower()):
                     try:
-                        self.DetailsCommand(message, user_config, chat_id)
+                        self.details_command(message, user_config, chat_id)
                     except Exception as e:
                         print e.message
                 elif re.match("/raw.*", message.lower()):
                     try:
-                        self.RawCommand(message, chat_id)
+                        self.raw_command(message, chat_id)
                     except Exception as e:
                         print(e.message)
                         import traceback
                         print(traceback.format_exc())
                         pass
                 elif message.lower().startswith('/legend'):
-                    self.LegendCommand(message, chat_id)
+                    self.legend_command(message, chat_id)
                 elif message.lower().startswith('/about'):
                     is_rtl = self.get_is_rtl()
                     template = self._get_template('about_answer.md')
@@ -868,7 +890,7 @@ class OsmBot(object):
                     response = [text]
                     response[-1] = response[-1].replace('_', '\_')
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
-                    self.SearchCommand(message, user_config, chat_id)
+                    self.search_command(message, user_config, chat_id)
                 elif re.match('/search', message.lower()) is not None:
                     m = Message(
                         chat_id,
