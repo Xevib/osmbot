@@ -789,7 +789,7 @@ class OsmBot(object):
             elif user_config['mode'] == 'setonlymention':
                 response += self.SetOnlyMention(message, user_id, chat_id, user, is_group)
             elif 'text' in query['message']:
-                if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and "mode" in user_config and user_config['mode'] == 'map':
+                if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and user_config.get('mode', '') == 'map':
                     m = re.match(
                         ".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",
                         message)
