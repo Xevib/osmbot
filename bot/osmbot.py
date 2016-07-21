@@ -728,7 +728,7 @@ class OsmBot(object):
                 params = {
                     'data': osm_data, 'type': element_type,
                     'identifier': r['osm_id'], 'user_config': user_config,
-                    'is_rtl': is_rtl
+                    'is_rtl': is_rtl, 'nominatim_data': r
                 }
                 if osm_data:
                     text = temp.render(**params)
