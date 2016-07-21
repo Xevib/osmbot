@@ -218,7 +218,7 @@ class OsmBot(object):
         template_params = {
             'typeemoji': typeemoji,
             'keys': selected_keys,
-            'is_rtl':self.get_is_rtl()
+            'is_rtl': self.get_is_rtl()
         }
         text = temp.render(**template_params)
         m = Message(chat_id, text)
