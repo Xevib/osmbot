@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-18 08:53+0200\n"
-"PO-Revision-Date: 2016-07-18 08:42+0000\n"
-"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
+"PO-Revision-Date: 2016-07-21 11:08+0000\n"
+"Last-Translator: Adib Yaghoubzadeh <adib.yz@gmail.com>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/osm-catala/osmbot/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgstr "محدوده انتخاب شده نامعتر است!"
 
 #: bot/maptools.py:47
 msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
-msgstr "لطفاً با /نقشه حداقل طول جغرافیایی، حداقل عرض حغرافیایی، حد اکثر طول جغرافیایی، حد اکثر عرض جغرافیایی امتحان کنید"
+msgstr "لطفاً با /map حداقل طول جغرافیایی، حداقل عرض حغرافیایی، حد اکثر طول جغرافیایی، حد اکثر عرض جغرافیایی امتحان کنید"
 
 #: bot/maptools.py:47
 msgid "Coordinates' decimals need to be marked with a dot."
@@ -84,7 +84,7 @@ msgstr "تلفن"
 #: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
 #: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
 msgid "OpenStreetMap contributors"
-msgstr "کمک دهنده های OpenStreetMap"
+msgstr "توسعه دهندگان OpenStreetMap"
 
 #: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
 #: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
@@ -172,7 +172,7 @@ msgstr "اطلاعات پردانش نشده:"
 #: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
 #: bot/osmbot_blueprint.py:510
 msgid "OSM contributors"
-msgstr "کمک دهنده های OpenStreetMap"
+msgstr "توسعه دهندگان OpenStreetMap"
 
 #: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
@@ -203,11 +203,11 @@ msgstr "داده های پردازش نشده"
 #: bot/osmbot_blueprint.py:809
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
-msgstr "لطفاً برای جستجو از این دستور استفاده کنید <عبارت_جستجو> search/"
+msgstr "لطفاً برای جستجو از این دستور استفاده کنید <عبارت_جستجو> /search"
 
 #: bot/osmbot_blueprint.py:815
 msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "از دستور <عبارت_جستجو> search/ برای جستجو استفاده کنید"
+msgstr "از دستور <عبارت_جستجو> /search برای جستجو استفاده کنید"
 
 #: bot/osmbot_blueprint.py:899
 msgid ""
@@ -269,11 +269,11 @@ msgstr "بومی سازی"
 
 #: bot/templates/about_answer.md:9
 msgid "DOCUMENTATION"
-msgstr ""
+msgstr "مستندات"
 
 #: bot/templates/about_answer.md:10
 msgid "OSMbot wiki"
-msgstr ""
+msgstr "ویکی OSM Bot"
 
 #: bot/templates/about_answer.md:12
 msgid "NEWS"
@@ -281,7 +281,7 @@ msgstr "اخبار"
 
 #: bot/templates/about_answer.md:13
 msgid "Twitter account"
-msgstr ""
+msgstr "حساب توییتر "
 
 #: bot/templates/about_answer.md:14
 msgid "Telegram channel"
@@ -325,7 +325,7 @@ msgstr "متاسفم، نمیتوانم متوجه منظور شما شوم"
 
 #: bot/templates/cant_understand_message.md:2
 msgid "Perhaps I could help you with the command /help"
-msgstr "لطفاً از برای مشاهده راهنما از این دستور استفاده کنید: help/"
+msgstr "لطفاً از برای مشاهده راهنما از این دستور استفاده کنید: /help"
 
 #: bot/templates/configure_question.md:1
 msgid "What do you want to configure?"
@@ -366,22 +366,22 @@ msgstr "شما می توانید با استفاده از این دستورات 
 #: bot/templates/help_message.md:5
 msgid ""
 "/about - Show info about OSMbot: credits&code, news and ratings&reviews"
-msgstr "about/ - نمایش اطلاعات درباره ربات OSM: اعتبار و کد، اخبار و امتیاز دهی و نظرات"
+msgstr "/about - نمایش اطلاعات درباره ربات OSM: اعتبار و کد، اخبار و امتیاز دهی و نظرات"
 
 #: bot/templates/help_message.md:7
 msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
-msgstr "osm_id><type> /details> - نمایش تگ های یک ID از پایگاه داده OSM."
+msgstr "/osm_id><type>details> - نمایش تگ های یک ID از پایگاه داده OSM."
 
 #: bot/templates/help_message.md:9
 msgid ""
 "/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
-msgstr "osm_id><type> /raw> تمامی برچسب ها از پایگاه داده OSM مربوط به ID را با فرمت خام نمایش بده."
+msgstr "/osm_id><type>raw> تمامی برچسب ها از پایگاه داده OSM مربوط به ID را با فرمت خام نمایش بده."
 
 #: bot/templates/help_message.md:11
 msgid ""
 "The ID is generated by /search command, but if you know an OSM ID you can "
 "try it."
-msgstr "ID با دستور search/ ایجاد می شود، اما اگر شما یک OSM ID می شناسید می توانید امتحانش کنید."
+msgstr "ID با دستور /search ایجاد می شود، اما اگر شما یک OSM ID می شناسید می توانید امتحانش کنید."
 
 #: bot/templates/help_message.md:13
 msgid ""
@@ -394,11 +394,11 @@ msgid ""
 "/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
 " you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
 "Osmbot"
-msgstr "osm_key> /legend> - نمایش لیستی از جفت های کلید=مقدار و شکلک های مربوطه در ربات OSM. اگر شما یک <osm_key> مشخص نکنید ، تمامی جفت های کلید=مقدار با شکلک موجود در ربات OSM نمایش داده می شود."
+msgstr "/osm_key> legend> - نمایش لیستی از جفت های کلید=مقدار و شکلک های مربوطه در ربات OSM. اگر شما یک <osm_key> مشخص نکنید ، تمامی جفت های کلید=مقدار با شکلک موجود در ربات OSM نمایش داده می شود."
 
 #: bot/templates/help_message.md:17
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "map/ <مختصات> <فرمت فایل> <مقیاس> - ارسال نقشه با انتخاب های دیگر:"
+msgstr "/map <مختصات> <فرمت فایل> <مقیاس> - ارسال نقشه با انتخاب های دیگر:"
 
 #: bot/templates/help_message.md:19
 msgid ""
@@ -422,13 +422,13 @@ msgstr "<مقیاس> مقدار بزرگ نمایی (1-19) اگر گزینه ا�
 #: bot/templates/help_message.md:25
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr "search/ <عبارت_جستجو> - جستجو با نام و آدرس در تمامی پایگاه داده OSM Nominatim."
+msgstr "/search <عبارت_جستجو> - جستجو با نام و آدرس در تمامی پایگاه داده OSM Nominatim."
 
 #: bot/templates/help_message.md:27
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr "type> /nearest><متراژ اختیاری> - جستجو خارج از محدوده یک مکان با یک شعاع مشخص"
+msgstr "/type> nearest><متراژ اختیاری> - جستجو یک مکان  از Overpass با یک شعاع مشخص."
 
 #: bot/templates/language_answer.md:1
 msgid "Choose the language for talk with you"
