@@ -451,11 +451,36 @@ class OsmBot(object):
         self.bot.sendMessage(m)
 
     def MapCommand(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
+        zoom_halfside = {
+            1: 2000,
+            2: 95,
+            3: 70,
+            4: 55,
+            5: 50,
+            6: 35,
+            7: 25,
+            8: 18,
+            9: 14,
+            10: 8,
+            11: 6,
+            12: 4,
+            13: 2,
+            14: 1,
+            15: 0.5,
+            16: 0.25,
+            17: 0.15,
+            18: 0.07,
+            19: 0.04
+        }
         nom = pynominatim.Nominatim()
         response = []
         message = message[4:]
         if lat is not None and lon is not None:
-            bbox = genBBOX(lat, lon, 0.1)
+            if zoom:
+                halfside = zoom_halfside[zoom]
+            else:
+                halfside = 0.1
+            bbox = genBBOX(lat, lon, halfside)
             try:
                 data = download(bbox, _, imageformat=imgformat, zoom=zoom)
             except ValueError as v:
