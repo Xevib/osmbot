@@ -240,7 +240,7 @@ class OsmBot(object):
         t = ''
         search = message[8:].replace('\n', '').replace('\r', '')
         nom = pynominatim.Nominatim()
-        results = nom.query(search, acceptlanguage=user_config['lang'],countrycodes=True)
+        results = nom.query(search, acceptlanguage=user_config['lang'], countrycodes=True, addressdetails=True)
         if not results:
             template = self._get_template('not_found_message.md')
             text = template.render(search=search)
