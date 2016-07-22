@@ -137,7 +137,7 @@ class OsmBot(object):
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
         else:
-            text = self._get_template('answer_always.md').render()
+            text = self._get_template('answer_always.md').render(is_rtl=self.get_is_rtl())
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
         return []
@@ -151,7 +151,7 @@ class OsmBot(object):
                 u.set_field(user_id, 'lang', self.get_languages()[message], group=group)
                 u.set_field(user_id, 'mode', 'normal', group=group)
             self.load_language(self.get_languages()[message])
-            text = self._get_template('new_language.md').render()
+            text = self._get_template('new_language.md').render(is_rtl=self.get_is_rtl())
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
             return []
@@ -606,9 +606,9 @@ class OsmBot(object):
             text = template.render(phone=osm_data['tag']['phone'], is_rtl=self.get_is_rtl())
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
-        if 'contact:phone' in osm_data['tag']:
+        if 'contact:phone' in osm_data['tag'] and tags.get('phone') != tags.get('contact:phone'):
             template = self._get_template('phone_message.md')
-            text = template.render(phone=osm_data['tag']['contact:phone'])
+            text = template.render(phone=osm_data['tag']['contact:phone'], is_rtl=self.get_is_rtl())
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
 
