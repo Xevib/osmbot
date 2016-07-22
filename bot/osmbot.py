@@ -704,6 +704,14 @@ class OsmBot(object):
         return message
 
     def details_command(self, message, user_config, chat_id):
+        """
+        Answers the details command
+
+        :param message: Message with de details command as str
+        :param user_config: User config as a dict
+        :param chat_id: Chat id
+        :return: None
+        """
         preview = False
         result = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
         if not result:
