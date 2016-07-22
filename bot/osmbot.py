@@ -15,6 +15,7 @@ from bot.maptools import download, genBBOX, getScale
 from bot.utils import getData
 from bot.overpass_query import type_query
 import overpass
+from bot.emojiflag import emojiflag
 
 
 def url_escape(s):
@@ -239,7 +240,7 @@ class OsmBot(object):
         t = ''
         search = message[8:].replace('\n', '').replace('\r', '')
         nom = pynominatim.Nominatim()
-        results = nom.query(search,acceptlanguage=user_config['lang'])
+        results = nom.query(search, acceptlanguage=user_config['lang'],countrycodes=True)
         if not results:
             template = self._get_template('not_found_message.md')
             text = template.render(search=search)
@@ -265,7 +266,12 @@ class OsmBot(object):
                 else:
                     osm_data = None
                 type = result['class'] + ':' + result['type']
-                if type in typeemoji:
+                country = result.get('country_code', '')
+                if type in typeemoji and country in emojiflag:
+                    t += emojiflag[result['country_code']] + typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
+                elif country in emojiflag:
+                    t += emojiflag[result['country_code']] + '\xE2\x96\xB6 ' + result['display_name'] + '\n'
+                elif type in typeemoji:
                     t += typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
                 else:
                     t += '\xE2\x96\xB6 ' + result['display_name']+'\n'
@@ -292,7 +298,8 @@ class OsmBot(object):
                             t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
 
             t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
-        m = Message(chat_id, t, parse_mode='Markdown')
+        m = Message(chat_id, t, parse_mode='Markdown',
+                    disable_web_page_preview=True)
         self.bot.sendMessage(m)
 
     def pretty_tags(self, data, identificador, type, user_config, chat_id, lat=None, lon=None, link=False):
