@@ -119,9 +119,9 @@
 {% endif %}{% if 'contact:email' in data.tag -%}{% if data.tag.mail != data.tag['contact:mail'] -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U00002709'}} {{data.tag['contact:email']}}
 {% endif %}{% endif %}{% if 'website' in data.tag -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{data.tag['website']}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {% if is_rtl -%}{{'\U0000200E'}}{% endif -%}{{data.tag['website']}}
 {% endif %}{% if 'contact:website' in data.tag -%}{% if data.tag.website != data.tag['contact:website'] -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{data.tag['contact:website']}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {% if is_rtl -%}{{'\U0000200E'}}{% endif -%}{{data.tag['contact:website']}}
 {% endif %}{% endif %}{% if 'opening_hours' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F55E'}} {{data.tag['opening_hours']}}
 {% endif %}{% if 'internet_access' in data.tag -%}
