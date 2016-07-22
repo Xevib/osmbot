@@ -266,11 +266,12 @@ class OsmBot(object):
                 else:
                     osm_data = None
                 type = result['class'] + ':' + result['type']
-                country = result.get('country_code', '')
+                if 'address' in result:
+                    country = result['address'].get('country_code', '').upper()
                 if type in typeemoji and country in emojiflag:
-                    t += emojiflag[result['country_code']] + typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
+                    t += emojiflag[country][0] + typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
                 elif country in emojiflag:
-                    t += emojiflag[result['country_code']] + '\xE2\x96\xB6 ' + result['display_name'] + '\n'
+                    t += emojiflag[country][0] + '\xE2\x96\xB6 ' + result['display_name'] + '\n'
                 elif type in typeemoji:
                     t += typeemoji[result['class'] + ':' + result['type']] + " " + result['display_name'] + '\n'
                 else:
