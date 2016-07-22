@@ -144,6 +144,16 @@ class OsmBot(object):
         return []
 
     def set_language_command(self, message, user_id, chat_id, u, group=False):
+        """
+        Answers the language command
+
+        :param message: Message
+        :param user_id: User identifier
+        :param chat_id: Chat identifier
+        :param u: User object
+        :param group: Boolean to indicate if its a group
+        :return: None
+        """
         if message in self.get_languages():
             if group:
                 u.set_field(chat_id, 'lang', self.get_languages()[message], group=group)
@@ -167,7 +177,16 @@ class OsmBot(object):
             self.bot.sendMessage(message)
             return []
 
-    def answer_command(self, message, user_id, chat_id, user):
+    def answer_command(self, chat_id, user):
+        """
+        Answers the only answer command
+
+        :param message: User message
+        :param user_id: User identifier
+        :param chat_id: Chat id
+        :param user: User object
+        :return:
+        """
         k = ReplyKeyboardMarkup(['Yes', 'No'], one_time_keyboard=True)
         text = self._get_template('question_mention.md').render()
         m = Message(chat_id, text, reply_markup=k)
@@ -197,6 +216,16 @@ class OsmBot(object):
             user.set_field(user_id, 'mode', 'setlanguage', group=group)
 
     def settings_command(self, message, user_id, chat_id, u, group=False):
+        """
+        Answers the settings command
+
+        :param message: User message
+        :param user_id: User identifier
+        :param chat_id: Chat id
+        :param u: Uers object
+        :param group: Boolen to indicate if it's on a group
+        :return: None
+        """
         k = ReplyKeyboardMarkup(['Language'], one_time_keyboard=True)
         if group:
             text = self._get_template('question_only_mention.md').render()
@@ -211,6 +240,13 @@ class OsmBot(object):
         u.set_field(identifier, 'mode', 'settings', group=group)
 
     def legend_command(self, message, chat_id):
+        """
+        Answers the legend commands
+
+        :param message: Legend filter message
+        :param chat_id: Chat identifier
+        :return: None
+        """
         filt = message[8:]
         selected_keys = []
         for key in typeemoji.keys():
@@ -236,6 +272,14 @@ class OsmBot(object):
             self.bot.sendMessage(m)
 
     def search_command(self, message, user_config, chat_id):
+        """
+        Answers the search commands
+
+        :param message: User message
+        :param user_config: User configuration as a dict
+        :param chat_id: Identifier of the chat
+        :return: None
+        """
         import pynominatim
         t = ''
         search = message[8:].replace('\n', '').replace('\r', '')
@@ -304,6 +348,19 @@ class OsmBot(object):
         self.bot.sendMessage(m)
 
     def pretty_tags(self, data, identificador, type, user_config, chat_id, lat=None, lon=None, link=False):
+        """
+        Function that generates a pretty answer from a osm data
+
+        :param data: OSM data
+        :param identificador: User identifier
+        :param type: Type of element
+        :param user_config: Dict of the user configuration
+        :param chat_id: Chat identifier
+        :param lat:
+        :param lon:
+        :param link:
+        :return: String with the answer
+        """
         preview = False
         tags = {}
         if 'tag' in data:
@@ -462,6 +519,19 @@ class OsmBot(object):
         self.bot.sendMessage(m)
 
     def map_command(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
+        """
+        Answers the map command
+
+        :param message:  Map command with parameters
+        :param chat_id: Chat identifier
+        :param user_id: User identifier
+        :param user: User object
+        :param zoom: Zoom level for the map
+        :param imgformat: Image format
+        :param lat: latitude of the center of the map
+        :param lon: longitude of the center of the map
+        :return:
+        """
         zoom_halfside = {
             1: 2000,
             2: 95,
@@ -622,6 +692,12 @@ class OsmBot(object):
 
     @staticmethod
     def clean_message(message):
+        """
+        Function that cleans a message removing de @osmbot mention and \r,\n
+
+        :param message: Message as string
+        :return: Cleaned message as string
+        """
         if message.startswith('@osmbot'):
             message = message[8:]
         message = message.replace('\n', '').replace('\r', '')
@@ -703,6 +779,14 @@ class OsmBot(object):
             self.bot.sendMessage(m)
 
     def raw_command(self, message, chat_id):
+        """
+        Answers the raw command
+
+        :param message: User message
+        :param chat_id: Chat id
+        :return: None
+        """
+
         type = message[4:7]
         if type in ['nod', 'way', 'rel']:
             identificador = message[7:]
@@ -750,6 +834,14 @@ class OsmBot(object):
                 self.bot.sendMessage(response)
 
     def answer_inline(self, message, query, user_config):
+        """
+        Answers the inline queryes
+
+        :param message: User inline search
+        :param query: Dict with the full query as a dict
+        :param user_config: User configuration as a dict
+        :return: None
+        """
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
         search_results = nom.query(message, acceptlanguage=user_config['lang'])
@@ -827,7 +919,7 @@ class OsmBot(object):
                     self.language_command(
                         message, user_id, chat_id, user, is_group)
                 elif message == 'Answer only when mention?':
-                    self.answer_command(message, user_id, chat_id, user)
+                    self.answer_command(chat_id, user)
                 else:
                     template_name = 'seting_not_recognized_message.md'
                     temp = self._get_template(template_name)
