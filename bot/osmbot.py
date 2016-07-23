@@ -873,7 +873,7 @@ class OsmBot(object):
                     try:
                         self.details_command(message, user_config, chat_id)
                     except Exception as e:
-                        print e.message
+                        print(e.message)
                 elif re.match("/raw.*", message.lower()):
                     try:
                         self.raw_command(message, chat_id)

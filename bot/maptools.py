@@ -36,7 +36,7 @@ def download(bbox, _, imageformat='png', zoom=19, scale=None):
         params['scale'] = scale_zoom[int(zoom)]
     else:
         params['scale'] = scale
-    print str(params)
+    print(str(params))
     try:
         response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params, timeout=7)
     except:
