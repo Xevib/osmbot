@@ -56,11 +56,13 @@ class OsmBot(object):
             self.user = u.User(
                 config.get('host', ''), config.get('database', ''),
                 config.get('user', ''), config.get('password', ''))
-        self.bot = Bot(token)
+
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
         self.language = None
-        self.telegram_api = telegram.Bot(token=token)
+        if token:
+            self.bot = Bot(token)
+            self.telegram_api = telegram.Bot(token)
 
     def load_language(self, language):
         """
