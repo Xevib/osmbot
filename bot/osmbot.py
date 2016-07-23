@@ -753,6 +753,20 @@ class OsmBot(object):
                 self.bot.sendMessage(m)
 
     def nearest_command(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
+        """
+        Answers nearest command if lat & lon are none asks for position
+
+        :param message: User mesage
+        :param chat_id: Chat id
+        :param user_id: User id
+        :param user: User object
+        :param config: User configuration
+        :param lat: User latitude
+        :param lon: User longitude
+        :param type: Element type
+        :param distance: Range of distance to search
+        :return: None
+        """
         if lat is not None and lon is not None:
             api = overpass.API()
             query = type_query[type.encode('unicode_escape')]['query']
@@ -763,14 +777,15 @@ class OsmBot(object):
 
             user.set_field(user_id, 'mode', 'normal')
             self.pretty_tags(data, chat_id, type, config, chat_id, lat=lat, lon=lon, link=True)
-
+            return None
         else:
             t = message.replace('/nearest', '').strip().split(' ')[0]
             if t.encode('unicode_escape') not in type_query:
                 text = self._get_template('not_implemented_message.md').render()
                 m = Message(chat_id, text)
                 self.bot.sendMessage(m)
-
+                return None
+            
             if len(message) == 3:
                 if message[2].lower()[-2:] == 'km':
                     distance = int(message[:-1]) * 1000
@@ -786,6 +801,7 @@ class OsmBot(object):
             text = self._get_template('send_location_message.md').render()
             m = Message(chat_id, text)
             self.bot.sendMessage(m)
+            return None
 
     def raw_command(self, message, chat_id):
         """
