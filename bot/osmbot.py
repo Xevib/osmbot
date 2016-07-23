@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from __future__ import absolute_import
 
-from bot.bot import Bot, Message, ReplyKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
+from bot.bot import Bot, Message, ReplyKeyboardMarkup
 import os
 from jinja2 import Environment
 import urllib
@@ -16,7 +16,9 @@ from bot.utils import getData
 from bot.overpass_query import type_query
 import overpass
 from bot.emojiflag import emojiflag
-
+import telegram
+from uuid import uuid4
+from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent
 
 def url_escape(s):
     """
@@ -54,10 +56,13 @@ class OsmBot(object):
             self.user = u.User(
                 config.get('host', ''), config.get('database', ''),
                 config.get('user', ''), config.get('password', ''))
-        self.bot = Bot(token)
+
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
         self.language = None
+        if token:
+            self.bot = Bot(token)
+            self.telegram_api = telegram.Bot(token)
 
     def load_language(self, language):
         """
@@ -867,6 +872,7 @@ class OsmBot(object):
         :param user_config: User configuration as a dict
         :return: None
         """
+
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
         search_results = nom.query(message, acceptlanguage=user_config['lang'])
@@ -890,10 +896,26 @@ class OsmBot(object):
                 }
                 if osm_data:
                     text = temp.render(**params)
-                answer = InputTextMessageContent(text, 'Markdown')
-                result = InlineQueryResultArticle('article', '{}/{}'.format(inline_query_id, index), title=r['display_name'], input_message_content=answer)
-                results.append(result)
-        self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
+                name_lang = 'name:{}'.format(user_config['lang'])
+                if name_lang in osm_data['tag']:
+                    results.append(InlineQueryResultArticle(
+                        id=uuid4(),
+                        title=osm_data['tag'][name_lang],
+                        description=r['display_name'],
+                        input_message_content=InputTextMessageContent(
+                            text,
+                            parse_mode=ParseMode.MARKDOWN)))
+                else:
+                    results.append(InlineQueryResultArticle(
+                        id=uuid4(),
+                        title=osm_data['tag']['name'],
+                        description=r['display_name'],
+                        input_message_content=InputTextMessageContent(
+                            text,
+                            parse_mode=ParseMode.MARKDOWN)))
+
+        self.telegram_api.answerInlineQuery(inline_query_id, results, is_personal=True,cache_time=86400)
+        #self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
         """
