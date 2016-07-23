@@ -244,7 +244,7 @@ class OsmBot(object):
         if not results:
             template = self._get_template('not_found_message.md')
             text = template.render(search=search)
-            m = Message(chat_id, text)
+            m = Message(chat_id, text, parse_mode='Markdown')
             self.bot.sendMessage(m)
         else:
             t = _('Results for') + ' "{0}":\n\n'.format(search)
