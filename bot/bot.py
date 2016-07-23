@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import requests
-from utils import getData
-from maptools import download, genBBOX, getScale
+
 
 class InputTextMessageContent(object):
     def __init__(self, message_text, parse_mode,
@@ -248,7 +247,7 @@ class Bot(object):
             answer['switch_pm_text'] = switch_pm_text
         if switch_pm_parameter:
             answer['switch_pm_parameter'] = switch_pm_parameter
-        print json.dumps(answer, sort_keys=True, indent=4, separators=(',', ': '))
+        print(json.dumps(answer, sort_keys=True, indent=4, separators=(',', ': ')))
         resp = requests.post(self.url.format(self.token, method), params=answer)
         if resp.status_code != 200:
             raise Exception(json.loads(resp.content)['description'])
