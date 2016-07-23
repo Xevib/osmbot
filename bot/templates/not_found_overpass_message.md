@@ -1,1 +1,1 @@
-{{_("No element found")}}
+{{_("No element found")}} {{'\U0001F575'}}{{'\U0001F44E'}}
