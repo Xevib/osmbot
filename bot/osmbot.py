@@ -246,6 +246,7 @@ class OsmBot(object):
             text = template.render(search=search)
             m = Message(chat_id, text, parse_mode='Markdown')
             self.bot.sendMessage(m)
+            return None
         else:
             t = _('Results for') + ' "{0}":\n\n'.format(search)
             for result in results[:10]:
