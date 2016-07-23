@@ -72,7 +72,7 @@ typeemoji={
     'highway:trunk': '\xE3\x80\xB0 \xF0\x9F\x9A\x97',
     'highway:unclassified': '\xE3\x80\xB0 \xE2\x9D\x93',
     'historic:castle': '\xF0\x9F\x8F\xB0',
-    'historic:monument': '\xF3\xBE\x93\x86',
+    'historic:monument': '\xF0\x9F\x97\xBD',
     'landuse:plant_nursery': '\xF0\x9F\x8C\xB1',
     'leisure:bowling_alley': '\xF0\x9F\x8E\xB3',
     'leisure:golf_course': '\xE2\x9B\xB3',
