@@ -896,14 +896,23 @@ class OsmBot(object):
                 }
                 if osm_data:
                     text = temp.render(**params)
-
-                results.append(InlineQueryResultArticle(
-                    id=uuid4(),
-                    title=r['display_name'],
-                    description='sub',
-                    input_message_content=InputTextMessageContent(
-                        text,
-                        parse_mode=ParseMode.MARKDOWN)))
+                name_lang = 'name:{}'.format(user_config['lang'])
+                if name_lang in osm_data['tag']:
+                    results.append(InlineQueryResultArticle(
+                        id=uuid4(),
+                        title=osm_data['tag'][name_lang],
+                        description=r['display_name'],
+                        input_message_content=InputTextMessageContent(
+                            text,
+                            parse_mode=ParseMode.MARKDOWN)))
+                else:
+                    results.append(InlineQueryResultArticle(
+                        id=uuid4(),
+                        title=osm_data['tag']['name'],
+                        description=r['display_name'],
+                        input_message_content=InputTextMessageContent(
+                            text,
+                            parse_mode=ParseMode.MARKDOWN)))
 
         self.telegram_api.answerInlineQuery(inline_query_id, results, is_personal=True,cache_time=86400)
         #self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
