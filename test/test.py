@@ -7,16 +7,32 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+from bot.osmbot import OsmBot
+from bot.error import OSMError
+
+class OsmBotMock(OsmBot):
+    def __init__(self, *args, **kwargs):
+        super(OsmBotMock, self).__init__(*args, **kwargs)
 
 class BotTest(unittest.TestCase):
+    # instantiate OsmBotMock class
+    b = OsmBotMock({}, auto_config=False)
+
+    # def test_init_config_error(self):
+        # TODO(edgar): check why the assert doesn't work
+        # self.assertRaises(OSMError, self.b.init_config(''))
+
     def test_languages(self):
-        from bot.osmbot import OsmBot
-        b = OsmBot({})
+        # instantiate OsmBotMock class
+        #b = OsmBotMock({}, auto_config=False)
+
         lang_dirs = os.listdir('bot/locales')
         for lang_dir in lang_dirs:
-            if os.path.isdir(os.path.join('bot/locales', lang_dir)) and lang_dir not in b.get_languages().values():
-                print '{} not found in directory in avaible languages but found in bo/locales'.format(lang_dir)
-                self.assertTrue(lang_dir in b.get_languages().values())
+            if os.path.isdir(os.path.join('bot/locales', lang_dir)) and \
+                    lang_dir not in self.b.get_languages().values():
+                print '{} not found in directory in avaible languages ' \
+                       'but found in bo/locales'.format(lang_dir)
+                self.assertTrue(lang_dir in self.b.get_languages().values())
 
     def test_templates(self):
         from jinja2 import Environment, exceptions
