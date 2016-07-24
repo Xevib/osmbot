@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-21 22:05+0200\n"
-"PO-Revision-Date: 2016-07-24 11:02+0000\n"
+"PO-Revision-Date: 2016-07-24 11:59+0000\n"
 "Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/osm-catala/osmbot/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
@@ -196,11 +196,11 @@ msgstr "داده های پردازش نشده"
 #: bot/osmbot.py:897
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
-msgstr "لطفاً برای جستجو از این دستور استفاده کنید <عبارت_جستجو> /search"
+msgstr "لطفاً با دستور /search_term> search> مشخص کنید دنبال چه چیزی می گردید."
 
 #: bot/osmbot.py:903
 msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "از دستور <عبارت_جستجو> /search برای جستجو استفاده کنید"
+msgstr "برای جستجو از دستور  /search_term> search> استفاده کنید."
 
 #: bot/osmbot_blueprint.py:97
 msgid ""
@@ -391,37 +391,37 @@ msgstr "/osm_key> legend> - نمایش لیستی از جفت های کلید=م
 
 #: bot/templates/help_message.md:17
 msgid "/map <coord> <format> <scale> - Send a map with different options:"
-msgstr "/map <مختصات> <فرمت فایل> <مقیاس> - ارسال نقشه با انتخاب های دیگر:"
+msgstr "/scale> <format> <coord> map> ارسال نقشه با انتخاب های دیگر:"
 
 #: bot/templates/help_message.md:19
 msgid ""
 "<coord> Could be a point (lat,lon) or a bounding box "
 "(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
 "location"
-msgstr "<مختصات> می تواند یک نقطه (طول و عرض) یا یک ناحیه (حداقل و حد اکثر طول و عرض جغرافیایی). اگر شما از این امکان استفاده نکنید، می توانید موقعیت خود را ارسال کنید."
+msgstr "<coord> می تواند یک نقطه (طول و عرض) یا یک ناحیه (حداقل و حد اکثر طول و عرض جغرافیایی). اگر شما از این امکان استفاده نکنید، می توانید موقعیت خود را ارسال کنید."
 
 #: bot/templates/help_message.md:21
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
-msgstr "<فرمت فایل>می تواند png, jpeg و یا pdf باشد. اگر گزینه ای انتخاب نشود ربات به صورت پیش فرض png را انتخاب می کند."
+msgstr "<format> می تواند png, jpeg و یا pdf باشد. اگر گزینه ای انتخاب نشود ربات به صورت پیش فرض png را انتخاب می کند."
 
 #: bot/templates/help_message.md:23
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
-msgstr "<مقیاس> مقدار بزرگ نمایی (1-19) اگر گزینه ای وارد نشود، ربات مقدار 19 را به صورت پیش فرض استفاده می کند."
+msgstr "<scale> مقدار بزرگ نمایی (1-19) اگر گزینه ای وارد نشود، ربات مقدار 19 را به صورت پیش فرض استفاده می کند."
 
 #: bot/templates/help_message.md:25
 msgid ""
 "/search <search_term> - Search from Nominatim in all OpenStreetMap database."
-msgstr "/search <عبارت_جستجو> - جستجو با نام و آدرس در تمامی پایگاه داده OSM Nominatim."
+msgstr "/search_term> search> - جستجو با نام و آدرس در تمامی پایگاه داده OSM Nominatim."
 
 #: bot/templates/help_message.md:27
 msgid ""
 "/nearest <type> <optional meters> - Search from Overpass the element in a "
 "certain radius"
-msgstr "/type> nearest><متراژ اختیاری> - جستجو یک مکان  از Overpass با یک شعاع مشخص."
+msgstr "/optional meters> <type> nearest> - جستجو یک مکان  از Overpass با یک شعاع مشخص."
 
 #: bot/templates/language_answer.md:1
 msgid "Choose the language for talk with you"
