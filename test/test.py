@@ -16,16 +16,19 @@ class OsmBotMock(OsmBot):
 
 class BotTest(unittest.TestCase):
     # instantiate OsmBotMock class
-    b = OsmBotMock({}, auto_config=False)
+    b = OsmBotMock({}, auto_init=False)
 
-    # def test_init_config_error(self):
-        # TODO(edgar): check why the assert doesn't work
-        # self.assertRaises(OSMError, self.b.init_config(''))
+    def test_init_config(self):
+        from configobj import ConfigObj
+        config = ConfigObj()
+ 
+        # no config and empty config
+        self.assertRaises(OSMError, self.b.init_config, 0)
+        self.assertRaises(OSMError, self.b.init_config, True)
+        self.assertRaises(OSMError, self.b.init_config, 'random.cfg')
+        self.assertRaises(OSMError, self.b.init_config, config)
 
     def test_languages(self):
-        # instantiate OsmBotMock class
-        #b = OsmBotMock({}, auto_config=False)
-
         lang_dirs = os.listdir('bot/locales')
         for lang_dir in lang_dirs:
             if os.path.isdir(os.path.join('bot/locales', lang_dir)) and \

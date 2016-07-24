@@ -23,7 +23,6 @@ from bot.emojiflag import emojiflag
 from bot.bot import Bot, Message, ReplyKeyboardMarkup
 from bot.error import OSMError
 
-
 def url_escape(s):
     """
     Used to escape URL in template
@@ -32,7 +31,6 @@ def url_escape(s):
     :return: Well fomrated URL
     """
     return s.replace(' ', '%20').replace(')', '\\)')
-
 
 class OsmBot(object):
     # dict with all available languages
@@ -65,7 +63,7 @@ class OsmBot(object):
     """
         Class that represents the OsmBot
     """
-    def __init__(self, config, auto_config=True):
+    def __init__(self, config, auto_init=True):
         """
         Class constructor
 
@@ -73,8 +71,16 @@ class OsmBot(object):
         (token,host,database,user,password)
         :param auto_config: Enable/Disable automatic init_config
         """
-        
-        if auto_config:
+        # private attributes
+        self.rtl_languages = None
+        self.user = None
+        self.jinja_env = None
+        self.language = None
+        self.bot = None
+        self.telegram_api = None
+
+        # configure osmbot
+        if auto_init:
             self.init_config(config)
 
     def init_config(self, config):
@@ -89,12 +95,14 @@ class OsmBot(object):
         self.rtl_languages = ['fa']
 
         # setup the database info
-        if config:
+        from configobj import ConfigObj
+        if config and isinstance(config, ConfigObj):
             self.user = User(
                 config.get('host', ''), config.get('database', ''),
                 config.get('user', ''), config.get('password', ''))
         else:
-            raise OSMError('No config file. Please provide a *.cfg')
+            raise OSMError('No config file: ' \
+                    'Please provide a ConfigObj object instance.')
     
         # setup the jinja environment and default language
         # TODO(xevi): Should we set a default language?
@@ -108,7 +116,7 @@ class OsmBot(object):
             self.bot = Bot(token)
             self.telegram_api = telegram.Bot(token)
         else:
-            raise OSMError('No token in config file.' \
+            raise OSMError('No token in config file: ' \
                     'Please check that token is in the config file.')
 
     def load_language(self, language):
