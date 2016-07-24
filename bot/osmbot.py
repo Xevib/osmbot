@@ -261,7 +261,8 @@ class OsmBot(object):
         }
         text = temp.render(**template_params)
         m = Message(chat_id, text)
-        self.bot.sendMessage(m)
+        if selected_keys:
+            self.bot.sendMessage(m)
         if len(selected_keys) > 50:
             text = self._get_template('easter_egg.md').render()
             m = Message(chat_id, text)
