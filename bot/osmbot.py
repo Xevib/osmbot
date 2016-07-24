@@ -680,6 +680,12 @@ class OsmBot(object):
         id = message[9:]
         element_type = message[6: 9]
         osm_data = getData(id, element_type)
+        if not id:
+            template = self._get_template('not_found_id_message.md')
+            text = template.render()
+            m = Message(chat_id, text)
+            self.bot.sendMessage(m)
+            return None
         if 'phone' in osm_data['tag']:
             template = self._get_template('phone_message.md')
             text = template.render(phone=osm_data['tag']['phone'], is_rtl=self.get_is_rtl())
