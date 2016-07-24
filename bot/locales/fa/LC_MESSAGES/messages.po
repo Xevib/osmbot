@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-18 08:53+0200\n"
-"PO-Revision-Date: 2016-07-21 11:08+0000\n"
-"Last-Translator: Adib Yaghoubzadeh <adib.yz@gmail.com>\n"
+"POT-Creation-Date: 2016-07-21 22:05+0200\n"
+"PO-Revision-Date: 2016-07-24 11:02+0000\n"
+"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/osm-catala/osmbot/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,177 +61,170 @@ msgstr "شما می توانید یک محدوده دیگر یا مقیاس دی
 msgid "Good luck! "
 msgstr "موفق باشید!"
 
-#: bot/osmbot_blueprint.py:195
+#: bot/osmbot.py:249
 msgid "Results for"
 msgstr "نتایج برای"
 
-#: bot/osmbot_blueprint.py:218
+#: bot/osmbot.py:272 bot/templates/inline_article.md:198
 msgid "Map"
 msgstr "نقشه"
 
-#: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
-#: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
-#: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
-#: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
+#: bot/osmbot.py:275 bot/osmbot.py:277 bot/osmbot.py:279 bot/osmbot.py:281
+#: bot/osmbot.py:286 bot/osmbot.py:288 bot/osmbot.py:290 bot/osmbot.py:292
 msgid "More info"
 msgstr "اطلاعات بیشتر"
 
-#: bot/osmbot_blueprint.py:228
+#: bot/osmbot.py:282
 msgid "Phone"
 msgstr "تلفن"
 
-#: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
-#: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
-#: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
+#: bot/osmbot.py:294 bot/osmbot.py:451 bot/osmbot.py:730 bot/osmbot.py:739
+#: bot/templates/details_message.md:199 bot/templates/inline_article.md:200
 msgid "OpenStreetMap contributors"
 msgstr "توسعه دهندگان OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
-#: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
-#: bot/templates/details_message.md:4 bot/templates/details_message.md:6
-#: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
-#: bot/templates/inline_article.md:6
+#: bot/osmbot.py:351 bot/osmbot.py:354 bot/osmbot.py:356
+#: bot/templates/details_message.md:2 bot/templates/details_message.md:4
+#: bot/templates/details_message.md:6 bot/templates/inline_article.md:2
+#: bot/templates/inline_article.md:4 bot/templates/inline_article.md:6
 msgid "Tags for"
 msgstr "برچسب ها برای"
 
-#: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
-#: bot/templates/details_message.md:10 bot/templates/details_message.md:12
-#: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
+#: bot/osmbot.py:358 bot/osmbot.py:360 bot/templates/details_message.md:10
+#: bot/templates/details_message.md:12 bot/templates/inline_article.md:11
+#: bot/templates/inline_article.md:13
 msgid "European country"
 msgstr "کشور اروپایی"
 
-#: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
-#: bot/templates/inline_article.md:14
+#: bot/osmbot.py:362 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:15
 msgid "African country"
 msgstr "کشور افریقایی"
 
-#: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
-#: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
-#: bot/templates/details_message.md:18 bot/templates/details_message.md:20
-#: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
-#: bot/templates/inline_article.md:20
+#: bot/osmbot.py:364 bot/osmbot.py:366 bot/osmbot.py:368
+#: bot/templates/details_message.md:16 bot/templates/details_message.md:18
+#: bot/templates/details_message.md:20 bot/templates/inline_article.md:17
+#: bot/templates/inline_article.md:19 bot/templates/inline_article.md:21
 msgid "South american country"
 msgstr "کشور امریکای جنوبی"
 
-#: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
-#: bot/templates/details_message.md:22 bot/templates/details_message.md:24
-#: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
+#: bot/osmbot.py:370 bot/osmbot.py:372 bot/templates/details_message.md:22
+#: bot/templates/details_message.md:24 bot/templates/inline_article.md:23
+#: bot/templates/inline_article.md:25
 msgid "North american country"
 msgstr "کشور امریکای شمالی"
 
-#: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
-#: bot/templates/inline_article.md:26
+#: bot/osmbot.py:374 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:27
 msgid "Central american country"
 msgstr "کشور امریکای مرکزی"
 
-#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
-#: bot/templates/details_message.md:28 bot/templates/details_message.md:30
-#: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
+#: bot/osmbot.py:376 bot/osmbot.py:378 bot/templates/details_message.md:28
+#: bot/templates/details_message.md:30 bot/templates/inline_article.md:29
+#: bot/templates/inline_article.md:31
 msgid "American country"
 msgstr "کشور امریکایی"
 
-#: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
-#: bot/templates/inline_article.md:32
+#: bot/osmbot.py:380 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:33
 msgid "Asian country"
 msgstr "کشور آسیایی"
 
-#: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
-#: bot/templates/details_message.md:34 bot/templates/details_message.md:36
-#: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
+#: bot/osmbot.py:382 bot/osmbot.py:384 bot/templates/details_message.md:34
+#: bot/templates/details_message.md:36 bot/templates/inline_article.md:35
+#: bot/templates/inline_article.md:37
 msgid "Oceanian country"
 msgstr "کشور اقیانوسه ای"
 
-#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
-#: bot/templates/details_message.md:38 bot/templates/details_message.md:40
-#: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
+#: bot/osmbot.py:386 bot/osmbot.py:388 bot/templates/details_message.md:38
+#: bot/templates/details_message.md:40 bot/templates/inline_article.md:39
+#: bot/templates/inline_article.md:41
 msgid "Eurasian country"
 msgstr "کشور اوراسیایی"
 
-#: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
-#: bot/templates/details_message.md:182 bot/templates/details_message.md:184
-#: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
+#: bot/osmbot.py:425 bot/osmbot.py:427 bot/templates/details_message.md:182
+#: bot/templates/details_message.md:184 bot/templates/inline_article.md:183
+#: bot/templates/inline_article.md:185
 msgid "inhabitants"
 msgstr "ساکنان"
 
-#: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
-#: bot/templates/inline_article.md:182
+#: bot/osmbot.py:425 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:183
 msgid "at"
 msgstr "در"
 
-#: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
-#: bot/templates/inline_article.md:187
+#: bot/osmbot.py:430 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:188
 msgid "meters"
 msgstr "متر"
 
-#: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
+#: bot/osmbot.py:443 bot/templates/details_message.md:197
 msgid "Raw data:"
 msgstr "اطلاعات پردانش نشده:"
 
-#: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
-#: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
-#: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
-#: bot/osmbot_blueprint.py:510
+#: bot/osmbot.py:492 bot/osmbot.py:543 bot/osmbot.py:546 bot/osmbot.py:567
+#: bot/osmbot.py:591
 msgid "OSM contributors"
 msgstr "توسعه دهندگان OpenStreetMap"
 
-#: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
+#: bot/osmbot.py:507 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
 msgstr "لطفاً موقعیت خودت را برای من بفرست"
 
-#: bot/osmbot_blueprint.py:429
+#: bot/osmbot.py:508
 msgid "to receive the map"
 msgstr "برای دریافت نقشه"
 
-#: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
+#: bot/osmbot.py:509 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
 msgstr "شما می توانید این کار را با فشردن دکمه گیره کاغذ موجود در تلگرام انجام دهید"
 
-#: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
+#: bot/osmbot.py:713 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
 msgstr "با عرض پوزش، در حال حاضر من نمیتوانم برچسب ها برای این مکان را شناسایی کنم، شاید با ویژگی های جدید آن را به رسمیت بشناسم."
 
-#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
+#: bot/osmbot.py:721 bot/osmbot.py:736
 msgid "Raw data for"
 msgstr "داده های پردازش نشده برای"
 
-#: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
+#: bot/osmbot.py:723 bot/osmbot.py:738
 msgid "Raw data"
 msgstr "داده های پردازش نشده"
 
-#: bot/osmbot_blueprint.py:809
+#: bot/osmbot.py:897
 msgid ""
 "Please indicate what are you searching with command /search <search_term>"
 msgstr "لطفاً برای جستجو از این دستور استفاده کنید <عبارت_جستجو> /search"
 
-#: bot/osmbot_blueprint.py:815
+#: bot/osmbot.py:903
 msgid "Use /search <search_term> command to indicate what you are searching"
 msgstr "از دستور <عبارت_جستجو> /search برای جستجو استفاده کنید"
 
-#: bot/osmbot_blueprint.py:899
+#: bot/osmbot_blueprint.py:97
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
 msgstr "ربات OSM هر نقطه ای را در دنیا به کمک اطلاعات موجود در پایگاه داده OSM Nominatim پیدا می کند و می تواند پیوند ها و نقشه های آن را ارسال کند."
 
-#: bot/osmbot_blueprint.py:900
+#: bot/osmbot_blueprint.py:98
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
 msgstr "ربات OSM هر نقطه ای را در دنیا با نام و آدرس موجود در پایگاه داده  OSM Nominatim پیدا می کند."
 
-#: bot/osmbot_blueprint.py:901
+#: bot/osmbot_blueprint.py:99
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
 msgstr "ربات می تواند پیوند ها و نقشه ها با فرمت (jpg,png,pdf) از OSM ارسال کند."
 
-#: bot/osmbot_blueprint.py:902
+#: bot/osmbot_blueprint.py:100
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
 msgstr "داده ها برای تمام دنیا (شهرها و شهرستان ها، مغازه ها - همراه با شماره تلفن، ایمیل و...، پیوند های ویکی پدیا و غیره)"
 
-#: bot/osmbot_blueprint.py:903
+#: bot/osmbot_blueprint.py:101
 msgid "OSMbot is multilingual and speaks *your language here*"
 msgstr "ربات OSM چند زبانه است و فارسی سخن می گوید."
 
@@ -331,15 +324,15 @@ msgstr "لطفاً از برای مشاهده راهنما از این دستو�
 msgid "What do you want to configure?"
 msgstr "چی چیزی میخواهید تغییر دهید؟"
 
-#: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:43
 msgid "Flag"
 msgstr "پرچم"
 
-#: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:192
 msgid "Wikidata"
 msgstr "ویکی‌داده"
 
-#: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:195
 msgid "Wikipedia"
 msgstr "ویکی‌پدیا"
 
@@ -440,7 +433,7 @@ msgstr "اکنون من با زبان دیگری صحبت خواهم کرد"
 
 #: bot/templates/no_emoji.md:1
 msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
-msgstr "<osm_کلید:مقدار> شکلکی یافت نشد، شاید بهترباشد شرح علایم/ را امتحان کنید"
+msgstr "شکلکی یافت نشد، لطفاً از دستور /osm_key:value> legend> استفاده کنید. "
 
 #: bot/templates/not_found_id_message.md:1
 msgid "Sorry but I couldn't find any result, please check the ID"
@@ -473,10 +466,6 @@ msgstr "اکنون من تنها زمانی که اشاره ای شود پاسخ
 #: bot/templates/question_mention.md:1
 msgid "Should I answer without a mention?"
 msgstr "آیا باید بدون اشاره پاسخ دهم؟"
-
-#: bot/templates/question_only_mention.md:1
-msgid "Answer only when mention?"
-msgstr ""
 
 #: bot/templates/send_location_message.md:1
 msgid "and I'll send you the nearest element"
