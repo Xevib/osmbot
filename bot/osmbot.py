@@ -935,7 +935,8 @@ class OsmBot(object):
         :param user_config: User configuration as a dict
         :return: None
         """
-
+        if not message:
+            return None
         nom = pynominatim.Nominatim()
         is_rtl = user_config['lang'] in self.get_rtl_languages()
         search_results = nom.query(message, acceptlanguage=user_config['lang'])
