@@ -1,24 +1,28 @@
 # -*- coding: UTF-8 -*-
 from __future__ import absolute_import
 
-from bot.bot import Bot, Message, ReplyKeyboardMarkup
 import os
 from jinja2 import Environment
 import urllib
 import math
 import re
-from bot.typeemoji import typeemoji
-import bot.user as u
 import gettext
 import pynominatim
-from bot.maptools import download, genBBOX, getScale
-from bot.utils import getData
-from bot.overpass_query import type_query
 import overpass
-from bot.emojiflag import emojiflag
 import telegram
 from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent
+
+# local imports
+from bot.user import User
+from bot.typeemoji import typeemoji
+from bot.maptools import download, genBBOX, getScale
+from bot.utils import getData
+from bot.overpass_query import type_query
+from bot.emojiflag import emojiflag
+from bot.bot import Bot, Message, ReplyKeyboardMarkup
+from bot.error import OSMError
+
 
 def url_escape(s):
     """
@@ -31,38 +35,81 @@ def url_escape(s):
 
 
 class OsmBot(object):
+    # dict with all available languages
+    # TODO(edgar): load this from a local config file.
+    avaible_languages = {
+        'Catalan': 'ca',
+        'English': 'en',
+        'Spanish': 'es',
+        'Swedish': 'sv',
+        'Asturian': 'ast',
+        'Galician': 'gl',
+        'French': 'fr',
+        'Italian': 'it',
+        'Basque': 'eu',
+        'Polish': 'pl',
+        'German': 'de',
+        'Dutch': 'nl',
+        'Czech': 'cs',
+        'Persian': 'fa',
+        'Japanese': 'ja',
+        'Ukrainian': 'uk',
+        'Chinese (Taiwan)': 'zh_TW',
+        'Vietnamese': 'vi',
+        'Russian': 'ru',
+        'Slovak': 'sk',
+        'Chinese (Hong Kong)': 'zh_HK',
+        'Hungarian': 'hu'
+    }
+
     """
         Class that represents the OsmBot
     """
-    def __init__(self, config):
+    def __init__(self, config, auto_config=True):
         """
         Class constructor
 
         :param config: Dictionary with the configuration variables
         (token,host,database,user,password)
+        :param auto_config: Enable/Disable automatic init_config
         """
-        self.avaible_languages = {
-            'Catalan': 'ca', 'English': 'en', 'Spanish': 'es', 'Swedish': 'sv',
-            'Asturian': 'ast', 'Galician': 'gl', 'French': 'fr',
-            'Italian': 'it',
-            'Basque': 'eu', 'Polish': 'pl', 'German': 'de', 'Dutch': 'nl',
-            'Czech': 'cs', 'Persian': 'fa', 'Japanese': 'ja', 'Ukrainian': 'uk',
-            'Chinese (Taiwan)': 'zh_TW', 'Vietnamese': 'vi', 'Russian': 'ru',
-            'Slovak': 'sk', 'Chinese (Hong Kong)': 'zh_HK', 'Hungarian': 'hu'
-        }
+        
+        if auto_config:
+            self.init_config(config)
+
+    def init_config(self, config):
+        """
+        Function that loads the configuration file.
+        
+        :param config: the configuration file
+        :return: None
+        """
+        
+        # TOOD(xevi): why Persian here?
         self.rtl_languages = ['fa']
-        token = config.get('token', '')
+
+        # setup the database info
         if config:
-            self.user = u.User(
+            self.user = User(
                 config.get('host', ''), config.get('database', ''),
                 config.get('user', ''), config.get('password', ''))
-
+        else:
+            raise OSMError('No config file. Please provide a *.cfg')
+    
+        # setup the jinja environment and default language
+        # TODO(xevi): Should we set a default language?
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
         self.language = None
+       
+        # setup the telegram API. Before check token existence
+        token = config.get('token', '')
         if token:
             self.bot = Bot(token)
             self.telegram_api = telegram.Bot(token)
+        else:
+            raise OSMError('No token in config file.' \
+                    'Please check that token is in the config file.')
 
     def load_language(self, language):
         """
@@ -72,9 +119,14 @@ class OsmBot(object):
         :return: None
         """
         self.language = language
-        lang = gettext.translation('messages', localedir='./bot/locales/', languages=[language, 'en'])
+        lang = gettext.translation('messages',
+                                   localedir='./bot/locales/',
+                                   languages=[language, 'en'])
         lang.install()
-        self.jinja_env.install_gettext_translations(gettext.translation('messages', localedir='./bot/locales/',languages=[language, 'en']))
+        self.jinja_env.install_gettext_translations(
+                gettext.translation('messages', 
+                                    localedir='./bot/locales/',
+                                    languages=[language, 'en']))
 
     def get_is_rtl(self):
         """
@@ -84,6 +136,9 @@ class OsmBot(object):
         """
         return  self.language in self.rtl_languages
 
+    # TODO(xevi): This type of getters are not good practices in Python.
+    # since all 'private' variables are not reallly prvate. If we want
+    # to use in that way we should use decorators.
     def get_language(self):
         """
         Retunrs the actual language code
@@ -92,6 +147,7 @@ class OsmBot(object):
         """
         return self.language
 
+    # TODO(xevi): same as above
     def get_languages(self):
         """
         Returns the avaible languages
