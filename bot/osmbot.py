@@ -14,7 +14,7 @@ from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent
 
 # local imports
-from bot.user import User as u
+from bot.user import User
 from bot.typeemoji import typeemoji
 from bot.maptools import download, genBBOX, getScale
 from bot.utils import getData
@@ -22,6 +22,7 @@ from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
 from bot.bot import Bot, Message, ReplyKeyboardMarkup
 from bot.error import OSMError
+
 
 def url_escape(s):
     """
@@ -86,10 +87,10 @@ class OsmBot(object):
         
         # TOOD(xevi): why Persian here?
         self.rtl_languages = ['fa']
-    
+
         # setup the database info
         if config:
-            self.user = u.User(
+            self.user = User(
                 config.get('host', ''), config.get('database', ''),
                 config.get('user', ''), config.get('password', ''))
         else:
