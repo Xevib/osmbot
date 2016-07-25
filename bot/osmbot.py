@@ -385,22 +385,22 @@ class OsmBot(object):
                     t += '\xE2\x96\xB6 ' + result['display_name']+'\n'
                 t += '\xF0\x9F\x93\x8D [' + _('Map') + '](http://www.openstreetmap.org/?minlat={0}&maxlat={1}&minlon={2}&maxlon={3}&mlat={4}&mlon={5})\n'.format(result['boundingbox'][0],result['boundingbox'][1],result['boundingbox'][2],result['boundingbox'][3],result['lat'],result['lon'])
                 if osm_data is not None and ('phone' in osm_data['tag'] or 'contact:phone' in osm_data['tag']):
-                    if 'osm_type' in result and result['osm_type'] == 'node':
+                    if result.get('osm_type', '') == 'node':
                         t += _('More info') + ' /detailsnod{0}\n'.format(result['osm_id'])
-                    elif 'osm_type' in result and result['osm_type'] == 'way':
+                    elif result.get('osm_type', '') == 'way':
                         t += _('More info')+' /detailsway{0}\n'.format(result['osm_id'])
-                    elif 'osm_type' in result and result['osm_type'] == 'relation':
+                    elif result.get('osm_type', '') == 'relation':
                         t += _('More info') + ' /detailsrel{0}\n'.format(result['osm_id'])
                     else:
                         t += '\n' + _('More info') + ' /details{0}'.format(result['osm_id'])
                     t += _("Phone") + " /phone{0}{1}".format(element_type, result['osm_id']) + "\n\n"
                 else:
                     if 'osm_id' in result:
-                        if 'osm_type' in result and result['osm_type'] == 'node':
+                        if result.get('osm_type', '') == 'node':
                             t += _('More info') + ' /detailsnod{0}\n\n'.format(result['osm_id'])
-                        elif 'osm_type' in result and result['osm_type'] == 'way':
+                        elif result.get('osm_type', '') == 'way':
                             t += _('More info')+' /detailsway{0}\n\n'.format(result['osm_id'])
-                        elif 'osm_type' in result and result['osm_type'] =="relation":
+                        elif result.get('osm_type', '') == "relation":
                             t += _('More info') + ' /detailsrel{0}\n\n'.format(result['osm_id'])
                         else:
                             t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
