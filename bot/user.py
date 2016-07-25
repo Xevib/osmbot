@@ -11,9 +11,16 @@ def dict_factory(cursor, row):
 
 
 class User(object):
+    def __init__(self, host, database, user, password, auto_init=True):
 
-    def __init__(self, host, database, user, password):
-        self.conn = psycopg2.connect(database=database, user=user, password=password, host=host)
+        self.conn = None
+
+        if auto_init:
+            self.init_user(host, database, user, password)
+
+    def init_user(self, host, database, user, password):
+        self.conn = psycopg2.connect(
+            database=database, user=user, password=password, host=host)
 
         #CREATE TABLE users (id int, mode varchar(30),zoom int,format varchar(30),language varchar(10))
 
