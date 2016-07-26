@@ -23,7 +23,7 @@ class BotTest(unittest.TestCase):
         config = ConfigObj('test/bot.conf')
         
         self.assertEqual(config['database'  ], 'bot')
-        self.assertEqual(config['user'      ], 'osmbot')
+        self.assertEqual(config['user'      ], 'postgres')
         self.assertEqual(config['host'      ], 'localhost')
         self.assertEqual(config['password'  ], '1234')
         self.assertEqual(config['hooks'     ], 'true')
