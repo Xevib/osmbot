@@ -10,9 +10,11 @@ sys.setdefaultencoding('utf-8')
 from bot.osmbot import OsmBot
 from bot.error import OSMError
 
+
 class OsmBotMock(OsmBot):
     def __init__(self, *args, **kwargs):
         super(OsmBotMock, self).__init__(*args, **kwargs)
+
 
 class BotTest(unittest.TestCase):
     # instantiate OsmBotMock class
