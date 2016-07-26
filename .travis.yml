@@ -1,5 +1,9 @@
 language: python
 python:
   - "2.7"
+before_script:
+  - psql -c 'create database bot;' -U postgres
 install: "pip install -r requirements.txt"
 script:  PYTHONPATH="." python test/test.py
+services:
+  - postgresql
