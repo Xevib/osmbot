@@ -19,12 +19,17 @@ class BotTest(unittest.TestCase):
     b = OsmBotMock({}, auto_init=False)
 
     def test_config_file(self):
+        """
+        Test for configuraciont file
+
+        :return:None
+        """
         from configobj import ConfigObj
         config = ConfigObj('test/bot.conf')
         
         self.assertEqual(config['database'  ], 'bot')
         self.assertEqual(config['user'      ], 'postgres')
-        self.assertEqual(config['host'      ], 'localhost')
+        self.assertEqual(config['host'      ], '127.0.0.1')
         self.assertEqual(config['password'  ], '1234')
         self.assertEqual(config['hooks'     ], 'true')
         self.assertEqual(config['webhook'   ], 'https://example.com:443/hook/')
