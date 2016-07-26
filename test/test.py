@@ -38,6 +38,12 @@ class BotTest(unittest.TestCase):
         self.assertEqual(config['update_interval'], '10')
 
     def test_init_config_error(self):
+        """
+        Test for empty config file
+
+        :return: None
+        """
+
         from configobj import ConfigObj
         config = ConfigObj()
  
@@ -57,20 +63,31 @@ class BotTest(unittest.TestCase):
         # self.b.init_config(config)
 
     def test_languages(self):
+        """
+        Test to ensure that languages on the locales dir are on the code
+
+        :return: None
+        """
         lang_dirs = os.listdir('bot/locales')
+        msg = '{} not found in directory in avaible languages but found in bo/locales'
         for lang_dir in lang_dirs:
-            if os.path.isdir(os.path.join('bot/locales', lang_dir)) and \
-                    lang_dir not in self.b.get_languages().values():
-                print '{} not found in directory in avaible languages ' \
-                       'but found in bo/locales'.format(lang_dir)
+            is_dir = os.path.isdir(os.path.join('bot/locales', lang_dir))
+            if is_dir and lang_dir not in self.b.get_languages().values():
+                print(msg.format(lang_dir))
                 self.assertTrue(lang_dir in self.b.get_languages().values())
 
     def test_templates(self):
+        """
+        Just to check templates syntax
+
+        :return: None
+        """
+
         from jinja2 import Environment, exceptions
         jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         templates = os.listdir('bot/templates')
         for template in templates:
-            print 'Testing template:{}'.format(template)
+            print('Testing template:{}'.format(template))
             with open(os.path.join('bot/templates', template)) as f:
                 template_text = unicode(f.read())
             try:
