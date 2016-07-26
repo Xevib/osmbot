@@ -30,7 +30,7 @@ class BotTest(unittest.TestCase):
         self.assertEqual(config['database'  ], 'bot')
         self.assertEqual(config['user'      ], 'postgres')
         self.assertEqual(config['host'      ], '127.0.0.1')
-        self.assertEqual(config['password'  ], '1234')
+        self.assertEqual(config['password'  ], 'password')
         self.assertEqual(config['hooks'     ], 'true')
         self.assertEqual(config['webhook'   ], 'https://example.com:443/hook/')
         self.assertEqual(config['sentry_dsn'], 'sync+http://aadfsaa5@example.com:9000/1')
