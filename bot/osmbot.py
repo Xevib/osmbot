@@ -23,6 +23,7 @@ from bot.emojiflag import emojiflag
 from bot.bot import Bot, Message, ReplyKeyboardMarkup
 from bot.error import OSMError
 
+
 def url_escape(s):
     """
     Used to escape URL in template
@@ -31,6 +32,7 @@ def url_escape(s):
     :return: Well fomrated URL
     """
     return s.replace(' ', '%20').replace(')', '\\)')
+
 
 class OsmBot(object):
     # dict with all available languages
@@ -142,7 +144,7 @@ class OsmBot(object):
 
         :return: Boolean to indicate if the language is RTL
         """
-        return  self.language in self.rtl_languages
+        return self.language in self.rtl_languages
 
     # TODO(xevi): This type of getters are not good practices in Python.
     # since all 'private' variables are not reallly prvate. If we want
@@ -897,16 +899,15 @@ class OsmBot(object):
             osm_data = getData(identificador)
         if osm_data is None:
             text = self._get_template('not_found_id_message.md').render()
-            m = Message(chat_id, text)
-            self.bot.sendMessage(m)
+            self.telegram_api.sendMessage(text, chat_id, 'Markdown', False)
         else:
             if osm_data['tag'] == {}:
-                m = Message(
+                self.telegram_api.sendMessage(
                     chat_id,
-                    _("Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it") +
-                    ' \xF0\x9F\x98\x8B'
+                    _("Sorry, but now I can't recognize tags for this element, perhaps with my new features I will do it") +' \xF0\x9F\x98\x8B',
+                    'Markdown',
+                    True
                 )
-                self.bot.sendMessage(m)
             else:
                 parts = 1
                 max_parts = 1+len(osm_data['tag'])/20
@@ -930,9 +931,7 @@ class OsmBot(object):
                         else:
                             t = '\xE2\x9C\x8F '+_('Raw data') + '({0}/{1})\n\n'.format(parts, max_parts)
                 t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors')
-                m = Message(chat_id, t)
-                response.append(m)
-                self.bot.sendMessage(response)
+                self.telegram_api.sendMessage(chat_id, t, 'Markdown', False)
 
     def answer_inline(self, message, query, user_config):
         """
