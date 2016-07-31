@@ -30,7 +30,7 @@ osmbot_blueprint = Blueprint(
 )
 
 
-@osmbot_blueprint.route('/hook/<string:token>', methods=['POST'])
+@osmbot_blueprint.route('/osmbot/hook/<string:token>', methods=['POST'])
 def attend_webhook(token):
     user = u.User(config['host'], config['database'], config['user'], config['password'])
     current_app.logger.debug('token:%s', token)
