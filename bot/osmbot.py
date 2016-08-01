@@ -1006,17 +1006,12 @@ class OsmBot(object):
             self.answer_inline(message, query, user_config)
         else:
             preview = False
-            response = []
             if message.lower() == '/start':
                 user.set_field(chat_id, 'mode', 'normal')
                 text = self._get_template('start_answer.md').render()
-                m = Message(
-                    chat_id, text,
-                    disable_web_page_preview=(not preview),
-                    parse_mode='Markdown')
-                self.bot.sendMessage(m)
+                self.telegram_api.sendMessage(chat_id, text, 'Markdown', (not preview))
             elif 'location' in query['message']:
-                if user_config is not None and user_config.get('mode','') == 'map':
+                if user_config is not None and user_config.get('mode', '') == 'map':
                     self.map_command(
                         message, chat_id, user_id, user, zoom=user_config["zoom"],
                         imgformat=user_config['format'],
@@ -1041,17 +1036,13 @@ class OsmBot(object):
                     template_name = 'seting_not_recognized_message.md'
                     temp = self._get_template(template_name)
                     text = temp.render()
-                    m = Message(
-                        chat_id, text, disable_web_page_preview=(not preview),
-                        parse_mode='Markdown'
-                    )
-                    self.bot.sendMessage(m)
+                    self.telegram_api.sendMessage(chat_id, text,'Markdown',not preview)
                     user.set_field(chat_id, 'mode', 'normal', group=is_group)
             elif user_config['mode'] == 'setlanguage':
                 self.set_language_command(
                     message, user_id, chat_id, user, is_group)
             elif user_config['mode'] == 'setonlymention':
-                response += self.set_only_mention(message, user_id, chat_id, user, is_group)
+                self.set_only_mention(message, user_id, chat_id, user, is_group)
             elif 'text' in query['message']:
                 if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and user_config.get('mode', '') == 'map':
                     m = re.match(
@@ -1059,16 +1050,16 @@ class OsmBot(object):
                         message)
                     lat = m.groupdict()['lat']
                     lon = m.groupdict()['lon']
-                    response += self.map_command(
+                    self.map_command(
                         message, chat_id, user_id, user,
                         zoom=user_config['zoom'],
                         imgformat=user_config['format'],
                         lat=float(lat), lon=float(lon))
                 elif message == 'Language':
-                    response += self.language_command(message, user_id, chat_id, user,
+                    self.language_command(message, user_id, chat_id, user,
                                                       is_group)
                 elif message == 'Answer only when mention?':
-                    response += self.answer_command(message, user_id, chat_id, user)
+                    self.answer_command(message, user_id, chat_id, user)
                 elif message.lower().startswith('/settings'):
                     self.settings_command(message, user_id, chat_id, user, is_group)
                 elif message.lower().startswith('/nearest'):
@@ -1096,11 +1087,7 @@ class OsmBot(object):
                     is_rtl = self.get_is_rtl()
                     template = self._get_template('about_answer.md')
                     text = template.render(is_rtl=is_rtl)
-                    m = Message(
-                        chat_id, text,
-                        disable_web_page_preview=(not preview),
-                        parse_mode='Markdown')
-                    self.bot.sendMessage(m)
+                    self.telegram_api.sendMessage(chat_id, text, 'Markdown', not preview)
                 elif message.lower().startswith('/help'):
                     template = self._get_template('help_message.md')
                     text = template.render(is_rtl=self.get_is_rtl())
@@ -1109,20 +1096,8 @@ class OsmBot(object):
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
                     self.search_command(message, user_config, chat_id)
                 elif re.match('/search', message.lower()) is not None:
-                    m = Message(
-                        chat_id,
-                        _('Please indicate what are you searching with command /search <search_term>')
-                    )
-                    self.bot.sendMessage(m)
+                    text = _('Please indicate what are you searching with command /search <search_term>')
+                    self.telegram_api.sendMessage(chat_id, text)
                 else:
-                    m = Message(
-                        chat_id,
-                        _('Use /search <search_term> command to indicate what you are searching')
-                    )
-                    self.bot.sendMessage(m)
-            if response:
-                m = Message(
-                    chat_id, response, disable_web_page_preview=(not preview),
-                    parse_mode='Markdown'
-                )
-                self.bot.sendMessage(m)
+                    text = _('Use /search <search_term> command to indicate what you are searching')
+                    self.telegram_api.sendMessage(chat_id, text)
