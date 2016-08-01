@@ -6,6 +6,7 @@ from bot import Osmbot
 from configobj import ConfigObj
 import os
 from raven.contrib.flask import Sentry
+import telegram
 
 application = Flask(__name__)
 application.debug = True
@@ -14,7 +15,7 @@ Osmbot(application, '')
 config = ConfigObj('bot.conf')
 token = config['token']
 bot = Bot(token)
-
+telegram_api = telegram.Bot(config['token'])
 if 'sentry_dsn' in config:
     application.config['sentry_dsn'] = config['sentry_dsn']
     sentry = Sentry(application, dsn=config['sentry_dsn'])
@@ -22,12 +23,12 @@ if 'sentry_dsn' in config:
     application.sentry = sentry
 
 f = open('nginx.crt', 'r')
-cert_data = f.read()
-f.close()
+
 webhook = os.path.join(config['webhook'], config['token'])
 application.logger.debug('webhook:%s', config['webhook'])
-response = bot.setWebhook(webhook, cert_data)
-application.logger.debug('response:%s', response)
+result = telegram_api.setWebhook(webhook, f)
+if result:
+    application.logger.debug('Webhook set')
 
 
 if __name__ == '__main__':
