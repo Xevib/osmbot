@@ -922,8 +922,7 @@ class OsmBot(object):
                     i += 1
                     if i >= 20:
                         t += "\n\xC2\xA9 " + _("OpenStreetMap contributors")
-                        m = Message(chat_id, t)
-                        response.append(m)
+                        self.telegram_api.sendMessage(chat_id, t, 'Markdown')
                         i = 0
                         parts += 1
                         if 'name' in osm_data['tag']:
@@ -931,7 +930,7 @@ class OsmBot(object):
                         else:
                             t = '\xE2\x9C\x8F '+_('Raw data') + '({0}/{1})\n\n'.format(parts, max_parts)
                 t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors')
-                self.telegram_api.sendMessage(chat_id, t, 'Markdown', False)
+                self.telegram_api.sendMessage(chat_id, t, 'Markdown')
 
     def answer_inline(self, message, query, user_config):
         """
