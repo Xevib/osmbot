@@ -330,10 +330,10 @@ class OsmBot(object):
             self.bot.sendMessage(m)
         if len(selected_keys) > 50:
             text = self._get_template('easter_egg.md').render()
-            self.telegram_api.sendMessage(chat_id, text)
+            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
         elif len(selected_keys) == 0:
             text = self._get_template('no_emoji.md').render()
-            self.telegram_api.sendMessage(chat_id, text)
+            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
 
     def search_command(self, message, user_config, chat_id):
         """
