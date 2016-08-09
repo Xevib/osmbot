@@ -468,12 +468,7 @@ class OsmBot(object):
                 tags = nearest['tags']
             else:
                 text = self._get_template('not_found_overpass_message.md')
-                m = Message(
-                    chat_id,
-                    text,
-                    disable_web_page_preview=True
-                )
-                self.bot.sendMessage(m)
+                self.telegram_api.sendMessage(chat_id, text, 'Markdown', disable_web_page_preview=True)
         t = ''
 
         if 'name' in tags:
@@ -579,10 +574,8 @@ class OsmBot(object):
             else:
                 t += 'http://osm.org/relation/{0}\n'.format(str(identificador))
         t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors') + '\n'
-
-        m = Message(chat_id, t, disable_web_page_preview=(not preview))
-        self.bot.sendMessage(m)
-
+        self.telegram_api.sendMessage(chat_id, t, 'Markdown', disable_web_page_preview=(not preview))
+        
     def map_command(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
         """
         Answers the map command
