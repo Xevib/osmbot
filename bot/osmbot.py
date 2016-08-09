@@ -355,8 +355,7 @@ class OsmBot(object):
         if not results:
             template = self._get_template('not_found_message.md')
             text = template.render(search=search)
-            m = Message(chat_id, text, parse_mode='Markdown')
-            self.bot.sendMessage(m)
+            self.bot.sendMessage(chat_id, text, parse_mode='Markdown')
             return None
         else:
             t = _('Results for') + ' "{0}":\n\n'.format(search)
@@ -411,9 +410,7 @@ class OsmBot(object):
                             t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
 
             t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
-        m = Message(chat_id, t, parse_mode='Markdown',
-                    disable_web_page_preview=True)
-        self.bot.sendMessage(m)
+        self.telegram_api.sendMessage(chat_id, t, parse_mode='Markdown', disable_web_page_preview=True)
 
     def pretty_tags(self, data, identificador, type, user_config, chat_id, lat=None, lon=None, link=False):
         """
