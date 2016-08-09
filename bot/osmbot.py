@@ -573,7 +573,7 @@ class OsmBot(object):
                 t += 'http://osm.org/relation/{0}\n'.format(str(identificador))
         t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors') + '\n'
         self.telegram_api.sendMessage(chat_id, t, 'Markdown', disable_web_page_preview=(not preview))
-        
+
     def map_command(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
         """
         Answers the map command
@@ -1063,7 +1063,7 @@ class OsmBot(object):
                     text = template.render(is_rtl=self.get_is_rtl()).replace('_', '\_')
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
-                    self.search_command(message, user_config, chat_id, 'Markdown')
+                    self.search_command(message, user_config, chat_id)
                 elif re.match('/search', message.lower()) is not None:
                     text = _('Please indicate what are you searching with command /search <search_term>')
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
