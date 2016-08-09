@@ -235,9 +235,8 @@ class OsmBot(object):
                 u.set_field(user_id, 'mode', 'normal', group=group)
             self.load_language(self.get_languages()[message])
             text = self._get_template('new_language.md').render(is_rtl=self.get_is_rtl())
-            m = Message(chat_id, text)
-            self.bot.sendMessage(m)
-            return []
+            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+
         else:
             if group:
                 u.set_field(chat_id, 'mode', 'normal', group=True)
@@ -245,9 +244,7 @@ class OsmBot(object):
                 u.set_field(user_id, 'mode', 'normal')
             temp = self._get_template('cant_talk_message.md')
             text = temp.render()
-            message = Message(chat_id, text)
-            self.bot.sendMessage(message)
-            return []
+            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
 
     def answer_command(self, chat_id, user):
         """
