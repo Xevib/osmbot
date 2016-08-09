@@ -765,12 +765,11 @@ class OsmBot(object):
         result = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
         if not result:
             text = self._get_template('not_found_id_message.md').render()
-            m = Message(
+            self.telegram_api.sendMessage(
                 chat_id,
                 text,
                 disable_web_page_preview=(not preview)
             )
-            self.bot.sendMessage(m)
             return None
         params = result.groupdict()
         element_type = params['type']
@@ -781,24 +780,21 @@ class OsmBot(object):
             osm_data = getData(identifier)
         if osm_data is None:
             text = self._get_template('not_found_id_message.md').render()
-            m = Message(
+            self.telegram_api.sendMessage(
                 chat_id,
                 text,
                 disable_web_page_preview=(not preview)
             )
-            self.bot.sendMessage(m)
         else:
             if osm_data['tag'] == {}:
                 text = self._get_template('not_recognized_message.md').render()
-                m = Message(chat_id, text)
-                self.bot.sendMessage(m)
+                self.bot.sendMessage(chat_id, text, 'Markdown')
             else:
                 preview = False
                 if 'website' in osm_data['tag'] or 'wikidata' in osm_data['tag'] or 'wikipedia' in osm_data['tag']:
                     preview = True
                 text = self._get_template('details_message.md').render(data=osm_data, type=element_type, identifier=identifier, user_config=user_config,is_rtl=self.get_is_rtl())
-                m = Message(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
-                self.bot.sendMessage(m)
+                self.telegram_api.sendMessage(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
 
     def nearest_command(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
         """
