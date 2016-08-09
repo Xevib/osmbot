@@ -89,11 +89,11 @@ class OsmBot(object):
     def init_config(self, config):
         """
         Function that loads the configuration file.
-        
+
         :param config: the configuration file
         :return: None
         """
-        
+
         # TOOD(xevi): why Persian here?
         self.rtl_languages = ['fa']
 
@@ -106,13 +106,13 @@ class OsmBot(object):
         else:
             raise OSMError('No config file: ' \
                     'Please provide a ConfigObj object instance.')
-    
+
         # setup the jinja environment and default language
         # TODO(xevi): Should we set a default language?
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
         self.language = None
-       
+
         # setup the telegram API. Before check token existence
         token = config.get('token', '')
         if token:
@@ -135,7 +135,7 @@ class OsmBot(object):
                                    languages=[language, 'en'])
         lang.install()
         self.jinja_env.install_gettext_translations(
-                gettext.translation('messages', 
+                gettext.translation('messages',
                                     localedir='./bot/locales/',
                                     languages=[language, 'en']))
 
@@ -858,7 +858,7 @@ class OsmBot(object):
                 m = Message(chat_id, text)
                 self.bot.sendMessage(m)
                 return None
-            
+
             if len(message) == 3:
                 if message[2].lower()[-2:] == 'km':
                     distance = int(message[:-1]) * 1000
