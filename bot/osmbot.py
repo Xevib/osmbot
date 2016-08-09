@@ -714,11 +714,12 @@ class OsmBot(object):
                     auto_scale = getScale([bbox[0], bbox[2], bbox[1], bbox[3]])
                     try:
                         data = download([bbox[2], bbox[0], bbox[3], bbox[1]], _, scale=auto_scale)
+                        f = StringIO(data)
                     except ValueError as v:
                         self.telegram_api.sendMessage(chat_id, v.message)
                     else:
                         signature = '©' + _('OSM contributors')
-                        self.telegram_api.sendPhoto(chat_id, data, signature)
+                        self.telegram_api.sendPhoto(chat_id, f, signature)
                 else:
                     temp = self._get_template('cant_understand_message.md')
                     text = temp.render()
