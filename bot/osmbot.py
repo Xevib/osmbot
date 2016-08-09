@@ -11,7 +11,7 @@ import pynominatim
 import overpass
 import telegram
 from uuid import uuid4
-from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent
+from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup
 
 # local imports
 from bot.user import User
@@ -273,12 +273,10 @@ class OsmBot(object):
         :param group: Indicates if the message comes from a group
         :return: None
         """
-        k = ReplyKeyboardMarkup(
-            sorted(self.get_languages().keys()),
-            one_time_keyboard=True)
+        languages = sorted(self.get_languages().keys())
+        keyboard = ReplyKeyboardMarkup(languages,one_time_keyboard=True)
         text = self._get_template('language_answer.md').render()
-        m = Message(chat_id, text, reply_markup=k)
-        self.bot.sendMessage(m)
+        self.telegram_api.sendMessage(chat_id, text, reply_markup=keyboard)
         if group:
             user.set_field(chat_id, 'mode', 'setlanguage', group=group)
         else:
