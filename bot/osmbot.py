@@ -750,19 +750,16 @@ class OsmBot(object):
         if not id:
             template = self._get_template('not_found_id_message.md')
             text = template.render()
-            m = Message(chat_id, text)
-            self.bot.sendMessage(m)
+            self.telegram_api.sendMessage(chat_id, text)
             return None
         if 'phone' in osm_data['tag']:
             template = self._get_template('phone_message.md')
             text = template.render(phone=osm_data['tag']['phone'], is_rtl=self.get_is_rtl())
-            m = Message(chat_id, text)
-            self.bot.sendMessage(m)
+            self.bot.sendMessage(chat_id, text)
         if 'contact:phone' in osm_data['tag'] and tags.get('phone') != tags.get('contact:phone'):
             template = self._get_template('phone_message.md')
             text = template.render(phone=osm_data['tag']['contact:phone'], is_rtl=self.get_is_rtl())
-            m = Message(chat_id, text)
-            self.bot.sendMessage(m)
+            self.telegram_api.sendMessage(chat_id, text)
 
     @staticmethod
     def clean_message(message):
