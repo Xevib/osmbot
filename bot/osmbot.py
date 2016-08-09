@@ -59,7 +59,8 @@ class OsmBot(object):
         'Russian': 'ru',
         'Slovak': 'sk',
         'Chinese (Hong Kong)': 'zh_HK',
-        'Hungarian': 'hu'
+        'Hungarian': 'hu',
+        'Catalan (Valencian)': 'ca@valencia'
     }
 
     """
