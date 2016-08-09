@@ -89,11 +89,11 @@ class OsmBot(object):
     def init_config(self, config):
         """
         Function that loads the configuration file.
-        
+
         :param config: the configuration file
         :return: None
         """
-        
+
         # TOOD(xevi): why Persian here?
         self.rtl_languages = ['fa']
 
