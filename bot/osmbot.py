@@ -80,7 +80,6 @@ class OsmBot(object):
         self.user = None
         self.jinja_env = None
         self.language = None
-        self.bot = None
         self.telegram_api = None
 
         # configure osmbot
@@ -117,7 +116,6 @@ class OsmBot(object):
         # setup the telegram API. Before check token existence
         token = config.get('token', '')
         if token:
-            self.bot = Bot(token)
             self.telegram_api = telegram.Bot(token)
         else:
             raise OSMError('No token in config file: ' \
@@ -353,7 +351,7 @@ class OsmBot(object):
         if not results:
             template = self._get_template('not_found_message.md')
             text = template.render(search=search)
-            self.bot.sendMessage(chat_id, text, parse_mode='Markdown')
+            self.telegram_api.sendMessage(chat_id, text, parse_mode='Markdown')
             return None
         else:
             t = _('Results for') + ' "{0}":\n\n'.format(search)
@@ -662,6 +660,7 @@ class OsmBot(object):
                     user_config = user.get_user(user_id, group=False)
                     lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
                     data = download(bbox, lang.gettext, imageformat=imgformat, zoom=zoom)
+                    f = StringIO(data)
                 except ValueError as v:
                     response.append(v.message)
                 else:
@@ -792,7 +791,7 @@ class OsmBot(object):
         else:
             if osm_data['tag'] == {}:
                 text = self._get_template('not_recognized_message.md').render()
-                self.bot.sendMessage(chat_id, text, 'Markdown')
+                self.telegram_api.sendMessage(chat_id, text, 'Markdown')
             else:
                 preview = False
                 if 'website' in osm_data['tag'] or 'wikidata' in osm_data['tag'] or 'wikipedia' in osm_data['tag']:
@@ -830,8 +829,7 @@ class OsmBot(object):
             t = message.replace('/nearest', '').strip().split(' ')[0]
             if t.encode('unicode_escape') not in type_query:
                 text = self._get_template('not_implemented_message.md').render()
-                m = Message(chat_id, text)
-                self.bot.sendMessage(m)
+                self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                 return None
 
             if len(message) == 3:
@@ -847,8 +845,7 @@ class OsmBot(object):
                 user.set_field(user_id, 'distance', str(distance))
                 user.set_field(user_id, 'mode', 'nearest')
             text = self._get_template('send_location_message.md').render()
-            m = Message(chat_id, text)
-            self.bot.sendMessage(m)
+            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
             return None
 
     def raw_command(self, message, chat_id):
@@ -886,7 +883,6 @@ class OsmBot(object):
                 else:
                     t = '\xE2\x9C\x8F '+_('Raw data') + '({0}/{1})\n\n'.format(parts, max_parts)
                 i = 0
-                response = []
                 for tag in sorted(osm_data['tag'].keys()):
                     t += "{0} = {1}\n".format(tag, osm_data['tag'][tag])
                     i += 1
@@ -954,8 +950,7 @@ class OsmBot(object):
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
 
-        self.telegram_api.answerInlineQuery(inline_query_id, results, is_personal=True,cache_time=86400)
-        #self.bot.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
+        self.telegram_api.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
         """
