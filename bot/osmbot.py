@@ -327,7 +327,7 @@ class OsmBot(object):
         }
         text = temp.render(**template_params)
         if selected_keys:
-            self.bot.sendMessage(chat_id, text, 'Markdown')
+            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
         if len(selected_keys) > 50:
             text = self._get_template('easter_egg.md').render()
             self.telegram_api.sendMessage(chat_id, text, 'Markdown')
