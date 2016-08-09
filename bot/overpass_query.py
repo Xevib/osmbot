@@ -963,10 +963,10 @@ type_query = {
             'query': 'node["emergency"="defibrillator"]({0});way["emergency"="defibrillator"]({0});relation["emergency"="defibrillator"]({0});',
             'distance': 10000},
     'hotel':
-        {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});',
+        {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});node["tourism"="hotel"]({0});way["tourism"="hotel"]({0});relation["tourism"="hotel"]({0});',
          'distance': 10000},
     u'\\U0001f3e8':
-        {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});',
+        {'query': 'node["amenity"="hotel"]({0});way["amenity"="hotel"]({0});relation["amenity"="hotel"]({0});node["tourism"="hotel"]({0});way["tourism"="hotel"]({0});relation["tourism"="hotel"]({0});',
          'distance': 10000},
     'aquarium':
         {'query': 'node["tourism"="aquarium"]({0});way["tourism"="aquarium"]({0});relation["tourism"="aquarium"]({0});',
