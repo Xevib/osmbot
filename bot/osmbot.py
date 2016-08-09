@@ -11,7 +11,7 @@ import pynominatim
 import overpass
 import telegram
 from uuid import uuid4
-from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup
+from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
 
 # local imports
 from bot.user import User
@@ -20,7 +20,7 @@ from bot.maptools import download, genBBOX, getScale
 from bot.utils import getData
 from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
-from bot.bot import Bot, Message, ReplyKeyboardMarkup
+from bot.bot import Bot, Message
 from bot.error import OSMError
 
 
@@ -106,13 +106,13 @@ class OsmBot(object):
         else:
             raise OSMError('No config file: ' \
                     'Please provide a ConfigObj object instance.')
-    
+
         # setup the jinja environment and default language
         # TODO(xevi): Should we set a default language?
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
         self.language = None
-       
+
         # setup the telegram API. Before check token existence
         token = config.get('token', '')
         if token:
@@ -135,7 +135,7 @@ class OsmBot(object):
                                    languages=[language, 'en'])
         lang.install()
         self.jinja_env.install_gettext_translations(
-                gettext.translation('messages', 
+                gettext.translation('messages',
                                     localedir='./bot/locales/',
                                     languages=[language, 'en']))
 
@@ -233,7 +233,8 @@ class OsmBot(object):
                 u.set_field(user_id, 'mode', 'normal', group=group)
             self.load_language(self.get_languages()[message])
             text = self._get_template('new_language.md').render(is_rtl=self.get_is_rtl())
-            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+            k = ReplyKeyboardHide()
+            self.telegram_api.sendMessage(chat_id, text, 'Markdown', reply_markup=k)
 
         else:
             if group:
@@ -270,8 +271,8 @@ class OsmBot(object):
         :param group: Indicates if the message comes from a group
         :return: None
         """
-        languages = sorted(self.get_languages().keys())
-        keyboard = ReplyKeyboardMarkup(languages,one_time_keyboard=True)
+        languages = [[lang] for lang in sorted(self.get_languages().keys())]
+        keyboard = ReplyKeyboardMarkup(languages, one_time_keyboard=True)
         text = self._get_template('language_answer.md').render()
         self.telegram_api.sendMessage(chat_id, text, reply_markup=keyboard)
         if group:
@@ -290,13 +291,14 @@ class OsmBot(object):
         :param group: Boolen to indicate if it's on a group
         :return: None
         """
-        k = ReplyKeyboardMarkup(['Language'], one_time_keyboard=True)
+
         if group:
             text = self._get_template('question_only_mention.md').render()
-            k.addButton(text)
+            k = ReplyKeyboardMarkup(['Language', text], one_time_keyboard=True)
+        else:
+            k = ReplyKeyboardMarkup([['Language']], one_time_keyboard=True)
         text = self._get_template('configure_question.md').render()
-        m = Message(chat_id, text, reply_markup=k)
-        self.bot.sendMessage(m)
+        self.telegram_api.sendMessage(chat_id, text, reply_markup=k)
         if group:
             identifier = chat_id
         else:
@@ -856,7 +858,7 @@ class OsmBot(object):
                 m = Message(chat_id, text)
                 self.bot.sendMessage(m)
                 return None
-            
+
             if len(message) == 3:
                 if message[2].lower()[-2:] == 'km':
                     distance = int(message[:-1]) * 1000
