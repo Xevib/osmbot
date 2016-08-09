@@ -1,0 +1,203 @@
+{
+   "data_format": 1,
+   "data_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/bot/taginfo/taginfo.json",
+   "project": {
+	   "name": "OSMbot",
+	   "description": "OpenStreetMap bot for Telegram",
+	   "project_url": "https://github.com/Xevib/osmbot",
+           "doc_url": "https://github.com/Xevib/osmbot/blob/master/README.md",
+	   "icon_url": "http://wiki.openstreetmap.org/w/images/8/8f/Osmbot-icon.png",
+	   "contact_name": "KonfrareAlbert",
+	   "contact_email": "lakonfrariadelavila@gmail.com",
+           "keywords": [
+            "bot"
+           ]
+   },
+   "tags": [
+   {
+       "key": "aerialway",
+       "value": "cable_car",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dcable_car",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/53/db/53db31a71187838c69baff5576dfa27b.png"
+   },
+   {
+       "key": "aerialway",
+       "value": "station",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:aerialway%3Dstation",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/53/db/53db31a71187838c69baff5576dfa27b.png"
+   },
+   {
+       "key": "aeroway",
+       "value": "aerodrome",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:aeroway%3Daerodrome",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1b/64/1b6466223a829f34c11acccfc6890b46.png"
+   },
+   {
+       "key": "aeroway",
+       "value": "terminal",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:aeroway%3Dterminal",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1b/64/1b6466223a829f34c11acccfc6890b46.png"
+   },
+   {
+       "key": "amenity",
+       "value": "ambulance_station",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:emergency%3Dambulance_station",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/57/9b/579becc69bcdb7a11008282310b3b49c.png"
+   },
+   {
+       "key": "amenity",
+       "value": "atm",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Datm",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ff/5e/ff5e9c4f00c72a0a9e08b90b576d6680.png"
+   },
+   {
+       "key": "amenity",
+       "value": "bank",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbank",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/57/91/579188ec1bfd151002a60faa7a476530.png"
+   },
+   {
+       "key": "amenity",
+       "value": "bar",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbar",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/28/8d/288dd9b3947d48b9c6b8c6509d480215.png"
+   },
+   {
+       "key": "amenity",
+       "value": "biergarten",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbiergarten",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/29/fa/29fa71a263beee5f4bee9dfbf59b501f.png"
+   },
+   {
+       "key": "amenity",
+       "value": "brothel",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbrothel",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1f/c7/1fc7c639448f530de7b421500536c507.png"
+   },
+   {
+       "key": "amenity",
+       "value": "cafe",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcafe",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/64/11/64118e55c629ae7eea058d3320796d1d.png"
+   },
+   {
+       "key": "amenity",
+       "value": "casino",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcasino",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/da/e1/dae16a9c27108e7b3bdd2add83e64332.png"
+   },
+   {
+       "key": "amenity",
+       "value": "cinema",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcinema",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/61/8c/618c546aef686385d71a367a183e3f00.png"
+   },
+   {
+       "key": "amenity",
+       "value": "college",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcollege",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d6/9b/d69bf7a1adce487faec938ceb29ba95a.png"
+   },
+   {
+       "key": "amenity",
+       "value": "crematorium",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcrematorium",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/7a/1a/7a1afd49a1a1a3d1a31e890dcdcbbc6a.png"
+   },
+   {
+       "key": "amenity",
+       "value": "drinking_water",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Ddrinking_water",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ae/3c/ae3ce308317cab1de3336d86ad6eba2c.png"
+   },
+   {
+       "key": "amenity",
+       "value": "fast_food",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dfast_food",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/27/ee/27ee5f9152eb5163b7487c8e2fb4c3d4.png"
+   },
+   {
+       "key": "amenity",
+       "value": "fire_station",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dfire_station",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/4a/19/4a199e14c53b51d3a50da5155807912d.png"
+   },
+   {
+       "key": "amenity",
+       "value": "fountain",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dfountain",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/98/ac/98acd3b41f6b08d6c93598b1146b8490.png"
+   },
+   {
+       "key": "amenity",
+       "value": "fuel",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dfuel",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ad/28/ad28ab3cd08aa443c121ecadff73749e.png"
+   },
+   {
+       "key": "amenity",
+       "value": "hospital",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dhospital",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/88/88/8888b7076b6d338bd7db67a978fcbe1b.png"
+   },
+   {
+       "key": "amenity",
+       "value": "hotel",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dhotel",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/25/11/25112ba9e89499585bb157f8f76935a5.png"
+   },
+   {
+       "key": "amenity",
+       "value": "ice_cream",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dice_cream",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/cf/bc/cfbc6dc95fd856ad83a92e1672df8d5a.png"
+   }
+   
+   ]
+}
