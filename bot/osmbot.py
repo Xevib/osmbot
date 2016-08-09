@@ -626,9 +626,9 @@ class OsmBot(object):
                 if imgformat == 'pdf':
                     self.telegram_api.sendDocument(chat_id, data, 'map.pdf')
                 elif imgformat == 'jpeg':
-                    self.telegram_api.sendPhoto(chat_id, data, 'map.jpg', signature)
+                    self.telegram_api.sendPhoto(chat_id, data, signature)
                 elif imgformat == 'png':
-                    self.telegram_api.sendPhoto(chat_id, data, 'map.png', signature)
+                    self.telegram_api.sendPhoto(chat_id, data, signature)
             user.set_field(user_id, 'mode', 'normal')
         else:
             if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
@@ -667,10 +667,10 @@ class OsmBot(object):
                         self.telegram_api.sendDocument(chat_id, data, 'map.pdf')
                     elif imgformat == 'jpeg':
                         self.telegram_api.sendPhoto(
-                            chat_id, data, 'map.jpg', '©' + _('OSM contributors'))
+                            chat_id, data, '©' + _('OSM contributors'))
                     elif imgformat == 'png':
                         self.telegram_api.sendPhoto(
-                            chat_id, data, 'map.png', '©' + _('OSM contributors'))
+                            chat_id, data, '©' + _('OSM contributors'))
             elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
                 m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
                 if m is not None:
@@ -696,10 +696,10 @@ class OsmBot(object):
                             self.telegram_api.sendDocument(chat_id, data, 'map.pdf')
                         elif imgformat == 'jpeg':
                             self.telegram_api.sendPhoto(
-                                chat_id, data, 'map.jpg', signature)
+                                chat_id, data, signature)
                         elif imgformat == 'png':
                             self.telegram_api.sendPhoto(
-                                chat_id, data, 'map.png', signature)
+                                chat_id, data, signature)
                 else:
                     template = self._get_template('cant_understand_message.md')
                     text = template.render()
@@ -712,10 +712,10 @@ class OsmBot(object):
                     try:
                         data = download([bbox[2], bbox[0], bbox[3], bbox[1]], _, scale=auto_scale)
                     except ValueError as v:
-                        self.telegram_api.sendMessage(chat_id,v.message)
+                        self.telegram_api.sendMessage(chat_id, v.message)
                     else:
                         signature = '©' + _('OSM contributors')
-                        self.telegram_api.sendPhoto(chat_id, data, 'map.png', signature)
+                        self.telegram_api.sendPhoto(chat_id, data, signature)
                 else:
                     temp = self._get_template('cant_understand_message.md')
                     text = temp.render()
