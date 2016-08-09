@@ -1085,9 +1085,8 @@ class OsmBot(object):
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown', not preview)
                 elif message.lower().startswith('/help'):
                     template = self._get_template('help_message.md')
-                    text = template.render(is_rtl=self.get_is_rtl())
-                    response = [text]
-                    response[-1] = response[-1].replace('_', '\_')
+                    text = template.render(is_rtl=self.get_is_rtl()).replace('_', '\_')
+                    self.telegram_api.sendMessage(chat_id, text)
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
                     self.search_command(message, user_config, chat_id)
                 elif re.match('/search', message.lower()) is not None:
