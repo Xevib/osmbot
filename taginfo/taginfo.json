@@ -981,6 +981,294 @@
        "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
        "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dwine",
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/18/17/181710f3290b86e24ac4b478335a07af.png"
+   },
+   {
+       "key": "sport",
+       "value": "9pin",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3D9pin",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ba/6e/ba6e418e3e005ae9e97f43a287f6aaca.png"
+   },
+   {
+       "key": "sport",
+       "value": "10pin",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3D10pin",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ba/6e/ba6e418e3e005ae9e97f43a287f6aaca.png"
+   },
+   {
+       "key": "sport",
+       "value": "american_football",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Damerican_football",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b6/32/b632cbce22f8a7783ddf31868814de39.png"
+   },
+   {
+       "key": "sport",
+       "value": "archery",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Darchery",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/e8/9b/e89b6f9eacbb1e34dd7fea5b222aec5b.png"
+   },
+   {
+       "key": "sport",
+       "value": "badminton",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dbadminton",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2b/1c/2b1cac015d480e916198bdd2ba6941c3.png"
+   },
+   {
+       "key": "sport",
+       "value": "baseball",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dbaseball",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b1/9f/b19fc7192d27e25c6b5299b65ff29a38.png"
+   },
+   {
+       "key": "sport",
+       "value": "basketball",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dbasketball",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/34/d7/34d78f6f9e38c07d963aa9b8d938dc5a.png"
+   },
+   {
+       "key": "sport",
+       "value": "billiards",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dbilliards",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d5/96/d5963a0e08c98f5c4977ee559a604d7a.png"
+   },
+   {
+       "key": "sport",
+       "value": "cricket",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dcricket",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/4e/d7/4ed7b2da213daf66c4f12d7b8458b48d.png"
+   },
+   {
+       "key": "sport",
+       "value": "cycling",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dcycling",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d1/1c/d11c07530b1612592bca1666d536f4a1.png"
+   },
+   {
+       "key": "sport",
+       "value": "darts",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Ddarts",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b7/50/b750b56d1ccf43cdaf696586d4eb0186.png"
+   },
+   {
+       "key": "sport",
+       "value": "equestrian",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dequestrian",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a7/09/a70946442467c2a47452152dfc3fb533.png"
+   },
+   {
+       "key": "sport",
+       "value": "field_hockey",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dfield_hockey",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/e4/9a/e49a8e358ad7e86d842a36023c8cbfa9.png"
+   },
+   {
+       "key": "sport",
+       "value": "golf",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dgolf",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/8a/c5/8ac5e0fc2e6e64136478405a24b22eea.png"
+   },
+   {
+       "key": "sport",
+       "value": "gymnastics",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dgymnastics",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/bb/72/bb72be3c4e645291ff3da3fdcf3f1b01.png"
+   },
+   {
+       "key": "sport",
+       "value": "horse_racing",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dhorse_racing",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a7/09/a70946442467c2a47452152dfc3fb533.png"
+   },
+   {
+       "key": "sport",
+       "value": "ice_hockey",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dice_hockey",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b2/6c/b26cc47d6c193ffd664af3f993140e21.png"
+   },
+   {
+       "key": "sport",
+       "value": "ice_skating",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dice_skating",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d7/d6/d7d6d76d363765426d994a7a2e0949f8.png"
+   },
+   {
+       "key": "sport",
+       "value": "rugby_league",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Drugby_league",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b8/45/b845a3b62d6c6fd57efc21cb7942c418.png"
+   },
+   {
+       "key": "sport",
+       "value": "rugby_union",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Drugby_union",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b8/45/b845a3b62d6c6fd57efc21cb7942c418.png"
+   },
+   {
+       "key": "sport",
+       "value": "sailing",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dsailing",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a5/e5/a5e5d5fdd71a6ed232a13cafd25d611f.png"
+   },
+   {
+       "key": "sport",
+       "value": "soccer",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dsoccer",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f3/a4/f3a49a5197896d6f749a623c79cf3d07.png"
+   },
+   {
+       "key": "sport",
+       "value": "surfing",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dsurfing",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/67/c6/67c6dc79e48482e43efb105bb9f304a7.png"
+   },
+   {
+       "key": "sport",
+       "value": "table_tennis",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dtable_tennis",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/19/c5/19c51c1ee8c74f791318388c48f0eaa5.png"
+   },
+   {
+       "key": "sport",
+       "value": "tennis",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dtennis",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/95/9c/959c355163c6af4978dd1c1d1074a0ca.png"
+   },
+   {
+       "key": "sport",
+       "value": "volleyball",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dvolleyball",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/36/86/3686074269944ffb0f370f513a62e0dc.png"
+   },
+   {
+       "key": "studio",
+       "value": "audio",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/20/d7/20d73ec2c1c563a7fe2cd4db32e0b42e.png"
+   },
+   {
+       "key": "studio",
+       "value": "radio",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/be/b6/beb687d89866c6ae65094dd57f734424.png"
+   },
+   {
+       "key": "studio",
+       "value": "television",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f4/b8/f4b89181e67e6f5c2b80c8d4273575d4.png"
+   },
+   {
+       "key": "studio",
+       "value": "video",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/73/a3/73a34ec41301546b07d03853b10f17b2.png"
+   },
+   {
+       "key": "tourism",
+       "value": "aquarium",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Daquarium",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/96/dc/96dc4f8fff879b46ce4a7059acbc6e01.png"
+   },
+   {
+       "key": "tourism",
+       "value": "camp_site",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dcamp_site",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/35/24/3524a8a3e2af78ffef10fc9d14d944ad.png"
+   },
+   {
+       "key": "tourism",
+       "value": "hotel",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dhotel",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/25/11/25112ba9e89499585bb157f8f76935a5.png"
+   },
+   {
+       "key": "tourism",
+       "value": "information",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dinformation",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a3/68/a368fd89ce7a72865543e9f615f7d152.png"
+   },
+   {
+       "key": "tourism",
+       "value": "zoo",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dzoo",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1a/e2/1ae22fdfcee94e76c945be0e6f7899b6.png"
+   },
+   {
+       "key": "vending",
+       "value": "cigarettes",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:vending%3Dcigarettes",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/28/fd/28fdb0f2484625057bf1fbb31e3d9c9a.png"
    }
    
    ]
