@@ -197,6 +197,278 @@
        "description": "Use in Search, Details, Nearest and Inline bot",
        "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dice_cream",
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/cf/bc/cfbc6dc95fd856ad83a92e1672df8d5a.png"
+   },
+   {
+       "key": "amenity",
+       "value": "karaoke_box",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Proposed_features/Karaoke_box",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d3/50/d350209c10be556c432cf6a917f581cd.png"
+   },
+   {
+       "key": "amenity",
+       "value": "kindergarten",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dkindergarten",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/fe/47/fe479202893dc09f6faee4afa783e8bd.png"
+   },
+   {
+       "key": "amenity",
+       "value": "library",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dlibrary",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/7d/9f/7d9f720d14f0af07d527614030cc5e07.png"
+   },
+   {
+       "key": "amenity",
+       "value": "love_hotel",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dlove_hotel",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b1/7e/b17eaa3c4eb5536cb336500c8bdb36fd.png"
+   },
+   {
+       "key": "amenity",
+       "value": "pharmacy",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpharmacy",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/79/1c/791cb002ba6b54809727189ef62f66af.png"
+   },
+   {
+       "key": "amenity",
+       "value": "place_of_worship",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dplace_of_worship",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ff/ca/ffca9ee2c7e5e342916dbcaf698dd944.png"
+   },
+   {
+       "key": "amenity",
+       "value": "police",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpolice",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/56/f0/56f014133713c72acd66e2136b13b9f5.png"
+   },
+   {
+       "key": "amenity",
+       "value": "pub",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpub",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/29/fa/29fa71a263beee5f4bee9dfbf59b501f.png"
+   },
+   {
+       "key": "amenity",
+       "value": "recycling",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Drecycling",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/dc/1e/dc1e9ca32fdf648e838af47323be70be.png"
+   },
+   {
+       "key": "amenity",
+       "value": "restaurant",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Drestaurant",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/bd/b9/bdb9803add2c493c352402ff34080421.png"
+   },
+   {
+       "key": "amenity",
+       "value": "sauna",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:leisure%3Dsauna",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a7/c5/a7c569d0df53edaf70e4a62ab8d426dd.png"
+   },
+   {
+       "key": "amenity",
+       "value": "school",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dschool",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2d/4c/2d4ce16e6c4de8ea3cee0b1703d6ea97.png"
+   },
+   {
+       "key": "amenity",
+       "value": "stripclub",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstripclub",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1f/c7/1fc7c639448f530de7b421500536c507.png"
+   },
+   {
+       "key": "amenity",
+       "value": "studio",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/9f/68/9f68361ca4787c70af6fe7aa9002f5a5.png"
+   },
+   {
+       "key": "amenity",
+       "value": "swimming_pool",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dswimming_pool",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/7c/68/7c68d7d41dfa427aa551d997998d7116.png"
+   },
+   {
+       "key": "amenity",
+       "value": "taxi",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dtaxi",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/fa/72/fa722f42706df76dfb06ab44f0041630.png"
+   },
+   {
+       "key": "amenity",
+       "value": "telephone",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dtelephone",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/0e/46/0e467e6540da67b516e4008b09e51e5e.png"
+   },
+   {
+       "key": "amenity",
+       "value": "theatre",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dtheatre",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/01/e9/01e930563dcb51b599ebe584c705bdfa.png"
+   },
+   {
+       "key": "amenity",
+       "value": "toilets",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dtoilets",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/79/1c/791c910cca876b34dd0b87b856af5c94.png"
+   },
+   {
+       "key": "amenity",
+       "value": "university",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:amenity%3Duniversity",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d6/9b/d69bf7a1adce487faec938ceb29ba95a.png"
+   },
+   {
+       "key": "building",
+       "value": "church",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:building%3Dchurch",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f7/c1/f7c119e9f3255b0b0c7086127f8229cc.png"
+   },
+   {
+       "key": "building",
+       "value": "mosque",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:building%3Dmosque",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/71/f4/71f48f53c8469d4038cae90703846505.png"
+   },
+   {
+       "key": "building",
+       "value": "synagogue",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:building%3Dsynagogue",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/6d/4a/6d4ae6da7c896b9fff8202e29af10e79.png"
+   },
+   {
+       "key": "building",
+       "value": "stadium",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:building%3Dstadium",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/17/fd/17fd2d985b8ee4a769907ce386de378a.png"
+   },
+   {
+       "key": "building",
+       "value": "temple",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:building%3Dtemple",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/c7/41/c741ad04adfe26a227d719fb2b2e0327.png"
+   },
+   {
+       "key": "building",
+       "value": "train_station",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:building%3Dtrain_station",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ac/09/ac09ff3123a6bcec2b117dcf70122346.png"
+   },
+   {
+       "key": "craft",
+       "value": "beekeeper",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:craft%3Dbeekeeper",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/e3/4f/e34fe67d3740e1d88b61baa036cedd44.png"
+   },
+   {
+       "key": "cuisine",
+       "value": "pasta",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:cuisine",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/74/e1/74e1bfe75265bcec0a7f5c4da469ceb0.png"
+   },
+   {
+       "key": "cuisine",
+       "value": "pizza",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:cuisine",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1c/f6/1cf649cf61edd92f61e7e20affdfbabe.png"
+   },
+   {
+       "key": "cuisine",
+       "value": "sushi",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:cuisine",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a1/5d/a15d18cf274f1701b4162c3876dd11e4.png"
+   },
+   {
+       "key": "emergency",
+       "value": "ambulance_station",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:emergency%3Dambulance_station",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/57/9b/579becc69bcdb7a11008282310b3b49c.png"
+   },
+   {
+       "key": "emergency",
+       "value": "assembly_point",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:emergency%3Dassembly_point",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b7/50/b750b56d1ccf43cdaf696586d4eb0186.png"
+   },
+   {
+       "key": "emergency",
+       "value": "defibrillator",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:emergency%3Ddefibrillator",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/b7/c8/b7c850f0aff57c2c5867ff0955876356.png"
+   },
+   {
+       "key": "emergency",
+       "value": "phone",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search, Details, Nearest and Inline bot",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:emergency%3Dphone",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/18/f3/18f348e1f06b72d0bb841975fbdcc269.png"
    }
    
    ]
