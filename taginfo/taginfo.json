@@ -471,6 +471,150 @@
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/18/f3/18f348e1f06b72d0bb841975fbdcc269.png"
    },
    {
+       "key": "highway",
+       "value": "bridleway",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dbridleway",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/bridleway.png"
+   },
+   {
+       "key": "highway",
+       "value": "bus_stop",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dbus_stop",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/5b/a0/5ba00a460afcd2105589b567368fc632.png"
+   },
+   {
+       "key": "highway",
+       "value": "construction",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Key:construction",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/construction.png"
+   },
+   {
+       "key": "highway",
+       "value": "cycleway",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dcycleway",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/cycleway.png"
+   },
+   {
+       "key": "highway",
+       "value": "footway",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dfootway",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/footway-path.png"
+   },
+   {
+       "key": "highway",
+       "value": "living_street",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dliving_street",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/living_street-pedestrian-residential.png"
+   },
+   {
+       "key": "highway",
+       "value": "motorway",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dmotorway",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/motorway-trunk.png"
+   },
+   {
+       "key": "highway",
+       "value": "path",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dpath",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/footway-path.png"
+   },
+   {
+       "key": "highway",
+       "value": "pedestrian",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dpedestrian",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/living_street-pedestrian-residential.png"
+   },
+   {
+       "key": "highway",
+       "value": "primary",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dprimary",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/primary-secondary-tertiary.png"
+   },
+   {
+       "key": "highway",
+       "value": "raceway",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Draceway",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/raceway.png"
+   },
+   {
+       "key": "highway",
+       "value": "residential",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dresidential",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/living_street-pedestrian-residential.png"
+   },
+   {
+       "key": "highway",
+       "value": "road",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Droad",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/road-unclassified.png"
+   },
+   {
+       "key": "highway",
+       "value": "secondary",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dsecondary",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/primary-secondary-tertiary.png"
+   },
+   {
+       "key": "highway",
+       "value": "tertiary",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtertiary",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/primary-secondary-tertiary.png"
+   },
+   {
+       "key": "highway",
+       "value": "track",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtrack",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/track.png"
+   },
+   {
+       "key": "highway",
+       "value": "trunk",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtrunk",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/motorway-trunk.png"
+   },
+   {
+       "key": "highway",
+       "value": "unclassified",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dunclassified",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/road-unclassified.png"
+   },
+   {
        "key": "historic",
        "value": "castle",
        "object_types": ["way", "area", "node", "relation"],
