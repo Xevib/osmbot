@@ -637,6 +637,350 @@
        "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
        "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:route%3Dsubway",
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2c/d1/2cd12323a12b21bd79ebef00de8a84b7.png"
+   },
+   {
+       "key": "shop",
+       "value": "art",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dart",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ac/77/ac778ed252fa820d01352205bd6d7501.png"
+   },
+   {
+       "key": "shop",
+       "value": "baby_goods",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dbaby_goods",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/84/d6/84d69f10f176ce4862c48d956c38e403.png"
+   },
+   {
+       "key": "shop",
+       "value": "bag",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dbag",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/50/b6/50b6b05da2d821da0b41b12117b93bc9.png"
+   },
+   {
+       "key": "shop",
+       "value": "bakery",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dbakery",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/76/3f/763f6bb87378b2c3e26571561b235e81.png"
+   },
+   {
+       "key": "shop",
+       "value": "books",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dbooks",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/9a/1c/9a1c1008885e89e8002f323588776a01.png"
+   },
+   {
+       "key": "shop",
+       "value": "butcher",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dbutcher",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/33/2c/332ccf816781a091fb79a5e2ee46c451.png"
+   },
+   {
+       "key": "shop",
+       "value": "cheese",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dcheese",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/03/87/0387414c28de4c88845a70d05c7a3532.png"
+   },
+   {
+       "key": "shop",
+       "value": "chocolate",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dchocolate",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/27/ad/27ad39fe2965e8679eb55cf97aa86942.png"
+   },
+   {
+       "key": "shop",
+       "value": "clothes",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dclothes",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/c8/ce/c8ced480e2f2d313bb54c4fee707deeb.png"
+   },
+   {
+       "key": "shop",
+       "value": "coffee",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dcoffee",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/64/11/64118e55c629ae7eea058d3320796d1d.png"
+   },
+   {
+       "key": "shop",
+       "value": "computer",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dcomputer",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/73/a9/73a9271104d4469591e3962ffe3060e3.png"
+   },
+   {
+       "key": "shop",
+       "value": "confectionary",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dconfectionery",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d6/8e/d68e694d452b2894a07f7057601b7960.png"
+   },
+   {
+       "key": "shop",
+       "value": "cosmetics",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dcosmetics",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/c0/e9/c0e9f434201627f2fbdad2e5b0408a25.png"
+   },
+   {
+       "key": "shop",
+       "value": "doityourself",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Ddoityourself",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/08/b9/08b912e47d885d80c60b41467cf2bd3c.png"
+   },
+   {
+       "key": "shop",
+       "value": "electronics",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Delectronics",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f4/b8/f4b89181e67e6f5c2b80c8d4273575d4.png"
+   },
+   {
+       "key": "shop",
+       "value": "erotic",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Derotic",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/54/01/54012f6264942f32f27114f45068fb87.png"
+   },
+   {
+       "key": "shop",
+       "value": "fishing",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dfishing",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/98/df/98df044557bf82ff2b2c9a1cb6bd60d1.png"
+   },
+   {
+       "key": "shop",
+       "value": "florist",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dflorist",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/22/07/22075bed45cf754c3dd31ae54bba1f6a.png"
+   },
+   {
+       "key": "shop",
+       "value": "garden_centre",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dgarden_centre",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/fb/e9/fbe90e786d1f974c8062668527c97fd4.png"
+   },
+   {
+       "key": "shop",
+       "value": "gift",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dgift",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/51/f1/51f10a85e668c2c7e726664999d921eb.png"
+   },
+   {
+       "key": "shop",
+       "value": "greengrocer",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dgreengrocer",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/06/3e/063e0d23c4a3ac246426c3e312a3d66e.png"
+   },
+   {
+       "key": "shop",
+       "value": "hairdresser",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dhairdresser",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a7/77/a777a3c9ecf94cac4c842343efec0277.png"
+   },
+   {
+       "key": "shop",
+       "value": "hifi",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dhifi",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/90/5b/905b24191aa109d6693c51fd88c34465.png"
+   },
+   {
+       "key": "shop",
+       "value": "ice_cream",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dice_cream",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/cf/bc/cfbc6dc95fd856ad83a92e1672df8d5a.png"
+   },
+   {
+       "key": "shop",
+       "value": "jewelry",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Djewelry",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ba/d7/bad71b708f73736745e739957d4a67c8.png"
+   },
+   {
+       "key": "shop",
+       "value": "locksmith",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dlocksmith",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2a/80/2a80a079191d67b5f01e8f19eb94942d.png"
+   },
+   {
+       "key": "shop",
+       "value": "mobile_phone",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dmobile_phone",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/6f/ab/6fab20a11595875b34e40eb2b9654cb1.png"
+   },
+   {
+       "key": "shop",
+       "value": "music",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dmusic",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/9b/21/9b21c38be7daa8ea07eaa53fdf1ad034.png"
+   },
+   {
+       "key": "shop",
+       "value": "musical_instrument",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dmusical_instrument",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/d9/25/d925d16d32cadb86ae5c51123695e3b5.png"
+   },
+   {
+       "key": "shop",
+       "value": "newsagent",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dnewsagent",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/30/4f/304f39e6eca6fad9dfc0a534db42f5bd.png"
+   },
+   {
+       "key": "shop",
+       "value": "optician",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Doptician",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/82/b1/82b113eeb0edb6b07de0d6b45a816cae.png"
+   },
+   {
+       "key": "shop",
+       "value": "pastry",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dpastry",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f0/e7/f0e757d339cf5265d59ada218617dab0.png"
+   },
+   {
+       "key": "shop",
+       "value": "photo",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dphoto",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ea/3f/ea3fb385fe8d8e80c862da1b49515211.png"
+   },
+   {
+       "key": "shop",
+       "value": "seafood",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dseafood",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2f/4d/2f4d12fd52fcc8400db13bfb5a616009.png"
+   },
+   {
+       "key": "shop",
+       "value": "shoes",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dshoes",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/97/a5/97a58e2c608d8104c2832ae1066ba6fd.png"
+   },
+   {
+       "key": "shop",
+       "value": "sports",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dsports",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f3/a4/f3a49a5197896d6f749a623c79cf3d07.png"
+   },
+   {
+       "key": "shop",
+       "value": "swimming_pool",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dswimming_pool",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/7c/68/7c68d7d41dfa427aa551d997998d7116.png"
+   },
+   {
+       "key": "shop",
+       "value": "ticket",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dticket",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/63/71/63715fa962c7a91bb2224e165d52b79a.png"
+   },
+   {
+       "key": "shop",
+       "value": "tobacco",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dtobacco",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/28/fd/28fdb0f2484625057bf1fbb31e3d9c9a.png"
+   },
+   {
+       "key": "shop",
+       "value": "video",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dvideo",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a3/76/a37672ceef61220842fba0d59622f57b.png"
+   },
+   {
+       "key": "shop",
+       "value": "video_games",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dvideo_games",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ac/0f/ac0f5f6d43f0ab26f373e2804898f85a.png"
+   },
+   {
+       "key": "shop",
+       "value": "watches",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dwatches",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/06/7b/067bc9c2767eeaf57acd950fd1f128d0.png"
+   },
+   {
+       "key": "shop",
+       "value": "wine",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:shop%3Dwine",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/18/17/181710f3290b86e24ac4b478335a07af.png"
    }
    
    ]
