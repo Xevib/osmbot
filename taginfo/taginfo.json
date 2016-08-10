@@ -469,6 +469,174 @@
        "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
        "doc_url": "http://wiki.openstreetmap.org/wiki/Tag:emergency%3Dphone",
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/18/f3/18f348e1f06b72d0bb841975fbdcc269.png"
+   },
+   {
+       "key": "historic",
+       "value": "castle",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:historic%3Dcastle",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/91/f1/91f13521b1d66ac452f34232f2b671c2.png"
+   },
+   {
+       "key": "historic",
+       "value": "monument",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:historic%3Dmonument",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a4/ff/a4ff36a27c10e1c27cb0ffac1afed4ce.png"
+   },
+   {
+       "key": "landuse",
+       "value": "cemetery",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:landuse%3Dcemetery",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/8b/c9/8bc98b77990d8efc07ac50df455a3c7d.png"
+   },
+   {
+       "key": "landuse",
+       "value": "plant_nursery",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:landuse%3Dplant_nursery",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/fb/e9/fbe90e786d1f974c8062668527c97fd4.png"
+   },
+   {
+       "key": "leisure",
+       "value": "bowling_alley",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dbowling_alley",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ba/6e/ba6e418e3e005ae9e97f43a287f6aaca.png"
+   },
+   {
+       "key": "leisure",
+       "value": "golf_course",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dgolf_course",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/56/fd/56fd18b4e3480ace5088a21c0549a325.png"
+   },
+   {
+       "key": "leisure",
+       "value": "swimming_pool",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dswimming_pool",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/7c/68/7c68d7d41dfa427aa551d997998d7116.png"
+   },
+   {
+       "key": "man_made",
+       "value": "works",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:man_made%3Dworks",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/cd/89/cd8966d369daf9a6d34d4a5bdb394506.png"
+   },
+   {
+       "key": "natural",
+       "value": "peak",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:natural%3Dpeak",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/c6/d9/c6d977873bf62b70504e6e20e768dba6.png"
+   },
+   {
+       "key": "natural",
+       "value": "volcano",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:natural%3Dvolcano",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/5e/12/5e120e64919a571269078b4d5bd2555d.png"
+   },
+   {
+       "key": "place",
+       "value": "city",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:place%3Dcity",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/05/3e/053e3e6fead324acc6b47764c9ad0e1a.png"
+   },
+   {
+       "key": "place",
+       "value": "ocean",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:place%3Docean",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/06/26063776ae7483507079e42652e82ede.png"
+   },
+   {
+       "key": "place",
+       "value": "sea",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:place%3Dsea",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/06/26063776ae7483507079e42652e82ede.png"
+   },
+   {
+       "key": "place",
+       "value": "town",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:place%3Dtown",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/4c/92/4c9214c1b1e61e3485f7ad4f211e6ed2.png"
+   },
+   {
+       "key": "place",
+       "value": "village",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:place%3Dvillage",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/4c/92/4c9214c1b1e61e3485f7ad4f211e6ed2.png"
+   },
+   {
+       "key": "railway",
+       "value": "station",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:railway%3Dstation",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/ac/09/ac09ff3123a6bcec2b117dcf70122346.png"
+   },
+   {
+       "key": "railway",
+       "value": "subway",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2c/d1/2cd12323a12b21bd79ebef00de8a84b7.png"
+   },
+   {
+       "key": "railway",
+       "value": "subway_entrance",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:railway%3Dsubway_entrance",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2c/d1/2cd12323a12b21bd79ebef00de8a84b7.png"
+   },
+   {
+       "key": "railway",
+       "value": "tram",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:railway%3Dtram",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/32/f93247eeef5cb82d6f42b60a833ec8a4.png"
+   },
+   {
+       "key": "route",
+       "value": "piste",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:route%3Dpiste",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/43/78/43787c0ae0a482e866ca09aee504a4de.png"
+   },
+   {
+       "key": "route",
+       "value": "subway",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:route%3Dsubway",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2c/d1/2cd12323a12b21bd79ebef00de8a84b7.png"
    }
    
    ]
