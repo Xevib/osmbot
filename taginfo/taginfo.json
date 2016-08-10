@@ -1189,6 +1189,86 @@
        "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
        "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:sport%3Dvolleyball",
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/36/86/3686074269944ffb0f370f513a62e0dc.png"
+   },
+   {
+       "key": "studio",
+       "value": "audio",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/20/d7/20d73ec2c1c563a7fe2cd4db32e0b42e.png"
+   },
+   {
+       "key": "studio",
+       "value": "radio",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/be/b6/beb687d89866c6ae65094dd57f734424.png"
+   },
+   {
+       "key": "studio",
+       "value": "television",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f4/b8/f4b89181e67e6f5c2b80c8d4273575d4.png"
+   },
+   {
+       "key": "studio",
+       "value": "video",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dstudio",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/73/a3/73a34ec41301546b07d03853b10f17b2.png"
+   },
+   {
+       "key": "tourism",
+       "value": "aquarium",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Daquarium",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/96/dc/96dc4f8fff879b46ce4a7059acbc6e01.png"
+   },
+   {
+       "key": "tourism",
+       "value": "camp_site",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dcamp_site",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/35/24/3524a8a3e2af78ffef10fc9d14d944ad.png"
+   },
+   {
+       "key": "tourism",
+       "value": "hotel",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dhotel",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/25/11/25112ba9e89499585bb157f8f76935a5.png"
+   },
+   {
+       "key": "tourism",
+       "value": "information",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dinformation",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/a3/68/a368fd89ce7a72865543e9f615f7d152.png"
+   },
+   {
+       "key": "tourism",
+       "value": "zoo",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dzoo",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1a/e2/1ae22fdfcee94e76c945be0e6f7899b6.png"
+   },
+   {
+       "key": "vending",
+       "value": "cigarettes",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Use in Search results, Nearest command (search with emoji) and Inline bot",
+       "doc_url": "https://wiki.openstreetmap.org/wiki/Tag:vending%3Dcigarettes",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/28/fd/28fdb0f2484625057bf1fbb31e3d9c9a.png"
    }
    
    ]
