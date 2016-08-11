@@ -6,7 +6,7 @@
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}*{{ _("Tags for")}} {{data.tag['name']}} *
 {% endif -%}{% endif -%}{% endif -%}
 
-{% if data.tag.admin_level == '2' -%}
+{% if data.tag.admin_level == '2' or data.tag.place == 'country' -%}
 {% if 'is_in:continent' in data.tag %}{% if data.tag['is_in:continent'] == 'Europe' -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{_("European country")}}
 {% elif  data.tag['is_in:continent'] == 'Europa' -%}
@@ -36,9 +36,9 @@
 {% elif data.tag['is_in:continent'] == 'Australia' -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30F'}} {{_("Oceanian country")}}
 {% elif data.tag['is_in:continent'] == 'Eurasia' -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{'\U0001F30F'}} {{_('Eurasian country')}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}}{{'\U0001F30F'}} {{_('Eurasian country')}}
 {% elif data.tag['is_in:continent'] == 'Europe; Asia' -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}} {{'\U0001F30F'}} {{_('Eurasian country') }}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F30D'}}{{'\U0001F30F'}} {{_('Eurasian country') }}
 {% endif %}{% endif %}{% endif %}{% if 'flag' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F6A9'}} [{{_("Flag")}}]({{data.tag['flag']|url_escape()}})
 {% endif %}{% if 'currency' in data.tag -%}
