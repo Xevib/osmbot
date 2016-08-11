@@ -327,13 +327,13 @@ class OsmBot(object):
         }
         text = temp.render(**template_params)
         if selected_keys:
-            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+            self.telegram_api.sendMessage(chat_id, text)
         if len(selected_keys) > 50:
             text = self._get_template('easter_egg.md').render()
-            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+            self.telegram_api.sendMessage(chat_id, text)
         elif len(selected_keys) == 0:
             text = self._get_template('no_emoji.md').render()
-            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+            self.telegram_api.sendMessage(chat_id, text)
 
     def search_command(self, message, user_config, chat_id):
         """
