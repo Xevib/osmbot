@@ -1415,6 +1415,146 @@
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/28/fd/28fdb0f2484625057bf1fbb31e3d9c9a.png"
    },
    {
+       "key": "is_in:continent",
+       "value": "Europe",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/db/40/db40b90186e898fbad7384a0c1209b66.png"
+   },
+   {
+       "key": "is_in:continent",
+       "value": "Europa",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/db/40/db40b90186e898fbad7384a0c1209b66.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Africa",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/db/40/db40b90186e898fbad7384a0c1209b66.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "South America",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Latin America",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "America del Sur",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "North America",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Amérique du Nord",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Central America",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "América",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "America",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/f9/6d/f96d8e4e63ac6047758d593c41b6af7d.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Asia",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/46/2b/462b6ba35a4c91836ecbd49dec87a268.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Oceania",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/46/2b/462b6ba35a4c91836ecbd49dec87a268.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Australia",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/46/2b/462b6ba35a4c91836ecbd49dec87a268.png"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Eurasia",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in"
+   },
+
+   {
+       "key": "is_in:continent",
+       "value": "Europe; Asia",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer if admin_level=2",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Key:is_in"
+   },
+   {
        "key": "wikidata",
        "object_types": ["way", "area", "node", "relation"],
        "description": "Used in Details message and Inline bot answer",
