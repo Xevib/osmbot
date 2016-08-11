@@ -1689,6 +1689,12 @@
        "doc_url": "http://wiki.openstreetmap.org/wiki/Multilingual_names"
    },
    {
+       "key": "name:zh_CN",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Search results and Inline bot with Chinese (China) configured in settings",
+       "doc_url": "http://wiki.openstreetmap.org/wiki/Multilingual_names"
+   },
+   {
        "key": "name:zh_HK",
        "object_types": ["way", "area", "node", "relation"],
        "description": "Used in Search results and Inline bot with Chinese (Hong Kong) configured in settings",
