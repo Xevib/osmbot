@@ -61,7 +61,8 @@ class OsmBot(object):
         'Slovak': 'sk',
         'Chinese (Hong Kong)': 'zh_HK',
         'Hungarian': 'hu',
-        'Catalan (Valencian)': 'ca@valencia'
+        'Catalan (Valencian)': 'ca@valencia',
+        'Chinese (China)': 'zh_CN'
     }
 
     """
