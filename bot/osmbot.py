@@ -294,7 +294,7 @@ class OsmBot(object):
 
         if group:
             text = self._get_template('question_only_mention.md').render()
-            k = ReplyKeyboardMarkup(['Language', text], one_time_keyboard=True)
+            k = ReplyKeyboardMarkup([['Language'], [text]], one_time_keyboard=True)
         else:
             k = ReplyKeyboardMarkup([['Language']], one_time_keyboard=True)
         text = self._get_template('configure_question.md').render()
