@@ -8,8 +8,8 @@ from configobj import ConfigObj
 import gettext
 import bot.user as u
 from bot.osmbot import OsmBot
-from bot.bot import Bot, Message
-
+from bot.bot import Bot
+from telegram import Bot as TBot
 
 application = Flask(__name__)
 application.debug = True
@@ -19,6 +19,7 @@ if config:
     user = u.User(config.get('host', ''), config.get('database', ''), config.get('user', ''), config.get('password', ''))
     osmbot = OsmBot(config)
     bot_api = Bot(config['token'])
+    telegram_api = TBot(config['token'])
 
 api = OsmApi()
 nom = pynominatim.Nominatim()
@@ -85,8 +86,7 @@ def attend_webhook(token):
             current_app.sentry.captureException()
             osmbot.load_language(user_config['lang'])
             text = osmbot._get_template('error_message.md').render()
-            m = Message(chat_id, text)
-            bot_api.sendMessage(m)
+            telegram_api.sendMessage(chat_id, text)
         return 'OK'
     else:
         return 'NOT ALLOWED'
