@@ -261,7 +261,7 @@ class OsmBot(object):
         :param user: User object
         :return:
         """
-        keyboard = ReplyKeyboardMarkup(['Yes', 'No'], one_time_keyboard=True)
+        keyboard = ReplyKeyboardMarkup([['Yes'], ['No']], one_time_keyboard=True)
         text = self._get_template('question_mention.md').render()
         self.telegram_api.sendMessage(chat_id, text, reply_markup=keyboard)
         user.set_field(chat_id, 'mode', 'setonlymention', group=True)
