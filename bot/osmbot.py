@@ -210,7 +210,8 @@ class OsmBot(object):
             text = self._get_template('only_mention.md').render()
             self.telegram_api.sendMessage(chat_id, text, 'Markdown')
         else:
-            text = self._get_template('answer_always.md').render(is_rtl=self.get_is_rtl())
+            template = self._get_template('answer_always.md')
+            text = template.render(is_rtl=self.get_is_rtl())
             self.telegram_api.sendMessage(chat_id, text, 'Markdown')
         return []
 
@@ -233,9 +234,14 @@ class OsmBot(object):
                 u.set_field(user_id, 'lang', self.get_languages()[message], group=group)
                 u.set_field(user_id, 'mode', 'normal', group=group)
             self.load_language(self.get_languages()[message])
-            text = self._get_template('new_language.md').render(is_rtl=self.get_is_rtl())
+            template = self._get_template('new_language.md')
+            text = template.render(is_rtl=self.get_is_rtl())
             k = ReplyKeyboardHide()
-            self.telegram_api.sendMessage(chat_id, text, 'Markdown', reply_markup=k)
+            self.telegram_api.sendMessage(
+                chat_id,
+                text,
+                'Markdown',
+                reply_markup=k)
 
         else:
             if group:
@@ -450,11 +456,11 @@ class OsmBot(object):
                 if min_dist is None:
                     identificador = element['id']
                     if element['type'] == 'node':
-                        type = 'nod'
+                        element_type = 'nod'
                     elif element['type'] == 'way':
-                        type = 'way'
+                        element_type = 'way'
                     else:
-                        type = 'rel'
+                        element_type = 'rel'
                     nearest = element
                     min_dist = dist
                 elif dist < min_dist:
@@ -462,11 +468,11 @@ class OsmBot(object):
                     min_dist = dist
                     identificador = element['id']
                     if element['type'] == 'node':
-                        type = 'nod'
+                        element_type = 'nod'
                     elif element['type'] == 'way':
-                        type = 'way'
+                        element_type = 'way'
                     else:
-                        type = 'rel'
+                        element_type = 'rel'
             if nearest:
                 tags = nearest['tags']
             else:
@@ -568,11 +574,11 @@ class OsmBot(object):
             else:
                 t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"])) + "\n"
 
-        t += '\n' +_('Raw data:') + ' /raw' + str(type) + str(identificador) + '\n'
+        t += '\n' +_('Raw data:') + ' /raw' + str(element_type) + str(identificador) + '\n'
         if link:
-            if type == 'nod':
+            if element_type == 'nod':
                 t += 'http://osm.org/node/{0}\n'.format(str(identificador))
-            elif type == 'way':
+            elif element_type == 'way':
                 t += 'http://osm.org/way/{0}\n'.format(str(identificador))
             else:
                 t += 'http://osm.org/relation/{0}\n'.format(str(identificador))
