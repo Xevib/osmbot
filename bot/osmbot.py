@@ -21,7 +21,6 @@ from bot.maptools import download, genBBOX, getScale
 from bot.utils import getData
 from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
-from bot.bot import Bot, Message
 from bot.error import OSMError
 
 
