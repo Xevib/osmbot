@@ -12,7 +12,7 @@ import overpass
 import telegram
 from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
-from StringIO import StringIO
+from io import StringIO
 
 # local imports
 from bot.user import User
@@ -23,6 +23,7 @@ from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
 from bot.bot import Bot, Message
 from bot.error import OSMError
+import pynominatim
 
 
 def url_escape(s):
@@ -74,7 +75,7 @@ class OsmBot(object):
 
         :param config: Dictionary with the configuration variables
         (token,host,database,user,password)
-        :param auto_config: Enable/Disable automatic init_config
+        :param auto_init: Enable/Disable automatic init_config
         """
         # private attributes
         self.rtl_languages = None
@@ -82,6 +83,7 @@ class OsmBot(object):
         self.jinja_env = None
         self.language = None
         self.telegram_api = None
+        self.re_map = re.compile(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}")
 
         # configure osmbot
         if auto_init:
@@ -344,11 +346,12 @@ class OsmBot(object):
         :param chat_id: Identifier of the chat
         :return: None
         """
-        import pynominatim
-        t = ''
         search = message[8:].replace('\n', '').replace('\r', '')
         nom = pynominatim.Nominatim()
-        results = nom.query(search, acceptlanguage=user_config['lang'], addressdetails=True)
+        results = nom.query(
+            search,
+            acceptlanguage=user_config['lang'],
+            addressdetails=True)
         if not results:
             template = self._get_template('not_found_message.md')
             text = template.render(search=search)
@@ -407,7 +410,11 @@ class OsmBot(object):
                             t += _('More info') + ' /details{0}\n\n'.format(result['osm_id'])
 
             t += '\xC2\xA9' + _('OpenStreetMap contributors') + '\n'
-        self.telegram_api.sendMessage(chat_id, t, parse_mode='Markdown', disable_web_page_preview=True)
+        self.telegram_api.sendMessage(
+            chat_id,
+            t,
+            parse_mode='Markdown',
+            disable_web_page_preview=True)
 
     def pretty_tags(self, data, identificador, type, user_config, chat_id, lat=None, lon=None, link=False):
         """
@@ -571,7 +578,11 @@ class OsmBot(object):
             else:
                 t += 'http://osm.org/relation/{0}\n'.format(str(identificador))
         t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors') + '\n'
-        self.telegram_api.sendMessage(chat_id, t, 'Markdown', disable_web_page_preview=(not preview))
+        self.telegram_api.sendMessage(
+            chat_id,
+            t,
+            'Markdown',
+            disable_web_page_preview=(not preview))
 
     def map_command(self, message, chat_id, user_id, user, zoom=None, imgformat='png', lat=None, lon=None):
         """
@@ -609,8 +620,8 @@ class OsmBot(object):
             19: 0.04
         }
         nom = pynominatim.Nominatim()
-        response = []
         message = message[4:]
+        signature = self._get_template('signature.md').render()
         if lat is not None and lon is not None:
             if zoom:
                 halfside = zoom_halfside[zoom]
@@ -621,9 +632,9 @@ class OsmBot(object):
                 data = download(bbox, _, imageformat=imgformat, zoom=zoom)
                 f = StringIO(data)
             except ValueError as v:
-                response.append(Message(chat_id, v.message))
+                self.telegram_api.sendMessage(chat_id, v.message)
             else:
-                signature = '©' + _('OSM contributors')
+
                 if imgformat == 'pdf':
                     self.telegram_api.sendDocument(chat_id, f, 'map.pdf')
                 elif imgformat == 'jpeg':
@@ -663,18 +674,16 @@ class OsmBot(object):
                     data = download(bbox, lang.gettext, imageformat=imgformat, zoom=zoom)
                     f = StringIO(data)
                 except ValueError as v:
-                    response.append(v.message)
+                    self.telegram_api.sendMessage(chat_id, v.message)
                 else:
                     if imgformat == 'pdf':
                         self.telegram_api.sendDocument(chat_id, f, 'map.pdf')
                     elif imgformat == 'jpeg':
-                        self.telegram_api.sendPhoto(
-                            chat_id, f, '©' + _('OSM contributors'))
+                        self.telegram_api.sendPhoto(chat_id, f, signature)
                     elif imgformat == 'png':
-                        self.telegram_api.sendPhoto(
-                            chat_id, f, '©' + _('OSM contributors'))
-            elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}",message):
-                m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})",message)
+                        self.telegram_api.sendPhoto(chat_id, f, signature)
+            elif re.match(self.re_map, message):
+                m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})", message)
                 if m is not None:
                     bbox1 = m.groupdict()['bb1']
                     bbox2 = m.groupdict()['bb2']
@@ -692,9 +701,8 @@ class OsmBot(object):
                             imgformat, zoom=zoom)
                         f = StringIO(data)
                     except ValueError as v:
-                        response.append(v.message)
+                        self.telegram_api.sendMessage(chat_id, v.message)
                     else:
-                        signature = '©' + _('OSM contributors')
                         if imgformat == 'pdf':
                             self.telegram_api.sendDocument(chat_id, f, 'map.pdf')
                         elif imgformat == 'jpeg':
@@ -718,7 +726,6 @@ class OsmBot(object):
                     except ValueError as v:
                         self.telegram_api.sendMessage(chat_id, v.message)
                     else:
-                        signature = '©' + _('OSM contributors')
                         self.telegram_api.sendPhoto(chat_id, f, signature)
                 else:
                     temp = self._get_template('cant_understand_message.md')
@@ -797,7 +804,15 @@ class OsmBot(object):
                 preview = False
                 if 'website' in osm_data['tag'] or 'wikidata' in osm_data['tag'] or 'wikipedia' in osm_data['tag']:
                     preview = True
-                text = self._get_template('details_message.md').render(data=osm_data, type=element_type, identifier=identifier, user_config=user_config,is_rtl=self.get_is_rtl())
+                template = self._get_template('details_message.md')
+                template_params = {
+                    'data': osm_data,
+                    'type': element_type,
+                    'identifier': identifier,
+                    'user_config': user_config,
+                    'is_rtl': self.get_is_rtl()
+                }
+                text = template.render(**template_params)
                 self.telegram_api.sendMessage(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
 
     def nearest_command(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
@@ -951,7 +966,11 @@ class OsmBot(object):
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
 
-        self.telegram_api.answerInlineQuery(inline_query_id, results, is_personal=True, cache_time=86400)
+        self.telegram_api.answerInlineQuery(
+            inline_query_id,
+            results,
+            is_personal=True,
+            cache_time=86400)
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
         """
@@ -975,7 +994,11 @@ class OsmBot(object):
             if message.lower() == '/start':
                 user.set_field(chat_id, 'mode', 'normal')
                 text = self._get_template('start_answer.md').render()
-                self.telegram_api.sendMessage(chat_id, text, 'Markdown', (not preview))
+                self.telegram_api.sendMessage(
+                    chat_id,
+                    text,
+                    'Markdown',
+                    (not preview))
             elif 'location' in query['message']:
                 if user_config is not None and user_config.get('mode', '') == 'map':
                     self.map_command(
@@ -1002,7 +1025,7 @@ class OsmBot(object):
                     template_name = 'seting_not_recognized_message.md'
                     temp = self._get_template(template_name)
                     text = temp.render()
-                    self.telegram_api.sendMessage(chat_id, text,'Markdown',not preview)
+                    self.telegram_api.sendMessage(chat_id, text, 'Markdown', not preview)
                     user.set_field(chat_id, 'mode', 'normal', group=is_group)
             elif user_config['mode'] == 'setlanguage':
                 self.set_language_command(
@@ -1022,8 +1045,7 @@ class OsmBot(object):
                         imgformat=user_config['format'],
                         lat=float(lat), lon=float(lon))
                 elif message == 'Language':
-                    self.language_command(message, user_id, chat_id, user,
-                                                      is_group)
+                    self.language_command(message, user_id, chat_id, user, is_group)
                 elif message == 'Answer only when mention?':
                     self.answer_command(message, user_id, chat_id, user)
                 elif message.lower().startswith('/settings'):
