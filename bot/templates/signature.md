@@ -1,0 +1,1 @@
+© {{_('OSM contributors')}}
