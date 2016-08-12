@@ -1025,7 +1025,7 @@ class OsmBot(object):
                     self.language_command(message, user_id, chat_id, user,
                                                       is_group)
                 elif message == 'Answer only when mention?':
-                    self.answer_command(message, user_id, chat_id, user)
+                    self.answer_command(chat_id, user)
                 elif message.lower().startswith('/settings'):
                     self.settings_command(message, user_id, chat_id, user, is_group)
                 elif message.lower().startswith('/nearest'):
