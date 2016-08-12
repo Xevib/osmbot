@@ -8,7 +8,6 @@ from configobj import ConfigObj
 import gettext
 import bot.user as u
 from bot.osmbot import OsmBot
-from bot.bot import Bot
 from telegram import Bot as TBot
 
 application = Flask(__name__)
@@ -18,7 +17,6 @@ config = ConfigObj('bot.conf')
 if config:
     user = u.User(config.get('host', ''), config.get('database', ''), config.get('user', ''), config.get('password', ''))
     osmbot = OsmBot(config)
-    bot_api = Bot(config['token'])
     telegram_api = TBot(config['token'])
 
 api = OsmApi()
