@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import  absolute_import
+from __future__ import absolute_import
 from flask import Flask
 from flask import request, current_app, Blueprint
 import pynominatim
@@ -42,15 +42,17 @@ def attend_webhook(token):
             is_group = False
             message_type = ''
             if 'message' in query:
+                message_dict = query['message']
                 message_type = 'query'
-                if 'from' in query['message'] and 'id' in query['message']['from']:
+
+                if 'from' in message_dict and 'id' in message_dict['from']:
                     is_group = query['message']['chat']['type'] == u'group'
                     if is_group:
-                        identifier = query['message']['chat']['id']
+                        identifier = message_dict['chat']['id']
                     else:
-                        identifier = query['message']['from']['id']
+                        identifier = message_dict['from']['id']
                     user_config = user.get_user(identifier, group=is_group)
-                    user_id = query['message']['from']['id']
+                    user_id = message_dict['from']['id']
             elif 'inline_query' in query:
                 message_type = 'inline'
                 user_id = query['inline_query']['from']['id']
@@ -68,8 +70,8 @@ def attend_webhook(token):
                     message = ''
                 chat_id = query['message']['chat']['id']
 
-                if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None )and not '@osmbot' in message.lower():
-                    if message != 'Yes' and message != 'No' and message != 'Language' and message != 'Answer only when mention?' and message not in osmbot.get_languages().keys():
+                if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None)and '@osmbot' not in message.lower():
+                    if message not in ['Yes', 'No', 'Language', 'Answer only when mention?'] and message not in osmbot.get_languages().keys():
                         return 'OK'
                 else:
                     message = message.replace('@osmbot', '')
@@ -77,7 +79,7 @@ def attend_webhook(token):
 
             message = osmbot.clean_message(message)
             osmbot.load_language(user_config['lang'])
-            osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user,message_type)
+            osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user, message_type)
         except Exception as e:
             print(str(e))
             import traceback
