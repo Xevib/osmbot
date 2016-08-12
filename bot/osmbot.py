@@ -207,11 +207,19 @@ class OsmBot(object):
             user.set_field(user_id, 'mode', 'normal', group=group)
         if not onlymentions:
             text = self._get_template('only_mention.md').render()
-            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+            self.telegram_api.sendMessage(
+                chat_id,
+                text,
+                'Markdown',
+                reply_markup=ReplyKeyboardHide())
         else:
             template = self._get_template('answer_always.md')
             text = template.render(is_rtl=self.get_is_rtl())
-            self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+            self.telegram_api.sendMessage(
+                chat_id,
+                text,
+                'Markdown',
+                reply_markup=ReplyKeyboardHide())
         return []
 
     def set_language_command(self, message, user_id, chat_id, u, group=False):
