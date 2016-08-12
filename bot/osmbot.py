@@ -293,7 +293,7 @@ class OsmBot(object):
 
         if group:
             text = self._get_template('question_only_mention.md').render()
-            k = ReplyKeyboardMarkup(['Language', text], one_time_keyboard=True)
+            k = ReplyKeyboardMarkup([['Language'], [text]], one_time_keyboard=True)
         else:
             k = ReplyKeyboardMarkup([['Language']], one_time_keyboard=True)
         text = self._get_template('configure_question.md').render()
@@ -1024,7 +1024,7 @@ class OsmBot(object):
                     self.language_command(message, user_id, chat_id, user,
                                                       is_group)
                 elif message == 'Answer only when mention?':
-                    self.answer_command(message, user_id, chat_id, user)
+                    self.answer_command(chat_id, user)
                 elif message.lower().startswith('/settings'):
                     self.settings_command(message, user_id, chat_id, user, is_group)
                 elif message.lower().startswith('/nearest'):
