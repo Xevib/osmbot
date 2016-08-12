@@ -421,7 +421,7 @@ class OsmBot(object):
             parse_mode='Markdown',
             disable_web_page_preview=True)
 
-    def pretty_tags(self, data, identificador, type, user_config, chat_id, lat=None, lon=None, link=False):
+    def pretty_tags(self, data, identificador, element_type, user_config, chat_id, lat=None, lon=None, link=False):
         """
         Function that generates a pretty answer from a osm data
 
@@ -818,7 +818,11 @@ class OsmBot(object):
                     'is_rtl': self.get_is_rtl()
                 }
                 text = template.render(**template_params)
-                self.telegram_api.sendMessage(chat_id, text, disable_web_page_preview=(not preview), parse_mode='Markdown')
+                self.telegram_api.sendMessage(
+                    chat_id,
+                    text,
+                    disable_web_page_preview=(not preview),
+                    parse_mode='Markdown')
 
     def nearest_command(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
         """
