@@ -23,7 +23,6 @@ from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
 from bot.bot import Bot, Message
 from bot.error import OSMError
-import pynominatim
 
 
 def url_escape(s):
