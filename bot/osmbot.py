@@ -1102,5 +1102,5 @@ class OsmBot(object):
                     text = _('Please indicate what are you searching with command /search <search_term>')
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                 else:
-                    text = _('Use /search <search_term> command to indicate what you are searching')
+                    text = _('Use /search <search\_term> command to indicate what you are searching')
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
