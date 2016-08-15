@@ -1099,7 +1099,7 @@ class OsmBot(object):
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
                     self.search_command(message, user_config, chat_id)
                 elif re.match('/search', message.lower()) is not None:
-                    text = _('Please indicate what are you searching with command /search <search_term>')
+                    text = _('Please indicate what are you searching with command /search <search\_term>')
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                 else:
                     text = _('Use /search <search\_term> command to indicate what you are searching')

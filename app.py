@@ -1,5 +1,4 @@
 import logging
-from bot.bot import Bot
 
 from flask import Flask, request, current_app
 from bot import Osmbot
@@ -14,7 +13,6 @@ Osmbot(application, '')
 
 config = ConfigObj('bot.conf')
 token = config['token']
-bot = Bot(token)
 telegram_api = telegram.Bot(config['token'])
 if 'sentry_dsn' in config:
     application.config['sentry_dsn'] = config['sentry_dsn']
