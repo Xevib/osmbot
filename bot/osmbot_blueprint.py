@@ -81,7 +81,7 @@ def attend_webhook(token):
             osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user, message_type)
             return 'OK'
         except Exception as e:
-            if e == 'Unauthorized':
+            if e.message == 'Unauthorized':
                 return 'OK'
             print(str(e))
             import traceback

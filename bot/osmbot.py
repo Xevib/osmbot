@@ -948,7 +948,7 @@ class OsmBot(object):
         inline_query_id = query['inline_query']['id']
         results = []
         if search_results:
-            for index, r in enumerate(search_results[:7]):
+            for index, r in enumerate(search_results[:10]):
                 element_type = ''
                 if r.get('osm_type', '') == 'node':
                     element_type = 'nod'
