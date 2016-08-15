@@ -79,7 +79,10 @@ def attend_webhook(token):
             message = osmbot.clean_message(message)
             osmbot.load_language(user_config['lang'])
             osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user, message_type)
+            return 'OK'
         except Exception as e:
+            if e == 'Unauthorized':
+                return 'OK'
             print(str(e))
             import traceback
             traceback.print_exc()
@@ -87,7 +90,7 @@ def attend_webhook(token):
             osmbot.load_language(user_config['lang'])
             text = osmbot._get_template('error_message.md').render()
             telegram_api.sendMessage(chat_id, text)
-        return 'OK'
+            return 'OK'
     else:
         return 'NOT ALLOWED'
 
