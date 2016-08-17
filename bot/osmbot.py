@@ -17,7 +17,7 @@ from mapnik import *
 import uuid
 import pyproj
 from multiprocessing import Process
-
+import time
 
 # local imports
 from bot.user import User
@@ -995,7 +995,7 @@ class OsmBot(object):
                         input_message_content=InputTextMessageContent(
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
-
+        time.sleep(5)
         resp = self.telegram_api.answerInlineQuery(
             inline_query_id,
             results,
