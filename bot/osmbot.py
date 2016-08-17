@@ -989,9 +989,9 @@ class OsmBot(object):
                     print('https://xevib.ddns.net:443/osmbot/img/'+filename)
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
-                        title=osm_data['tag'].get('name',''),
+                        title=osm_data['tag'].get('name', ''),
                         description=r['display_name'],
-                        thumb_url='https://xevib.ddns.net:443/osmbot/img/'+filename,
+                        thumb_url='https://xevib.ddns.net:443/osmbot/img/mymap.png',
                         input_message_content=InputTextMessageContent(
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
