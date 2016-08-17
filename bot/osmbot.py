@@ -13,6 +13,8 @@ import telegram
 from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
 from io import StringIO
+from mapnik import *
+import uuid
 
 # local imports
 from bot.user import User
@@ -94,6 +96,10 @@ class OsmBot(object):
         :param config: the configuration file
         :return: None
         """
+        if 'map_style' in config:
+            print('Loading map style')
+            self.map_style = Map(1024, 1024)
+            load_map(self.map_style, config['map_style'])
 
         # TOOD(xevi): why Persian here?
         self.rtl_languages = ['fa']
@@ -974,19 +980,42 @@ class OsmBot(object):
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
                 else:
+                    filename = str(uuid.uuid4())+'.png'
+                    self._render_map(filename, r['boundingbox'])
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
                         title=osm_data['tag']['name'],
                         description=r['display_name'],
+                        thumb_url='https://xevib.ddns.net:443/osmbot/img/'+filename,
                         input_message_content=InputTextMessageContent(
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
 
-        self.telegram_api.answerInlineQuery(
+        resp = self.telegram_api.answerInlineQuery(
             inline_query_id,
             results,
             is_personal=True,
             cache_time=86400)
+        print(resp)
+
+    def _render_map(self, filename, bbox):
+        print('iniciant render')
+        import time
+        import pyproj
+        start = time.time()
+        final_url = os.path.join('/tmp/osmbot', filename)
+        wsg_84 = pyproj.Proj(init='epsg:4326')
+        dest_proj = pyproj.Proj(init='epsg:3857')
+        print bbox
+        p1 = pyproj.transform(wsg_84, dest_proj, bbox[2], bbox[0])
+        p2 = pyproj.transform(wsg_84, dest_proj, bbox[3], bbox[1])
+        print p1
+        print p2
+        mbbox = (Box2d(p1[0], p1[1], p2[0], p2[1]))
+        self.map_style.zoom_to_box(mbbox)
+        render_to_file(self.map_style, final_url)
+        end = time.time()
+        print('fet {} en {}'.format(final_url, end - start))
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
         """
