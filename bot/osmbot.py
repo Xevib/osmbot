@@ -13,7 +13,7 @@ import telegram
 from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
 from io import StringIO
-from mapnik import *
+from mapnik import render_to_file, Box2d
 import uuid
 import pyproj
 from multiprocessing import Process
