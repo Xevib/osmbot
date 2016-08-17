@@ -986,6 +986,7 @@ class OsmBot(object):
                     filename = str(uuid.uuid4())+'.png'
                     p = Process(target=self._render_map, args=(filename, r['boundingbox']))
                     p.start()
+                    print('https://xevib.ddns.net:443/osmbot/img/'+filename)
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
                         title=osm_data['tag']['name'],
@@ -1000,7 +1001,6 @@ class OsmBot(object):
             results,
             is_personal=True,
             cache_time=86400)
-        print(resp)
 
     def _render_map(self, filename, bbox):
         print('iniciant render')
