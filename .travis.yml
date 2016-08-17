@@ -3,6 +3,7 @@ python:
   - "2.7"
 before_script:
   - psql -c 'create database bot;' -U postgres
+  - apt-get install -y python-mapnik
 install: "pip install -r requirements.txt"
 script:  PYTHONPATH="." python test/test.py
 services:
