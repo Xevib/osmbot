@@ -15,6 +15,9 @@ from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageConten
 from io import StringIO
 from mapnik import *
 import uuid
+import pyproj
+from multiprocessing import Process
+
 
 # local imports
 from bot.user import User
@@ -981,7 +984,7 @@ class OsmBot(object):
                             parse_mode=ParseMode.MARKDOWN)))
                 else:
                     filename = str(uuid.uuid4())+'.png'
-                    self._render_map(filename, r['boundingbox'])
+                    p = Process(target=self._render_map, args=(filename, r['boundingbox']))
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
                         title=osm_data['tag']['name'],
@@ -1001,16 +1004,13 @@ class OsmBot(object):
     def _render_map(self, filename, bbox):
         print('iniciant render')
         import time
-        import pyproj
         start = time.time()
         final_url = os.path.join('/tmp/osmbot/img', filename)
         wsg_84 = pyproj.Proj(init='epsg:4326')
         dest_proj = pyproj.Proj(init='epsg:3857')
-        print bbox
         p1 = pyproj.transform(wsg_84, dest_proj, bbox[2], bbox[0])
         p2 = pyproj.transform(wsg_84, dest_proj, bbox[3], bbox[1])
-        print p1
-        print p2
+
         mbbox = (Box2d(p1[0], p1[1], p2[0], p2[1]))
         self.map_style.zoom_to_box(mbbox)
         render_to_file(self.map_style, final_url)
