@@ -985,6 +985,7 @@ class OsmBot(object):
                 else:
                     filename = str(uuid.uuid4())+'.png'
                     p = Process(target=self._render_map, args=(filename, r['boundingbox']))
+                    p.start()
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
                         title=osm_data['tag']['name'],
