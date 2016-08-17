@@ -50,7 +50,7 @@ class BotTest(unittest.TestCase):
         config = ConfigObj()
  
         # no config and empty config
-        self.assertRaises(OSMError, self.b.init_config, 0)
+        self.assertRaises(OSMError, self.b.init_config, {})
         self.assertRaises(OSMError, self.b.init_config, True)
         self.assertRaises(OSMError, self.b.init_config, 'random_string')
         self.assertRaises(OSMError, self.b.init_config, config)
