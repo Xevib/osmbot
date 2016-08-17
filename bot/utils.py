@@ -1,4 +1,23 @@
 from osmapi import OsmApi
+import psycopg2
+
+
+def get_data_db(idenfiticador, geom_type=None, host='localhost', database='osm', user=None, password=None):
+    conn = psycopg2.connect(host=host, database=database, user=user, password=password)
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    if geom_type == 'nod':
+        cursor.execute('SELECT tags FROM planet_osm_point WHERE osm_id=%s limit 1;', (idenfiticador,))
+    elif geom_type == 'way':
+        cursor.execute('SELECT tags FROM planet_osm_line WHERE osm_id=%s limit 1;', (idenfiticador,))
+    elif geom_type == 'rel':
+        cursor.execute('SELECT tags FROM planet_osm_polygon WHERE osm_id=%s limit 1;', (idenfiticador,))
+    else:
+        return {}
+    data = cursor.fetchone()
+    if data:
+        return {'tag': data[0], 'id': idenfiticador}
+    else:
+        return {}
 
 
 def getData(id, geom_type=None):

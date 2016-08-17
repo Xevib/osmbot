@@ -23,7 +23,7 @@ import time
 from bot.user import User
 from bot.typeemoji import typeemoji
 from bot.maptools import download, genBBOX, getScale
-from bot.utils import getData
+from bot.utils import getData, get_data_db
 from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
 from bot.error import OSMError
@@ -87,6 +87,12 @@ class OsmBot(object):
         self.language = None
         self.telegram_api = None
         self.re_map = re.compile(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}")
+        self.db_host = ''
+        self.osm_db = ''
+        self.db = ''
+        self.db_user = ''
+        self.db_password = ''
+
 
         # configure osmbot
         if auto_init:
@@ -110,9 +116,13 @@ class OsmBot(object):
         # setup the database info
         from configobj import ConfigObj
         if config and isinstance(config, ConfigObj):
-            self.user = User(
-                config.get('host', ''), config.get('database', ''),
-                config.get('user', ''), config.get('password', ''))
+            self.db_host = config.get('host', '')
+            self.osm_db = config.get('osm_database', '')
+            self.db = config.get('database', '')
+            self.db_user = config.get('user', '')
+            self.db_password = config.get('password', '')
+
+            self.user = User(self.db_host, self.db, self.db_user, self.db_password)
         else:
             raise OSMError('No config file: ' \
                     'Please provide a ConfigObj object instance.')
@@ -965,7 +975,7 @@ class OsmBot(object):
                     element_type = 'way'
                 elif r.get('osm_type', '') == 'relation':
                     element_type = 'rel'
-                osm_data = getData(r['osm_id'], geom_type=element_type)
+                osm_data = get_data_db(r['osm_id'], element_type, self.db_host, self.osm_db, self.db_user, self.db_password)
                 params = {
                     'data': osm_data, 'type': element_type,
                     'identifier': r['osm_id'], 'user_config': user_config,
@@ -995,7 +1005,7 @@ class OsmBot(object):
                         input_message_content=InputTextMessageContent(
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
-        time.sleep(5)
+        time.sleep(4)
         resp = self.telegram_api.answerInlineQuery(
             inline_query_id,
             results,
