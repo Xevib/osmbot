@@ -13,7 +13,7 @@ import telegram
 from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
 from io import StringIO
-from mapnik import render_to_file, Box2d
+from mapnik import render_to_file, Box2d, Map, load_map
 import uuid
 import pyproj
 from multiprocessing import Process
@@ -105,10 +105,7 @@ class OsmBot(object):
         :param config: the configuration file
         :return: None
         """
-        if 'map_style' in config:
-            print('Loading map style')
-            self.map_style = Map(320, 320)
-            load_map(self.map_style, config['map_style'])
+
 
         # TOOD(xevi): why Persian here?
         self.rtl_languages = ['fa']
@@ -116,6 +113,12 @@ class OsmBot(object):
         # setup the database info
         from configobj import ConfigObj
         if config and isinstance(config, ConfigObj):
+            if 'map_style' in config:
+                print('Loading map style')
+                self.map_style = Map(320, 320)
+                load_map(self.map_style, config['map_style'])
+
+
             self.db_host = config.get('host', '')
             self.osm_db = config.get('osm_database', '')
             self.db = config.get('database', '')
