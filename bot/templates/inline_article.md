@@ -44,7 +44,7 @@
 {% endif %}{% if 'currency' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4B5'}} {{data.tag['currency']}}
 {% endif %}{% if 'timezone' in data.tag -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']}}
+{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F552'}}{{'\U0001F310'}} {{data.tag['timezone']|escape_underscoere()}}
 {% endif %}{% if 'is_in:continent' in data.tag or 'flag' in data.tag or 'currency' in data.tag or 'timezone' in data.tag %}
 {% endif -%}
 {% if 'addr:full' in data.tag -%}
