@@ -976,6 +976,8 @@ class OsmBot(object):
                 elif r.get('osm_type', '') == 'relation':
                     element_type = 'rel'
                 osm_data = get_data_db(r['osm_id'], element_type, self.db_host, self.osm_db, self.db_user, self.db_password)
+                if osm_data  == {}:
+                    osm_data = getData(r['osm_id'], element_type)
                 params = {
                     'data': osm_data, 'type': element_type,
                     'identifier': r['osm_id'], 'user_config': user_config,
