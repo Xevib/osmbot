@@ -1006,7 +1006,7 @@ class OsmBot(object):
                         id=uuid4(),
                         title=osm_data['tag'].get('name', ''),
                         description=r['display_name'],
-                        thumb_url='https://xevib.ddns.net:81/osmbot/img/' + filename,
+                        thumb_url='http://xevib.ddns.net:81/osmbot/img/' + filename,
                         input_message_content=InputTextMessageContent(
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
