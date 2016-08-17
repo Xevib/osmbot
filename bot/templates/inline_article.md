@@ -105,7 +105,7 @@
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F513'}}{{'\U0001F695'}} {{data.tag['taxi']}}
 {% endif -%}{% if 'emergency' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F513'}}{{'\U0001F6A8'}} {{data.tag['emergency']}}
-{% endif -%}{% if 'ref' in data.tag or 'lanes' in data.tag or 'maxspeed' in data.tag or 'access' in data.tag or 'foot' in data.tag or 'horse' in data.tag or 'bicycle' in data.tag or 'motor_vehicle' in data.tag or 'motorcycle' in data.tag or 'motorcar' in data.tag or 'hgv' in data.tag or 'agricultural' in data.tag or 'bus' in data.tag or 'taxi' in data.tag or 'emergency' in data.tag in data.tag %}
+{% endif -%}{% if 'ref' in data.tag or 'lanes' in data.tag or 'maxspeed' in data.tag or 'access' in data.tag or 'foot' in data.tag or 'horse' in data.tag or 'bicycle' in data.tag or 'motor_vehicle' in data.tag or 'motorcycle' in data.tag or 'motorcar' in data.tag or 'hgv' in data.tag or 'agricultural' in data.tag or 'bus' in data.tag or 'taxi' in data.tag or 'emergency' in data.tag %}
 {% endif -%}
 {% if 'phone' in data.tag -%}
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4DE'}} {% if is_rtl -%}{{'\U0000200E'}}{% endif -%}{{data.tag['phone']}}
