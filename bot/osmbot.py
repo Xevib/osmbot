@@ -34,6 +34,16 @@ def url_escape(s):
     return s.replace(' ', '%20').replace(')', '\\)')
 
 
+def escape_underscoere(s):
+    """
+    Used to escape underscores
+
+    :param s: original text in data
+    :return: Escaped text
+    """
+    return s.replace('_', '\\_')
+
+
 class OsmBot(object):
     # dict with all available languages
     # TODO(edgar): load this from a local config file.
@@ -112,6 +122,7 @@ class OsmBot(object):
         # TODO(xevi): Should we set a default language?
         self.jinja_env = Environment(extensions=['jinja2.ext.i18n'])
         self.jinja_env.filters['url_escape'] = url_escape
+        self.jinja_env.filters['escape_underscoere'] = escape_underscoere
         self.language = None
 
         # setup the telegram API. Before check token existence
