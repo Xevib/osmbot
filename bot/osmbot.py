@@ -18,6 +18,7 @@ import uuid
 import pyproj
 from multiprocessing import Process
 import time
+import psycopg2
 
 # local imports
 from bot.user import User
@@ -998,10 +999,15 @@ class OsmBot(object):
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
                 else:
-                    filename = str(uuid.uuid4())+'.png'
-                    p = Process(target=self._render_map, args=(filename, r['boundingbox']))
-                    p.start()
-                    print('http://xevib.ddns.net:81/osmbot/img/' + filename)
+                    filename = self._check_render_cache(r['boundingbox'])
+                    if not filename:
+                        filename = str(uuid.uuid4())+'.png'
+                        p = Process(target=self._render_map, args=(filename, r['boundingbox']))
+                        p.start()
+                        print('http://xevib.ddns.net:81/osmbot/img/' + filename)
+                        p = Process(target=self._add_render_cache, args=(filename, r['boundingbox']))
+                        p.start()
+
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
                         title=osm_data['tag'].get('name', r['display_name']),
@@ -1011,11 +1017,29 @@ class OsmBot(object):
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
         time.sleep(4)
-        resp = self.telegram_api.answerInlineQuery(
+        self.telegram_api.answerInlineQuery(
             inline_query_id,
             results,
             is_personal=True,
             cache_time=86400)
+
+    def _check_render_cache(self, bbox):
+        conn = psycopg2.connect(host=self.db_host, database=self.db, user=self.db_user, password=self.db_password)
+        cur = conn.cursor()
+        cur.execute('SELECT filename FROM render_cache where bbox=%s LIMIT 1;', (bbox,))
+        data = cur.fetchone()
+        conn.close()
+        if data:
+            return data[0][0]
+        else:
+            return False
+
+    def _add_render_cache(self, filename, bbox):
+        conn = psycopg2.connect(host=self.db_host, database=self.osm_db,
+                                user=self.db_user, password=self.db_password)
+        cur = conn.cursor()
+        conn.commit()
+        conn.close()
 
     def _render_map(self, filename, bbox):
         print('iniciant render')
