@@ -1558,7 +1558,8 @@
        "value": "Eurasia",
        "object_types": ["way", "area", "node", "relation"],
        "description": "Used in Details message and Inline bot answer if admin_level=2 or place=country",
-       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message"
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/eurasia.png"
    },
 
    {
@@ -1566,7 +1567,8 @@
        "value": "Europe; Asia",
        "object_types": ["way", "area", "node", "relation"],
        "description": "Used in Details message and Inline bot answer if admin_level=2 or place=country",
-       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message"
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/eurasia.png"
    },
    {
        "key": "flag",
@@ -1586,7 +1588,8 @@
        "key": "timezone",
        "object_types": ["way", "area", "node", "relation"],
        "description": "Used in Details message and Inline bot answer if admin_level=2 or place=country",
-       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message"
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "https://raw.githubusercontent.com/Xevib/osmbot/master/taginfo/icons/timezone.png"
    },
    {
        "key": "addr:full",
