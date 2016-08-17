@@ -1599,6 +1599,304 @@
        "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/4b/d4/4bd4eef2e016e0e731adfd4bce01e26a.png"
    },
    {
+       "key": "addr:street",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:housenumber",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:housename",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:city",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:postcode",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:district",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:suburb",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:province",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:state",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "addr:country",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/23/3d/233d517b860f0aa185da2aed93fbe1da.png"
+   },
+   {
+       "key": "ref",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/9c/ae/9caeec5f11cf26a686536f387877f2df.png"
+   },
+   {
+       "key": "lanes",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message"
+   },
+   {
+       "key": "maxspeed",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/65/31/653126960f1ab24587bb8acf6b535030.png"
+   },
+   {
+       "key": "access",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "foot",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "horse",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "bicycle",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "motor_vehicle",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "motorcycle",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "motorcar",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "hgv",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "agricultural",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "bus",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "taxi",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "emergency",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/26/54/2654c152e37ab33dccd71f8b5606ee0e.png"
+   },
+   {
+       "key": "phone",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/0e/46/0e467e6540da67b516e4008b09e51e5e.png"
+   },
+   {
+       "key": "contact:phone",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/0e/46/0e467e6540da67b516e4008b09e51e5e.png"
+   },
+   {
+       "key": "fax",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/88/b7/88b7ff5231da0ed737b75431838e64cc.png"
+   },
+   {
+       "key": "contact:fax",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/88/b7/88b7ff5231da0ed737b75431838e64cc.png"
+   },
+   {
+       "key": "email",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/4f/be/4fbe8b8445664253650cb40ccafb351b.png"
+   },
+   {
+       "key": "contact:email",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/4f/be/4fbe8b8445664253650cb40ccafb351b.png"
+   },
+   {
+       "key": "website",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/db/40/db40b90186e898fbad7384a0c1209b66.png"
+   },
+   {
+       "key": "contact:website",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/db/40/db40b90186e898fbad7384a0c1209b66.png"
+   },
+   {
+       "key": "opening_hours",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/9c/99/9c9962be511897c3b3ac524e69b58187.png"
+   },
+   {
+       "key": "internet_access",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/dd/a8/dda83c2f603a722724f7503f10e71f7e.png"
+   },
+   {
+       "key": "internet_access:fee",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message"
+   },
+   {
+       "key": "rooms",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/2a/80/2a80a079191d67b5f01e8f19eb94942d.png"
+   },
+   {
+       "key": "beds",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/68/cf/68cfeb85990b3b70ec7ace2799c603b1.png"
+   },
+   {
+       "key": "toilets",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/01/ad/01adc45a08e796991fc740bc8b576850.png"
+   },
+   {
+       "key": "wheelchair",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/c2/ac/c2acf72025e32c618ede65db686d2218.png"
+   },
+   {
+       "key": "toilets:wheelchair",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message"
+   },
+   {
+       "key": "dogs",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/1c/e9/1ce945f364719c92f31d1d3a359a213f.png"
+   },
+   {
+       "key": "smoking",
+       "object_types": ["way", "area", "node", "relation"],
+       "description": "Used in Details message and Inline bot answer",
+       "doc_url": "https://github.com/Xevib/osmbot/wiki/details#info-in-details-message",
+       "icon_url": "http://emojipedia-us.s3.amazonaws.com/cache/28/fd/28fdb0f2484625057bf1fbb31e3d9c9a.png"
+   },
+   {
        "key": "wikidata",
        "object_types": ["way", "area", "node", "relation"],
        "description": "Used in Details message and Inline bot answer",
