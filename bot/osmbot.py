@@ -12,7 +12,7 @@ import overpass
 import telegram
 from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
-from io import StringIO
+from io import BytesIO
 
 # local imports
 from bot.user import User
@@ -653,7 +653,7 @@ class OsmBot(object):
             bbox = genBBOX(lat, lon, halfside)
             try:
                 data = download(bbox, _, imageformat=imgformat, zoom=zoom)
-                f = StringIO(data)
+                f = BytesIO(data)
             except ValueError as v:
                 self.telegram_api.sendMessage(chat_id, v.message)
             else:
@@ -695,7 +695,7 @@ class OsmBot(object):
                     user_config = user.get_user(user_id, group=False)
                     lang = gettext.translation('messages', localedir='./bot/locales/', languages=[user_config['lang'], 'en'])
                     data = download(bbox, lang.gettext, imageformat=imgformat, zoom=zoom)
-                    f = StringIO(data)
+                    f = BytesIO(data)
                 except ValueError as v:
                     self.telegram_api.sendMessage(chat_id, v.message)
                 else:
@@ -722,7 +722,7 @@ class OsmBot(object):
                         data = download(
                             [bbox1, bbox2, bbox3, bbox4], _,
                             imgformat, zoom=zoom)
-                        f = StringIO(data)
+                        f = BytesIO(data)
                     except ValueError as v:
                         self.telegram_api.sendMessage(chat_id, v.message)
                     else:
@@ -745,7 +745,7 @@ class OsmBot(object):
                     auto_scale = getScale([bbox[0], bbox[2], bbox[1], bbox[3]])
                     try:
                         data = download([bbox[2], bbox[0], bbox[3], bbox[1]], _, scale=auto_scale)
-                        f = StringIO(data)
+                        f = BytesIO(data)
                     except ValueError as v:
                         self.telegram_api.sendMessage(chat_id, v.message)
                     else:
