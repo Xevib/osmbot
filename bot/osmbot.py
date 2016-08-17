@@ -986,12 +986,12 @@ class OsmBot(object):
                     filename = str(uuid.uuid4())+'.png'
                     p = Process(target=self._render_map, args=(filename, r['boundingbox']))
                     p.start()
-                    print('https://xevib.ddns.net:443/osmbot/img/'+filename)
+                    print('http://xevib.ddns.net:81/osmbot/img/' + filename)
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
                         title=osm_data['tag'].get('name', ''),
                         description=r['display_name'],
-                        thumb_url='https://xevib.ddns.net:443/osmbot/img/mymap.png',
+                        thumb_url='https://xevib.ddns.net:81/osmbot/img/' + filename,
                         input_message_content=InputTextMessageContent(
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
