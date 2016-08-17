@@ -1004,7 +1004,7 @@ class OsmBot(object):
                     print('http://xevib.ddns.net:81/osmbot/img/' + filename)
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
-                        title=osm_data['tag'].get('name', ''),
+                        title=osm_data['tag'].get('name', r['display_name']),
                         description=r['display_name'],
                         thumb_url='http://xevib.ddns.net:81/osmbot/img/' + filename,
                         input_message_content=InputTextMessageContent(
