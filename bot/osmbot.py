@@ -1003,7 +1003,7 @@ class OsmBot(object):
         import time
         import pyproj
         start = time.time()
-        final_url = os.path.join('/tmp/osmbot', filename)
+        final_url = os.path.join('/tmp/osmbot/img', filename)
         wsg_84 = pyproj.Proj(init='epsg:4326')
         dest_proj = pyproj.Proj(init='epsg:3857')
         print bbox
