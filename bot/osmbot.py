@@ -101,7 +101,7 @@ class OsmBot(object):
         """
         if 'map_style' in config:
             print('Loading map style')
-            self.map_style = Map(1024, 1024)
+            self.map_style = Map(320, 320)
             load_map(self.map_style, config['map_style'])
 
         # TOOD(xevi): why Persian here?
