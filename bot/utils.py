@@ -3,6 +3,17 @@ import psycopg2
 
 
 def get_data_db(idenfiticador, geom_type=None, host='localhost', database='osm', user=None, password=None):
+    """
+    Returns the OpenStreetMap data from database
+
+    :param idenfiticador: osm id
+    :param geom_type: type of geometry
+    :param host: Database host
+    :param database: Database
+    :param user: Database user
+    :param password: Database password
+    :return:
+    """
     conn = psycopg2.connect(host=host, database=database, user=user, password=password)
     psycopg2.extras.register_hstore(conn)
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
