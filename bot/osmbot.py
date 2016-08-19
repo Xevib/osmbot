@@ -987,7 +987,7 @@ class OsmBot(object):
                 else:
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
-                        title=osm_data['tag']['name'],
+                        title=osm_data['tag'].get('name',r['display_name']),
                         description=r['display_name'],
                         input_message_content=InputTextMessageContent(
                             text,
