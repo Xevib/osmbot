@@ -9,7 +9,7 @@ install:
 script: 
   - PYTHONPATH="." python test/test.py
 after_success:
-  - PYTHONPATH="." coverage2 --source=. run test/test.py
+  - PYTHONPATH="." coverage2 run --source=.  test/test.py
   - coveralls
 services:
   - postgresql
