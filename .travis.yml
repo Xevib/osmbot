@@ -8,6 +8,8 @@ install:
   - pip install coveralls
 script: 
   - PYTHONPATH="." python test/test.py
-  - PYTHONPATH="." coverage2 run test/test.py
+after_success:
+  - coveralls
+  - PYTHONPATH="." coverage2 run test/test.py report
 services:
   - postgresql
