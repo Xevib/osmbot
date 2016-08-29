@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/Xevib/osmbot.svg?branch=master)](https://travis-ci.org/Xevib/osmbot)
-
+[![Coverage Status](https://coveralls.io/repos/github/Xevib/osmbot/badge.svg?branch=add_coverave)](https://coveralls.io/github/Xevib/osmbot)
 OSMbot: OpenStreetMap bot for Telegram
 ======================================
 **OSMbot** is a project maintained by the OpenStreetMap Catalan Community. See [WikiProject Catalan/OSMbot](http://wiki.openstreetmap.org/wiki/Ca:WikiProject_Catalan/OSMbot).
