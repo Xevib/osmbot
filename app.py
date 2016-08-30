@@ -20,11 +20,9 @@ if 'sentry_dsn' in config:
     sentry.captureMessage('OSMBot started', level=logging.INFO)
     application.sentry = sentry
 
-f = open('nginx.crt', 'r')
-
 webhook = os.path.join(config['webhook'], config['token'])
 application.logger.debug('webhook:%s', config['webhook'])
-result = telegram_api.setWebhook(webhook, f)
+result = telegram_api.setWebhook(webhook)
 if result:
     application.logger.debug('Webhook set')
 
