@@ -4,12 +4,13 @@ from __future__ import absolute_import
 import unittest
 import os
 import sys
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from bot.osmbot import OsmBot
 from bot.error import OSMError
-
+from bot.utils import getData
 
 class OsmBotMock(OsmBot):
     def __init__(self, *args, **kwargs):
@@ -98,6 +99,11 @@ class BotTest(unittest.TestCase):
                 pass
             except exceptions.UndefinedError:
                 pass
+
+    def test_getData(self):
+        getData(343535, 'rel')
+        getData(423454728, 'way')
+        getData(2482096156, 'nod')
 
 
 if __name__ == '__main__':
