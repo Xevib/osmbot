@@ -107,7 +107,7 @@ class BotTest(unittest.TestCase):
         getData(2482096156, 'nod')
 
     def test_user(self):
-        u = User('localhost', 'bot', 'postgre', 'empty')
+        u = User('localhost', 'bot', 'postgres', 'empty')
 
 if __name__ == '__main__':
     unittest.main()
