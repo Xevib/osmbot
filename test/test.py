@@ -101,8 +101,8 @@ class BotTest(unittest.TestCase):
                 pass
 
     def test_getData(self):
-        getData(343535, 'rel')
-        getData(423454728, 'way')
+        self.assertEqual(getData(343535, 'rel'),getData(343535))
+        self.assertEqual(getData(423454728, 'way'),getData(423454728))
         self.assertEqual(getData(2482096156, 'nod'), getData(2482096156))
         getData(-1)
 
