@@ -3,14 +3,16 @@
 from __future__ import absolute_import
 import unittest
 import os
+from six.moves import reload_module
 import sys
-
-reload(sys)
+reload_module(sys)
 sys.setdefaultencoding('utf-8')
 
 from bot.osmbot import OsmBot
 from bot.error import OSMError
 from bot.utils import getData
+from bot.user import User
+
 
 class OsmBotMock(OsmBot):
     def __init__(self, *args, **kwargs):
@@ -29,7 +31,7 @@ class BotTest(unittest.TestCase):
         """
         from configobj import ConfigObj
         config = ConfigObj('test/bot.conf')
-        
+
         self.assertEqual(config['database'  ], 'bot')
         self.assertEqual(config['user'      ], 'postgres')
         self.assertEqual(config['host'      ], '127.0.0.1')
@@ -49,7 +51,7 @@ class BotTest(unittest.TestCase):
 
         from configobj import ConfigObj
         config = ConfigObj()
- 
+
         # no config and empty config
         self.assertRaises(OSMError, self.b.init_config, 0)
         self.assertRaises(OSMError, self.b.init_config, True)
@@ -105,6 +107,8 @@ class BotTest(unittest.TestCase):
         getData(423454728, 'way')
         getData(2482096156, 'nod')
 
+    def test_user(self):
+        u = User('localhost', 'bot', 'postgres', 'empty')
 
 if __name__ == '__main__':
     unittest.main()
