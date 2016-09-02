@@ -13,6 +13,7 @@ from bot.error import OSMError
 from bot.utils import getData
 from bot.user import User
 
+
 class OsmBotMock(OsmBot):
     def __init__(self, *args, **kwargs):
         super(OsmBotMock, self).__init__(*args, **kwargs)
@@ -30,7 +31,7 @@ class BotTest(unittest.TestCase):
         """
         from configobj import ConfigObj
         config = ConfigObj('test/bot.conf')
-        
+
         self.assertEqual(config['database'  ], 'bot')
         self.assertEqual(config['user'      ], 'postgres')
         self.assertEqual(config['host'      ], '127.0.0.1')
@@ -50,7 +51,7 @@ class BotTest(unittest.TestCase):
 
         from configobj import ConfigObj
         config = ConfigObj()
- 
+
         # no config and empty config
         self.assertRaises(OSMError, self.b.init_config, 0)
         self.assertRaises(OSMError, self.b.init_config, True)

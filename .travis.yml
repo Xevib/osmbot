@@ -15,3 +15,5 @@ after_success:
   - coveralls
 services:
   - postgresql
+allow_failures:
+  - "3.5"
