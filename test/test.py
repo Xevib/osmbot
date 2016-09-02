@@ -11,6 +11,7 @@ sys.setdefaultencoding('utf-8')
 from bot.osmbot import OsmBot
 from bot.error import OSMError
 from bot.utils import getData
+from bot.user import User
 
 class OsmBotMock(OsmBot):
     def __init__(self, *args, **kwargs):
@@ -105,6 +106,8 @@ class BotTest(unittest.TestCase):
         getData(423454728, 'way')
         getData(2482096156, 'nod')
 
+    def test_user(self):
+        u = User('localhost', 'bot', 'postgre', 'empty')
 
 if __name__ == '__main__':
     unittest.main()
