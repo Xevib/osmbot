@@ -104,6 +104,7 @@ class BotTest(unittest.TestCase):
         getData(343535, 'rel')
         getData(423454728, 'way')
         self.assertEqual(getData(2482096156, 'nod'), getData(2482096156))
+        getData(-1)
 
 
 if __name__ == '__main__':
