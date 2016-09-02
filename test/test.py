@@ -3,9 +3,9 @@
 from __future__ import absolute_import
 import unittest
 import os
+from six.moves import reload_module
 import sys
-
-reload(sys)
+reload_module(sys)
 sys.setdefaultencoding('utf-8')
 
 from bot.osmbot import OsmBot

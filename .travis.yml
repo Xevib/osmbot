@@ -8,6 +8,7 @@ before_script:
 install: 
   - pip install -r requirements.txt
   - pip install coveralls
+  - pip install six
 script: 
   - PYTHONPATH="." python test/test.py
 after_success:
