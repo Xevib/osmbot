@@ -8,3 +8,4 @@ overpass
 lxml
 osmapi
 python-telegram-bot
+blinker
