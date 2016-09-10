@@ -12,6 +12,7 @@ import overpass
 import telegram
 from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from io import BytesIO
 
 # local imports
@@ -836,11 +837,19 @@ class OsmBot(object):
                     'is_rtl': self.get_is_rtl()
                 }
                 text = template.render(**template_params)
+                raw_text = self._get_template('raw_data.md').render()
+                keyboard = [[InlineKeyboardButton(
+                    raw_text,
+                    callback_data='/raw{}{} {}'.format(element_type, identifier,chat_id)
+                )]]
+                reply_markup = InlineKeyboardMarkup(keyboard)
                 self.telegram_api.sendMessage(
                     chat_id,
                     text,
                     disable_web_page_preview=(not preview),
-                    parse_mode='Markdown')
+                    parse_mode='Markdown',
+                    reply_markup=reply_markup
+                )
 
     def nearest_command(self, message, chat_id, user_id, user, config=None, lat=None, lon=None, type=None, distance=None):
         """
@@ -998,6 +1007,19 @@ class OsmBot(object):
             results,
             is_personal=True,
             cache_time=86400)
+
+    def answer_callback(self, query):
+        """
+        Handles the callbacks
+
+        :param query: Query as dict
+        :return: None
+        """
+
+        data = query.get('callback_query', {}).get('data')
+        identifier = data.split()[-1]
+        command = data.split()[0]
+        self.raw_command(command, identifier)
 
     def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
         """

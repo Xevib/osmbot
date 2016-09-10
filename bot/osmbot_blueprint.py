@@ -36,6 +36,7 @@ def attend_webhook(token):
     if token == config['token']:
         try:
             query = request.json
+
             if 'edited_message' in query:
                 return 'OK'
             is_group = False
@@ -75,10 +76,12 @@ def attend_webhook(token):
                 else:
                     message = message.replace('@osmbot', '')
                     message = message.replace('@OSMbot', '')
-
-            message = osmbot.clean_message(message)
-            osmbot.load_language(user_config['lang'])
-            osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user, message_type)
+            if not 'callback_query' in query:
+                message = osmbot.clean_message(message)
+                osmbot.load_language(user_config['lang'])
+                osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user, message_type)
+            else:
+                osmbot.answer_callback(query)
             return 'OK'
         except Exception as e:
             if e.message == 'Unauthorized':
