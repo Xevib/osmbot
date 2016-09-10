@@ -78,6 +78,7 @@ class OsmBot(object):
     """
         Class that represents the OsmBot
     """
+
     def __init__(self, config, auto_init=True):
         """
         Class constructor
@@ -93,6 +94,7 @@ class OsmBot(object):
         self.language = None
         self.telegram_api = None
         self.re_map = re.compile(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}")
+        self.is_group = False
 
         # configure osmbot
         if auto_init:
@@ -133,6 +135,23 @@ class OsmBot(object):
         else:
             raise OSMError('No token in config file: ' \
                     'Please check that token is in the config file.')
+
+    def set_group(self, is_group):
+        """
+        Setter for the group property
+
+        :param is_group:
+        :return: None
+        """
+        self.is_group = is_group
+
+    def get_group(self):
+        """
+        Returns if the message is from a group
+
+        :return: Boolean , true if its a group
+        """
+        return self.is_group
 
     def load_language(self, language):
         """
@@ -199,7 +218,7 @@ class OsmBot(object):
             template_text = f.read()
         return self.jinja_env.from_string(template_text)
 
-    def set_only_mention(self, message, user_id, chat_id, user, group):
+    def set_only_mention(self, message, user_id, chat_id, user):
         """
         Manages the set only mention requests
 
@@ -207,16 +226,15 @@ class OsmBot(object):
         :param user_id: User id
         :param chat_id: Chat ud
         :param user: Dict with user configuration
-        :param group: Boolean to indicate if is a group
         :return: None
         """
         onlymentions = message == 'Yes'
-        if group:
-            user.set_field(chat_id, 'onlymentions', onlymentions, group=group)
-            user.set_field(chat_id, 'mode', 'normal', group=group)
+        if self.get_group():
+            user.set_field(chat_id, 'onlymentions', onlymentions, group=self.get_group())
+            user.set_field(chat_id, 'mode', 'normal', group=self.get_group())
         else:
-            user.set_field(user_id, 'onlymentions', onlymentions, group=group)
-            user.set_field(user_id, 'mode', 'normal', group=group)
+            user.set_field(user_id, 'onlymentions', onlymentions, group=self.get_group())
+            user.set_field(user_id, 'mode', 'normal', group=self.get_group())
         if not onlymentions:
             text = self._get_template('only_mention.md').render()
             self.telegram_api.sendMessage(
@@ -232,9 +250,8 @@ class OsmBot(object):
                 text,
                 'Markdown',
                 reply_markup=ReplyKeyboardHide())
-        return []
 
-    def set_language_command(self, message, user_id, chat_id, u, group=False):
+    def set_language_command(self, message, user_id, chat_id, u):
         """
         Answers the language command
 
@@ -242,16 +259,15 @@ class OsmBot(object):
         :param user_id: User identifier
         :param chat_id: Chat identifier
         :param u: User object
-        :param group: Boolean to indicate if its a group
         :return: None
         """
         if message in self.get_languages():
-            if group:
-                u.set_field(chat_id, 'lang', self.get_languages()[message], group=group)
-                u.set_field(chat_id, 'mode', 'normal', group=group)
+            if self.get_group():
+                u.set_field(chat_id, 'lang', self.get_languages()[message], group=self.get_group())
+                u.set_field(chat_id, 'mode', 'normal', group=self.get_group())
             else:
-                u.set_field(user_id, 'lang', self.get_languages()[message], group=group)
-                u.set_field(user_id, 'mode', 'normal', group=group)
+                u.set_field(user_id, 'lang', self.get_languages()[message], group=self.get_group())
+                u.set_field(user_id, 'mode', 'normal', group=self.get_group())
             self.load_language(self.get_languages()[message])
             template = self._get_template('new_language.md')
             text = template.render(is_rtl=self.get_is_rtl())
@@ -263,7 +279,7 @@ class OsmBot(object):
                 reply_markup=k)
 
         else:
-            if group:
+            if self.get_group():
                 u.set_field(chat_id, 'mode', 'normal', group=True)
             else:
                 u.set_field(user_id, 'mode', 'normal')
@@ -286,7 +302,7 @@ class OsmBot(object):
         self.telegram_api.sendMessage(chat_id, text, reply_markup=keyboard)
         user.set_field(chat_id, 'mode', 'setonlymention', group=True)
 
-    def language_command(self, message, user_id, chat_id, user, group=False):
+    def language_command(self, message, user_id, chat_id, user):
         """
         Handles the Language command and sends the lis of languages
 
@@ -294,19 +310,18 @@ class OsmBot(object):
         :param user_id: User id
         :param chat_id: Chat id
         :param user: Dict with user configuration
-        :param group: Indicates if the message comes from a group
         :return: None
         """
         languages = [[lang] for lang in sorted(self.get_languages().keys())]
         keyboard = ReplyKeyboardMarkup(languages, one_time_keyboard=True)
         text = self._get_template('language_answer.md').render()
         self.telegram_api.sendMessage(chat_id, text, reply_markup=keyboard)
-        if group:
-            user.set_field(chat_id, 'mode', 'setlanguage', group=group)
+        if self.get_group():
+            user.set_field(chat_id, 'mode', 'setlanguage', group=self.get_group())
         else:
-            user.set_field(user_id, 'mode', 'setlanguage', group=group)
+            user.set_field(user_id, 'mode', 'setlanguage', group=self.get_group())
 
-    def settings_command(self, message, user_id, chat_id, u, group=False):
+    def settings_command(self, message, user_id, chat_id, u):
         """
         Answers the settings command
 
@@ -318,18 +333,18 @@ class OsmBot(object):
         :return: None
         """
 
-        if group:
+        if self.get_group():
             text = self._get_template('question_only_mention.md').render()
             k = ReplyKeyboardMarkup([['Language'], [text]], one_time_keyboard=True)
         else:
             k = ReplyKeyboardMarkup([['Language']], one_time_keyboard=True)
         text = self._get_template('configure_question.md').render()
         self.telegram_api.sendMessage(chat_id, text, reply_markup=k)
-        if group:
+        if self.get_group():
             identifier = chat_id
         else:
             identifier = user_id
-        u.set_field(identifier, 'mode', 'settings', group=group)
+        u.set_field(identifier, 'mode', 'settings', group=self.get_group())
 
     def legend_command(self, message, chat_id):
         """
@@ -1021,7 +1036,7 @@ class OsmBot(object):
         command = data.split()[0]
         self.raw_command(command, identifier)
 
-    def answer_message(self, message, query, chat_id, user_id, user_config, is_group, user, message_type):
+    def answer_message(self, message, query, chat_id, user_id, user_config, user, message_type):
         """
         Function that handles messages and sends to the concrete functions
 
@@ -1030,8 +1045,7 @@ class OsmBot(object):
         :param chat_id: Chat id
         :param user_id: User id
         :param user_config: Dict with the user config
-        :param is_group: Boolean that indicates if the message comes from
-        a group
+
         :param user: User object
         :param message_type: Type of message
         :return: None
@@ -1066,8 +1080,7 @@ class OsmBot(object):
                     )
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
-                    self.language_command(
-                        message, user_id, chat_id, user, is_group)
+                    self.language_command(message, user_id, chat_id, user)
                 elif message == 'Answer only when mention?':
                     self.answer_command(chat_id, user)
                 else:
@@ -1075,12 +1088,11 @@ class OsmBot(object):
                     temp = self._get_template(template_name)
                     text = temp.render()
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown', not preview)
-                    user.set_field(chat_id, 'mode', 'normal', group=is_group)
+                    user.set_field(chat_id, 'mode', 'normal', group=self.get_group())
             elif user_config['mode'] == 'setlanguage':
-                self.set_language_command(
-                    message, user_id, chat_id, user, is_group)
+                self.set_language_command(message, user_id, chat_id, user)
             elif user_config['mode'] == 'setonlymention':
-                self.set_only_mention(message, user_id, chat_id, user, is_group)
+                self.set_only_mention(message, user_id, chat_id, user)
             elif 'text' in query['message']:
                 if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and user_config.get('mode', '') == 'map':
                     m = re.match(
@@ -1094,11 +1106,11 @@ class OsmBot(object):
                         imgformat=user_config['format'],
                         lat=float(lat), lon=float(lon))
                 elif message == 'Language':
-                    self.language_command(message, user_id, chat_id, user, is_group)
+                    self.language_command(message, user_id, chat_id, user)
                 elif message == 'Answer only when mention?':
                     self.answer_command(chat_id, user)
                 elif message.lower().startswith('/settings'):
-                    self.settings_command(message, user_id, chat_id, user, is_group)
+                    self.settings_command(message, user_id, chat_id, user)
                 elif message.lower().startswith('/nearest'):
                     self.nearest_command(message, chat_id, user_id, user)
                 elif message.lower().startswith('/map'):

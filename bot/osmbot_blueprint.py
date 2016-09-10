@@ -33,25 +33,25 @@ osmbot_blueprint = Blueprint(
 def attend_webhook(token):
     user = u.User(config['host'], config['database'], config['user'], config['password'])
     current_app.logger.debug('token:%s', token)
+    osmbot.set_group(False)
     if token == config['token']:
         try:
             query = request.json
 
             if 'edited_message' in query:
                 return 'OK'
-            is_group = False
             message_type = ''
             if 'message' in query:
                 message_dict = query['message']
                 message_type = 'query'
 
                 if 'from' in message_dict and 'id' in message_dict['from']:
-                    is_group = query['message']['chat']['type'] == u'group'
-                    if is_group:
+                    osmbot.set_group(query['message']['chat']['type'] == u'group')
+                    if osmbot.get_group():
                         identifier = message_dict['chat']['id']
                     else:
                         identifier = message_dict['from']['id']
-                    user_config = user.get_user(identifier, group=is_group)
+                    user_config = user.get_user(identifier, group=osmbot.get_group())
                     user_id = message_dict['from']['id']
             elif 'inline_query' in query:
                 message_type = 'inline'
@@ -70,7 +70,7 @@ def attend_webhook(token):
                     message = ''
                 chat_id = query['message']['chat']['id']
 
-                if is_group and (not user_config['onlymentions'] and user_config['onlymentions'] is not None)and '@osmbot' not in message.lower():
+                if osmbot.get_group() and (not user_config['onlymentions'] and user_config['onlymentions'] is not None)and '@osmbot' not in message.lower():
                     if message not in ['Yes', 'No', 'Language', 'Answer only when mention?'] and message not in osmbot.get_languages().keys():
                         return 'OK'
                 else:
@@ -79,7 +79,7 @@ def attend_webhook(token):
             if not 'callback_query' in query:
                 message = osmbot.clean_message(message)
                 osmbot.load_language(user_config['lang'])
-                osmbot.answer_message(message, query, chat_id, user_id, user_config, is_group, user, message_type)
+                osmbot.answer_message(message, query, chat_id, user_id, user_config, osmbot.get_group(), user, message_type)
             else:
                 osmbot.answer_callback(query)
             return 'OK'
