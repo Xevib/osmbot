@@ -194,6 +194,5 @@
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U0001F4D2'}} [{{_("Wikipedia")}}](http://wikipedia.org/wiki/{{data.tag["wikipedia"]|url_escape()}})
 {% endif %}{% if 'wikidata' in data.tag or 'wikipedia' in data.tag %}
 {% endif -%}
-{% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{_('Raw data:')}} /raw{{type}}{{identifier}}
 
 {% if is_rtl -%}{{'\U0000200F'}}{% endif -%}{{'\U000000A9'}} {{_('OpenStreetMap contributors')}}
