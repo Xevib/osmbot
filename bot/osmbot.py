@@ -964,7 +964,7 @@ class OsmBot(object):
                         else:
                             t = '\xE2\x9C\x8F '+_('Raw data') + '({0}/{1})\n\n'.format(parts, max_parts)
                 t += '\n\xC2\xA9 ' + _('OpenStreetMap contributors')
-                self.telegram_api.sendMessage(chat_id, t)
+                self.telegram_api.sendMessage(chat_id, t, disable_web_page_preview=True)
 
     def answer_inline(self, message, query, user_config):
         """
