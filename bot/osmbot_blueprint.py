@@ -79,7 +79,10 @@ def attend_webhook(token):
             if not 'callback_query' in query:
                 message = osmbot.clean_message(message)
                 osmbot.load_language(user_config['lang'])
-                osmbot.answer_message(message, query, chat_id, user_id, user_config, user, message_type)
+                if message_type == 'inline':
+                    osmbot.answer_inline(message,query,user_config)
+                else:
+                    osmbot.answer_message(message, query, chat_id, user_id, user_config, user, message_type)
             else:
                 osmbot.answer_callback(query)
             return 'OK'

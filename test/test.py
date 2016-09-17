@@ -25,7 +25,7 @@ class BotTest(unittest.TestCase):
 
     def test_config_file(self):
         """
-        Test for configuraciont file
+        Test for configuration file
 
         :return:None
         """

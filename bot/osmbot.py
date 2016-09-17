@@ -11,8 +11,14 @@ import pynominatim
 import overpass
 import telegram
 from uuid import uuid4
+import uuid
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
 from io import StringIO
+from mapnik import Map, load_map, Box2d, render_to_file
+import psycopg2
+import time
+from multiprocessing import Process
+import pyproj
 
 # local imports
 from bot.user import User
@@ -22,6 +28,8 @@ from bot.utils import getData
 from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
 from bot.error import OSMError
+from bot.utils import get_data_db
+
 
 
 def url_escape(s):
@@ -1067,7 +1075,7 @@ class OsmBot(object):
     def _check_render_cache(self, bbox):
         conn = psycopg2.connect(host=self.db_host, database=self.db, user=self.db_user, password=self.db_password)
         cur = conn.cursor()
-        cur.execute('SELECT filename FROM render_cache where bbox=%s LIMIT 1;', (bbox,))
+        cur.execute('SELECT filename FROM render_cache where bbox=%s LIMIT 1;', (','.join(bbox),))
         data = cur.fetchone()
         conn.close()
         if data:
