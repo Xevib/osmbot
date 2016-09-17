@@ -8,4 +8,6 @@ overpass
 lxml
 osmapi
 python-telegram-bot
+pyproj
+mapnik
 blinker

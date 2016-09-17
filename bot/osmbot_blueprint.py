@@ -91,8 +91,9 @@ def attend_webhook(token):
             traceback.print_exc()
             current_app.sentry.captureException()
             osmbot.load_language(user_config['lang'])
-            text = osmbot._get_template('error_message.md').render()
-            telegram_api.sendMessage(chat_id, text)
+            if 'inline_query' not in request.json:
+                text = osmbot._get_template('error_message.md').render()
+                telegram_api.sendMessage(chat_id, text)
             return 'OK'
     else:
         return 'NOT ALLOWED'

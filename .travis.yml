@@ -1,15 +1,20 @@
 language: python
+sudo: required
+dist: trusty
 python:
   - "2.7"
 before_script:
   - psql -c 'create database bot;' -U postgres
   - psql -c 'CREATE TABLE users (id int, mode varchar(30),zoom int,format varchar(30),language varchar(10))' -U postgres
+  - sudo apt-get install -y python-software-properties
+  - sudo add-apt-repository -y ppa:mapnik/nightly-2.3
+  - sudo apt-get update
+  - sudo apt-get install -y python-mapnik
 install: 
   - pip install -r requirements.txt
   - pip install coveralls
   - pip install six
-script: 
-  - PYTHONPATH="." python test/test.py
+script:  PYTHONPATH="." python test/test.py
 after_success:
   - PYTHONPATH="." coverage2 run --source=.  test/test.py
   - coveralls
