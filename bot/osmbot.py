@@ -133,7 +133,6 @@ class OsmBot(object):
                 self.map_style = Map(320, 320)
                 load_map(self.map_style, config['map_style'])
 
-
             self.db_host = config.get('host', '')
             self.osm_db = config.get('osm_database', '')
             self.db = config.get('database', '')

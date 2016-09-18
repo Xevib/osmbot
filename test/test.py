@@ -29,6 +29,12 @@ class BotTest(unittest.TestCase):
         :return: Noe
         """
         # instantiate OsmBotMock class
+        config = {
+            'host': 'localhost',
+            'database': 'bot',
+            'user': 'postgres'
+
+        }
         self.osmbot = OsmBotMock({}, auto_init=False)
 
     def test_config_file(self):
