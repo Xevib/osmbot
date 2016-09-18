@@ -1080,10 +1080,10 @@ class OsmBot(object):
         :return: Filename if it exists otherways None
         """
         import logging
-        logging.info('host:%s', self.db_host)
-        logging.info('database:%s', self.db)
-        logging.info('user:%s', self.db_user)
-        logging.info('password:%s', self.db_password)
+        print('host:%s'% self.db_host)
+        print('database:%s' %self.db)
+        print('user:%s'% self.db_user)
+        print('password:%s'% self.db_password)
 
         conn = psycopg2.connect(host=self.db_host, database=self.db, user=self.db_user, password=self.db_password)
         cur = conn.cursor()
