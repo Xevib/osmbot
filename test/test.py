@@ -1,12 +1,8 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
+from __future__ import absolute_import, unicode_literals
 import unittest
 import os
-from six.moves import reload_module
-import sys
-reload_module(sys)
-sys.setdefaultencoding('utf-8')
 
 from bot.osmbot import OsmBot
 from bot.error import OSMError
@@ -85,9 +81,9 @@ class BotTest(unittest.TestCase):
         msg = '{} not found in directory in avaible languages but found in bo/locales'
         for lang_dir in lang_dirs:
             is_dir = os.path.isdir(os.path.join('bot/locales', lang_dir))
-            if is_dir and lang_dir not in self.b.get_languages().values():
+            if is_dir and lang_dir not in self.osmbot.get_languages().values():
                 print(msg.format(lang_dir))
-                self.assertTrue(lang_dir in self.b.get_languages().values())
+                self.assertTrue(lang_dir in self.osmbot.get_languages().values())
 
     def test_templates(self):
         """
