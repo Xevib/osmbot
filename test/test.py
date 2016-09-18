@@ -33,7 +33,8 @@ class BotTest(unittest.TestCase):
         config = {
             'host': 'localhost',
             'database': 'bot',
-            'user': 'postgres'
+            'user': 'postgres',
+            'token': '1234'
 
         }
         self.osmbot = OsmBotMock(ConfigObj(config), auto_init=True)
