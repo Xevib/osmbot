@@ -61,10 +61,10 @@ class BotTest(unittest.TestCase):
         config = ConfigObj()
 
         # no config and empty config
-        self.assertRaises(OSMError, self.b.init_config, 0)
-        self.assertRaises(OSMError, self.b.init_config, True)
-        self.assertRaises(OSMError, self.b.init_config, 'random_string')
-        self.assertRaises(OSMError, self.b.init_config, config)
+        self.assertRaises(OSMError, self.osmbot.init_config, 0)
+        self.assertRaises(OSMError, self.osmbot.init_config, True)
+        self.assertRaises(OSMError, self.osmbot.init_config, 'random_string')
+        self.assertRaises(OSMError, self.osmbot.init_config, config)
 
     def test_init_config(self):
         from configobj import ConfigObj
