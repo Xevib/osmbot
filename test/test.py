@@ -130,8 +130,8 @@ class BotTest(unittest.TestCase):
         Test to check the render_cache method
         :return: None
         """
-        ret = self.osmbot._check_render_cache('')
-        self.assertFalse(ret)
+
+        self.assertFalse(self.osmbot._check_render_cache(''))
         self.assertEqual(self.osmbot._check_render_cache('1,1,1,1'), 'OK')
 
 
