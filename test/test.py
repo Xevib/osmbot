@@ -132,7 +132,7 @@ class BotTest(unittest.TestCase):
         """
 
         self.assertFalse(self.osmbot._check_render_cache(''))
-        self.assertEqual(self.osmbot._check_render_cache('1,1,1,1'), 'OK')
+        self.assertEqual(self.osmbot._check_render_cache('1,1,1,1'), 'ok')
 
 
 if __name__ == '__main__':
