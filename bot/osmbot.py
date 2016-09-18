@@ -1079,6 +1079,11 @@ class OsmBot(object):
         :param bbox: List of bounding box
         :return: Filename if it exists otherways None
         """
+        import logging
+        logging.info('host:%s', self.db_host)
+        logging.info('database:%s', self.db)
+        logging.info('user:%s', self.db_user)
+        logging.info('password:%s', self.db_password)
 
         conn = psycopg2.connect(host=self.db_host, database=self.db, user=self.db_user, password=self.db_password)
         cur = conn.cursor()
