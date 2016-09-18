@@ -3,6 +3,10 @@
 from __future__ import absolute_import, unicode_literals
 import unittest
 import os
+from six.moves import reload_module
+import sys
+reload_module(sys)
+sys.setdefaultencoding('utf-8')
 
 from bot.osmbot import OsmBot
 from bot.error import OSMError
