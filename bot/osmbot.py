@@ -70,6 +70,7 @@ class OsmBot(object):
         'Dutch': 'nl',
         'Czech': 'cs',
         'Persian': 'fa',
+        'Portugese': 'pt',
         'Japanese': 'ja',
         'Ukrainian': 'uk',
         'Chinese (Taiwan)': 'zh_TW',
