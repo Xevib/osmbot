@@ -12,6 +12,7 @@ from bot.osmbot import OsmBot
 from bot.error import OSMError
 from bot.utils import getData
 from bot.user import User
+from configobj import ConfigObj
 
 
 class OsmBotMock(OsmBot):
@@ -35,7 +36,7 @@ class BotTest(unittest.TestCase):
             'user': 'postgres'
 
         }
-        self.osmbot = OsmBotMock(config, auto_init=False)
+        self.osmbot = OsmBotMock(ConfigObj(config), auto_init=True)
 
     def test_config_file(self):
         """
