@@ -35,7 +35,7 @@ class BotTest(unittest.TestCase):
             'user': 'postgres'
 
         }
-        self.osmbot = OsmBotMock({}, auto_init=False)
+        self.osmbot = OsmBotMock(config, auto_init=False)
 
     def test_config_file(self):
         """
