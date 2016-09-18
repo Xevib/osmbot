@@ -1074,9 +1074,17 @@ class OsmBot(object):
         self.raw_command(command, identifier)
 
     def _check_render_cache(self, bbox):
+        """
+        Checks if a bbox is in the render cache
+
+        :param bbox: List of bounding box
+        :return: Filename if it exists otherways None
+        """
+
         conn = psycopg2.connect(host=self.db_host, database=self.db, user=self.db_user, password=self.db_password)
         cur = conn.cursor()
-        cur.execute('SELECT filename FROM render_cache where bbox=%s LIMIT 1;', (','.join(bbox),))
+        sql = 'SELECT filename FROM render_cache where bbox=%s LIMIT 1;'
+        cur.execute(sql, (','.join(bbox),))
         data = cur.fetchone()
         conn.close()
         if data:

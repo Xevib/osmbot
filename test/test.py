@@ -20,8 +20,16 @@ class OsmBotMock(OsmBot):
 
 
 class BotTest(unittest.TestCase):
-    # instantiate OsmBotMock class
-    b = OsmBotMock({}, auto_init=False)
+    """
+    Unittest for the bot
+    """
+    def setUp(self):
+        """
+        Unittest setup
+        :return: Noe
+        """
+        # instantiate OsmBotMock class
+        self.osmbot = OsmBotMock({}, auto_init=False)
 
     def test_config_file(self):
         """
@@ -109,6 +117,15 @@ class BotTest(unittest.TestCase):
 
     def test_user(self):
         u = User('localhost', 'bot', 'postgres', 'empty')
+
+    def test_render_cache(self):
+        """
+        Test to check the render_cache method
+        :return: None
+        """
+        self.assertFalse(self.osmbot._check_render_cache(''))
+        self.assertEqual(self.osmbot._check_render_cache('1,1,1,1'), 'OK')
+
 
 if __name__ == '__main__':
     unittest.main()
