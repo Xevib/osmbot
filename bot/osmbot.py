@@ -2,18 +2,19 @@
 from __future__ import absolute_import
 
 import os
-from jinja2 import Environment
+from io import BytesIO
+import re
 import urllib
 import math
-import re
+from uuid import uuid4
+
 import gettext
 import pynominatim
 import overpass
+from jinja2 import Environment
 import telegram
-from uuid import uuid4
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from io import BytesIO
 
 # local imports
 from bot.user import User

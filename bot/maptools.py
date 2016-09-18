@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
-import requests
+from __future__ import absolute_import, unicode_literals
+
 import math
+import logging
+
+import requests
 
 
 WGS84_a = 6378137.0  # Major semiaxis [m]
@@ -36,16 +40,17 @@ def download(bbox, _, imageformat='png', zoom=19, scale=None):
         params['scale'] = scale_zoom[int(zoom)]
     else:
         params['scale'] = scale
-    print(str(params))
+    logging.info(str(params))
     try:
-        response = requests.get("http://render.openstreetmap.org/cgi-bin/export", params=params, timeout=7)
+        render_url = "http://render.openstreetmap.org/cgi-bin/export"
+        response = requests.get(render_url, params=params, timeout=7)
     except:
         raise ValueError(_('Map too large!')+' \xF0\x9F\x98\xB1\n'+_('Please, reduce the bounding box')+' \xE2\x9C\x82 '+_('or the scale (zoom level)')+' \xF0\x9F\x94\x8D')
-    if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Map too large</p>\n</body>\n</html>\n':
+    if response.content == '<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Map too large</p>\n</body>\n</html>\n':
         raise ValueError(_('Map too large!')+' \xF0\x9F\x98\xB1\n'+_('Please, reduce the bounding box')+' \xE2\x9C\x82 '+_('or the scale (zoom level)')+' \xF0\x9F\x94\x8D')
-    if response.content =='<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Invalid bounding box</p>\n</body>\n</html>\n':
+    if response.content == '<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n<h1>Error</h1>\n<p>Invalid bounding box</p>\n</body>\n</html>\n':
         raise ValueError(_('Invalid bounding box!')+' \xF0\x9F\x98\xA7\n'+_('Please, try with /map minlon,minlat,maxlon,maxlat')+'\n'+_('Coordinates\' decimals need to be marked with a dot.')+'\n'+_('For example:')+' /map 1.5,41.0,2.5,42.0 png 10 \xE2\x9C\x8C')
-    if response.status_code !=200:
+    if response.status_code != 200:
         raise ValueError(_('Oh,oh... An error occurred')+' \xF0\x9F\x98\xB0\n'+_('You can try with another bounding box or scale (zoom level)')+' \xE2\x81\x89\n'+_('Good luck! ')+'\xF0\x9F\x98\x89')
 
     return response.content
@@ -100,7 +105,7 @@ def deg2dps(degrees):
 def getScale(bounds):
     centerLat = (float(bounds[0]) +float(bounds[2]))/2
     halfWorldMeters = 6378137 * math.pi * math.cos(centerLat * math.pi / 180)
-    meters = halfWorldMeters * (float(bounds[3]) -float( bounds[1])) / 180
+    meters = halfWorldMeters * (float(bounds[3]) - float(bounds[1])) / 180
     pixelsPerMeter = 256 / meters
     metersPerPixel = 1 / (92 * 39.3701)
     scale = round(1 / (pixelsPerMeter * metersPerPixel))
