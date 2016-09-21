@@ -1033,8 +1033,11 @@ class OsmBot(object):
         """
 
         data = query.get('callback_query', {}).get('data')
+
         identifier = data.split()[-1]
         command = data.split()[0]
+        callback_id = query.get('callback_query', {}).get('id')
+        self.telegram_api.answerCallbackQuery(callback_id)
         self.raw_command(command, identifier)
 
     def answer_message(self, message, query, chat_id, user_id, user_config, user, message_type):
