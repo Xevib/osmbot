@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
+from __future__ import absolute_import, unicode_literals
 import unittest
 import os
 from six.moves import reload_module
@@ -12,6 +12,7 @@ from bot.osmbot import OsmBot
 from bot.error import OSMError
 from bot.utils import getData
 from bot.user import User
+from configobj import ConfigObj
 
 
 class OsmBotMock(OsmBot):
@@ -20,12 +21,26 @@ class OsmBotMock(OsmBot):
 
 
 class BotTest(unittest.TestCase):
-    # instantiate OsmBotMock class
-    b = OsmBotMock({}, auto_init=False)
+    """
+    Unittest for the bot
+    """
+    def setUp(self):
+        """
+        Unittest setup
+        :return: Noe
+        """
+        # instantiate OsmBotMock class
+        config = {
+            'host': 'localhost',
+            'database': 'bot',
+            'user': 'postgres',
+            'token': '32111224414:AAF0BqwSgFKTzkgTkJLcLBKVb2ebrSXbWX4'
+        }
+        self.osmbot = OsmBotMock(ConfigObj(config), auto_init=True)
 
     def test_config_file(self):
         """
-        Test for configuraciont file
+        Test for configuration file
 
         :return:None
         """
@@ -53,10 +68,10 @@ class BotTest(unittest.TestCase):
         config = ConfigObj()
 
         # no config and empty config
-        self.assertRaises(OSMError, self.b.init_config, 0)
-        self.assertRaises(OSMError, self.b.init_config, True)
-        self.assertRaises(OSMError, self.b.init_config, 'random_string')
-        self.assertRaises(OSMError, self.b.init_config, config)
+        self.assertRaises(OSMError, self.osmbot.init_config, 0)
+        self.assertRaises(OSMError, self.osmbot.init_config, True)
+        self.assertRaises(OSMError, self.osmbot.init_config, 'random_string')
+        self.assertRaises(OSMError, self.osmbot.init_config, config)
 
     def test_init_config(self):
         from configobj import ConfigObj
@@ -77,9 +92,9 @@ class BotTest(unittest.TestCase):
         msg = '{} not found in directory in avaible languages but found in bo/locales'
         for lang_dir in lang_dirs:
             is_dir = os.path.isdir(os.path.join('bot/locales', lang_dir))
-            if is_dir and lang_dir not in self.b.get_languages().values():
+            if is_dir and lang_dir not in self.osmbot.get_languages().values():
                 print(msg.format(lang_dir))
-                self.assertTrue(lang_dir in self.b.get_languages().values())
+                self.assertTrue(lang_dir in self.osmbot.get_languages().values())
 
     def test_templates(self):
         """
@@ -109,6 +124,16 @@ class BotTest(unittest.TestCase):
 
     def test_user(self):
         u = User('localhost', 'bot', 'postgres', 'empty')
+
+    def test_render_cache(self):
+        """
+        Test to check the render_cache method
+        :return: None
+        """
+
+        self.assertFalse(self.osmbot._check_render_cache(''))
+        self.assertEqual(self.osmbot._check_render_cache('1,1,1,1'), 'ok')
+
 
 if __name__ == '__main__':
     unittest.main()

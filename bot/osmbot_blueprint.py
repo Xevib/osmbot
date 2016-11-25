@@ -79,7 +79,10 @@ def attend_webhook(token):
             if not 'callback_query' in query:
                 message = osmbot.clean_message(message)
                 osmbot.load_language(user_config['lang'])
-                osmbot.answer_message(message, query, chat_id, user_id, user_config, user, message_type)
+                if message_type == 'inline':
+                    osmbot.answer_inline(message,query,user_config)
+                else:
+                    osmbot.answer_message(message, query, chat_id, user_id, user_config, user, message_type)
             else:
                 osmbot.answer_callback(query)
             return 'OK'
@@ -91,8 +94,9 @@ def attend_webhook(token):
             traceback.print_exc()
             current_app.sentry.captureException()
             osmbot.load_language(user_config['lang'])
-            text = osmbot._get_template('error_message.md').render()
-            telegram_api.sendMessage(chat_id, text)
+            if 'inline_query' not in request.json:
+                text = osmbot._get_template('error_message.md').render()
+                telegram_api.sendMessage(chat_id, text)
             return 'OK'
     else:
         return 'NOT ALLOWED'

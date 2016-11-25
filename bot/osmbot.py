@@ -11,9 +11,14 @@ import pynominatim
 import overpass
 import telegram
 from uuid import uuid4
+import uuid
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardHide
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from io import BytesIO
+from io import StringIO
+from mapnik import Map, load_map, Box2d, render_to_file
+import psycopg2
+import time
+from multiprocessing import Process
+import pyproj
 
 # local imports
 from bot.user import User
@@ -23,6 +28,8 @@ from bot.utils import getData
 from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
 from bot.error import OSMError
+from bot.utils import get_data_db
+
 
 
 def url_escape(s):
@@ -63,6 +70,7 @@ class OsmBot(object):
         'Dutch': 'nl',
         'Czech': 'cs',
         'Persian': 'fa',
+        'Portugese': 'pt',
         'Japanese': 'ja',
         'Ukrainian': 'uk',
         'Chinese (Taiwan)': 'zh_TW',
@@ -72,8 +80,7 @@ class OsmBot(object):
         'Chinese (Hong Kong)': 'zh_HK',
         'Hungarian': 'hu',
         'Catalan (Valencian)': 'ca@valencia',
-        'Chinese (China)': 'zh_CN',
-        'Portuguese': 'pt'
+        'Chinese (China)': 'zh_CN'
     }
 
     """
@@ -95,7 +102,12 @@ class OsmBot(object):
         self.language = None
         self.telegram_api = None
         self.re_map = re.compile(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}")
-        self.is_group = False
+        self.db_host = ''
+        self.osm_db = ''
+        self.db = ''
+        self.db_user = ''
+        self.db_password = ''
+
 
         # configure osmbot
         if auto_init:
@@ -109,15 +121,25 @@ class OsmBot(object):
         :return: None
         """
 
+
         # TOOD(xevi): why Persian here?
         self.rtl_languages = ['fa']
 
         # setup the database info
         from configobj import ConfigObj
         if config and isinstance(config, ConfigObj):
-            self.user = User(
-                config.get('host', ''), config.get('database', ''),
-                config.get('user', ''), config.get('password', ''))
+            if 'map_style' in config:
+                print('Loading map style')
+                self.map_style = Map(320, 320)
+                load_map(self.map_style, config['map_style'])
+
+            self.db_host = config.get('host', '')
+            self.osm_db = config.get('osm_database', '')
+            self.db = config.get('database', '')
+            self.db_user = config.get('user', '')
+            self.db_password = config.get('password', '')
+
+            self.user = User(self.db_host, self.db, self.db_user, self.db_password)
         else:
             raise OSMError('No config file: ' \
                     'Please provide a ConfigObj object instance.')
@@ -260,6 +282,7 @@ class OsmBot(object):
         :param user_id: User identifier
         :param chat_id: Chat identifier
         :param u: User object
+        :param group: Boolean to indicate if its a group
         :return: None
         """
         if message in self.get_languages():
@@ -984,7 +1007,7 @@ class OsmBot(object):
         inline_query_id = query['inline_query']['id']
         results = []
         if search_results:
-            for index, r in enumerate(search_results[:10]):
+            for index, r in enumerate(search_results[:5]):
                 element_type = ''
                 if r.get('osm_type', '') == 'node':
                     element_type = 'nod'
@@ -992,7 +1015,9 @@ class OsmBot(object):
                     element_type = 'way'
                 elif r.get('osm_type', '') == 'relation':
                     element_type = 'rel'
-                osm_data = getData(r['osm_id'], geom_type=element_type)
+                osm_data = get_data_db(r['osm_id'], element_type, self.db_host, self.osm_db, self.db_user, self.db_password)
+                if osm_data == {}:
+                    osm_data = getData(r['osm_id'], element_type)
                 params = {
                     'data': osm_data, 'type': element_type,
                     'identifier': r['osm_id'], 'user_config': user_config,
@@ -1010,14 +1035,24 @@ class OsmBot(object):
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
                 else:
+                    filename = self._check_render_cache(r['boundingbox'])
+                    if not filename:
+                        filename = str(uuid.uuid4())+'.png'
+                        p = Process(target=self._render_map, args=(filename, r['boundingbox']))
+                        p.start()
+                        print('http://xevib.ddns.net:81/osmbot/img/' + filename)
+                        p = Process(target=self._add_render_cache, args=(filename, r['boundingbox']))
+                        p.start()
+
                     results.append(InlineQueryResultArticle(
                         id=uuid4(),
-                        title=osm_data['tag'].get('name',r['display_name']),
+                        title=osm_data['tag'].get('name', r['display_name']),
                         description=r['display_name'],
+                        thumb_url='http://xevib.ddns.net:81/osmbot/img/' + filename,
                         input_message_content=InputTextMessageContent(
                             text,
                             parse_mode=ParseMode.MARKDOWN)))
-
+        time.sleep(4)
         self.telegram_api.answerInlineQuery(
             inline_query_id,
             results,
@@ -1040,6 +1075,53 @@ class OsmBot(object):
         self.telegram_api.answerCallbackQuery(callback_id)
         self.raw_command(command, identifier)
 
+    def _check_render_cache(self, bbox):
+        """
+        Checks if a bbox is in the render cache
+
+        :param bbox: List of bounding box
+        :return: Filename if it exists otherways None
+        """
+        import logging
+        print('host:%s'% self.db_host)
+        print('database:%s' %self.db)
+        print('user:%s'% self.db_user)
+        print('password:%s'% self.db_password)
+
+        conn = psycopg2.connect(host=self.db_host, database=self.db, user=self.db_user, password=self.db_password)
+        cur = conn.cursor()
+        sql = 'SELECT filename FROM render_cache where bbox=%s LIMIT 1;'
+        cur.execute(sql, (','.join(bbox),))
+        data = cur.fetchone()
+        conn.close()
+        if data:
+            return data[0][0]
+        else:
+            return False
+
+    def _add_render_cache(self, filename, bbox):
+        conn = psycopg2.connect(host=self.db_host, database=self.osm_db,
+                                user=self.db_user, password=self.db_password)
+        cur = conn.cursor()
+        conn.commit()
+        conn.close()
+
+    def _render_map(self, filename, bbox):
+        print('iniciant render')
+        import time
+        start = time.time()
+        final_url = os.path.join('/tmp/osmbot/img', filename)
+        wsg_84 = pyproj.Proj(init='epsg:4326')
+        dest_proj = pyproj.Proj(init='epsg:3857')
+        p1 = pyproj.transform(wsg_84, dest_proj, bbox[2], bbox[0])
+        p2 = pyproj.transform(wsg_84, dest_proj, bbox[3], bbox[1])
+
+        mbbox = (Box2d(p1[0], p1[1], p2[0], p2[1]))
+        self.map_style.zoom_to_box(mbbox)
+        render_to_file(self.map_style, final_url)
+        end = time.time()
+        print('fet {} en {}'.format(final_url, end - start))
+
     def answer_message(self, message, query, chat_id, user_id, user_config, user, message_type):
         """
         Function that handles messages and sends to the concrete functions
@@ -1049,7 +1131,8 @@ class OsmBot(object):
         :param chat_id: Chat id
         :param user_id: User id
         :param user_config: Dict with the user config
-
+        :param is_group: Boolean that indicates if the message comes from
+        a group
         :param user: User object
         :param message_type: Type of message
         :return: None
@@ -1084,7 +1167,8 @@ class OsmBot(object):
                     )
             elif user_config['mode'] == 'settings':
                 if message == 'Language':
-                    self.language_command(message, user_id, chat_id, user)
+                    self.language_command(
+                        message, user_id, chat_id, user, is_group)
                 elif message == 'Answer only when mention?':
                     self.answer_command(chat_id, user)
                 else:
@@ -1092,11 +1176,12 @@ class OsmBot(object):
                     temp = self._get_template(template_name)
                     text = temp.render()
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown', not preview)
-                    user.set_field(chat_id, 'mode', 'normal', group=self.get_group())
+                    user.set_field(chat_id, 'mode', 'normal', group=is_group)
             elif user_config['mode'] == 'setlanguage':
-                self.set_language_command(message, user_id, chat_id, user)
+                self.set_language_command(
+                    message, user_id, chat_id, user, is_group)
             elif user_config['mode'] == 'setonlymention':
-                self.set_only_mention(message, user_id, chat_id, user)
+                self.set_only_mention(message, user_id, chat_id, user, is_group)
             elif 'text' in query['message']:
                 if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and user_config.get('mode', '') == 'map':
                     m = re.match(
@@ -1110,11 +1195,11 @@ class OsmBot(object):
                         imgformat=user_config['format'],
                         lat=float(lat), lon=float(lon))
                 elif message == 'Language':
-                    self.language_command(message, user_id, chat_id, user)
+                    self.language_command(message, user_id, chat_id, user, is_group)
                 elif message == 'Answer only when mention?':
                     self.answer_command(chat_id, user)
                 elif message.lower().startswith('/settings'):
-                    self.settings_command(message, user_id, chat_id, user)
+                    self.settings_command(message, user_id, chat_id, user, is_group)
                 elif message.lower().startswith('/nearest'):
                     self.nearest_command(message, chat_id, user_id, user)
                 elif message.lower().startswith('/map'):
