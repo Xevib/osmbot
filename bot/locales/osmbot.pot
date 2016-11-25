@@ -8,218 +8,215 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-21 22:05+0200\n"
+"POT-Creation-Date: 2016-11-25 19:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.3.4\n"
 
-#: bot/maptools.py:43 bot/maptools.py:45
+#: bot/maptools.py:48 bot/maptools.py:50
 msgid "Map too large!"
 msgstr ""
 
-#: bot/maptools.py:43 bot/maptools.py:45
+#: bot/maptools.py:48 bot/maptools.py:50
 msgid "Please, reduce the bounding box"
 msgstr ""
 
-#: bot/maptools.py:43 bot/maptools.py:45
+#: bot/maptools.py:48 bot/maptools.py:50
 msgid "or the scale (zoom level)"
 msgstr ""
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "Invalid bounding box!"
 msgstr ""
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
 msgstr ""
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "Coordinates' decimals need to be marked with a dot."
 msgstr ""
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "For example:"
 msgstr ""
 
-#: bot/maptools.py:49
+#: bot/maptools.py:54
 msgid "Oh,oh... An error occurred"
 msgstr ""
 
-#: bot/maptools.py:49
+#: bot/maptools.py:54
 msgid "You can try with another bounding box or scale (zoom level)"
 msgstr ""
 
-#: bot/maptools.py:49
+#: bot/maptools.py:54
 msgid "Good luck! "
 msgstr ""
 
-#: bot/osmbot.py:249
+#: bot/osmbot.py:402
 msgid "Results for"
 msgstr ""
 
-#: bot/osmbot.py:272 bot/templates/inline_article.md:198
+#: bot/osmbot.py:431 bot/templates/inline_article.md:198
 msgid "Map"
 msgstr ""
 
-#: bot/osmbot.py:275 bot/osmbot.py:277 bot/osmbot.py:279 bot/osmbot.py:281
-#: bot/osmbot.py:286 bot/osmbot.py:288 bot/osmbot.py:290 bot/osmbot.py:292
+#: bot/osmbot.py:434 bot/osmbot.py:436 bot/osmbot.py:438 bot/osmbot.py:440
+#: bot/osmbot.py:445 bot/osmbot.py:447 bot/osmbot.py:449 bot/osmbot.py:451
 msgid "More info"
 msgstr ""
 
-#: bot/osmbot.py:282
+#: bot/osmbot.py:441
 msgid "Phone"
 msgstr ""
 
-#: bot/osmbot.py:294 bot/osmbot.py:451 bot/osmbot.py:730 bot/osmbot.py:739
-#: bot/templates/details_message.md:199 bot/templates/inline_article.md:200
+#: bot/osmbot.py:453 bot/osmbot.py:621 bot/osmbot.py:959 bot/osmbot.py:967
+#: bot/templates/details_message.md:198 bot/templates/inline_article.md:200
 msgid "OpenStreetMap contributors"
 msgstr ""
 
-#: bot/osmbot.py:351 bot/osmbot.py:354 bot/osmbot.py:356
+#: bot/osmbot.py:521 bot/osmbot.py:524 bot/osmbot.py:526
 #: bot/templates/details_message.md:2 bot/templates/details_message.md:4
 #: bot/templates/details_message.md:6 bot/templates/inline_article.md:2
 #: bot/templates/inline_article.md:4 bot/templates/inline_article.md:6
 msgid "Tags for"
 msgstr ""
 
-#: bot/osmbot.py:358 bot/osmbot.py:360 bot/templates/details_message.md:10
+#: bot/osmbot.py:528 bot/osmbot.py:530 bot/templates/details_message.md:10
 #: bot/templates/details_message.md:12 bot/templates/inline_article.md:11
 #: bot/templates/inline_article.md:13
 msgid "European country"
 msgstr ""
 
-#: bot/osmbot.py:362 bot/templates/details_message.md:14
+#: bot/osmbot.py:532 bot/templates/details_message.md:14
 #: bot/templates/inline_article.md:15
 msgid "African country"
 msgstr ""
 
-#: bot/osmbot.py:364 bot/osmbot.py:366 bot/osmbot.py:368
+#: bot/osmbot.py:534 bot/osmbot.py:536 bot/osmbot.py:538
 #: bot/templates/details_message.md:16 bot/templates/details_message.md:18
 #: bot/templates/details_message.md:20 bot/templates/inline_article.md:17
 #: bot/templates/inline_article.md:19 bot/templates/inline_article.md:21
 msgid "South american country"
 msgstr ""
 
-#: bot/osmbot.py:370 bot/osmbot.py:372 bot/templates/details_message.md:22
+#: bot/osmbot.py:540 bot/osmbot.py:542 bot/templates/details_message.md:22
 #: bot/templates/details_message.md:24 bot/templates/inline_article.md:23
 #: bot/templates/inline_article.md:25
 msgid "North american country"
 msgstr ""
 
-#: bot/osmbot.py:374 bot/templates/details_message.md:26
+#: bot/osmbot.py:544 bot/templates/details_message.md:26
 #: bot/templates/inline_article.md:27
 msgid "Central american country"
 msgstr ""
 
-#: bot/osmbot.py:376 bot/osmbot.py:378 bot/templates/details_message.md:28
+#: bot/osmbot.py:546 bot/osmbot.py:548 bot/templates/details_message.md:28
 #: bot/templates/details_message.md:30 bot/templates/inline_article.md:29
 #: bot/templates/inline_article.md:31
 msgid "American country"
 msgstr ""
 
-#: bot/osmbot.py:380 bot/templates/details_message.md:32
+#: bot/osmbot.py:550 bot/templates/details_message.md:32
 #: bot/templates/inline_article.md:33
 msgid "Asian country"
 msgstr ""
 
-#: bot/osmbot.py:382 bot/osmbot.py:384 bot/templates/details_message.md:34
+#: bot/osmbot.py:552 bot/osmbot.py:554 bot/templates/details_message.md:34
 #: bot/templates/details_message.md:36 bot/templates/inline_article.md:35
 #: bot/templates/inline_article.md:37
 msgid "Oceanian country"
 msgstr ""
 
-#: bot/osmbot.py:386 bot/osmbot.py:388 bot/templates/details_message.md:38
+#: bot/osmbot.py:556 bot/osmbot.py:558 bot/templates/details_message.md:38
 #: bot/templates/details_message.md:40 bot/templates/inline_article.md:39
 #: bot/templates/inline_article.md:41
 msgid "Eurasian country"
 msgstr ""
 
-#: bot/osmbot.py:425 bot/osmbot.py:427 bot/templates/details_message.md:182
+#: bot/osmbot.py:595 bot/osmbot.py:597 bot/templates/details_message.md:182
 #: bot/templates/details_message.md:184 bot/templates/inline_article.md:183
 #: bot/templates/inline_article.md:185
 msgid "inhabitants"
 msgstr ""
 
-#: bot/osmbot.py:425 bot/templates/details_message.md:182
+#: bot/osmbot.py:595 bot/templates/details_message.md:182
 #: bot/templates/inline_article.md:183
 msgid "at"
 msgstr ""
 
-#: bot/osmbot.py:430 bot/templates/details_message.md:187
+#: bot/osmbot.py:600 bot/templates/details_message.md:187
 #: bot/templates/inline_article.md:188
 msgid "meters"
 msgstr ""
 
-#: bot/osmbot.py:443 bot/templates/details_message.md:197
+#: bot/osmbot.py:613
 msgid "Raw data:"
 msgstr ""
 
-#: bot/osmbot.py:492 bot/osmbot.py:543 bot/osmbot.py:546 bot/osmbot.py:567
-#: bot/osmbot.py:591
-msgid "OSM contributors"
-msgstr ""
-
-#: bot/osmbot.py:507 bot/templates/send_location_message.md:1
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
 msgstr ""
 
-#: bot/osmbot.py:508
+#: bot/osmbot.py:691
 msgid "to receive the map"
 msgstr ""
 
-#: bot/osmbot.py:509 bot/templates/send_location_message.md:2
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
 msgstr ""
 
-#: bot/osmbot.py:713 bot/templates/not_recognized_message.md:1
+#: bot/osmbot.py:943 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my "
 "new features I will do it"
 msgstr ""
 
-#: bot/osmbot.py:721 bot/osmbot.py:736
+#: bot/osmbot.py:951 bot/osmbot.py:964
 msgid "Raw data for"
 msgstr ""
 
-#: bot/osmbot.py:723 bot/osmbot.py:738
+#: bot/osmbot.py:953 bot/osmbot.py:966 bot/templates/raw_data.md:1
 msgid "Raw data"
 msgstr ""
 
-#: bot/osmbot.py:897
-msgid "Please indicate what are you searching with command /search <search_term>"
+#: bot/osmbot.py:1152
+msgid ""
+"Please indicate what are you searching with command /search "
+"<search\\_term>"
 msgstr ""
 
-#: bot/osmbot.py:903
-msgid "Use /search <search_term> command to indicate what you are searching"
+#: bot/osmbot.py:1155
+msgid "Use /search <search\\_term> command to indicate what you are searching"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:97
+#: bot/osmbot_blueprint.py:104
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:98
+#: bot/osmbot_blueprint.py:105
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:99
+#: bot/osmbot_blueprint.py:106
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:100
+#: bot/osmbot_blueprint.py:107
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
 msgstr ""
 
-#: bot/osmbot_blueprint.py:101
+#: bot/osmbot_blueprint.py:108
 msgid "OSMbot is multilingual and speaks *your language here*"
 msgstr ""
 
@@ -467,6 +464,10 @@ msgstr ""
 
 #: bot/templates/seting_not_recognized_message.md:1
 msgid "Setting not recognized"
+msgstr ""
+
+#: bot/templates/signature.md:1
+msgid "OSM contributors"
 msgstr ""
 
 #: bot/templates/start_answer.md:1
