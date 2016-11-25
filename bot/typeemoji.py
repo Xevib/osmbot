@@ -1,4 +1,8 @@
-typeemoji={
+"""
+Dict with the emojis of osm tyles
+"""
+
+typeemoji = {
     'aerialway:cable_car': '\xF0\x9F\x9A\xA1',
     'aerialway:station': '\xF0\x9F\x9A\xA1',
     'aeroway:aerodrome': '\xE2\x9C\x88',

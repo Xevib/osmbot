@@ -1,3 +1,4 @@
+from __future__ import absolute_import, unicode_literals
 type_query = {
     'hospital':
         {'query': 'node["amenity"="hospital"]({0});way["amenity"="hospital"]({0});relation["amenity"="hospital"]({0});',
