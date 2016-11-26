@@ -38,7 +38,10 @@ def attend_webhook(token):
     if token == config['token']:
         try:
             query = request.json
-
+            if 'edited_channel_post' in query:
+                return 'OK'
+            if 'channel_post' in query:
+                return 'OK'
             if 'edited_message' in query:
                 return 'OK'
             message_type = ''
