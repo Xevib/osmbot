@@ -1039,11 +1039,11 @@ type_query = {
             'distance': 10000},
     'assembly_point':
         {
-            'query': 'node["emergency"="assmbly_point"]({0});way["emergency"="assmbly_point"]({0});relation["emergency"="assmbly_point"]({0});',
+            'query': 'node["emergency"="assembly_point"]({0});way["emergency"="assembly_point"]({0});relation["emergency"="assembly_point"]({0});',
             'distance': 10000},
     u'\\U0001f3af':
         {
-            'query': 'node["emergency"="assmbly_point"]({0});way["emergency"="assmbly_point"]({0});relation["emergency"="assmbly_point"]({0});',
+            'query': 'node["emergency"="assembly_point"]({0});way["emergency"="assembly_point"]({0});relation["emergency"="assembly_point"]({0});',
             'distance': 10000},
     'love_hotel':
         {
