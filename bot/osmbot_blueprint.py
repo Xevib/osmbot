@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
+from __future__ import absolute_import, unicode_literals
 
 from flask import Flask
 from flask import request, current_app, Blueprint
