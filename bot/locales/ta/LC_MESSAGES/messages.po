@@ -1,0 +1,481 @@
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
+# Shyaam(黒) "தமிழ்கவிஞன்" K <ku.shyaam@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: OSMbot\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-25 19:13+0100\n"
+"PO-Revision-Date: 2018-01-17 17:11+0000\n"
+"Last-Translator: Shyaam(黒) \"தமிழ்கவிஞன்\" K <ku.shyaam@gmail.com>\n"
+"Language-Team: Tamil (http://www.transifex.com/osm-catala/osmbot/language/ta/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+"Language: ta\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "Map too large!"
+msgstr "வரைபடம் மிக பெரிதாக உள்ளது!"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "Please, reduce the bounding box"
+msgstr "தயவுகூர்ந்து, அடக்கப் பெட்டியை சுருக்குங்கள்"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "or the scale (zoom level)"
+msgstr "அல்லது அளவுகோல் (பெரிதாக்கல் அளவு)"
+
+#: bot/maptools.py:52
+msgid "Invalid bounding box!"
+msgstr "தவறான அடக்கப் பெட்டி!"
+
+#: bot/maptools.py:52
+msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
+msgstr "தயவுகூர்ந்து, /map minlon,minlat,maxlon,maxlat வைத்து முயற்சி செய்யவும்"
+
+#: bot/maptools.py:52
+msgid "Coordinates' decimals need to be marked with a dot."
+msgstr "ஆயக்கூறுகளின்' தசமங்கள் புள்ளியால் குறிக்கப்பட வேண்டும்."
+
+#: bot/maptools.py:52
+msgid "For example:"
+msgstr "எடுத்துக்காட்டாக:"
+
+#: bot/maptools.py:54
+msgid "Oh,oh... An error occurred"
+msgstr "அச்சோ, ஒரு தவறு நடந்து விட்டது"
+
+#: bot/maptools.py:54
+msgid "You can try with another bounding box or scale (zoom level)"
+msgstr "வேறொரு அடக்கப் பெட்டி அல்லது அளவுகோலால் (பெரிதாக்கல் அளவு) நீங்கள் முயற்சிக்களாம்"
+
+#: bot/maptools.py:54
+msgid "Good luck! "
+msgstr "நல் ஆசி!"
+
+#: bot/osmbot.py:402
+msgid "Results for"
+msgstr "இதற்கு முடிவுகள்"
+
+#: bot/osmbot.py:431 bot/templates/inline_article.md:198
+msgid "Map"
+msgstr "வரைபடம்"
+
+#: bot/osmbot.py:434 bot/osmbot.py:436 bot/osmbot.py:438 bot/osmbot.py:440
+#: bot/osmbot.py:445 bot/osmbot.py:447 bot/osmbot.py:449 bot/osmbot.py:451
+msgid "More info"
+msgstr "மேலும் தகவல்கள்"
+
+#: bot/osmbot.py:441
+msgid "Phone"
+msgstr "அலைபேசி"
+
+#: bot/osmbot.py:453 bot/osmbot.py:621 bot/osmbot.py:959 bot/osmbot.py:967
+#: bot/templates/details_message.md:198 bot/templates/inline_article.md:200
+msgid "OpenStreetMap contributors"
+msgstr "திறந்ததெருவரைபடத்தின் பங்களிப்பாளர்கள்"
+
+#: bot/osmbot.py:521 bot/osmbot.py:524 bot/osmbot.py:526
+#: bot/templates/details_message.md:2 bot/templates/details_message.md:4
+#: bot/templates/details_message.md:6 bot/templates/inline_article.md:2
+#: bot/templates/inline_article.md:4 bot/templates/inline_article.md:6
+msgid "Tags for"
+msgstr "இதற்கு மேற்கோல்கள்"
+
+#: bot/osmbot.py:528 bot/osmbot.py:530 bot/templates/details_message.md:10
+#: bot/templates/details_message.md:12 bot/templates/inline_article.md:11
+#: bot/templates/inline_article.md:13
+msgid "European country"
+msgstr "ஐரோப்பிய நாடு"
+
+#: bot/osmbot.py:532 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:15
+msgid "African country"
+msgstr "ஆப்ரிக்க நாடு"
+
+#: bot/osmbot.py:534 bot/osmbot.py:536 bot/osmbot.py:538
+#: bot/templates/details_message.md:16 bot/templates/details_message.md:18
+#: bot/templates/details_message.md:20 bot/templates/inline_article.md:17
+#: bot/templates/inline_article.md:19 bot/templates/inline_article.md:21
+msgid "South american country"
+msgstr "தென் அமேரிக்க நாடு"
+
+#: bot/osmbot.py:540 bot/osmbot.py:542 bot/templates/details_message.md:22
+#: bot/templates/details_message.md:24 bot/templates/inline_article.md:23
+#: bot/templates/inline_article.md:25
+msgid "North american country"
+msgstr "வட அமேரிக்க நாடு"
+
+#: bot/osmbot.py:544 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:27
+msgid "Central american country"
+msgstr "நடு அமேரிக்க நாடு"
+
+#: bot/osmbot.py:546 bot/osmbot.py:548 bot/templates/details_message.md:28
+#: bot/templates/details_message.md:30 bot/templates/inline_article.md:29
+#: bot/templates/inline_article.md:31
+msgid "American country"
+msgstr "அமேரிக்க நாடு"
+
+#: bot/osmbot.py:550 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:33
+msgid "Asian country"
+msgstr "ஆசிய நாடு"
+
+#: bot/osmbot.py:552 bot/osmbot.py:554 bot/templates/details_message.md:34
+#: bot/templates/details_message.md:36 bot/templates/inline_article.md:35
+#: bot/templates/inline_article.md:37
+msgid "Oceanian country"
+msgstr "பசிபிக் பிரதேச நாடு"
+
+#: bot/osmbot.py:556 bot/osmbot.py:558 bot/templates/details_message.md:38
+#: bot/templates/details_message.md:40 bot/templates/inline_article.md:39
+#: bot/templates/inline_article.md:41
+msgid "Eurasian country"
+msgstr "யூரோசிய நாடு"
+
+#: bot/osmbot.py:595 bot/osmbot.py:597 bot/templates/details_message.md:182
+#: bot/templates/details_message.md:184 bot/templates/inline_article.md:183
+#: bot/templates/inline_article.md:185
+msgid "inhabitants"
+msgstr "குடியிருப்போர்கள்"
+
+#: bot/osmbot.py:595 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:183
+msgid "at"
+msgstr "இல்"
+
+#: bot/osmbot.py:600 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:188
+msgid "meters"
+msgstr "மீட்டர்கள்"
+
+#: bot/osmbot.py:613
+msgid "Raw data:"
+msgstr "மூல தரவு:"
+
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:1
+msgid "Please send me your location"
+msgstr "தயவுசெய்து தங்கள் இடத்தை எனக்கு அனுப்பவும்"
+
+#: bot/osmbot.py:691
+msgid "to receive the map"
+msgstr "வரைபடத்தை பெறுவதற்கு"
+
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:2
+msgid "You can do it with the Telegram paperclip button"
+msgstr "நீங்கள் இதை தந்திச்செயலியின் இணைப்பு பொத்தான் மூலம் செய்யலாம்"
+
+#: bot/osmbot.py:943 bot/templates/not_recognized_message.md:1
+msgid ""
+"Sorry, but now I can't recognize tags for this element, perhaps with my new "
+"features I will do it"
+msgstr "மன்னிக்கவும், ஆனால் இப்போது இந்த மேற்கோல்களின் கூருகள் எனக்கு தெரியவில்லை, ஒருவேலை எனது புதிய அம்சங்களால் இதை நான் செய்யலாம்"
+
+#: bot/osmbot.py:951 bot/osmbot.py:964
+msgid "Raw data for"
+msgstr "மூல தரவு இதற்கு"
+
+#: bot/osmbot.py:953 bot/osmbot.py:966 bot/templates/raw_data.md:1
+msgid "Raw data"
+msgstr "மூல தரவு"
+
+#: bot/osmbot.py:1152
+msgid ""
+"Please indicate what are you searching with command /search <search\\_term>"
+msgstr "தயவுகூர்ந்து எதை தேடுகிறீர்கள் என்பதை /search<தேடல்\\_சொல்> கட்டளை மூலம் குறிப்பிடவும்"
+
+#: bot/osmbot.py:1155
+msgid "Use /search <search\\_term> command to indicate what you are searching"
+msgstr "/search<தேடல்\\_சொல்> கட்டளையைக் கொண்டு நீங்கள் தேடுவதை குறிப்பிடவும்"
+
+#: bot/osmbot_blueprint.py:104
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "திறந்ததெருவரைபட எந்திரம் உலகத்திலுள்ள எந்த ஒரு இடத்தையும் நொமினேட்டிம் OSM தரவுதளத்தில் இருந்து கண்டுபிடிக்கவும் அதிலிருந்து இணைப்புக்கள் மற்றும் வரைபடங்களை அனுப்பவும் முடியும்"
+
+#: bot/osmbot_blueprint.py:105
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "திறந்ததெருவரைபட எந்திரம் உலகத்திலுள்ள எந்த ஒரு இடத்தையும் நொமினேட்டிம் OSM தரவுதளத்தில் இருந்து கண்டுபிடிக்க முடியும்"
+
+#: bot/osmbot_blueprint.py:106
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "OSM இல் இருந்து இந்த எந்திரத்தால் இணைப்புக்கள் மற்றும் வரைபடங்களை (jpg, png அல்லது pdf) அனுப்ப முடியும்"
+
+#: bot/osmbot_blueprint.py:107
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "உலகத்தின் அனைத்து தரவு (நகரங்கள் மற்றும் கிராமங்கள், கடைகள் -அலைபேசி எண்கள், மினஞ்சல் உடன்...-, விக்கிப்பீடியா இணைப்புகள், முதலியன)"
+
+#: bot/osmbot_blueprint.py:108
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMஎந்திரம் ஒரு பன்மொழி எந்திரம் மற்றும் தமிழிலும் பேசும்"
+
+#: bot/templates/about_answer.md:1
+msgid "OpenStreetMap bot info:"
+msgstr "திறந்ததெருவரைபட எந்திர விபரம்:"
+
+#: bot/templates/about_answer.md:3
+msgid "CREDITS&CODE"
+msgstr "உழைப்புகள்&நிரல்"
+
+#: bot/templates/about_answer.md:4
+msgid "Author:"
+msgstr "ஆசிரியர்:"
+
+#: bot/templates/about_answer.md:4
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(கட்டலான் திறந்ததெருவரைபடத்தின் சமூகம்)"
+
+#: bot/templates/about_answer.md:5
+msgid "Code"
+msgstr "நிரல்"
+
+#: bot/templates/about_answer.md:6
+msgid "License: GPLv3"
+msgstr "உரிமம்: GPLv3"
+
+#: bot/templates/about_answer.md:6
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
+
+#: bot/templates/about_answer.md:7
+msgid "Localization"
+msgstr "உட்பரவலாக்கள்"
+
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr "ஆவணங்கள்"
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr "OSMஎந்திரம் விக்கி"
+
+#: bot/templates/about_answer.md:12
+msgid "NEWS"
+msgstr "செய்தி"
+
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr "ட்விட்டர் கணக்கு"
+
+#: bot/templates/about_answer.md:14
+msgid "Telegram channel"
+msgstr "தந்திச்செயலி அலைவரிசை"
+
+#: bot/templates/about_answer.md:16
+msgid "RATING"
+msgstr "மதிப்பீடு"
+
+#: bot/templates/about_answer.md:17
+msgid "Rating&reviews"
+msgstr "மதிப்பீடு&விமர்சனங்கள்"
+
+#: bot/templates/about_answer.md:18
+msgid "Please rate me"
+msgstr "தயவுசெய்து என்னை மதிப்பிடுங்கள்"
+
+#: bot/templates/about_answer.md:20
+msgid "Thanks for use @OSMbot!!"
+msgstr "@OSMbot ஐ பயன்செய்ததற்கு நன்றி!!"
+
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "இனி எப்போதும் நான் பதிலளிப்பேன்"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "அச்சச்சோ! என்னல் இந்த மொழியை பேச முடியாது"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "இன்னும்"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "ஆனால் உங்களால் என்னை இதை கற்றுக்கொள்ள transifex ல் உதவ முடியும்"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "மன்னிக்கவும், என்னால் உங்களை புரிந்துகொள்ள முடியவில்லை"
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "ஒரு வேலை நான் உங்களுக்கு /help கட்டளை மூலம் உதவலாம்"
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "நீங்கள் எதை கட்டமைக்க விரும்புகிறீர்கள்?"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:43
+msgid "Flag"
+msgstr "கொடி"
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:192
+msgid "Wikidata"
+msgstr "விக்கிதரவு"
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:195
+msgid "Wikipedia"
+msgstr "விக்கிப்பீடியா"
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "நீங்கள் ஏதேனும் விசித்திரமான ஏமோஜிகளை காண நேர்ந்தால் இதற்கு தந்திச்செயலியின் விளையாட்டு அம்சமே காரணம்"
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "ஏதோ தவறிவிட்டது"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "சிறிது நேரம் கழித்து இதை முயற்சிக்கவும்"
+
+#: bot/templates/help_message.md:1
+msgid "OpenStreetMap bot help:"
+msgstr "திறந்ததெருவரைபட எந்திர உதவி:"
+
+#: bot/templates/help_message.md:3
+msgid "You can control me by sending these commands:"
+msgstr "என்னை நீங்கள் கட்டளை அனுப்புவதன் மூலம் கட்டுப்படுத்தலாம்:"
+
+#: bot/templates/help_message.md:5
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - OSMbot குறித்த தகவல்கள்: உழைப்புகள்&நிரல், செய்திகள் மற்றும் மதிப்பீடு&விமர்சனங்கள்"
+
+#: bot/templates/help_message.md:7
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details<type><osm_id> - OSM தரவுதளத்திலிருந்து சில மேற்கோல்களை ID படி காட்டு."
+
+#: bot/templates/help_message.md:9
+msgid ""
+"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+msgstr "/raw<type><osm_id> - OSM தரவுதளத்திலிருந்து அனைத்து மேற்கோல்களையும் ID படி மூல வடிவில் காட்டு."
+
+#: bot/templates/help_message.md:11
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "ID ஆனது /search கட்டளை மூலம் தோற்றுவிக்கப்படுகிறது, ஆனால் உங்களுக்கு ஒரு OSM ID தெரிந்திருந்தால் நீங்கள் அதை முயற்சிக்கலாம்."
+
+#: bot/templates/help_message.md:13
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "வகை இது தேர்வு மேலும் இது nod(முகடு), way(வழி) அல்லது rel(தொடர்பு) ஆக இருக்கலாம். நீங்கள் குறிப்பிடாவிடில், எந்திரம் இதை குறைக்க முற்படும்"
+
+#: bot/templates/help_message.md:15
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <osm_key> - OSMbot இலுள்ள இணை சாவி=மதிப்பு மற்றும் அதன் எமோஜீன் பட்டியலை காட்டும். நீங்கள் ஒரு <osm_key> ஐ குறிப்பிடாவிடில், Osmbot-இலுள்ள அணைத்து இணை சாவிகளின்=மதிப்பையும் காட்டும்"
+
+#: bot/templates/help_message.md:17
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <coord> <format> <scale> - வேறுபட்ட தேர்வுகளுடன் வரைபடங்களை அனுப்ப:"
+
+#: bot/templates/help_message.md:19
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<coord> ஒரு புள்ளியாக இருக்கலாம் (ஆட்ச்சம், தீர்க்கம்) அல்லது ஒரு அடக்கப் பெட்டி (minlon,minlat,maxlon,maxlat). நீங்கள் இந்த தேர்வை பயன்படுத்தாவிடில் உங்கள் இடத்தை அனுப்ப முடியும்"
+
+#: bot/templates/help_message.md:21
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<format> png, jpeg அல்லது pdf ஆக இருக்கலாம். நீங்கள் இந்த தேர்வை பயன்படுத்தாவிடில், எந்திரம் pngஐ இயல்பாக பயன்படுத்தும்."
+
+#: bot/templates/help_message.md:23
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<scale> பெரிதாக்கல் அளவு (1-19). நீங்கள் இந்த தேர்வை பயன்படுத்தாவிடில், எந்திரம் 19ஐ இயல்பாக பயன்படுத்தும்."
+
+#: bot/templates/help_message.md:25
+msgid ""
+"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+msgstr "/search <search_term> - அனைத்து திறந்ததெருவரைபட தரவுதளத்திலும் ஒரு பெயரிலிருந்து தேட"
+
+#: bot/templates/help_message.md:27
+msgid ""
+"/nearest <type> <optional meters> - Search from Overpass the element in a "
+"certain radius"
+msgstr "/nearest <type> <optional meters> - சில இடங்களில் இருந்து கடந்து குறிப்பிட்ட சுற்றுப்புறத்தில் தேட"
+
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "உங்களோடு பேசுவதற்கான மொழியை தேர்ந்தெடுக்கவும்"
+
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "இப்போது நான் உங்களுடன் புது மொழியில் பேசுவேன்"
+
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "எந்த எமோஜியையும் காணவில்லை, ஒருவேலை நீங்கள் /legend<osm_key:value> மூலம் முயற்சிக்கலாம்"
+
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "மன்னிக்கவும் ஆனால் என்னால் எந்த முடிவுகளையும் கண்டுபிடிக்க முடியவில்லை, தயவுசெய்து ID ஐ சரி பார்க்கவும்"
+
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "மன்னிக்கவும் ஆனால் என்னால் எந்த முடிவுகளையும் கண்டுபிடிக்க முடியவில்லை இதற்கு"
+
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "ஆனால் நீங்கள் முயற்சி செய்து திறந்ததெருவரைபடத்தை முன்னேற்றலாம்"
+
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/en/"
+
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "எந்த பகுதிகளும் கண்டுபிடிக்கப்படவில்லை"
+
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "மன்னிக்கவும் ஆனால் இந்த வினா இன்னும் செயல்படுத்தப்படவில்லை"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "இப்போது நான் குறிப்பிட்டால் மட்டுமே பதிலளிப்பேன்"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "நான் எதையும் குறிப்பிடாமல் பதிலளிக்கவா?"
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "மற்றும் நான் உங்களுக்கு அருகிலுல்ல பகுதிகளையும் அனுப்புகிறேன்"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "அமைப்புகள் அங்கிகரிக்கப்படவில்லை"
+
+#: bot/templates/signature.md:1
+msgid "OSM contributors"
+msgstr "OSM பங்களிப்பாளர்கள்"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "வணக்கம், நான் திறந்ததெருவரைபட தரவின் எந்திரம் ஆவேன்"
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "நான் உங்களுக்கு எவ்வாறு உதவ முடியும்?"
