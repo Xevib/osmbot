@@ -70,6 +70,7 @@ class OsmBot(object):
         'Vietnamese': 'vi',
         'Russian': 'ru',
         'Slovak': 'sk',
+        'Tamil': 'ta',
         'Chinese (Hong Kong)': 'zh_HK',
         'Hungarian': 'hu',
         'Catalan (Valencian)': 'ca@valencia',
