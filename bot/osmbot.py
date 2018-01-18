@@ -244,7 +244,7 @@ class OsmBot(object):
                 chat_id,
                 text,
                 'Markdown',
-                reply_markup=ReplyKeyboardHide())
+                reply_markup=ReplyKeyboardRemove())
         else:
             template = self._get_template('answer_always.md')
             text = template.render(is_rtl=self.get_is_rtl())
@@ -252,7 +252,7 @@ class OsmBot(object):
                 chat_id,
                 text,
                 'Markdown',
-                reply_markup=ReplyKeyboardHide())
+                reply_markup=ReplyKeyboardRemove())
 
     def set_language_command(self, message, user_id, chat_id, u):
         """
@@ -274,7 +274,7 @@ class OsmBot(object):
             self.load_language(self.get_languages()[message])
             template = self._get_template('new_language.md')
             text = template.render(is_rtl=self.get_is_rtl())
-            k = ReplyKeyboardHide()
+            k = ReplyKeyboardRemove()
             self.telegram_api.sendMessage(
                 chat_id,
                 text,
