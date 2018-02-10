@@ -10,6 +10,7 @@ import gettext
 import bot.user as u
 from bot.osmbot import OsmBot
 from telegram import Bot as TBot
+from telegram import error
 
 application = Flask(__name__)
 application.debug = True
@@ -86,6 +87,8 @@ def attend_webhook(token):
                 osmbot.answer_message(message, query, chat_id, user_id, user_config, user, message_type)
             else:
                 osmbot.answer_callback(query)
+            return 'OK'
+        except error.Unauthorized:
             return 'OK'
         except Exception as e:
             if e.message == 'Unauthorized':
