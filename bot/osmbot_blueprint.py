@@ -94,9 +94,12 @@ def attend_webhook(token):
             import traceback
             traceback.print_exc()
             current_app.sentry.captureException()
-            osmbot.load_language(user_config['lang'])
-            text = osmbot._get_template('error_message.md').render()
-            telegram_api.sendMessage(chat_id, text)
+            try:
+                osmbot.load_language(user_config['lang'])
+                text = osmbot._get_template('error_message.md').render()
+                telegram_api.sendMessage(chat_id, text)
+            except Exception:
+                pass
             return 'OK'
     else:
         return 'NOT ALLOWED'
