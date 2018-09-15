@@ -1120,7 +1120,7 @@ class OsmBot(object):
                 elif message.lower().startswith('/nearest'):
                     self.nearest_command(message, chat_id, user_id, user)
                 elif message.lower().startswith('/map'):
-                    text = _('Sorry, we had to disable this option due a OSM API change>')
+                    text = _('Sorry, we had to disable this option due to a OSM API change')
                     self.telegram_api.sendMessage(chat_id,text)
                 elif re.match('/phone.*', message.lower()):
                     self.phone_command(message, chat_id)
