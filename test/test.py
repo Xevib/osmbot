@@ -6,7 +6,8 @@ import os
 from six.moves import reload_module
 import sys
 reload_module(sys)
-sys.setdefaultencoding('utf-8')
+if sys.version_info.major ==2:
+    sys.setdefaultencoding('utf-8')
 
 from bot.osmbot import OsmBot
 from bot.error import OSMError
