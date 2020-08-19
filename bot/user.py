@@ -59,7 +59,7 @@ class User(object):
         if sys.version_info.major ==2:
             shaid = sha1(str(identifier)).hexdigest()
         else:
-            shaid = sha1(identifier.encode("utf-8")).hexdigest()
+            shaid = sha1(str(identifier).encode("utf-8")).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
         if group:
             sql = 'SELECT * FROM groups WHERE shaid = %s LIMIT 1'
