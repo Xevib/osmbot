@@ -1,0 +1,482 @@
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
+# abc Def <hdogan1974@gmail.com>, 2020
+# M.Furkan <byazade@yandex.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: OSMbot\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-25 19:13+0100\n"
+"PO-Revision-Date: 2020-04-21 09:09+0000\n"
+"Last-Translator: abc Def <hdogan1974@gmail.com>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/osm-catala/osmbot/language/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "Map too large!"
+msgstr "Harita çok büyük!"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "Please, reduce the bounding box"
+msgstr "Lütfen sınırlayıcı kutuyu azaltın"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "or the scale (zoom level)"
+msgstr "veya ölçeklendirin (yakınlaştırma düzeyi)"
+
+#: bot/maptools.py:52
+msgid "Invalid bounding box!"
+msgstr "Geçersiz sınırlayıcı kutusu!"
+
+#: bot/maptools.py:52
+msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
+msgstr "Lütfen /map minlon,minlat,maxlon,maxlat ile deneyin"
+
+#: bot/maptools.py:52
+msgid "Coordinates' decimals need to be marked with a dot."
+msgstr "Koordinatların basamakları bir nokta ile işaretlenmelidir."
+
+#: bot/maptools.py:52
+msgid "For example:"
+msgstr "Örnek:"
+
+#: bot/maptools.py:54
+msgid "Oh,oh... An error occurred"
+msgstr "Ah.. Hata oluştu"
+
+#: bot/maptools.py:54
+msgid "You can try with another bounding box or scale (zoom level)"
+msgstr "Başka bir sınırlayıcı kutuyu veya ölçeklendirmeyi (yakınlaştırma düzeyini) deneyebilirsiniz"
+
+#: bot/maptools.py:54
+msgid "Good luck! "
+msgstr "İyi şanslar"
+
+#: bot/osmbot.py:402
+msgid "Results for"
+msgstr "Sonuçlar"
+
+#: bot/osmbot.py:431 bot/templates/inline_article.md:198
+msgid "Map"
+msgstr "Harita"
+
+#: bot/osmbot.py:434 bot/osmbot.py:436 bot/osmbot.py:438 bot/osmbot.py:440
+#: bot/osmbot.py:445 bot/osmbot.py:447 bot/osmbot.py:449 bot/osmbot.py:451
+msgid "More info"
+msgstr "Daha fazla bilgi"
+
+#: bot/osmbot.py:441
+msgid "Phone"
+msgstr "Telefon"
+
+#: bot/osmbot.py:453 bot/osmbot.py:621 bot/osmbot.py:959 bot/osmbot.py:967
+#: bot/templates/details_message.md:198 bot/templates/inline_article.md:200
+msgid "OpenStreetMap contributors"
+msgstr "OpenStreetMap'a katkıda bulunanlar"
+
+#: bot/osmbot.py:521 bot/osmbot.py:524 bot/osmbot.py:526
+#: bot/templates/details_message.md:2 bot/templates/details_message.md:4
+#: bot/templates/details_message.md:6 bot/templates/inline_article.md:2
+#: bot/templates/inline_article.md:4 bot/templates/inline_article.md:6
+msgid "Tags for"
+msgstr "Etiketler"
+
+#: bot/osmbot.py:528 bot/osmbot.py:530 bot/templates/details_message.md:10
+#: bot/templates/details_message.md:12 bot/templates/inline_article.md:11
+#: bot/templates/inline_article.md:13
+msgid "European country"
+msgstr "Avrupa ülkeleri"
+
+#: bot/osmbot.py:532 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:15
+msgid "African country"
+msgstr "Afrika ülkeleri"
+
+#: bot/osmbot.py:534 bot/osmbot.py:536 bot/osmbot.py:538
+#: bot/templates/details_message.md:16 bot/templates/details_message.md:18
+#: bot/templates/details_message.md:20 bot/templates/inline_article.md:17
+#: bot/templates/inline_article.md:19 bot/templates/inline_article.md:21
+msgid "South american country"
+msgstr "Güney amerika ülkeleri"
+
+#: bot/osmbot.py:540 bot/osmbot.py:542 bot/templates/details_message.md:22
+#: bot/templates/details_message.md:24 bot/templates/inline_article.md:23
+#: bot/templates/inline_article.md:25
+msgid "North american country"
+msgstr "Kuzey amerika ülkeleri"
+
+#: bot/osmbot.py:544 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:27
+msgid "Central american country"
+msgstr "Orta amerika ülkeleri"
+
+#: bot/osmbot.py:546 bot/osmbot.py:548 bot/templates/details_message.md:28
+#: bot/templates/details_message.md:30 bot/templates/inline_article.md:29
+#: bot/templates/inline_article.md:31
+msgid "American country"
+msgstr "Amerika üklesi"
+
+#: bot/osmbot.py:550 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:33
+msgid "Asian country"
+msgstr "Asya ülkesi"
+
+#: bot/osmbot.py:552 bot/osmbot.py:554 bot/templates/details_message.md:34
+#: bot/templates/details_message.md:36 bot/templates/inline_article.md:35
+#: bot/templates/inline_article.md:37
+msgid "Oceanian country"
+msgstr "Okyanusya ülkesi"
+
+#: bot/osmbot.py:556 bot/osmbot.py:558 bot/templates/details_message.md:38
+#: bot/templates/details_message.md:40 bot/templates/inline_article.md:39
+#: bot/templates/inline_article.md:41
+msgid "Eurasian country"
+msgstr "Avrasya ülkesi"
+
+#: bot/osmbot.py:595 bot/osmbot.py:597 bot/templates/details_message.md:182
+#: bot/templates/details_message.md:184 bot/templates/inline_article.md:183
+#: bot/templates/inline_article.md:185
+msgid "inhabitants"
+msgstr "sakinler"
+
+#: bot/osmbot.py:595 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:183
+msgid "at"
+msgstr "da"
+
+#: bot/osmbot.py:600 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:188
+msgid "meters"
+msgstr "ölçüler"
+
+#: bot/osmbot.py:613
+msgid "Raw data:"
+msgstr "İşlenmiş veri:"
+
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:1
+msgid "Please send me your location"
+msgstr "Lütfen konumunuzu  gönderin"
+
+#: bot/osmbot.py:691
+msgid "to receive the map"
+msgstr "haritayı almak için"
+
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:2
+msgid "You can do it with the Telegram paperclip button"
+msgstr "Bunu telegram ekleme ikonuna basarak yapabilirsiniz"
+
+#: bot/osmbot.py:943 bot/templates/not_recognized_message.md:1
+msgid ""
+"Sorry, but now I can't recognize tags for this element, perhaps with my new "
+"features I will do it"
+msgstr "Maalesef, ancak şimdi bu öğe için etiketleri tanıyamıyorum, belki de yeni özelliklerimle yapabilirim"
+
+#: bot/osmbot.py:951 bot/osmbot.py:964
+msgid "Raw data for"
+msgstr "bunun için işlenmiş veri"
+
+#: bot/osmbot.py:953 bot/osmbot.py:966 bot/templates/raw_data.md:1
+msgid "Raw data"
+msgstr "işlenmiş veri"
+
+#: bot/osmbot.py:1152
+msgid ""
+"Please indicate what are you searching with command /search <search\\_term>"
+msgstr "Lütfen aradığınız şeyi komutayla belirtin /search <aranacak şey>"
+
+#: bot/osmbot.py:1155
+msgid "Use /search <search\\_term> command to indicate what you are searching"
+msgstr "/search komutunu kullanarak ne aramak istediğinizi belirtiniz"
+
+#: bot/osmbot_blueprint.py:104
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "OpenStreetMap bot, Nominatim OSM veritabanından dünyanın herhangi bir yerini bulur ve OSM'den bağlantılar ve haritalar şeklinde gönderebilir"
+
+#: bot/osmbot_blueprint.py:105
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "OpenStreetMap bot, Nominatim OSM veritabanından dünyanın herhangi bir yerini bulur"
+
+#: bot/osmbot_blueprint.py:106
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "Bot OSM'den bağlantılar ve haritalar (jpg, png veya pdf) gönderebilir"
+
+#: bot/osmbot_blueprint.py:107
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "Tüm dünyadaki veriler (şehirler ve kasabalar, mağazalar - telefon numarası, e-posta ...-, Wikipedia bağlantıları vb. Ile birlikte)"
+
+#: bot/osmbot_blueprint.py:108
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot çok dilli ve * sizin diliniz *"
+
+#: bot/templates/about_answer.md:1
+msgid "OpenStreetMap bot info:"
+msgstr "OpenStreetMap bot bilgisi:"
+
+#: bot/templates/about_answer.md:3
+msgid "CREDITS&CODE"
+msgstr "Yapımda emeği geçenler ve kaynak kodu"
+
+#: bot/templates/about_answer.md:4
+msgid "Author:"
+msgstr "Yapımcı :"
+
+#: bot/templates/about_answer.md:4
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(Katalan OpenStreetMap topluluğu)"
+
+#: bot/templates/about_answer.md:5
+msgid "Code"
+msgstr "kod"
+
+#: bot/templates/about_answer.md:6
+msgid "License: GPLv3"
+msgstr "Lisans: GPLv3"
+
+#: bot/templates/about_answer.md:6
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.en.html"
+
+#: bot/templates/about_answer.md:7
+msgid "Localization"
+msgstr "Yerelleştirme"
+
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr "BELGELER"
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr "OSMbot anskiklopedisi"
+
+#: bot/templates/about_answer.md:12
+msgid "NEWS"
+msgstr "Haberler"
+
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr "Twitter Hesabı"
+
+#: bot/templates/about_answer.md:14
+msgid "Telegram channel"
+msgstr "Telegram Kanalo"
+
+#: bot/templates/about_answer.md:16
+msgid "RATING"
+msgstr "Oylama"
+
+#: bot/templates/about_answer.md:17
+msgid "Rating&reviews"
+msgstr "Oyla&değerlendir"
+
+#: bot/templates/about_answer.md:18
+msgid "Please rate me"
+msgstr "Lütfen beni oyla"
+
+#: bot/templates/about_answer.md:20
+msgid "Thanks for use @OSMbot!!"
+msgstr "@OSMbot u kullandığın için teşekkürler"
+
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "Şimdi hep cevap vereceğim"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "offf ! Bu dili konuşamıyorum"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "henüz"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "Bana Transifex den yardımcı olabilirsin"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "Üzgünüm seni anlayamıyorum"
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "Belki /help komutu senin işini görür."
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "Neyi ayarlamak istiyorsun ?"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:43
+msgid "Flag"
+msgstr "Bayrak"
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:192
+msgid "Wikidata"
+msgstr "Ansiklopedi Bilgisi"
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:195
+msgid "Wikipedia"
+msgstr "Wikipedia"
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "Garip emojileri görürseniz, bir Telegram paskalya yumurtasından kaynaklanır."
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "Bir hata oldu"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "Lütfen daha sonra tekrar deneyin"
+
+#: bot/templates/help_message.md:1
+msgid "OpenStreetMap bot help:"
+msgstr "OpenStreetMap bot yardım:"
+
+#: bot/templates/help_message.md:3
+msgid "You can control me by sending these commands:"
+msgstr "Bir kaç komut göndererek beni kontrol edebilirsin :"
+
+#: bot/templates/help_message.md:5
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - OSMbot hakkında bilgileri göster kodu,haberleri,oylama sonuçları"
+
+#: bot/templates/help_message.md:7
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details - OSMbot veri tabanından bilgi edinebilirsin"
+
+#: bot/templates/help_message.md:9
+msgid ""
+"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+msgstr "/raw - OSMbot veri tabanındaki tüm bilgileri  listele"
+
+#: bot/templates/help_message.md:11
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "Kimlik /search komutu tarafından oluşturulur, ancak bir OSM Kimliği biliyorsanız bunu deneyebilirsiniz."
+
+#: bot/templates/help_message.md:13
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "İsteğe bağlı türdür ve nod (düğüm), way(yol) veya rel(ilişki) olabilir. Belirtmezseniz, bot bunu sonuç çıkarmada deneyecektir"
+
+#: bot/templates/help_message.md:15
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <osm_key> Osmbot'taki emoji ve değer=anahtar çifti listesini gösterir. Birini belirtmezseniz, Osmbot'taki tüm emoji ve değer=anahtar çifti listesini gösterir"
+
+#: bot/templates/help_message.md:17
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <coord> <format> <scale> - Farklı seçeneklerle bir harita gönderin:"
+
+#: bot/templates/help_message.md:19
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<coord> Bir nokta (lat, lon) veya sınırlayıcı bir kutu (minlon, minlat, maxlon, maxlat) olabilir. Bu seçeneği kullanmazsanız konumunuzu gönderebilirsiniz"
+
+#: bot/templates/help_message.md:21
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<format> Png, jpeg veya pdf olabilir. Bu seçeneği kullanmazsanız, bot varsayılan olarak png kullanır"
+
+#: bot/templates/help_message.md:23
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<scale> Yakınlaştırma seviyesi (1-19). Bu seçeneği kullanmazsanız, bot varsayılan olarak 19 kullanır."
+
+#: bot/templates/help_message.md:25
+msgid ""
+"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+msgstr "/search <search_term> - Tüm OpenStreetMap veritabanında Nominatim'den ara"
+
+#: bot/templates/help_message.md:27
+msgid ""
+"/nearest <type> <optional meters> - Search from Overpass the element in a "
+"certain radius"
+msgstr "/nearest <type> <optional meters> - Belirli bir yarıçaptaki öğeyi Overpass'ten arayın"
+
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "Sizinle konuşmak için bir dil seçin"
+
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "Şimdi yeni dil ile konuşacağım"
+
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "Emoji bulunamadı, belki de /legend ile denemelisin <osm_key:value>"
+
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "Üzgünüm ama herhangi bir sonuç bulamadım, lütfen kimliği denetleyin"
+
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "Üzgünüm ama herhangi bir sonuç bulamadım"
+
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "Ama OpenStreetMap'ı geliştirmeyi deneyebilirsiniz"
+
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/en/"
+
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "Öğe bulunamadı"
+
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "Üzgünüm ama bu sorgu henüz uygulanmadı"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "Şimdi sadece bahsettiğimde cevap vereceğim"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "Bahsetmeden cevap vermeli miyim?"
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "ve sana en yakın öğeyi göndereceğim"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "Ayar tanınmadı"
+
+#: bot/templates/signature.md:1
+msgid "OSM contributors"
+msgstr "OSM katkıda bulunanları"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "Merhaba, ben OpenStreetMap verileri için robotum"
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "Sana nasıl yardım edebilirim?"
