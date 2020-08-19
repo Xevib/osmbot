@@ -11,6 +11,7 @@ import bot.user as u
 from bot.osmbot import OsmBot
 from telegram import Bot as TBot
 from telegram import error
+import sys
 
 application = Flask(__name__)
 application.debug = True
@@ -91,8 +92,13 @@ def attend_webhook(token):
         except error.Unauthorized:
             return 'OK'
         except Exception as e:
-            if e.message == 'Unauthorized':
-                return 'OK'
+            if sys.version_info.major ==2:
+                if e.message == 'Unauthorized':
+                    return 'OK'
+            else:
+                if str(e) == 'Unauthorized':
+                    return 'OK'
+
             print(str(e))
             import traceback
             traceback.print_exc()
