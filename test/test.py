@@ -95,7 +95,10 @@ class BotTest(unittest.TestCase):
         for template in templates:
             print('Testing template:{}'.format(template))
             with open(os.path.join('bot/templates', template)) as f:
-                template_text = unicode(f.read())
+                if sys.version_info.major == 2:
+                    template_text = unicode(f.read())
+                else:
+                    template_text = f.read()
             try:
                 jinja_env.from_string(template_text).render()
             except exceptions.TemplateAssertionError:
