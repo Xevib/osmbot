@@ -6,7 +6,7 @@ before_script:
   - psql -c 'CREATE TABLE users (id int, mode varchar(30),zoom int,format varchar(30),language varchar(10))' -U postgres
 install: 
   - pip install requests
-  - pip install -r requirements.txt
+  - pip install .
   - pip install coveralls
   - pip install six
 script: 
