@@ -23,7 +23,7 @@ setup(
         "overpass",
         "lxml",
         "osmapi",
-        "python-telegram-bot",
+        "python-telegram-bot==12.8",
         "blinker",
         "click"
     ]
