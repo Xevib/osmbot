@@ -12,10 +12,32 @@ from bot.osmbot import OsmBot
 from telegram import Bot as TBot
 from telegram import error
 import sys
+from pony.flask import Pony
+from pony.orm import Database, Required, Optional, db_session
+from datetime import datetime
 
 application = Flask(__name__)
-application.debug = True
 config = ConfigObj('bot.conf')
+application.config.update(dict(
+    DEBUG = False,
+    PONY = {
+        "provider": "postgres",
+        "host": config.get("host", ""),
+        "user": config.get("user", ""),
+        "password": config.get("password", ""),
+        "dbname":config.get("database", "")
+    }))
+
+
+db = Database()
+db.bind(**application.config['PONY'])
+
+from bot.models import Stats
+db.generate_mapping(create_tables=True)
+
+
+
+Pony(application)
 
 if config:
     user = u.User(config.get('host', ''), config.get('database', ''), config.get('user', ''), config.get('password', ''))
@@ -33,13 +55,17 @@ osmbot_blueprint = Blueprint(
 
 
 @osmbot_blueprint.route('/osmbot/hook/<string:token>', methods=['POST'])
-def attend_webhook(token):
+@db_session
+def attend_webhook(token):    
     user = u.User(config['host'], config['database'], config['user'], config['password'])
+
     current_app.logger.debug('token:%s', token)
     osmbot.set_group(False)
+    
     if token == config['token']:
         try:
             query = request.json
+            
             if 'edited_channel_post' in query:
                 return 'OK'
             if 'channel_post' in query:
@@ -52,13 +78,17 @@ def attend_webhook(token):
                 message_type = 'query'
 
                 if 'from' in message_dict and 'id' in message_dict['from']:
+                    app_language = query["message"]["from"].get("language_code",None)
                     osmbot.set_group(query['message']['chat']['type'] == u'group')
                     if osmbot.get_group():
                         identifier = message_dict['chat']['id']
+                        command = message_dict["text"].split()[0]
                     else:
                         identifier = message_dict['from']['id']
+                        command = message_dict["text"].split()[0]
                     user_config = user.get_user(identifier, group=osmbot.get_group())
                     user_id = message_dict['from']['id']
+                    Stats(date= datetime.now() , user_language=app_language, configured_language=user_config["lang"], command=command)
             elif 'inline_query' in query:
                 message_type = 'inline'
                 user_id = query['inline_query']['from']['id']

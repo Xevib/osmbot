@@ -25,6 +25,7 @@ setup(
         "osmapi",
         "python-telegram-bot==11.1.0",
         "blinker",
-        "click"
+        "click",
+        "pony"
     ]
 )
