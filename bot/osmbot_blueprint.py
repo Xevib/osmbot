@@ -88,7 +88,8 @@ def attend_webhook(token):
                         command = message_dict["text"].split()[0]
                     user_config = user.get_user(identifier, group=osmbot.get_group())
                     user_id = message_dict['from']['id']
-                    Stats(date= datetime.now() , user_language=app_language, configured_language=user_config["lang"], command=command)
+                    if app_language and user_config.get("lang") and command:
+                        Stats(date= datetime.now() , user_language=app_language, configured_language=user_config.get("lang"), command=command)
             elif 'inline_query' in query:
                 message_type = 'inline'
                 user_id = query['inline_query']['from']['id']
