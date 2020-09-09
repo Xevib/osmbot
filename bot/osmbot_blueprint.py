@@ -85,7 +85,10 @@ def attend_webhook(token):
                         command = message_dict["text"].split()[0]
                     else:
                         identifier = message_dict['from']['id']
-                        command = message_dict["text"].split()[0]
+                        if "text" in message_dict:
+                            command = message_dict["text"].split()[0]
+                        else:
+                            command = None
                     user_config = user.get_user(identifier, group=osmbot.get_group())
                     user_id = message_dict['from']['id']
                     if app_language and user_config.get("lang") and command:
