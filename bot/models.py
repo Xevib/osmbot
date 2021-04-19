@@ -1,4 +1,4 @@
-from osmbot_blueprint import db
+from bot.osmbot_blueprint import db
 from pony.orm import  Required, Optional, PrimaryKey
 from datetime import datetime
 
