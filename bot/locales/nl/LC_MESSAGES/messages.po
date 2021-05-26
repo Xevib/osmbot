@@ -4,233 +4,222 @@
 # 
 # Translators:
 # Albert F <lakonfrariadelavila@gmail.com>, 2016
+# danieldegroot2 <danieldegroot18@gmail.com>, 2021
 # mrb <marcel@hsdev.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: OSMbot\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-18 08:53+0200\n"
-"PO-Revision-Date: 2016-07-18 08:42+0000\n"
-"Last-Translator: Albert F <lakonfrariadelavila@gmail.com>\n"
+"POT-Creation-Date: 2016-11-25 19:13+0100\n"
+"PO-Revision-Date: 2021-05-10 11:50+0000\n"
+"Last-Translator: danieldegroot2 <danieldegroot18@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/osm-catala/osmbot/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.3.4\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: bot/maptools.py:43 bot/maptools.py:45
+#: bot/maptools.py:48 bot/maptools.py:50
 msgid "Map too large!"
 msgstr "Kaart is te groot!"
 
-#: bot/maptools.py:43 bot/maptools.py:45
+#: bot/maptools.py:48 bot/maptools.py:50
 msgid "Please, reduce the bounding box"
 msgstr "Graag de omhullende rechthoek verkleinen "
 
-#: bot/maptools.py:43 bot/maptools.py:45
+#: bot/maptools.py:48 bot/maptools.py:50
 msgid "or the scale (zoom level)"
-msgstr "of de schaal (zoom niveau)"
+msgstr "of de schaal (zoomniveau)"
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "Invalid bounding box!"
 msgstr "Ongeldig omhullende rechthoek"
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
 msgstr "Graag proberen met /map minlon,minlat,maxlon,maxlat"
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "Coordinates' decimals need to be marked with a dot."
 msgstr "Voor coördinaten de decimale punt gebruiken"
 
-#: bot/maptools.py:47
+#: bot/maptools.py:52
 msgid "For example:"
 msgstr "Bijvoorbeeld:"
 
-#: bot/maptools.py:49
+#: bot/maptools.py:54
 msgid "Oh,oh... An error occurred"
 msgstr "Oh,oh... Er is een fout opgetreden"
 
-#: bot/maptools.py:49
+#: bot/maptools.py:54
 msgid "You can try with another bounding box or scale (zoom level)"
-msgstr "Ja kan het met een andere rechthoek of schaal (zoom niveau) proberen"
+msgstr "Je kan het met een andere rechthoek of schaal (zoomniveau) proberen"
 
-#: bot/maptools.py:49
+#: bot/maptools.py:54
 msgid "Good luck! "
 msgstr "Succes!"
 
-#: bot/osmbot_blueprint.py:195
+#: bot/osmbot.py:402
 msgid "Results for"
 msgstr "Resulaten voor"
 
-#: bot/osmbot_blueprint.py:218
+#: bot/osmbot.py:431 bot/templates/inline_article.md:198
 msgid "Map"
 msgstr "Kaart"
 
-#: bot/osmbot_blueprint.py:221 bot/osmbot_blueprint.py:223
-#: bot/osmbot_blueprint.py:225 bot/osmbot_blueprint.py:227
-#: bot/osmbot_blueprint.py:232 bot/osmbot_blueprint.py:234
-#: bot/osmbot_blueprint.py:236 bot/osmbot_blueprint.py:238
+#: bot/osmbot.py:434 bot/osmbot.py:436 bot/osmbot.py:438 bot/osmbot.py:440
+#: bot/osmbot.py:445 bot/osmbot.py:447 bot/osmbot.py:449 bot/osmbot.py:451
 msgid "More info"
 msgstr "Meer info"
 
-#: bot/osmbot_blueprint.py:228
+#: bot/osmbot.py:441
 msgid "Phone"
 msgstr "Telefoon"
 
-#: bot/osmbot_blueprint.py:240 bot/osmbot_blueprint.py:398
-#: bot/osmbot_blueprint.py:653 bot/osmbot_blueprint.py:662
-#: bot/templates/details_message.md:200 bot/templates/inline_article.md:197
+#: bot/osmbot.py:453 bot/osmbot.py:621 bot/osmbot.py:959 bot/osmbot.py:967
+#: bot/templates/details_message.md:198 bot/templates/inline_article.md:200
 msgid "OpenStreetMap contributors"
-msgstr "OpenStreetMap contributors"
+msgstr "OpenStreetMap-auteurs"
 
-#: bot/osmbot_blueprint.py:298 bot/osmbot_blueprint.py:301
-#: bot/osmbot_blueprint.py:303 bot/templates/details_message.md:2
-#: bot/templates/details_message.md:4 bot/templates/details_message.md:6
-#: bot/templates/inline_article.md:2 bot/templates/inline_article.md:4
-#: bot/templates/inline_article.md:6
+#: bot/osmbot.py:521 bot/osmbot.py:524 bot/osmbot.py:526
+#: bot/templates/details_message.md:2 bot/templates/details_message.md:4
+#: bot/templates/details_message.md:6 bot/templates/inline_article.md:2
+#: bot/templates/inline_article.md:4 bot/templates/inline_article.md:6
 msgid "Tags for"
 msgstr "Labels voor"
 
-#: bot/osmbot_blueprint.py:305 bot/osmbot_blueprint.py:307
-#: bot/templates/details_message.md:10 bot/templates/details_message.md:12
-#: bot/templates/inline_article.md:10 bot/templates/inline_article.md:12
+#: bot/osmbot.py:528 bot/osmbot.py:530 bot/templates/details_message.md:10
+#: bot/templates/details_message.md:12 bot/templates/inline_article.md:11
+#: bot/templates/inline_article.md:13
 msgid "European country"
 msgstr "Europees land"
 
-#: bot/osmbot_blueprint.py:309 bot/templates/details_message.md:14
-#: bot/templates/inline_article.md:14
+#: bot/osmbot.py:532 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:15
 msgid "African country"
 msgstr "Afrikaans land"
 
-#: bot/osmbot_blueprint.py:311 bot/osmbot_blueprint.py:313
-#: bot/osmbot_blueprint.py:315 bot/templates/details_message.md:16
-#: bot/templates/details_message.md:18 bot/templates/details_message.md:20
-#: bot/templates/inline_article.md:16 bot/templates/inline_article.md:18
-#: bot/templates/inline_article.md:20
+#: bot/osmbot.py:534 bot/osmbot.py:536 bot/osmbot.py:538
+#: bot/templates/details_message.md:16 bot/templates/details_message.md:18
+#: bot/templates/details_message.md:20 bot/templates/inline_article.md:17
+#: bot/templates/inline_article.md:19 bot/templates/inline_article.md:21
 msgid "South american country"
 msgstr "Zuid-Amerikaans land"
 
-#: bot/osmbot_blueprint.py:317 bot/osmbot_blueprint.py:319
-#: bot/templates/details_message.md:22 bot/templates/details_message.md:24
-#: bot/templates/inline_article.md:22 bot/templates/inline_article.md:24
+#: bot/osmbot.py:540 bot/osmbot.py:542 bot/templates/details_message.md:22
+#: bot/templates/details_message.md:24 bot/templates/inline_article.md:23
+#: bot/templates/inline_article.md:25
 msgid "North american country"
 msgstr "Noord-Amerikaans land"
 
-#: bot/osmbot_blueprint.py:321 bot/templates/details_message.md:26
-#: bot/templates/inline_article.md:26
+#: bot/osmbot.py:544 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:27
 msgid "Central american country"
 msgstr "Centraal-Amerikaans land"
 
-#: bot/osmbot_blueprint.py:323 bot/osmbot_blueprint.py:325
-#: bot/templates/details_message.md:28 bot/templates/details_message.md:30
-#: bot/templates/inline_article.md:28 bot/templates/inline_article.md:30
+#: bot/osmbot.py:546 bot/osmbot.py:548 bot/templates/details_message.md:28
+#: bot/templates/details_message.md:30 bot/templates/inline_article.md:29
+#: bot/templates/inline_article.md:31
 msgid "American country"
 msgstr "Amerikaans land"
 
-#: bot/osmbot_blueprint.py:327 bot/templates/details_message.md:32
-#: bot/templates/inline_article.md:32
+#: bot/osmbot.py:550 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:33
 msgid "Asian country"
 msgstr "Aziatisch land"
 
-#: bot/osmbot_blueprint.py:329 bot/osmbot_blueprint.py:331
-#: bot/templates/details_message.md:34 bot/templates/details_message.md:36
-#: bot/templates/inline_article.md:34 bot/templates/inline_article.md:36
+#: bot/osmbot.py:552 bot/osmbot.py:554 bot/templates/details_message.md:34
+#: bot/templates/details_message.md:36 bot/templates/inline_article.md:35
+#: bot/templates/inline_article.md:37
 msgid "Oceanian country"
 msgstr "Oceanisch land"
 
-#: bot/osmbot_blueprint.py:333 bot/osmbot_blueprint.py:335
-#: bot/templates/details_message.md:38 bot/templates/details_message.md:40
-#: bot/templates/inline_article.md:38 bot/templates/inline_article.md:40
+#: bot/osmbot.py:556 bot/osmbot.py:558 bot/templates/details_message.md:38
+#: bot/templates/details_message.md:40 bot/templates/inline_article.md:39
+#: bot/templates/inline_article.md:41
 msgid "Eurasian country"
 msgstr "Euro-Aziatisch land"
 
-#: bot/osmbot_blueprint.py:372 bot/osmbot_blueprint.py:374
-#: bot/templates/details_message.md:182 bot/templates/details_message.md:184
-#: bot/templates/inline_article.md:182 bot/templates/inline_article.md:184
+#: bot/osmbot.py:595 bot/osmbot.py:597 bot/templates/details_message.md:182
+#: bot/templates/details_message.md:184 bot/templates/inline_article.md:183
+#: bot/templates/inline_article.md:185
 msgid "inhabitants"
 msgstr "inwoners"
 
-#: bot/osmbot_blueprint.py:372 bot/templates/details_message.md:182
-#: bot/templates/inline_article.md:182
+#: bot/osmbot.py:595 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:183
 msgid "at"
 msgstr "in"
 
-#: bot/osmbot_blueprint.py:377 bot/templates/details_message.md:187
-#: bot/templates/inline_article.md:187
+#: bot/osmbot.py:600 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:188
 msgid "meters"
-msgstr "meters"
+msgstr "meter"
 
-#: bot/osmbot_blueprint.py:390 bot/templates/details_message.md:198
+#: bot/osmbot.py:613
 msgid "Raw data:"
 msgstr "Ruwe data:"
 
-#: bot/osmbot_blueprint.py:417 bot/osmbot_blueprint.py:419
-#: bot/osmbot_blueprint.py:464 bot/osmbot_blueprint.py:467
-#: bot/osmbot_blueprint.py:492 bot/osmbot_blueprint.py:495
-#: bot/osmbot_blueprint.py:510
-msgid "OSM contributors"
-msgstr "OSM contributors"
-
-#: bot/osmbot_blueprint.py:428 bot/templates/send_location_message.md:1
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:1
 msgid "Please send me your location"
-msgstr "Stuur me aub je locatie"
+msgstr "Stuur me a.u.b. je locatie"
 
-#: bot/osmbot_blueprint.py:429
+#: bot/osmbot.py:691
 msgid "to receive the map"
 msgstr "om de kaart te ontvangen"
 
-#: bot/osmbot_blueprint.py:430 bot/templates/send_location_message.md:2
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:2
 msgid "You can do it with the Telegram paperclip button"
 msgstr "Dit kun je doen met de Telegram paperclip knop"
 
-#: bot/osmbot_blueprint.py:636 bot/templates/not_recognized_message.md:1
+#: bot/osmbot.py:943 bot/templates/not_recognized_message.md:1
 msgid ""
 "Sorry, but now I can't recognize tags for this element, perhaps with my new "
 "features I will do it"
-msgstr "Sorry, maar nu herkende ik de labels voor dit element niet, misschien kan ik dit later met nieuwe functies."
+msgstr "Sorry, maar nu herken ik de labels voor dit element nog niet, misschien kan ik dit later met nieuwe functies wel"
 
-#: bot/osmbot_blueprint.py:644 bot/osmbot_blueprint.py:659
+#: bot/osmbot.py:951 bot/osmbot.py:964
 msgid "Raw data for"
 msgstr "Ruwe data voor"
 
-#: bot/osmbot_blueprint.py:646 bot/osmbot_blueprint.py:661
+#: bot/osmbot.py:953 bot/osmbot.py:966 bot/templates/raw_data.md:1
 msgid "Raw data"
 msgstr "Ruwe data"
 
-#: bot/osmbot_blueprint.py:809
+#: bot/osmbot.py:1152
 msgid ""
-"Please indicate what are you searching with command /search <search_term>"
-msgstr "Geef aub aan waar je naar zoek met het commando /search <search_term>"
+"Please indicate what are you searching with command /search <search\\_term>"
+msgstr "Geef a.u.b. aan wat je zoekt met het commando /search <search_term>"
 
-#: bot/osmbot_blueprint.py:815
-msgid "Use /search <search_term> command to indicate what you are searching"
-msgstr "Gebruik /search <search_term> commando om aan te geven waar je naar zoekt."
+#: bot/osmbot.py:1155
+msgid "Use /search <search\\_term> command to indicate what you are searching"
+msgstr "Gebruik het /search <search\\_term> commando om aan te geven wat je zoekt."
 
-#: bot/osmbot_blueprint.py:899
+#: bot/osmbot_blueprint.py:104
 msgid ""
 "OpenStreetMap bot finds any location in world from the Nominatim OSM "
 "database and can send links and maps from OSM"
 msgstr "OpenStreetMap bot vindt elke locatie in de wereld uit de OSM 'Nominatim' database en kan links en kaarten van OSM versturen."
 
-#: bot/osmbot_blueprint.py:900
+#: bot/osmbot_blueprint.py:105
 msgid ""
 "OpenStreetMap bot finds any location in the world from the Nominatim OSM "
 "database"
 msgstr "OpenStreetMap bot vindt elke locatie in de wereld uit de 'Nominatim' OSM database"
 
-#: bot/osmbot_blueprint.py:901
+#: bot/osmbot_blueprint.py:106
 msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
-msgstr "De bot kan links en kaarten (jpg, png of pdf) versturen vanuit OSM"
+msgstr "De bot kan links en kaarten (jpg, png of pdf) van OSM versturen"
 
-#: bot/osmbot_blueprint.py:902
+#: bot/osmbot_blueprint.py:107
 msgid ""
 "Data for all the world (cities and towns, shops -with phone number, "
 "email...-, Wikipedia links, etc)"
 msgstr "Data voor de hele wereld (steden en dorpen, winkels -met tel. nummer, email,...-, Wikipedia links, etc.)"
 
-#: bot/osmbot_blueprint.py:903
+#: bot/osmbot_blueprint.py:108
 msgid "OSMbot is multilingual and speaks *your language here*"
 msgstr "OSMbot is meertalig en spreekt Nederlands"
 
@@ -268,11 +257,11 @@ msgstr "Localisatie"
 
 #: bot/templates/about_answer.md:9
 msgid "DOCUMENTATION"
-msgstr ""
+msgstr "DOCUMENTATIE"
 
 #: bot/templates/about_answer.md:10
 msgid "OSMbot wiki"
-msgstr ""
+msgstr "OSMbot wiki"
 
 #: bot/templates/about_answer.md:12
 msgid "NEWS"
@@ -280,7 +269,7 @@ msgstr "NIEUWS"
 
 #: bot/templates/about_answer.md:13
 msgid "Twitter account"
-msgstr ""
+msgstr "Twitter-account"
 
 #: bot/templates/about_answer.md:14
 msgid "Telegram channel"
@@ -296,7 +285,7 @@ msgstr "Beoordeling&reviews"
 
 #: bot/templates/about_answer.md:18
 msgid "Please rate me"
-msgstr " Graag een beoordeling geven"
+msgstr "Graag een beoordeling geven"
 
 #: bot/templates/about_answer.md:20
 msgid "Thanks for use @OSMbot!!"
@@ -330,15 +319,15 @@ msgstr "Mischien kan ik je helpen als je /help gebruikt"
 msgid "What do you want to configure?"
 msgstr "Wat wil je instellen?"
 
-#: bot/templates/details_message.md:42 bot/templates/inline_article.md:42
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:43
 msgid "Flag"
-msgstr ""
+msgstr "Markeren"
 
-#: bot/templates/details_message.md:191 bot/templates/inline_article.md:191
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:192
 msgid "Wikidata"
 msgstr "Wikidata"
 
-#: bot/templates/details_message.md:194 bot/templates/inline_article.md:194
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:195
 msgid "Wikipedia"
 msgstr "Wikipedia"
 
@@ -410,13 +399,13 @@ msgstr "<coord> Kan een punt zijn (lat, lon) of een omhullende rechthoek (minlon
 msgid ""
 "<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
 "use png by default"
-msgstr "<format> Kan zijn: png, jpeg of pdf. Als je niks invult wordt png gebruikt door de bot."
+msgstr "<format> Kan zijn: png, jpeg of pdf. Als je niets invult wordt png gebruikt door de bot."
 
 #: bot/templates/help_message.md:23
 msgid ""
 "<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
 "by default."
-msgstr "<scale> Zoom niveau (1-19). Als je niks invult wordt 19 gebruikt door de bot."
+msgstr "<scale> Zoomniveau (1-19). Als je niets invult wordt 19 gebruikt door de bot."
 
 #: bot/templates/help_message.md:25
 msgid ""
@@ -443,11 +432,11 @@ msgstr "Geen emoji gevonden, mischien met /legend <osm_key:value> proberen?"
 
 #: bot/templates/not_found_id_message.md:1
 msgid "Sorry but I couldn't find any result, please check the ID"
-msgstr "Sorry, ik kon niks vinden, graag ID controleren"
+msgstr "Sorry, ik kon niets vinden, graag ID controleren"
 
 #: bot/templates/not_found_message.md:1
 msgid "Sorry but I couldn't find any result for"
-msgstr "Sorry, ik kon niks vinden voor"
+msgstr "Sorry, ik kon niets vinden voor"
 
 #: bot/templates/not_found_message.md:2
 msgid "But you can try to improve OpenStreetMap"
@@ -473,10 +462,6 @@ msgstr "Ik zal nu alleen reageren als ik een 'mention' krijg"
 msgid "Should I answer without a mention?"
 msgstr "Zal ik zonder 'mention' reageren?"
 
-#: bot/templates/question_only_mention.md:1
-msgid "Answer only when mention?"
-msgstr ""
-
 #: bot/templates/send_location_message.md:1
 msgid "and I'll send you the nearest element"
 msgstr "en ik zal je het dichtsbijzijnde element sturen"
@@ -485,9 +470,13 @@ msgstr "en ik zal je het dichtsbijzijnde element sturen"
 msgid "Setting not recognized"
 msgstr "Instelling niet herkend"
 
+#: bot/templates/signature.md:1
+msgid "OSM contributors"
+msgstr "OSM-auteurs"
+
 #: bot/templates/start_answer.md:1
 msgid "Hi, I'm the robot for OpenStreetMap data"
-msgstr "Hee, ik ben de OpenStreetMap data robot"
+msgstr "Hallo, ik ben de robot voor OpenStreetMap data"
 
 #: bot/templates/start_answer.md:2
 msgid "How I can help you?"
