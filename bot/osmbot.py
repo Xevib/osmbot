@@ -14,7 +14,8 @@ import overpass
 from jinja2 import Environment
 import telegram
 from telegram import InlineQueryResultArticle, ParseMode, InputTextMessageContent, ReplyKeyboardMarkup, ReplyKeyboardRemove
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, TelegramError
+import traceback
 
 # local imports
 from bot.user import User
@@ -24,6 +25,7 @@ from bot.utils import getData
 from bot.overpass_query import type_query
 from bot.emojiflag import emojiflag
 from bot.error import OSMError
+
 
 
 def url_escape(s):
@@ -1156,4 +1158,7 @@ class OsmBot(object):
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                 else:
                     text = _('Use /search <search\_term> command to indicate what you are searching')
-                    self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+                    try:
+                        self.telegram_api.sendMessage(chat_id, text, 'Markdown')
+                    except TelegramError as e:
+                        traceback.print_exception()
