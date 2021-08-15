@@ -82,7 +82,10 @@ def attend_webhook(token):
                     osmbot.set_group(query['message']['chat']['type'] == u'group')
                     if osmbot.get_group():
                         identifier = message_dict['chat']['id']
-                        command = message_dict["text"].split()[0]
+                        if "text" in message_dict:
+                            command = message_dict["text"].split()[0]
+                        else:
+                            command = None
                     else:
                         identifier = message_dict['from']['id']
                         if "text" in message_dict:
