@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='osmbot',
-    version='1.0.4',
+    version='1.0.5',
     packages=find_packages(),
-    url='http://git.gisce.net/gis/webgis',
+    url='https://github.com/Xevib/osmbot',
     license='MIT',
     author='OSM català (Comunitat catalana de l\'OpenStreetMap)',
     author_email='xbarnada@gmail.com',
