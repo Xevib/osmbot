@@ -1,0 +1,481 @@
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 
+# Translators:
+# Albert F <lakonfrariadelavila@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: OSMbot\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-25 19:13+0100\n"
+"PO-Revision-Date: 2021-08-04 07:55+0000\n"
+"Last-Translator: Abdullah Abdullrhman\n"
+"Language-Team: Arabic (http://www.transifex.com/osm-catala/osmbot/language/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "Map too large!"
+msgstr "الخريطة كبيرة جدا!"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "Please, reduce the bounding box"
+msgstr "الرجاء تقليل المربع المحيط"
+
+#: bot/maptools.py:48 bot/maptools.py:50
+msgid "or the scale (zoom level)"
+msgstr "أو المقياس (مستوى التكبير/ التصغير)"
+
+#: bot/maptools.py:52
+msgid "Invalid bounding box!"
+msgstr "مربع حدود غير مناسب!"
+
+#: bot/maptools.py:52
+msgid "Please, try with /map minlon,minlat,maxlon,maxlat"
+msgstr "من فضلك، حاول مع /map minlon,minlat,maxlon,maxlat"
+
+#: bot/maptools.py:52
+msgid "Coordinates' decimals need to be marked with a dot."
+msgstr "يجب وضع علامة على الأرقام العشرية للإحداثيات بنقطة."
+
+#: bot/maptools.py:52
+msgid "For example:"
+msgstr "على سبيل المثال:"
+
+#: bot/maptools.py:54
+msgid "Oh,oh... An error occurred"
+msgstr "أوه، أوه... حدث خطأ ما"
+
+#: bot/maptools.py:54
+msgid "You can try with another bounding box or scale (zoom level)"
+msgstr "يمكنك المحاولة باستخدام مربع أو مقياس آخر (مستوى التكبير/التصغير)"
+
+#: bot/maptools.py:54
+msgid "Good luck! "
+msgstr "حظاً سعيد! "
+
+#: bot/osmbot.py:402
+msgid "Results for"
+msgstr "النتائج لـ"
+
+#: bot/osmbot.py:431 bot/templates/inline_article.md:198
+msgid "Map"
+msgstr "الخريطة"
+
+#: bot/osmbot.py:434 bot/osmbot.py:436 bot/osmbot.py:438 bot/osmbot.py:440
+#: bot/osmbot.py:445 bot/osmbot.py:447 bot/osmbot.py:449 bot/osmbot.py:451
+msgid "More info"
+msgstr "مزيد من المعلومات"
+
+#: bot/osmbot.py:441
+msgid "Phone"
+msgstr "الهاتف"
+
+#: bot/osmbot.py:453 bot/osmbot.py:621 bot/osmbot.py:959 bot/osmbot.py:967
+#: bot/templates/details_message.md:198 bot/templates/inline_article.md:200
+msgid "OpenStreetMap contributors"
+msgstr "المساهمون في خريطة الشارع المفتوح"
+
+#: bot/osmbot.py:521 bot/osmbot.py:524 bot/osmbot.py:526
+#: bot/templates/details_message.md:2 bot/templates/details_message.md:4
+#: bot/templates/details_message.md:6 bot/templates/inline_article.md:2
+#: bot/templates/inline_article.md:4 bot/templates/inline_article.md:6
+msgid "Tags for"
+msgstr "الوسوم لـ"
+
+#: bot/osmbot.py:528 bot/osmbot.py:530 bot/templates/details_message.md:10
+#: bot/templates/details_message.md:12 bot/templates/inline_article.md:11
+#: bot/templates/inline_article.md:13
+msgid "European country"
+msgstr "دولة أوروبي"
+
+#: bot/osmbot.py:532 bot/templates/details_message.md:14
+#: bot/templates/inline_article.md:15
+msgid "African country"
+msgstr "دولة أفريقي"
+
+#: bot/osmbot.py:534 bot/osmbot.py:536 bot/osmbot.py:538
+#: bot/templates/details_message.md:16 bot/templates/details_message.md:18
+#: bot/templates/details_message.md:20 bot/templates/inline_article.md:17
+#: bot/templates/inline_article.md:19 bot/templates/inline_article.md:21
+msgid "South american country"
+msgstr "دولة في أمريكية جنوبية"
+
+#: bot/osmbot.py:540 bot/osmbot.py:542 bot/templates/details_message.md:22
+#: bot/templates/details_message.md:24 bot/templates/inline_article.md:23
+#: bot/templates/inline_article.md:25
+msgid "North american country"
+msgstr "دولة في أمريكا الشمالية"
+
+#: bot/osmbot.py:544 bot/templates/details_message.md:26
+#: bot/templates/inline_article.md:27
+msgid "Central american country"
+msgstr "دولة في أمريكا الوسطى"
+
+#: bot/osmbot.py:546 bot/osmbot.py:548 bot/templates/details_message.md:28
+#: bot/templates/details_message.md:30 bot/templates/inline_article.md:29
+#: bot/templates/inline_article.md:31
+msgid "American country"
+msgstr "دولة أمريكي"
+
+#: bot/osmbot.py:550 bot/templates/details_message.md:32
+#: bot/templates/inline_article.md:33
+msgid "Asian country"
+msgstr "دولة آسيوية"
+
+#: bot/osmbot.py:552 bot/osmbot.py:554 bot/templates/details_message.md:34
+#: bot/templates/details_message.md:36 bot/templates/inline_article.md:35
+#: bot/templates/inline_article.md:37
+msgid "Oceanian country"
+msgstr "دولة أوقيانوسية (أسترالية)"
+
+#: bot/osmbot.py:556 bot/osmbot.py:558 bot/templates/details_message.md:38
+#: bot/templates/details_message.md:40 bot/templates/inline_article.md:39
+#: bot/templates/inline_article.md:41
+msgid "Eurasian country"
+msgstr "بلد في أوراسيا (آسيا وأوربا)"
+
+#: bot/osmbot.py:595 bot/osmbot.py:597 bot/templates/details_message.md:182
+#: bot/templates/details_message.md:184 bot/templates/inline_article.md:183
+#: bot/templates/inline_article.md:185
+msgid "inhabitants"
+msgstr "سكان"
+
+#: bot/osmbot.py:595 bot/templates/details_message.md:182
+#: bot/templates/inline_article.md:183
+msgid "at"
+msgstr "في"
+
+#: bot/osmbot.py:600 bot/templates/details_message.md:187
+#: bot/templates/inline_article.md:188
+msgid "meters"
+msgstr "متر/أمتار"
+
+#: bot/osmbot.py:613
+msgid "Raw data:"
+msgstr "البيانات الأولية:"
+
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:1
+msgid "Please send me your location"
+msgstr "من فضلك ارسال لي موقعك"
+
+#: bot/osmbot.py:691
+msgid "to receive the map"
+msgstr "لتلقي الخريطة"
+
+#: bot/osmbot.py:691 bot/templates/send_location_message.md:2
+msgid "You can do it with the Telegram paperclip button"
+msgstr "يمكنك القيام بذلك باستخدام زر مشبك الورق تيليجرام"
+
+#: bot/osmbot.py:943 bot/templates/not_recognized_message.md:1
+msgid ""
+"Sorry, but now I can't recognize tags for this element, perhaps with my new "
+"features I will do it"
+msgstr "آسف ، ولكن الآن لا أستطيع التعرف على وسوم لهذا العنصر ، وربما مع عناصر جديدة سأفعل ذلك"
+
+#: bot/osmbot.py:951 bot/osmbot.py:964
+msgid "Raw data for"
+msgstr "البيانات الأولية لـ"
+
+#: bot/osmbot.py:953 bot/osmbot.py:966 bot/templates/raw_data.md:1
+msgid "Raw data"
+msgstr "البيانات الأولية"
+
+#: bot/osmbot.py:1152
+msgid ""
+"Please indicate what are you searching with command /search <search\\_term>"
+msgstr "يرجى الإشارة إلى ما تبحث عنه باستخدام الأمر /search <search\\_term>"
+
+#: bot/osmbot.py:1155
+msgid "Use /search <search\\_term> command to indicate what you are searching"
+msgstr "استخدام الأمر /search <search\\_term> للإشارة إلى ما تبحث عنه"
+
+#: bot/osmbot_blueprint.py:104
+msgid ""
+"OpenStreetMap bot finds any location in world from the Nominatim OSM "
+"database and can send links and maps from OSM"
+msgstr "بوت خريطة الشارع المفتوحة يجد لك أي موقع في العالم من قاعدة بيانات Nominatim OSM ويمكنه إرسال الروابط والخرائط من OSM"
+
+#: bot/osmbot_blueprint.py:105
+msgid ""
+"OpenStreetMap bot finds any location in the world from the Nominatim OSM "
+"database"
+msgstr "بوت خريطة الشارع المفتوحة يجد أي موقع في العالم من قاعدة بيانات Nominatim OSM"
+
+#: bot/osmbot_blueprint.py:106
+msgid "The bot can send links and maps (jpg, png or pdf) from OSM"
+msgstr "هذا بوت يمكنه إرسال الروابط والخرائط بالصيغ (jpg, png or pdf) من خريطة الشارع المفتوحة"
+
+#: bot/osmbot_blueprint.py:107
+msgid ""
+"Data for all the world (cities and towns, shops -with phone number, "
+"email...-, Wikipedia links, etc)"
+msgstr "بيانات عن جميع أنحاء العالم (المدن والبلدات والمحلات التجارية - مع رقم الهاتف والبريد الإلكتروني...-، روابط ويكيبيديا، الخ)"
+
+#: bot/osmbot_blueprint.py:108
+msgid "OSMbot is multilingual and speaks *your language here*"
+msgstr "OSMbot متعدد اللغات ويتحدث *لغتك هنا*"
+
+#: bot/templates/about_answer.md:1
+msgid "OpenStreetMap bot info:"
+msgstr "معلومات بوت خريطة الشارع المفتوح:"
+
+#: bot/templates/about_answer.md:3
+msgid "CREDITS&CODE"
+msgstr "الشكر للماسهمين والمطورين"
+
+#: bot/templates/about_answer.md:4
+msgid "Author:"
+msgstr "المؤلف:"
+
+#: bot/templates/about_answer.md:4
+msgid "(Catalan OpenStreetMap community)"
+msgstr "(مجتمع خريطة الشارع المفتوح الكاتالونية)"
+
+#: bot/templates/about_answer.md:5
+msgid "Code"
+msgstr "كود"
+
+#: bot/templates/about_answer.md:6
+msgid "License: GPLv3"
+msgstr "الترخيص: GPLv3"
+
+#: bot/templates/about_answer.md:6
+msgid "http://www.gnu.org/licenses/gpl-3.0.en.html"
+msgstr "http://www.gnu.org/licenses/gpl-3.0.ar.html"
+
+#: bot/templates/about_answer.md:7
+msgid "Localization"
+msgstr "التعريب والترجمة"
+
+#: bot/templates/about_answer.md:9
+msgid "DOCUMENTATION"
+msgstr "المستندات والوثائق"
+
+#: bot/templates/about_answer.md:10
+msgid "OSMbot wiki"
+msgstr "ويكي OSMbot"
+
+#: bot/templates/about_answer.md:12
+msgid "NEWS"
+msgstr "الأخبار"
+
+#: bot/templates/about_answer.md:13
+msgid "Twitter account"
+msgstr "حساب تويتر"
+
+#: bot/templates/about_answer.md:14
+msgid "Telegram channel"
+msgstr "قناة تيليجرام"
+
+#: bot/templates/about_answer.md:16
+msgid "RATING"
+msgstr "التقييم"
+
+#: bot/templates/about_answer.md:17
+msgid "Rating&reviews"
+msgstr "التقييم والمراجعات"
+
+#: bot/templates/about_answer.md:18
+msgid "Please rate me"
+msgstr "يرجى تقييمي"
+
+#: bot/templates/about_answer.md:20
+msgid "Thanks for use @OSMbot!!"
+msgstr "شكرا للاستخدام @OSMbot!!"
+
+#: bot/templates/answer_always.md:1
+msgid "Now I always will answer"
+msgstr "الآن، و أنا سأجيبك دائماً"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "Ooops! I can't talk this language"
+msgstr "آسف! لا أستطيع التحدث بهذه اللغة"
+
+#: bot/templates/cant_talk_message.md:1
+msgid "yet"
+msgstr "بعد"
+
+#: bot/templates/cant_talk_message.md:2
+msgid "But you can help me to learn it in Transifex"
+msgstr "ولكن يمكنك مساعدتي على تعلم ذلك في ترانسيفيكس (موقع ترجمة)"
+
+#: bot/templates/cant_understand_message.md:1
+msgid "Sorry, I can't understand you"
+msgstr "آسف، لا أستطيع فهمك"
+
+#: bot/templates/cant_understand_message.md:2
+msgid "Perhaps I could help you with the command /help"
+msgstr "ربما يمكن أن تساعدني مع الأمر /help"
+
+#: bot/templates/configure_question.md:1
+msgid "What do you want to configure?"
+msgstr "ماذا تريد أن تغير ضبطه؟"
+
+#: bot/templates/details_message.md:42 bot/templates/inline_article.md:43
+msgid "Flag"
+msgstr "علم"
+
+#: bot/templates/details_message.md:191 bot/templates/inline_article.md:192
+msgid "Wikidata"
+msgstr "ويكي بيانات"
+
+#: bot/templates/details_message.md:194 bot/templates/inline_article.md:195
+msgid "Wikipedia"
+msgstr "ويكيبيديا"
+
+#: bot/templates/easter_egg.md:1
+msgid "If you see strange emojis it's due a Telegram easter egg"
+msgstr "إذا كنت ترى الرموز التعبيرية غريبة انها بسبب بيضة عيد الفصح تيلقرام"
+
+#: bot/templates/error_message.md:1
+msgid "Something failed"
+msgstr "فشل شيء ما"
+
+#: bot/templates/error_message.md:1
+msgid "please try it later"
+msgstr "الرجاء تجربته لاحقا"
+
+#: bot/templates/help_message.md:1
+msgid "OpenStreetMap bot help:"
+msgstr "مساعدة بوت خريطة الشارع المفتوح:"
+
+#: bot/templates/help_message.md:3
+msgid "You can control me by sending these commands:"
+msgstr "يمكنك التحكم بي عن طريق إرسال هذه الأوامر:"
+
+#: bot/templates/help_message.md:5
+msgid ""
+"/about - Show info about OSMbot: credits&code, news and ratings&reviews"
+msgstr "/about - يعرض لك معلومات حول OSMbot: المساهمين والمطورين والأخبار والتقييمات والمراجعات"
+
+#: bot/templates/help_message.md:7
+msgid "/details<type><osm_id> - Show some tags from OSM database by ID."
+msgstr "/details<type><osm_id> - يظهر لك بعض الوسوم من قاعدة بيانات OSM بواسطة معرف قاعدة بيانات خريطة الشارع المفتوحة."
+
+#: bot/templates/help_message.md:9
+msgid ""
+"/raw<type><osm_id> - Show all tags from OSM database by ID in raw format."
+msgstr "/raw<type><osm_id> - يظهر لك كافة الوسوم من قاعدة بيانات OSM بواسطة معرف بتنسيقها الخام."
+
+#: bot/templates/help_message.md:11
+msgid ""
+"The ID is generated by /search command, but if you know an OSM ID you can "
+"try it."
+msgstr "يتم إنشاء معرف بواسطة الأمر /search ولكن إذا كنت تعرف معرف OSM يمكنك محاولة ذلك."
+
+#: bot/templates/help_message.md:13
+msgid ""
+"The type it's optional and it can be nod(node), way(way) or rel(relation). "
+"If you don't specify it, the bot will try to deduce it"
+msgstr "النوع الاختياري ويمكن أن يكون nod(عقدة) أو way(طريق) أو rel(علاقة). إذا لم تحدده، سيحاول البوت استنتاجه"
+
+#: bot/templates/help_message.md:15
+msgid ""
+"/legend <osm_key> - Show list of pairs key=value and its emoji in OSMbot. If"
+" you don't specify an <osm_key>, shows all pairs of key=value with emoji in "
+"Osmbot"
+msgstr "/legend <osm_key> يظهر لك المفاتيح والقيم المرتبطة والرموز التعبيرية الخاصة به في OSMbot. إذا لم تحدد <osm_key>، سيعرض لك كافة مرادفات المفتاح والقيمة مع رمز تعبيري في Osmbot"
+
+#: bot/templates/help_message.md:17
+msgid "/map <coord> <format> <scale> - Send a map with different options:"
+msgstr "/map <coord> <format> <scale> - إرسال خريطة مع خيارات مختلفة:"
+
+#: bot/templates/help_message.md:19
+msgid ""
+"<coord> Could be a point (lat,lon) or a bounding box "
+"(minlon,minlat,maxlon,maxlat). If you don't use this option can send your "
+"location"
+msgstr "<coord> يمكن أن يكون نقطة (خط العرض/خط الطول) (lat,lon) أو مربع يحدها (minlon,minlat,maxlon,maxlat)، إذا لم تستخدم هذا الخيار يمكن إرسال موقعك."
+
+#: bot/templates/help_message.md:21
+msgid ""
+"<format> Could be png, jpeg or pdf. If you don't use this option, the bot "
+"use png by default"
+msgstr "<format> يمكن أن تكون png أو jpeg أو pdf. إذا لم تستخدم هذا الخيار، يستخدم البوت الصيغة png بشكل افتراضي"
+
+#: bot/templates/help_message.md:23
+msgid ""
+"<scale> Level of zoom (1-19). If you don't use this option, the bot use 19 "
+"by default."
+msgstr "<scale> مستوى التكبير (1-19). إذا لم تستخدم هذا الخيار، يستخدم البوت 19 بشكل افتراضي."
+
+#: bot/templates/help_message.md:25
+msgid ""
+"/search <search_term> - Search from Nominatim in all OpenStreetMap database."
+msgstr "/search <search_term> - البحث من Nominatim في كافة قاعدة بيانات خريطة الشارع المفتوح."
+
+#: bot/templates/help_message.md:27
+msgid ""
+"/nearest <type> <optional meters> - Search from Overpass the element in a "
+"certain radius"
+msgstr "/nearest <type> <optional meters> - البحث من فوق العنصر في دائرة نصف قطرها معينة"
+
+#: bot/templates/language_answer.md:1
+msgid "Choose the language for talk with you"
+msgstr "اختر اللغة للتحدث معك"
+
+#: bot/templates/new_language.md:1
+msgid "Now I will talk you with the new language"
+msgstr "الآن سأتحدث معك باللغة الجديدة"
+
+#: bot/templates/no_emoji.md:1
+msgid "No emoji found, perhaps you should try with /legend <osm_key:value>"
+msgstr "لم يتم العثور على رمز تعبيري ، ربما يجب عليك تجربة /legend <osm_key:value>"
+
+#: bot/templates/not_found_id_message.md:1
+msgid "Sorry but I couldn't find any result, please check the ID"
+msgstr "آسف ولكن لم أتمكن من العثور على أي نتيجة، يرجى التحقق من المعرف"
+
+#: bot/templates/not_found_message.md:1
+msgid "Sorry but I couldn't find any result for"
+msgstr "آسف ولكن لم أتمكن من العثور على أي نتيجة ل"
+
+#: bot/templates/not_found_message.md:2
+msgid "But you can try to improve OpenStreetMap"
+msgstr "ولكن يمكنك محاولة تحسين خريطة الشارع المفتوح"
+
+#: bot/templates/not_found_message.md:3
+msgid "http://learnosm.org/en/"
+msgstr "http://learnosm.org/en/"
+
+#: bot/templates/not_found_overpass_message.md:1
+msgid "No element found"
+msgstr "لم يتم العثور على أي عنصر"
+
+#: bot/templates/not_implemented_message.md:1
+msgid "Sorry but this query it's not implemented yet"
+msgstr "عذرا ولكن هذا الاستعلام لم يتم تنفيذه بعد"
+
+#: bot/templates/only_mention.md:1
+msgid "Now I only will answer when mention"
+msgstr "الآن سأجيب فقط عندما أذكر"
+
+#: bot/templates/question_mention.md:1
+msgid "Should I answer without a mention?"
+msgstr "هل يجب أن أجيب دون ذكر؟"
+
+#: bot/templates/send_location_message.md:1
+msgid "and I'll send you the nearest element"
+msgstr "وسأرسل لك أقرب عنصر"
+
+#: bot/templates/seting_not_recognized_message.md:1
+msgid "Setting not recognized"
+msgstr "الإعداد غير معروف"
+
+#: bot/templates/signature.md:1
+msgid "OSM contributors"
+msgstr "المساهمون في OSM"
+
+#: bot/templates/start_answer.md:1
+msgid "Hi, I'm the robot for OpenStreetMap data"
+msgstr "مرحبا ، أنا الروبوت لبيانات خريطة الشارع المفتوحة"
+
+#: bot/templates/start_answer.md:2
+msgid "How I can help you?"
+msgstr "كيف يمكنني مساعدتك؟"

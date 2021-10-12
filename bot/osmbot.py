@@ -52,6 +52,7 @@ class OsmBot(object):
     # dict with all available languages
     # TODO(edgar): load this from a local config file.
     avaible_languages = {
+        'Arabic': 'ar',
         'Catalan': 'ca',
         'English': 'en',
         'Spanish': 'es',
@@ -66,6 +67,7 @@ class OsmBot(object):
         'Dutch': 'nl',
         'Czech': 'cs',
         'Persian': 'fa',
+        'Persian (Iran)': 'fa_IR',
         'Japanese': 'ja',
         'Ukrainian': 'uk',
         'Chinese (Taiwan)': 'zh_TW',
