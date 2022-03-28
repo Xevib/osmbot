@@ -61,7 +61,7 @@ def attend_webhook(token):
 
     current_app.logger.debug('token:%s', token)
     osmbot.set_group(False)
-    
+    message = None
     if token == config['token']:
         try:
             query = request.json
