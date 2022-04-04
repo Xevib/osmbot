@@ -10,6 +10,7 @@ from uuid import uuid4
 
 import gettext
 import pynominatim
+import sentry_sdk
 import overpass
 from jinja2 import Environment
 import telegram
@@ -1163,4 +1164,6 @@ class OsmBot(object):
                     try:
                         self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                     except TelegramError as e:
-                        traceback.print_exception()
+                        sentry_sdk.capture_exception(e)
+                        import traceback
+                        print(traceback.format_exc())             
