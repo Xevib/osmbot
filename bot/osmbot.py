@@ -3,6 +3,7 @@ from __future__ import absolute_import
 
 import os
 from io import BytesIO
+import io
 import re
 import urllib
 import math
@@ -223,7 +224,7 @@ class OsmBot(object):
         :return: str with the text of the template
         """
         url = os.path.join('bot/templates', template_name)
-        with open(url) as f:
+        with io.open(url, encoding="utf-8") as f:
             template_text = f.read()
         return self.jinja_env.from_string(template_text)
 
