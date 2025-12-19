@@ -13,13 +13,13 @@ psycopg2-binary = "*"
 overpass = "*"
 lxml = "*"
 osmapi = "*"
-python-telegram-bot = ">=13.0,<14.0"
 urllib3 = "<2"
 blinker = "*"
 click = "*"
 pony = "*"
 jinja2 = "*"
 osmbot = {file = "."}
+python-telegram-bot = "*"
 
 [dev-packages]
 pytest = "*"
