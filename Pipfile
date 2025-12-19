@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pynominatim = "*"
+requests = "*"
+configobj = "*"
+sentry-sdk = {extras = ["flask"], version = "*"}
+flask = "*"
+psycopg2-binary = "*"
+overpass = "*"
+lxml = "*"
+osmapi = "*"
+python-telegram-bot = ">=13.0,<14.0"
+urllib3 = "<2"
+blinker = "*"
+click = "*"
+pony = "*"
+jinja2 = "*"
+osmbot = {file = "."}
+
+[dev-packages]
+pytest = "*"
+coverage = "*"
+
+[requires]
+python_version = "3.10"

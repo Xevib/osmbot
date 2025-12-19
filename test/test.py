@@ -1,13 +1,8 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
 import unittest
 import os
-from six.moves import reload_module
 import sys
-reload_module(sys)
-if sys.version_info.major ==2:
-    sys.setdefaultencoding('utf-8')
 
 from bot.osmbot import OsmBot
 from bot.error import OSMError
@@ -94,11 +89,8 @@ class BotTest(unittest.TestCase):
         templates = os.listdir('bot/templates')
         for template in templates:
             print('Testing template:{}'.format(template))
-            with open(os.path.join('bot/templates', template)) as f:
-                if sys.version_info.major == 2:
-                    template_text = unicode(f.read())
-                else:
-                    template_text = f.read()
+            with open(os.path.join('bot/templates', template), encoding='utf-8') as f:
+                template_text = f.read()
             try:
                 jinja_env.from_string(template_text).render()
             except exceptions.TemplateAssertionError:

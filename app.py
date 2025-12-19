@@ -4,7 +4,8 @@ from flask import Flask, request, current_app
 from bot import Osmbot
 from configobj import ConfigObj
 import os
-from raven.contrib.flask import Sentry
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
 import telegram
 
 application = Flask(__name__)
@@ -15,10 +16,11 @@ config = ConfigObj('bot.conf')
 token = config['token']
 telegram_api = telegram.Bot(config['token'])
 if 'sentry_dsn' in config:
+    sentry_sdk.init(
+        dsn=config['sentry_dsn'],
+        integrations=[FlaskIntegration()],
+    )
     application.config['sentry_dsn'] = config['sentry_dsn']
-    sentry = Sentry(application, dsn=config['sentry_dsn'])
-    sentry.captureMessage('OSMBot started', level=logging.INFO)
-    application.sentry = sentry
 
 webhook = os.path.join(config['webhook'], config['token'])
 application.logger.debug('webhook:%s', config['webhook'])
