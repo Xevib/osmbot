@@ -394,7 +394,7 @@ class OsmBot(object):
         :return: None
         """
         search = message[8:].replace('\n', '').replace('\r', '')
-        nom = pynominatim.Nominatim()
+        nom = pynominatim.Nominatim(base_url='https://nominatim.osm.org')
         results = nom.query(
             search,
             acceptlanguage=user_config['lang'],
