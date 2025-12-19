@@ -1,7 +1,7 @@
 language: python
 python:
-  - "2.7"
-  - "3.8"
+  - "3.10"
+  - "3.11"
 before_script:
   - psql -c 'create database bot;' -U postgres
   - psql -c 'CREATE TABLE users (id int, mode varchar(30),zoom int,format varchar(30),language varchar(10))' -U postgres
@@ -9,11 +9,10 @@ install:
   - pip install requests
   - pip install .
   - pip install coveralls
-  - pip install six
 script: 
   - PYTHONPATH="." python test/test.py
 after_success:
-  - PYTHONPATH="." coverage2 run --source=.  test/test.py
+  - PYTHONPATH="." coverage run --source=.  test/test.py
   - coveralls
 services:
   - postgresql

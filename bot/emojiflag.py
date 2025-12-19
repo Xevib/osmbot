@@ -1,4 +1,3 @@
-from __future__ import absolute_import, unicode_literals
 emojiflag = {
     'AD': ['\xf0\x9f\x87\xa6\xf0\x9f\x87\xa9', '\U0001F1E6\U0001F1E9'],
     'AE': ['\xf0\x9f\x87\xa6\xf0\x9f\x87\xaa', '\U0001F1E6\U0001F1EA'],

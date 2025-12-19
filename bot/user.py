@@ -1,7 +1,6 @@
 import psycopg2
 from psycopg2.extras import DictCursor
 from hashlib import sha1
-import sys
 
 
 def dict_factory(cursor, row):
@@ -56,10 +55,7 @@ class User(object):
         :param group:
         :return:
         """
-        if sys.version_info.major ==2:
-            shaid = sha1(str(identifier)).hexdigest()
-        else:
-            shaid = sha1(str(identifier).encode("utf-8")).hexdigest()
+        shaid = sha1(str(identifier).encode("utf-8")).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
         if group:
             sql = 'SELECT * FROM groups WHERE shaid = %s LIMIT 1'
@@ -85,7 +81,7 @@ class User(object):
             return data
 
     def set_field(self, identifier, field, value, group=False):
-        shaid = sha1(str(identifier)).hexdigest()
+        shaid = sha1(str(identifier).encode("utf-8")).hexdigest()
         cur = self.conn.cursor(cursor_factory=DictCursor)
         if group:
             sql = "SELECT count(shaid) as count FROM groups WHERE shaid = %s"

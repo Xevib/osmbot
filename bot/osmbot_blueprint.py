@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, unicode_literals
 
 from flask import Flask
 from flask import request, current_app, Blueprint
@@ -132,17 +131,14 @@ def attend_webhook(token):
         except error.Unauthorized:
             return 'OK'
         except Exception as e:
-            if sys.version_info.major ==2:
-                if e.message == 'Unauthorized':
-                    return 'OK'
-            else:
-                if str(e) == 'Unauthorized':
-                    return 'OK'
+            if str(e) == 'Unauthorized':
+                return 'OK'
 
             print(str(e))
             import traceback
+            import sentry_sdk
             traceback.print_exc()
-            current_app.sentry.captureException()
+            sentry_sdk.capture_exception(e)
             try:
                 osmbot.load_language(user_config['lang'])
                 text = osmbot._get_template('error_message.md').render()

@@ -1,11 +1,9 @@
 # -*- coding: UTF-8 -*-
-from __future__ import absolute_import
-
 import os
 from io import BytesIO
 import io
 import re
-import urllib
+from urllib.parse import quote as url_quote
 import math
 from uuid import uuid4
 
@@ -103,7 +101,7 @@ class OsmBot(object):
         self.jinja_env = None
         self.language = None
         self.telegram_api = None
-        self.re_map = re.compile(" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}")
+        self.re_map = re.compile(r" -?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)?,-?\d+(\.\d*)? ?(png|jpeg|pdf)? ?\d{0,2}")
         self.is_group = False
 
         # configure osmbot
@@ -396,7 +394,7 @@ class OsmBot(object):
         :return: None
         """
         search = message[8:].replace('\n', '').replace('\r', '')
-        nom = pynominatim.Nominatim()
+        nom = pynominatim.Nominatim(base_url='https://nominatim.osm.org')
         results = nom.query(
             search,
             acceptlanguage=user_config['lang'],
@@ -608,15 +606,15 @@ class OsmBot(object):
             t += "\xF0\x9F\x93\x8F " + str(tags['ele']) + " " + _("meters") + "\n"
         if 'wikidata' in tags:
             preview = True
-            t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(urllib.quote(tags["wikidata"])) + "\n"
+            t += "\xF0\x9F\x93\x97 https://www.wikidata.org/wiki/{0}".format(url_quote(tags["wikidata"])) + "\n"
         if 'wikipedia' in tags:
             preview = True
             if ":" in tags["wikipedia"]:
                 lang = str(tags['wikipedia'].split(":")[0])
                 term = str(tags['wikipedia'].split(":")[1])
-                t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang, urllib.quote(term)) + "\n"
+                t += "\xF0\x9F\x93\x92 http://{0}.wikipedia.org/wiki/{1}".format(lang, url_quote(term)) + "\n"
             else:
-                t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(urllib.quote(tags["wikipedia"])) + "\n"
+                t += "\xF0\x9F\x93\x92 http://wikipedia.org/wiki/{0}".format(url_quote(tags["wikipedia"])) + "\n"
 
         t += '\n' +_('Raw data:') + ' /raw' + str(element_type) + str(identificador) + '\n'
         if link:
@@ -692,8 +690,8 @@ class OsmBot(object):
                     self.telegram_api.sendPhoto(chat_id, f, signature)
             user.set_field(user_id, 'mode', 'normal')
         else:
-            if re.match(" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
-                m = re.match(" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})$", message)
+            if re.match(r" ?(png|jpg|pdf)? ?(\d?\d)?$", message):
+                m = re.match(r" ?(?P<imgformat>png|jpg|pdf)? ?(?P<zoom>\d{0,2})$", message)
                 zoom = m.groupdict()["zoom"]
                 imgformat = m.groupdict()["imgformat"]
                 text = _('Please send me your location') + " \xF0\x9F\x93\x8D " +_("to receive the map") + '.\n' +_("You can do it with the Telegram paperclip button") +" \xF0\x9F\x93\x8E."
@@ -706,8 +704,8 @@ class OsmBot(object):
                 user.set_field(user_id, 'zoom', zoom)
                 user.set_field(user_id, 'mode', 'map')
 
-            elif re.match(" -?\d+(\.\d*)?,-?\d+(\.\d*)? (png|jpg|pdf)? ?(\d?\d)?", message):
-                m = re.match(" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpeg|pdf)? ?(?P<zoom>\d{0,2})",message)
+            elif re.match(r" -?\d+(\.\d*)?,-?\d+(\.\d*)? (png|jpg|pdf)? ?(\d?\d)?", message):
+                m = re.match(r" (?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?) ?(?P<imgformat>png|jpeg|pdf)? ?(?P<zoom>\d{0,2})",message)
                 lat = float(m.groupdict()['lat'])
                 lon = float(m.groupdict()['lon'])
                 imgformat = m.groupdict()['imgformat']
@@ -732,7 +730,7 @@ class OsmBot(object):
                     elif imgformat == 'png':
                         self.telegram_api.sendPhoto(chat_id, f, signature)
             elif re.match(self.re_map, message):
-                m = re.match(" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})", message)
+                m = re.match(r" (?P<bb1>-?\d+(\.\d*)?),(?P<bb2>-?\d+(\.\d*)?),(?P<bb3>-?\d+(\.\d*)?),(?P<bb4>-?\d+(\.\d*)?) ?(?P<format>png|jpg|pdf)? ?(?P<zoom>\d{0,2})", message)
                 if m is not None:
                     bbox1 = m.groupdict()['bb1']
                     bbox2 = m.groupdict()['bb2']
@@ -822,7 +820,7 @@ class OsmBot(object):
         :return: None
         """
         preview = False
-        result = re.match('/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
+        result = re.match(r'/details\s*(?P<type>nod|way|rel)\s*(?P<id>\d*)', message)
         if not result:
             text = self._get_template('not_found_id_message.md').render()
             self.telegram_api.sendMessage(
@@ -1107,9 +1105,9 @@ class OsmBot(object):
             elif user_config['mode'] == 'setonlymention':
                 self.set_only_mention(message, user_id, chat_id, user)
             elif 'text' in query['message']:
-                if re.match(".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and user_config.get('mode', '') == 'map':
+                if re.match(r".*geo:-?\d+(\.\d*)?,-?\d+(\.\d*)?", message) is not None and user_config.get('mode', '') == 'map':
                     m = re.match(
-                        ".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",
+                        r".*geo:(?P<lat>-?\d+(\.\d*)?),(?P<lon>-?\d+(\.\d*)?).*",
                         message)
                     lat = m.groupdict()['lat']
                     lon = m.groupdict()['lon']
@@ -1135,12 +1133,12 @@ class OsmBot(object):
                     try:
                         self.details_command(message, user_config, chat_id)
                     except Exception as e:
-                        print(e.message)
+                        print(str(e))
                 elif re.match("/raw.*", message.lower()):
                     try:
                         self.raw_command(message, chat_id)
                     except Exception as e:
-                        print(e.message)
+                        print(str(e))
                         import traceback
                         print(traceback.format_exc())
                         pass
@@ -1153,18 +1151,18 @@ class OsmBot(object):
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown', not preview)
                 elif message.lower().startswith('/help'):
                     template = self._get_template('help_message.md')
-                    text = template.render(is_rtl=self.get_is_rtl()).replace('_', '\_')
+                    text = template.render(is_rtl=self.get_is_rtl()).replace('_', r'\_')
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                 elif re.match('/search.*', message.lower()) is not None and message[8:] != '':
                     self.search_command(message, user_config, chat_id)
                 elif re.match('/search', message.lower()) is not None:
-                    text = _('Please indicate what are you searching with command /search <search\_term>')
+                    text = _(r'Please indicate what are you searching with command /search <search\_term>')
                     self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                 else:
-                    text = _('Use /search <search\_term> command to indicate what you are searching')
+                    text = _(r'Use /search <search\_term> command to indicate what you are searching')
                     try:
                         self.telegram_api.sendMessage(chat_id, text, 'Markdown')
                     except TelegramError as e:
                         sentry_sdk.capture_exception(e)
                         import traceback
-                        print(traceback.format_exc())             
+                        print(traceback.format_exc())
